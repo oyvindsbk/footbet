@@ -6,84 +6,68 @@ module Controllers {
     export class UserBetController {
         errorMessage: string;
         users: Services.IUser[];
-        selectedUser: Services.IUser;
+        selectedUserName: string;
         showUserBet: boolean;
         showSearch: boolean = true;
         static $inject = [
             "$scope",
-            "$http",
             "$location",
             "betBaseController"
         ];
 
         constructor(private $scope: ng.IScope,
-            private $rootScope: ng.IHttpService,
             private $location: ng.ILocationService,
-            private betBaseController: Services.BetBaseController) {
+            private betBaseController: Services.BetBaseController,
+            private userBetService: Services.UserBetService) {
+
             betBaseController.isRequired = false;
+            this.loadByLocation();
+            $scope.$on('modelLoaded', ()=> {
+                this.userBetControllerInit();
+            });
 
         }
 
+
+        private loadByLocation () {
+            var url = this.$location.absUrl();
+            var userNameByLocation = url.split("username=")[1];
+            if (userNameByLocation != null) {
+                this.showSearch = false;
+                this.selectedUserName = userNameByLocation;
+                this.betBaseController.loadModel(userNameByLocation);
+                this.showUserBet = true;
+
+            } else {
+                this.userBetService.getUsers();
+            }
+        }
+
+        private searchUserBet () {
+            this.showUserBet = false;
+
+            angular.forEach(this.users, user => {
+                if (user.userName === this.selectedUserName) {
+                    this.betBaseController.loadModel(user.userName);
+                    this.errorMessage = "";
+                    this.showUserBet = true;
+                }
+            });
+
+            if (!this.showUserBet) {
+                this.errorMessage = "Fant ikke bruker, vennligst søk med fullstendig brukernavn";
+            }
+        }
+
+        private initializeGroupsAndPlayoffGames () {
+            angular.forEach(this.betBaseController.groups, (group) => {
+                this.betBaseController.setWinnerAndRunnerUpInGroup(group);
+            });
+        }
+
+        private userBetControllerInit () {
+            this.initializeGroupsAndPlayoffGames();
+        }
 
     }
 }
-
-
-$scope.loadByLocation = function () {
-        var url = $location.absUrl();
-        var userNameByLocation = url.split("username=")[1];
-        if (userNameByLocation != null) {
-            $scope.showSearch = false;
-            $scope.selectedUser = userNameByLocation;
-            $scope.betBaseController.loadModel(userNameByLocation);
-            $scope.showUserBet = true;
-
-        } else {
-            $scope.getUsers();
-        }
-    };
-    $scope.searchUserBet = function () {
-        $scope.showUserBet = false;
-
-        angular.forEach($scope.users, function (user) {
-            if (user.UserName == $scope.selectedUser) {
-                $scope.betBaseController.loadModel(user.UserName);
-                $scope.errorMessage = "";
-                $scope.showUserBet = true;
-            }
-        });
-
-        if (!$scope.showUserBet) {
-            $scope.errorMessage = "Fant ikke bruker, vennligst søk med fullstendig brukernavn";
-        }
-    };
-
-    $scope.initializeGroupsAndPlayoffGames = function () {
-        angular.forEach(betBaseController.groups, function (group) {
-            betBaseController.setWinnerAndRunnerUpInGroup(group);
-        });
-    };
-
-    $scope.userBetControllerInit = function () {
-        $scope.initializeGroupsAndPlayoffGames();
-    };
-
-    $scope.$on('modelLoaded', function (event, mass) {
-        $scope.userBetControllerInit();
-    });
-
-    $scope.getUsers = function () {
-        $http({
-            method: 'GET',
-            url: "../User/GetUsers",
-        }).success(function (users) {
-            $scope.users = users;
-        }).error(function () {
-        });
-    };
-
-    $scope.loadByLocation();
-
-}]);
-
-

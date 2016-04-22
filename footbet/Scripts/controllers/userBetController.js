@@ -4,17 +4,57 @@ var Controllers;
 (function (Controllers) {
     "use strict";
     var UserBetController = (function () {
-        function UserBetController($scope, $rootScope, $location, betBaseController) {
+        function UserBetController($scope, $location, betBaseController, userBetService) {
+            var _this = this;
             this.$scope = $scope;
-            this.$rootScope = $rootScope;
             this.$location = $location;
             this.betBaseController = betBaseController;
+            this.userBetService = userBetService;
             this.showSearch = true;
             betBaseController.isRequired = false;
+            this.loadByLocation();
+            $scope.$on('modelLoaded', function () {
+                _this.userBetControllerInit();
+            });
         }
+        UserBetController.prototype.loadByLocation = function () {
+            var url = this.$location.absUrl();
+            var userNameByLocation = url.split("username=")[1];
+            if (userNameByLocation != null) {
+                this.showSearch = false;
+                this.selectedUserName = userNameByLocation;
+                this.betBaseController.loadModel(userNameByLocation);
+                this.showUserBet = true;
+            }
+            else {
+                this.userBetService.getUsers();
+            }
+        };
+        UserBetController.prototype.searchUserBet = function () {
+            var _this = this;
+            this.showUserBet = false;
+            angular.forEach(this.users, function (user) {
+                if (user.userName === _this.selectedUserName) {
+                    _this.betBaseController.loadModel(user.userName);
+                    _this.errorMessage = "";
+                    _this.showUserBet = true;
+                }
+            });
+            if (!this.showUserBet) {
+                this.errorMessage = "Fant ikke bruker, vennligst søk med fullstendig brukernavn";
+            }
+        };
+        UserBetController.prototype.initializeGroupsAndPlayoffGames = function () {
+            var _this = this;
+            angular.forEach(this.betBaseController.groups, function (group) {
+                _this.betBaseController.setWinnerAndRunnerUpInGroup(group);
+            });
+        };
+        UserBetController.prototype.userBetControllerInit = function () {
+            this.initializeGroupsAndPlayoffGames();
+        };
         UserBetController.$inject = [
             "$scope",
-            "$http",
             "$location",
             "betBaseController"
         ];
@@ -22,51 +62,3 @@ var Controllers;
     })();
     Controllers.UserBetController = UserBetController;
 })(Controllers || (Controllers = {}));
-$scope.loadByLocation = function () {
-    var url = $location.absUrl();
-    var userNameByLocation = url.split("username=")[1];
-    if (userNameByLocation != null) {
-        $scope.showSearch = false;
-        $scope.selectedUser = userNameByLocation;
-        $scope.betBaseController.loadModel(userNameByLocation);
-        $scope.showUserBet = true;
-    }
-    else {
-        $scope.getUsers();
-    }
-};
-$scope.searchUserBet = function () {
-    $scope.showUserBet = false;
-    angular.forEach($scope.users, function (user) {
-        if (user.UserName == $scope.selectedUser) {
-            $scope.betBaseController.loadModel(user.UserName);
-            $scope.errorMessage = "";
-            $scope.showUserBet = true;
-        }
-    });
-    if (!$scope.showUserBet) {
-        $scope.errorMessage = "Fant ikke bruker, vennligst søk med fullstendig brukernavn";
-    }
-};
-$scope.initializeGroupsAndPlayoffGames = function () {
-    angular.forEach(betBaseController.groups, function (group) {
-        betBaseController.setWinnerAndRunnerUpInGroup(group);
-    });
-};
-$scope.userBetControllerInit = function () {
-    $scope.initializeGroupsAndPlayoffGames();
-};
-$scope.$on('modelLoaded', function (event, mass) {
-    $scope.userBetControllerInit();
-});
-$scope.getUsers = function () {
-    $http({
-        method: 'GET',
-        url: "../User/GetUsers",
-    }).success(function (users) {
-        $scope.users = users;
-    }).error(function () {
-    });
-};
-$scope.loadByLocation();
-;
