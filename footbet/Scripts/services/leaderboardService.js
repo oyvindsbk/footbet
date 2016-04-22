@@ -1,27 +1,31 @@
-﻿angular.module('footballCompApp.services', []).
-    factory('leaderboardService', ['$http', function($http) {
-        var leaderboardService = {};
-        leaderboardService.getLeaderboard = function () {
-            var leaderboard = $http({
+var Services;
+(function (Services) {
+    "use strict";
+    var LeaderboardService = (function () {
+        function LeaderboardService($http) {
+            this.$http = $http;
+        }
+        LeaderboardService.prototype.getLeaderboard = function () {
+            var leaderboard = this.$http({
                 method: 'POST',
                 url: "../Leaderboard/GetOverallLeaderboardBySportsEventId",
                 data: {},
-            }).then(function (response) {
-                return response.data;
-            });
+            }).then(function (response) { return response.data; });
             return leaderboard;
         };
-
-        leaderboardService.getLeaderboardForLeague = function (leagueId) {
-            var leaderboard = $http({
+        LeaderboardService.prototype.getLeaderboardForLeague = function (leagueId) {
+            var leaderboard = this.$http({
                 method: 'POST',
                 url: "../Leaderboard/GetLeaderboardByLeagueId",
-                data: {leagueId : leagueId},
-            }).then(function (response) {
-                return response.data;
-            });
+                data: { leagueId: leagueId }
+            }).then(function (response) { return response.data; });
             return leaderboard;
         };
-
-    return leaderboardService;
-}]);
+        ;
+        LeaderboardService.$inject = [
+            "$http"
+        ];
+        return LeaderboardService;
+    })();
+    Services.LeaderboardService = LeaderboardService;
+})(Services || (Services = {}));

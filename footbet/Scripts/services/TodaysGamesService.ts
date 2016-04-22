@@ -1,30 +1,33 @@
-var Services;
-(function (Services) {
+﻿module Services {
     "use strict";
-    var TodaysGamesService = (function () {
-        function TodaysGamesService($http) {
-            this.$http = $http;
-        }
-        TodaysGamesService.prototype.getPreviousGames = function (daysFromToday) {
+
+    export class TodaysGamesService {
+        static $inject = [
+            "$http"
+        ];
+
+        constructor(private $http) { }
+
+        private getPreviousGames (daysFromToday: number) : IGame[]{
             var todaysGames = this.$http({
                 method: 'POST',
                 url: "../TodaysGames/GetPreviousGames",
                 data: { daysFromToday: daysFromToday }
-            }).then(function (response) {
+            }).then(response => {
                 if (response.ExceptionMessage != null) {
                     return false;
-                }
-                ;
+                };
                 return response.data;
             });
             return todaysGames;
-        };
-        TodaysGamesService.prototype.getNextGames = function (daysFromToday) {
+        }
+
+        private getNextGames(daysFromToday: number): IGame[] {
             var todaysGames = this.$http({
                 method: 'POST',
                 url: "../TodaysGames/GetNextGames",
                 data: { daysFromToday: daysFromToday }
-            }).then(function (response) {
+            }).then(response => {
                 if (response.data.ExceptionMessage != null) {
                     return null;
                 }
@@ -32,11 +35,5 @@ var Services;
             });
             return todaysGames;
         };
-        ;
-        TodaysGamesService.$inject = [
-            "$http"
-        ];
-        return TodaysGamesService;
-    })();
-    Services.TodaysGamesService = TodaysGamesService;
-})(Services || (Services = {}));
+    }
+}
