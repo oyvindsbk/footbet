@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="Shortcut Icon" type="image/ico" href="~/favicon.ico">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - Tipping VM 2014</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/angular")
+        @RenderSection("scripts", false)
+    </head>
+<body>
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-header col-md-12 col-sm-12 col-lg-12 col-xs-12">
+            <div class="col-lg-2 col-sm-2 col-md-2 hidden-xs"></div>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+                    <a class="brand" href="/Bet"> <img class="headerImage" src="~/Content/images/brasil-small.PNG"></a>
+                    <span class="mainHeader">FOTBALL-VM BRASIL 2014</span>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-inverse hidden-xs" role="navigation">
+        <div class="col-lg-2 col-md-2 col-sm-1"></div>
+        <ul class="nav navbar-nav navbar-left">
+            @if (Request.IsAuthenticated)
+            {
+                <li><a href="../Bet/">Mitt spill</a></li>
+                <li><a href="../League/">Mine ligaer</a></li>
+                <li><a href="../TodaysGames/">Dagens kamper</a></li>
+                <li><a href="../ResultPage/">Resultater</a></li>
+                <li><a href="../Rules/">Regler</a></li>
+
+            }
+        </ul>
+        <section id="login">
+            @Html.Partial("_LoginPartial")
+        </section>
+    </nav>
+
+    <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            @if (Request.IsAuthenticated)
+            {
+                <li><a href="../Bet/">Mitt spill</a></li>
+                <li><a href="../League/">Mine ligaer</a></li>
+                <li><a href="../Rules/">Regler</a></li>
+                <li><a href="../TodaysGames/">Dagens kamper</a></li>
+
+
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Logg ut</a></li>
+            }
+            @if (!Request.IsAuthenticated)
+            {
+                <li>@Html.ActionLink("Registrer", "Register", "Account", null, new { id = "registerLink" })</li>
+                <li>@Html.ActionLink("Logg inn", "Login", "Account", null, new { id = "loginLink" })</li>
+            }
+        </ul>
+    </div>
+    <div>
+        <div class="col-lg-2 col-md-1 hidden-sm hidden-xs">
+        </div>
+
+        <div class="col-lg-8 col-md-10 col-sm-12 col-xs-12">
+            @RenderBody()
+        </div>
+        <div class="col-lg-2 col-md-1 hidden-sm hidden-xs">
+        </div>
+    </div>
+
+</body>
+
+</html>

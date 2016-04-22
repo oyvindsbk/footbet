@@ -1,0 +1,1818 @@
+{
+	"Groups": [{
+		"Id": 1,
+		"Name": "Gruppe A",
+		"WinnerTeamCode": null,
+		"RunnerUpTeamCode": null,
+		"WinnerGameCode": "49",
+		"RunnerUpGameCode": "51",
+		"SportsEventId": 1,
+		"Teams": [{
+			"Id": 1,
+			"Name": "Brasil",
+			"Flag": "flag-br",
+			"GroupId": 1
+		},
+		{
+			"Id": 2,
+			"Name": "Kroatia",
+			"Flag": "flag-hr",
+			"GroupId": 1
+		},
+		{
+			"Id": 3,
+			"Name": "Mexico",
+			"Flag": "flag-mx",
+			"GroupId": 1
+		},
+		{
+			"Id": 4,
+			"Name": "Kamerun",
+			"Flag": "flag-cm",
+			"GroupId": 1
+		}],
+		"Games": [{
+			"Id": 1,
+			"StartTime": "12.06.14 22:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp1",
+			"HomeTeam": {
+				"Id": 1,
+				"Name": "Brasil",
+				"Flag": "flag-br",
+				"GroupId": 1,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 2,
+				"Name": "Kroatia",
+				"Flag": "flag-hr",
+				"GroupId": 1,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 2,
+			"StartTime": "13.06.14 18:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp2",
+			"HomeTeam": {
+				"Id": 3,
+				"Name": "Mexico",
+				"Flag": "flag-mx",
+				"GroupId": 1,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 4,
+				"Name": "Kamerun",
+				"Flag": "flag-cm",
+				"GroupId": 1,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 17,
+			"StartTime": "17.06.14 21:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp17",
+			"HomeTeam": {
+				"Id": 1,
+				"Name": "Brasil",
+				"Flag": "flag-br",
+				"GroupId": 1,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 3,
+				"Name": "Mexico",
+				"Flag": "flag-mx",
+				"GroupId": 1,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 18,
+			"StartTime": "19.06.14 00:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp18",
+			"HomeTeam": {
+				"Id": 2,
+				"Name": "Kroatia",
+				"Flag": "flag-hr",
+				"GroupId": 1,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 4,
+				"Name": "Kamerun",
+				"Flag": "flag-cm",
+				"GroupId": 1,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 33,
+			"StartTime": "23.06.14 22:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp33",
+			"HomeTeam": {
+				"Id": 4,
+				"Name": "Kamerun",
+				"Flag": "flag-cm",
+				"GroupId": 1,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 1,
+				"Name": "Brasil",
+				"Flag": "flag-br",
+				"GroupId": 1,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 34,
+			"StartTime": "23.06.14 22:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp34",
+			"HomeTeam": {
+				"Id": 2,
+				"Name": "Kroatia",
+				"Flag": "flag-hr",
+				"GroupId": 1,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 3,
+				"Name": "Mexico",
+				"Flag": "flag-mx",
+				"GroupId": 1,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		}]
+	},
+	{
+		"Id": 2,
+		"Name": "Gruppe B",
+		"WinnerTeamCode": null,
+		"RunnerUpTeamCode": null,
+		"WinnerGameCode": "51",
+		"RunnerUpGameCode": "49",
+		"SportsEventId": 1,
+		"Teams": [{
+			"Id": 5,
+			"Name": "Spania",
+			"Flag": "flag-es",
+			"GroupId": 2
+		},
+		{
+			"Id": 6,
+			"Name": "Nederland",
+			"Flag": "flag-nl",
+			"GroupId": 2
+		},
+		{
+			"Id": 7,
+			"Name": "Chile",
+			"Flag": "flag-cl",
+			"GroupId": 2
+		},
+		{
+			"Id": 8,
+			"Name": "Australia",
+			"Flag": "flag-au",
+			"GroupId": 2
+		}],
+		"Games": [{
+			"Id": 3,
+			"StartTime": "13.06.14 21:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp3",
+			"HomeTeam": {
+				"Id": 5,
+				"Name": "Spania",
+				"Flag": "flag-es",
+				"GroupId": 2,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 6,
+				"Name": "Nederland",
+				"Flag": "flag-nl",
+				"GroupId": 2,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 4,
+			"StartTime": "14.06.14 00:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp4",
+			"HomeTeam": {
+				"Id": 7,
+				"Name": "Chile",
+				"Flag": "flag-cl",
+				"GroupId": 2,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 8,
+				"Name": "Australia",
+				"Flag": "flag-au",
+				"GroupId": 2,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 19,
+			"StartTime": "18.06.14 21:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp19",
+			"HomeTeam": {
+				"Id": 5,
+				"Name": "Spania",
+				"Flag": "flag-es",
+				"GroupId": 2,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 7,
+				"Name": "Chile",
+				"Flag": "flag-cl",
+				"GroupId": 2,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 20,
+			"StartTime": "18.06.14 18:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp20",
+			"HomeTeam": {
+				"Id": 8,
+				"Name": "Australia",
+				"Flag": "flag-au",
+				"GroupId": 2,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 6,
+				"Name": "Nederland",
+				"Flag": "flag-nl",
+				"GroupId": 2,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 35,
+			"StartTime": "23.06.14 18:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp35",
+			"HomeTeam": {
+				"Id": 8,
+				"Name": "Australia",
+				"Flag": "flag-au",
+				"GroupId": 2,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 5,
+				"Name": "Spania",
+				"Flag": "flag-es",
+				"GroupId": 2,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 36,
+			"StartTime": "23.06.14 18:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp36",
+			"HomeTeam": {
+				"Id": 6,
+				"Name": "Nederland",
+				"Flag": "flag-nl",
+				"GroupId": 2,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 7,
+				"Name": "Chile",
+				"Flag": "flag-cl",
+				"GroupId": 2,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		}]
+	},
+	{
+		"Id": 3,
+		"Name": "Gruppe C",
+		"WinnerTeamCode": null,
+		"RunnerUpTeamCode": null,
+		"WinnerGameCode": "50",
+		"RunnerUpGameCode": "52",
+		"SportsEventId": 1,
+		"Teams": [{
+			"Id": 9,
+			"Name": "Colombia",
+			"Flag": "flag-co",
+			"GroupId": 3
+		},
+		{
+			"Id": 10,
+			"Name": "Hellas",
+			"Flag": "flag-gr",
+			"GroupId": 3
+		},
+		{
+			"Id": 11,
+			"Name": "Elfenbenskysten",
+			"Flag": "flag-ci",
+			"GroupId": 3
+		},
+		{
+			"Id": 12,
+			"Name": "Japan",
+			"Flag": "flag-jp",
+			"GroupId": 3
+		}],
+		"Games": [{
+			"Id": 5,
+			"StartTime": "14.06.14 18:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp5",
+			"HomeTeam": {
+				"Id": 9,
+				"Name": "Colombia",
+				"Flag": "flag-co",
+				"GroupId": 3,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 10,
+				"Name": "Hellas",
+				"Flag": "flag-gr",
+				"GroupId": 3,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 6,
+			"StartTime": "15.06.14 03:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp6",
+			"HomeTeam": {
+				"Id": 11,
+				"Name": "Elfenbenskysten",
+				"Flag": "flag-ci",
+				"GroupId": 3,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 12,
+				"Name": "Japan",
+				"Flag": "flag-jp",
+				"GroupId": 3,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 21,
+			"StartTime": "19.06.14 18:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp21",
+			"HomeTeam": {
+				"Id": 9,
+				"Name": "Colombia",
+				"Flag": "flag-co",
+				"GroupId": 3,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 11,
+				"Name": "Elfenbenskysten",
+				"Flag": "flag-ci",
+				"GroupId": 3,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 22,
+			"StartTime": "20.06.14 00:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp22",
+			"HomeTeam": {
+				"Id": 12,
+				"Name": "Japan",
+				"Flag": "flag-jp",
+				"GroupId": 3,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 10,
+				"Name": "Hellas",
+				"Flag": "flag-gr",
+				"GroupId": 3,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 37,
+			"StartTime": "24.06.14 22:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp37",
+			"HomeTeam": {
+				"Id": 12,
+				"Name": "Japan",
+				"Flag": "flag-jp",
+				"GroupId": 3,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 9,
+				"Name": "Colombia",
+				"Flag": "flag-co",
+				"GroupId": 3,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 38,
+			"StartTime": "24.06.14 22:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp38",
+			"HomeTeam": {
+				"Id": 10,
+				"Name": "Hellas",
+				"Flag": "flag-gr",
+				"GroupId": 3,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 11,
+				"Name": "Elfenbenskysten",
+				"Flag": "flag-ci",
+				"GroupId": 3,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		}]
+	},
+	{
+		"Id": 4,
+		"Name": "Gruppe D",
+		"WinnerTeamCode": null,
+		"RunnerUpTeamCode": null,
+		"WinnerGameCode": "52",
+		"RunnerUpGameCode": "50",
+		"SportsEventId": 1,
+		"Teams": [{
+			"Id": 13,
+			"Name": "Uruguay",
+			"Flag": "flag-uy",
+			"GroupId": 4
+		},
+		{
+			"Id": 14,
+			"Name": "Costa Rica",
+			"Flag": "flag-cr",
+			"GroupId": 4
+		},
+		{
+			"Id": 15,
+			"Name": "England",
+			"Flag": "flag-england",
+			"GroupId": 4
+		},
+		{
+			"Id": 16,
+			"Name": "Italia",
+			"Flag": "flag-it",
+			"GroupId": 4
+		}],
+		"Games": [{
+			"Id": 7,
+			"StartTime": "14.06.14 21:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp7",
+			"HomeTeam": {
+				"Id": 13,
+				"Name": "Uruguay",
+				"Flag": "flag-uy",
+				"GroupId": 4,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 14,
+				"Name": "Costa Rica",
+				"Flag": "flag-cr",
+				"GroupId": 4,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 8,
+			"StartTime": "15.06.14 00:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp8",
+			"HomeTeam": {
+				"Id": 15,
+				"Name": "England",
+				"Flag": "flag-england",
+				"GroupId": 4,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 16,
+				"Name": "Italia",
+				"Flag": "flag-it",
+				"GroupId": 4,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 23,
+			"StartTime": "19.06.14 21:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp23",
+			"HomeTeam": {
+				"Id": 13,
+				"Name": "Uruguay",
+				"Flag": "flag-uy",
+				"GroupId": 4,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 15,
+				"Name": "England",
+				"Flag": "flag-england",
+				"GroupId": 4,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 24,
+			"StartTime": "20.06.14 18:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp24",
+			"HomeTeam": {
+				"Id": 16,
+				"Name": "Italia",
+				"Flag": "flag-it",
+				"GroupId": 4,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 14,
+				"Name": "Costa Rica",
+				"Flag": "flag-cr",
+				"GroupId": 4,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 39,
+			"StartTime": "24.06.14 18:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp39",
+			"HomeTeam": {
+				"Id": 16,
+				"Name": "Italia",
+				"Flag": "flag-it",
+				"GroupId": 4,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 13,
+				"Name": "Uruguay",
+				"Flag": "flag-uy",
+				"GroupId": 4,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 40,
+			"StartTime": "24.06.14 18:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp40",
+			"HomeTeam": {
+				"Id": 14,
+				"Name": "Costa Rica",
+				"Flag": "flag-cr",
+				"GroupId": 4,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 15,
+				"Name": "England",
+				"Flag": "flag-england",
+				"GroupId": 4,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		}]
+	},
+	{
+		"Id": 5,
+		"Name": "Gruppe E",
+		"WinnerTeamCode": null,
+		"RunnerUpTeamCode": null,
+		"WinnerGameCode": "53",
+		"RunnerUpGameCode": "55",
+		"SportsEventId": 1,
+		"Teams": [{
+			"Id": 17,
+			"Name": "Sveits",
+			"Flag": "flag-ch",
+			"GroupId": 5
+		},
+		{
+			"Id": 18,
+			"Name": "Ecuador",
+			"Flag": "flag-ec",
+			"GroupId": 5
+		},
+		{
+			"Id": 19,
+			"Name": "Frankrike",
+			"Flag": "flag-fr",
+			"GroupId": 5
+		},
+		{
+			"Id": 20,
+			"Name": "Honduras",
+			"Flag": "flag-hn",
+			"GroupId": 5
+		}],
+		"Games": [{
+			"Id": 9,
+			"StartTime": "15.06.14 18:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp9",
+			"HomeTeam": {
+				"Id": 17,
+				"Name": "Sveits",
+				"Flag": "flag-ch",
+				"GroupId": 5,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 18,
+				"Name": "Ecuador",
+				"Flag": "flag-ec",
+				"GroupId": 5,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 10,
+			"StartTime": "15.06.14 21:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp10",
+			"HomeTeam": {
+				"Id": 19,
+				"Name": "Frankrike",
+				"Flag": "flag-fr",
+				"GroupId": 5,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 20,
+				"Name": "Honduras",
+				"Flag": "flag-hn",
+				"GroupId": 5,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 25,
+			"StartTime": "20.06.14 21:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp25",
+			"HomeTeam": {
+				"Id": 17,
+				"Name": "Sveits",
+				"Flag": "flag-ch",
+				"GroupId": 5,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 19,
+				"Name": "Frankrike",
+				"Flag": "flag-fr",
+				"GroupId": 5,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 26,
+			"StartTime": "21.06.14 00:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp26",
+			"HomeTeam": {
+				"Id": 20,
+				"Name": "Honduras",
+				"Flag": "flag-hn",
+				"GroupId": 5,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 18,
+				"Name": "Ecuador",
+				"Flag": "flag-ec",
+				"GroupId": 5,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 41,
+			"StartTime": "25.06.14 22:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp41",
+			"HomeTeam": {
+				"Id": 20,
+				"Name": "Honduras",
+				"Flag": "flag-hn",
+				"GroupId": 5,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 17,
+				"Name": "Sveits",
+				"Flag": "flag-ch",
+				"GroupId": 5,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 42,
+			"StartTime": "25.06.14 22:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp42",
+			"HomeTeam": {
+				"Id": 18,
+				"Name": "Ecuador",
+				"Flag": "flag-ec",
+				"GroupId": 5,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 19,
+				"Name": "Frankrike",
+				"Flag": "flag-fr",
+				"GroupId": 5,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		}]
+	},
+	{
+		"Id": 6,
+		"Name": "Gruppe F",
+		"WinnerTeamCode": null,
+		"RunnerUpTeamCode": null,
+		"WinnerGameCode": "55",
+		"RunnerUpGameCode": "53",
+		"SportsEventId": 1,
+		"Teams": [{
+			"Id": 21,
+			"Name": "Argentina",
+			"Flag": "flag-ar",
+			"GroupId": 6
+		},
+		{
+			"Id": 22,
+			"Name": "Bosnia-Hercegovina",
+			"Flag": "flag-ba",
+			"GroupId": 6
+		},
+		{
+			"Id": 23,
+			"Name": "Iran",
+			"Flag": "flag-ir",
+			"GroupId": 6
+		},
+		{
+			"Id": 24,
+			"Name": "Nigeria",
+			"Flag": "flag-ng",
+			"GroupId": 6
+		}],
+		"Games": [{
+			"Id": 11,
+			"StartTime": "16.06.14 00:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp11",
+			"HomeTeam": {
+				"Id": 21,
+				"Name": "Argentina",
+				"Flag": "flag-ar",
+				"GroupId": 6,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 22,
+				"Name": "Bosnia-Hercegovina",
+				"Flag": "flag-ba",
+				"GroupId": 6,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 12,
+			"StartTime": "16.06.14 21:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp12",
+			"HomeTeam": {
+				"Id": 23,
+				"Name": "Iran",
+				"Flag": "flag-ir",
+				"GroupId": 6,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 24,
+				"Name": "Nigeria",
+				"Flag": "flag-ng",
+				"GroupId": 6,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 27,
+			"StartTime": "21.06.14 18:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp27",
+			"HomeTeam": {
+				"Id": 21,
+				"Name": "Argentina",
+				"Flag": "flag-ar",
+				"GroupId": 6,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 23,
+				"Name": "Iran",
+				"Flag": "flag-ir",
+				"GroupId": 6,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 28,
+			"StartTime": "22.06.14 00:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp28",
+			"HomeTeam": {
+				"Id": 24,
+				"Name": "Nigeria",
+				"Flag": "flag-ng",
+				"GroupId": 6,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 22,
+				"Name": "Bosnia-Hercegovina",
+				"Flag": "flag-ba",
+				"GroupId": 6,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 43,
+			"StartTime": "25.06.14 18:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp43",
+			"HomeTeam": {
+				"Id": 24,
+				"Name": "Nigeria",
+				"Flag": "flag-ng",
+				"GroupId": 6,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 21,
+				"Name": "Argentina",
+				"Flag": "flag-ar",
+				"GroupId": 6,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 44,
+			"StartTime": "25.06.14 18:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp44",
+			"HomeTeam": {
+				"Id": 22,
+				"Name": "Bosnia-Hercegovina",
+				"Flag": "flag-ba",
+				"GroupId": 6,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 23,
+				"Name": "Iran",
+				"Flag": "flag-ir",
+				"GroupId": 6,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		}]
+	},
+	{
+		"Id": 7,
+		"Name": "Gruppe G",
+		"WinnerTeamCode": null,
+		"RunnerUpTeamCode": null,
+		"WinnerGameCode": "54",
+		"RunnerUpGameCode": "56",
+		"SportsEventId": 1,
+		"Teams": [{
+			"Id": 25,
+			"Name": "Ghana",
+			"Flag": "flag-gh",
+			"GroupId": 7
+		},
+		{
+			"Id": 26,
+			"Name": "USA",
+			"Flag": "flag-us",
+			"GroupId": 7
+		},
+		{
+			"Id": 27,
+			"Name": "Tyskland",
+			"Flag": "flag-de",
+			"GroupId": 7
+		},
+		{
+			"Id": 28,
+			"Name": "Portugal",
+			"Flag": "flag-pt",
+			"GroupId": 7
+		}],
+		"Games": [{
+			"Id": 13,
+			"StartTime": "16.06.14 18:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp13",
+			"HomeTeam": {
+				"Id": 27,
+				"Name": "Tyskland",
+				"Flag": "flag-de",
+				"GroupId": 7,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 28,
+				"Name": "Portugal",
+				"Flag": "flag-pt",
+				"GroupId": 7,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 14,
+			"StartTime": "17.06.14 00:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp14",
+			"HomeTeam": {
+				"Id": 25,
+				"Name": "Ghana",
+				"Flag": "flag-gh",
+				"GroupId": 7,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 26,
+				"Name": "USA",
+				"Flag": "flag-us",
+				"GroupId": 7,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 29,
+			"StartTime": "21.06.14 21:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp29",
+			"HomeTeam": {
+				"Id": 27,
+				"Name": "Tyskland",
+				"Flag": "flag-de",
+				"GroupId": 7,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 25,
+				"Name": "Ghana",
+				"Flag": "flag-gh",
+				"GroupId": 7,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 30,
+			"StartTime": "23.06.14 00:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp30",
+			"HomeTeam": {
+				"Id": 26,
+				"Name": "USA",
+				"Flag": "flag-us",
+				"GroupId": 7,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 28,
+				"Name": "Portugal",
+				"Flag": "flag-pt",
+				"GroupId": 7,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 45,
+			"StartTime": "26.06.14 18:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp45",
+			"HomeTeam": {
+				"Id": 26,
+				"Name": "USA",
+				"Flag": "flag-us",
+				"GroupId": 7,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 27,
+				"Name": "Tyskland",
+				"Flag": "flag-de",
+				"GroupId": 7,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 46,
+			"StartTime": "26.06.14 18:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp46",
+			"HomeTeam": {
+				"Id": 28,
+				"Name": "Portugal",
+				"Flag": "flag-pt",
+				"GroupId": 7,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 25,
+				"Name": "Ghana",
+				"Flag": "flag-gh",
+				"GroupId": 7,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		}]
+	},
+	{
+		"Id": 8,
+		"Name": "Gruppe H",
+		"WinnerTeamCode": null,
+		"RunnerUpTeamCode": null,
+		"WinnerGameCode": "56",
+		"RunnerUpGameCode": "54",
+		"SportsEventId": 1,
+		"Teams": [{
+			"Id": 29,
+			"Name": "Belgia",
+			"Flag": "flag-be",
+			"GroupId": 8
+		},
+		{
+			"Id": 30,
+			"Name": "Algerie",
+			"Flag": "flag-dz",
+			"GroupId": 8
+		},
+		{
+			"Id": 31,
+			"Name": "Russland",
+			"Flag": "flag-ru",
+			"GroupId": 8
+		},
+		{
+			"Id": 32,
+			"Name": "Sør-Korea",
+			"Flag": "flag-kr",
+			"GroupId": 8
+		}],
+		"Games": [{
+			"Id": 15,
+			"StartTime": "17.06.14 18:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp15",
+			"HomeTeam": {
+				"Id": 29,
+				"Name": "Belgia",
+				"Flag": "flag-be",
+				"GroupId": 8,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 30,
+				"Name": "Algerie",
+				"Flag": "flag-dz",
+				"GroupId": 8,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 16,
+			"StartTime": "18.06.14 00:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp16",
+			"HomeTeam": {
+				"Id": 31,
+				"Name": "Russland",
+				"Flag": "flag-ru",
+				"GroupId": 8,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 32,
+				"Name": "Sør-Korea",
+				"Flag": "flag-kr",
+				"GroupId": 8,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 31,
+			"StartTime": "22.06.14 18:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp31",
+			"HomeTeam": {
+				"Id": 29,
+				"Name": "Belgia",
+				"Flag": "flag-be",
+				"GroupId": 8,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 31,
+				"Name": "Russland",
+				"Flag": "flag-ru",
+				"GroupId": 8,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 32,
+			"StartTime": "22.06.14 21:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp32",
+			"HomeTeam": {
+				"Id": 32,
+				"Name": "Sør-Korea",
+				"Flag": "flag-kr",
+				"GroupId": 8,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 30,
+				"Name": "Algerie",
+				"Flag": "flag-dz",
+				"GroupId": 8,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 47,
+			"StartTime": "26.06.14 22:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp47",
+			"HomeTeam": {
+				"Id": 32,
+				"Name": "Sør-Korea",
+				"Flag": "flag-kr",
+				"GroupId": 8,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 29,
+				"Name": "Belgia",
+				"Flag": "flag-be",
+				"GroupId": 8,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		},
+		{
+			"Id": 48,
+			"StartTime": "26.06.14 22:00",
+			"HomeGoals": null,
+			"AwayGoals": null,
+			"Result": null,
+			"GameType": 1,
+			"SportsEventId": 1,
+			"Name": "Kamp48",
+			"HomeTeam": {
+				"Id": 30,
+				"Name": "Algerie",
+				"Flag": "flag-dz",
+				"GroupId": 8,
+				"SportsEventId": 1
+			},
+			"AwayTeam": {
+				"Id": 31,
+				"Name": "Russland",
+				"Flag": "flag-ru",
+				"GroupId": 8,
+				"SportsEventId": 1
+			},
+			"PlayoffGameDetails": []
+		}]
+	}],
+	"PlayoffGames": [{
+		"Id": 49,
+		"StartTime": "28.06.14 18:00",
+		"HomeGoals": null,
+		"AwayGoals": null,
+		"Result": null,
+		"GameType": 2,
+		"SportsEventId": 1,
+		"Name": "8-delsfinale 1",
+		"HomeTeam": null,
+		"AwayTeam": null,
+		"PlayoffGameDetails": [{
+			"Id": 1,
+			"IsHomeTeamNextGame": 1,
+			"NextPlayoffGame": 58,
+			"NextPlayoffGameRunnerUp": null,
+			"IsHomeTeamInRunnerUpGame": null,
+			"HomeTeamDisplayName": "A1",
+			"AwayTeamDisplayName": "B2",
+			"GameId": 49
+		}]
+	},
+	{
+		"Id": 50,
+		"StartTime": "28.06.14 22:00",
+		"HomeGoals": null,
+		"AwayGoals": null,
+		"Result": null,
+		"GameType": 2,
+		"SportsEventId": 1,
+		"Name": "8-delsfinale 2",
+		"HomeTeam": null,
+		"AwayTeam": null,
+		"PlayoffGameDetails": [{
+			"Id": 2,
+			"IsHomeTeamNextGame": 0,
+			"NextPlayoffGame": 58,
+			"NextPlayoffGameRunnerUp": null,
+			"IsHomeTeamInRunnerUpGame": null,
+			"HomeTeamDisplayName": "C1",
+			"AwayTeamDisplayName": "D2",
+			"GameId": 50
+		}]
+	},
+	{
+		"Id": 51,
+		"StartTime": "29.06.14 18:00",
+		"HomeGoals": null,
+		"AwayGoals": null,
+		"Result": null,
+		"GameType": 2,
+		"SportsEventId": 1,
+		"Name": "8-delsfinale 3",
+		"HomeTeam": null,
+		"AwayTeam": null,
+		"PlayoffGameDetails": [{
+			"Id": 3,
+			"IsHomeTeamNextGame": 1,
+			"NextPlayoffGame": 60,
+			"NextPlayoffGameRunnerUp": null,
+			"IsHomeTeamInRunnerUpGame": null,
+			"HomeTeamDisplayName": "B1",
+			"AwayTeamDisplayName": "A2",
+			"GameId": 51
+		}]
+	},
+	{
+		"Id": 52,
+		"StartTime": "29.06.14 22:00",
+		"HomeGoals": null,
+		"AwayGoals": null,
+		"Result": null,
+		"GameType": 2,
+		"SportsEventId": 1,
+		"Name": "8-delsfinale 4",
+		"HomeTeam": null,
+		"AwayTeam": null,
+		"PlayoffGameDetails": [{
+			"Id": 4,
+			"IsHomeTeamNextGame": 0,
+			"NextPlayoffGame": 60,
+			"NextPlayoffGameRunnerUp": null,
+			"IsHomeTeamInRunnerUpGame": null,
+			"HomeTeamDisplayName": "D1",
+			"AwayTeamDisplayName": "C2",
+			"GameId": 52
+		}]
+	},
+	{
+		"Id": 53,
+		"StartTime": "30.06.14 18:00",
+		"HomeGoals": null,
+		"AwayGoals": null,
+		"Result": null,
+		"GameType": 2,
+		"SportsEventId": 1,
+		"Name": "8-delsfinale 5",
+		"HomeTeam": null,
+		"AwayTeam": null,
+		"PlayoffGameDetails": [{
+			"Id": 5,
+			"IsHomeTeamNextGame": 1,
+			"NextPlayoffGame": 57,
+			"NextPlayoffGameRunnerUp": null,
+			"IsHomeTeamInRunnerUpGame": null,
+			"HomeTeamDisplayName": "E1",
+			"AwayTeamDisplayName": "F2",
+			"GameId": 53
+		}]
+	},
+	{
+		"Id": 54,
+		"StartTime": "30.06.14 22:00",
+		"HomeGoals": null,
+		"AwayGoals": null,
+		"Result": null,
+		"GameType": 2,
+		"SportsEventId": 1,
+		"Name": "8-delsfinale 6",
+		"HomeTeam": null,
+		"AwayTeam": null,
+		"PlayoffGameDetails": [{
+			"Id": 6,
+			"IsHomeTeamNextGame": 0,
+			"NextPlayoffGame": 57,
+			"NextPlayoffGameRunnerUp": null,
+			"IsHomeTeamInRunnerUpGame": null,
+			"HomeTeamDisplayName": "G1",
+			"AwayTeamDisplayName": "H2",
+			"GameId": 54
+		}]
+	},
+	{
+		"Id": 55,
+		"StartTime": "01.07.14 18:00",
+		"HomeGoals": null,
+		"AwayGoals": null,
+		"Result": null,
+		"GameType": 2,
+		"SportsEventId": 1,
+		"Name": "8-delsfinale 7",
+		"HomeTeam": null,
+		"AwayTeam": null,
+		"PlayoffGameDetails": [{
+			"Id": 7,
+			"IsHomeTeamNextGame": 1,
+			"NextPlayoffGame": 59,
+			"NextPlayoffGameRunnerUp": null,
+			"IsHomeTeamInRunnerUpGame": null,
+			"HomeTeamDisplayName": "F1",
+			"AwayTeamDisplayName": "E2",
+			"GameId": 55
+		}]
+	},
+	{
+		"Id": 56,
+		"StartTime": "01.07.14 22:00",
+		"HomeGoals": null,
+		"AwayGoals": null,
+		"Result": null,
+		"GameType": 2,
+		"SportsEventId": 1,
+		"Name": "8-delsfinale 8",
+		"HomeTeam": null,
+		"AwayTeam": null,
+		"PlayoffGameDetails": [{
+			"Id": 8,
+			"IsHomeTeamNextGame": 0,
+			"NextPlayoffGame": 59,
+			"NextPlayoffGameRunnerUp": null,
+			"IsHomeTeamInRunnerUpGame": null,
+			"HomeTeamDisplayName": "H1",
+			"AwayTeamDisplayName": "G2",
+			"GameId": 56
+		}]
+	},
+	{
+		"Id": 57,
+		"StartTime": "04.07.14 18:00",
+		"HomeGoals": null,
+		"AwayGoals": null,
+		"Result": null,
+		"GameType": 3,
+		"SportsEventId": 1,
+		"Name": "Kvartfinale 1",
+		"HomeTeam": null,
+		"AwayTeam": null,
+		"PlayoffGameDetails": [{
+			"Id": 9,
+			"IsHomeTeamNextGame": 1,
+			"NextPlayoffGame": 61,
+			"NextPlayoffGameRunnerUp": null,
+			"IsHomeTeamInRunnerUpGame": null,
+			"HomeTeamDisplayName": "Vinner 8-dels 5",
+			"AwayTeamDisplayName": "Vinner 8-dels 6",
+			"GameId": 57
+		}]
+	},
+	{
+		"Id": 58,
+		"StartTime": "04.07.14 22:00",
+		"HomeGoals": null,
+		"AwayGoals": null,
+		"Result": null,
+		"GameType": 3,
+		"SportsEventId": 1,
+		"Name": "Kvartfinale 2",
+		"HomeTeam": null,
+		"AwayTeam": null,
+		"PlayoffGameDetails": [{
+			"Id": 10,
+			"IsHomeTeamNextGame": 0,
+			"NextPlayoffGame": 61,
+			"NextPlayoffGameRunnerUp": null,
+			"IsHomeTeamInRunnerUpGame": null,
+			"HomeTeamDisplayName": "Vinner 8-dels 1",
+			"AwayTeamDisplayName": "Vinner 8-dels 2",
+			"GameId": 58
+		}]
+	},
+	{
+		"Id": 59,
+		"StartTime": "05.07.14 18:00",
+		"HomeGoals": null,
+		"AwayGoals": null,
+		"Result": null,
+		"GameType": 3,
+		"SportsEventId": 1,
+		"Name": "Kvartfinale 3",
+		"HomeTeam": null,
+		"AwayTeam": null,
+		"PlayoffGameDetails": [{
+			"Id": 11,
+			"IsHomeTeamNextGame": 1,
+			"NextPlayoffGame": 62,
+			"NextPlayoffGameRunnerUp": null,
+			"IsHomeTeamInRunnerUpGame": null,
+			"HomeTeamDisplayName": "Vinner 8-dels 7",
+			"AwayTeamDisplayName": "Vinner 8-dels 8",
+			"GameId": 59
+		}]
+	},
+	{
+		"Id": 60,
+		"StartTime": "05.07.14 22:00",
+		"HomeGoals": null,
+		"AwayGoals": null,
+		"Result": null,
+		"GameType": 3,
+		"SportsEventId": 1,
+		"Name": "Kvartfinale 4",
+		"HomeTeam": null,
+		"AwayTeam": null,
+		"PlayoffGameDetails": [{
+			"Id": 12,
+			"IsHomeTeamNextGame": 0,
+			"NextPlayoffGame": 62,
+			"NextPlayoffGameRunnerUp": null,
+			"IsHomeTeamInRunnerUpGame": null,
+			"HomeTeamDisplayName": "Vinner 8-dels 3",
+			"AwayTeamDisplayName": "Vinner 8-dels 4",
+			"GameId": 60
+		}]
+	},
+	{
+		"Id": 61,
+		"StartTime": "08.07.14 22:00",
+		"HomeGoals": null,
+		"AwayGoals": null,
+		"Result": null,
+		"GameType": 4,
+		"SportsEventId": 1,
+		"Name": "Semifinale 1",
+		"HomeTeam": null,
+		"AwayTeam": null,
+		"PlayoffGameDetails": [{
+			"Id": 13,
+			"IsHomeTeamNextGame": 1,
+			"NextPlayoffGame": 64,
+			"NextPlayoffGameRunnerUp": 63,
+			"IsHomeTeamInRunnerUpGame": 1,
+			"HomeTeamDisplayName": "Vinner kvart 2",
+			"AwayTeamDisplayName": "Vinner kvart 1",
+			"GameId": 61
+		}]
+	},
+	{
+		"Id": 62,
+		"StartTime": "09.07.14 22:00",
+		"HomeGoals": null,
+		"AwayGoals": null,
+		"Result": null,
+		"GameType": 4,
+		"SportsEventId": 1,
+		"Name": "Semifinale 2",
+		"HomeTeam": null,
+		"AwayTeam": null,
+		"PlayoffGameDetails": [{
+			"Id": 14,
+			"IsHomeTeamNextGame": 0,
+			"NextPlayoffGame": 64,
+			"NextPlayoffGameRunnerUp": 63,
+			"IsHomeTeamInRunnerUpGame": 0,
+			"HomeTeamDisplayName": "Vinner kvart 3",
+			"AwayTeamDisplayName": "Vinner kvart 4",
+			"GameId": 62
+		}]
+	},
+	{
+		"Id": 63,
+		"StartTime": "12.07.14 22:00",
+		"HomeGoals": null,
+		"AwayGoals": null,
+		"Result": null,
+		"GameType": 5,
+		"SportsEventId": 1,
+		"Name": "Bronsefinale",
+		"HomeTeam": null,
+		"AwayTeam": null,
+		"PlayoffGameDetails": [{
+			"Id": 15,
+			"IsHomeTeamNextGame": null,
+			"NextPlayoffGame": null,
+			"NextPlayoffGameRunnerUp": null,
+			"IsHomeTeamInRunnerUpGame": null,
+			"HomeTeamDisplayName": "Taper semi 1",
+			"AwayTeamDisplayName": "Taper semi 2",
+			"GameId": 63
+		}]
+	},
+	{
+		"Id": 64,
+		"StartTime": "13.07.14 21:00",
+		"HomeGoals": null,
+		"AwayGoals": null,
+		"Result": null,
+		"GameType": 6,
+		"SportsEventId": 1,
+		"Name": "Finale",
+		"HomeTeam": null,
+		"AwayTeam": null,
+		"PlayoffGameDetails": [{
+			"Id": 16,
+			"IsHomeTeamNextGame": null,
+			"NextPlayoffGame": null,
+			"NextPlayoffGameRunnerUp": null,
+			"IsHomeTeamInRunnerUpGame": null,
+			"HomeTeamDisplayName": "Vinner semi 1",
+			"AwayTeamDisplayName": "Vinner semi 2",
+			"GameId": 64
+		}]
+	}]
+}

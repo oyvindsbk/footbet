@@ -1,0 +1,275 @@
+﻿body { font-family: "Guardian Sans Cond Web", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.headerImage {
+    background-repeat: no-repeat;
+    height: 62px;
+    width: 50px;
+}
+
+.loginImage {
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 160px;
+}
+
+.txtScore {
+    display: inline;
+    height: 30px !important;
+    padding: 0;
+    text-align: center;
+    width: 25px;
+}
+
+.gameResult {
+    content: "\A";
+    display: inline;
+    white-space: pre;
+}
+
+@font-face {
+    font-family: "BrasilFont";
+    src: url('../fonts/brasil.otf') format("opentype"),
+         url('../fonts/brasil.eot');
+}
+
+/*style.css*/
+
+.gridStyle {
+    border: 1px solid rgb(212, 212, 212);
+    height: 300px;
+    width: 400px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+.odd {
+    margin-left: 325px;
+    width: 450px;
+}
+
+.even {
+    margin-left: 325px;
+    width: 450px;
+}
+
+.scoreInputTable table { table-layout: fixed; }
+
+.scoreInputTable th { width: 50px; }
+
+.btn-blue {
+    -moz-transition: background-color 300ms ease-out;
+    -webkit-border-radius: 0;
+    -webkit-transition: background-color 300ms ease-out;
+    background-color: #0072C6;
+    border-color: #315a88;
+    border-radius: 0;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 300ms ease-out;
+    width: 100%;
+}
+
+.btn-blue:hover,
+.btn-blue:focus,
+.btn-blue:active,
+.btn-blue.active,
+.open .dropdown-toggle.btn-blue {
+    -moz-transition: background-color 300ms ease-out;
+    -webkit-transition: background-color 300ms ease-out;
+    background-color: #1497d3;
+    color: white !important;
+    text-decoration: none;
+    transition: background-color 300ms ease-out;
+}
+
+.mainHeader,
+.mainHeader:hover {
+    color: #fff;
+    position: relative;
+}
+
+@media (min-width: 751px) {
+    .mainHeader {
+        font: 34px BrasilFont;
+        padding-left: 14px;
+        top: 10px;
+    }
+}
+
+@media (max-width: 750px) {
+    .mainHeader { font: 20px BrasilFont; }
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+.top-header {
+    background-color: #223e5e;
+    background-color: rgba(0, 120, 200, 1);
+    border: none;
+    border-radius: 0px;
+    color: white;
+    margin-top: 20px;
+}
+
+.bottom-header {
+    background: black;
+    border: none;
+    border-radius: 0;
+    color: white;
+}
+
+.headerTodaysGames {
+    color: #0078c8;
+    font: 28px/32px Arial;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.headerGroups {
+    color: #0078c8;
+    font: 28px/32px Arial;
+    margin-top: 20px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+legend {
+    border-bottom: none;
+    padding: 0 10px;
+    width: auto;
+}
+
+fieldset {
+    border: solid 1px #dddddd;
+    height: 271px;
+    margin: 1.125rem 0;
+    padding: 1.25rem;
+}
+
+.error {
+    background: #FDE4E1;
+    border: solid 1px #FBD3C6;
+    color: #CB4721;
+}
+
+.errorText { color: red; }
+.errorText2 {
+     color: white;
+    font-weight: bold;
+}
+
+.success {
+    background: #D5FFC6;
+    border: solid 1px #C0F0B9;
+    color: #48A41C;
+}
+
+.errorBorder { border: solid 1px red !important; }
+
+.success,
+.error {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    padding: 2px 4px;
+    text-align: center;
+}
+
+.save-bet-btn {
+    margin-bottom: 100px;
+    width: 100px;
+}
+
+.top-buffer { margin-top: 40px; }
+
+.todays-games-list {
+    border-bottom: 1px solid #DCDCDC !important;
+    cursor: pointer;
+}
+
+.todays-games-list-score { color: #0087e6; }
+
+.todays-games-list:hover {
+    background-color: #f2f2f2;
+    background-color: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
+    background-color: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
+}
+
+.todays-games-list-item {
+    font-size: 20px !important;
+    padding: 20px;
+    text-transform: uppercase;
+}
+
+.todays-games-list-results {
+    font-size: 1.2em;
+    margin-left: 20px !important;
+    opacity: 0.8;
+}
+
+.pager li > a {
+    background-color: #0078c8;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.1em;
+    padding: 3px;
+}
+
+@media (max-width: 750px) {
+    .pager li > a { width: 50px; }
+}
+
+@media (min-width: 749px) {
+    .pager li > a { width: 100px; }
+}
+
+
+@media (max-width: 767px) {
+    body {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+}
+
+
+.pager li > span {
+    border: none;
+    padding: 0;
+}
+
+.pager li > a:hover,
+.pager li > a:focus,
+.pager li > a:active,
+.pager li > a.active,
+.open .dropdown-toggle.pager li > a {
+    background-color: #1497d3;
+    color: white;
+    text-decoration: none;
+    transition: background-color 300ms ease-out;
+}
+
+.pager .disabled > a,
+.pager .disabled > a:hover,
+.pager .disabled > a:focus,
+.pager .disabled > span {
+    background-color: #fff;
+    border-color: #0078c8;
+    color: #0078c8;
+    cursor: not-allowed;
+}

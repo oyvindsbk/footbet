@@ -1,0 +1,86 @@
+﻿
+<div class="row" ng-repeat="group in betBaseController.groups">
+
+    <div class="span6">
+        <div class="headerGroups span3">{{group.Name}}</div>
+
+        <table class="span6 table-condensed scoreInputTable">
+            <tr ng-repeat="game in group.Games">
+                <td class="hidden-xs hidden-sm">{{game.StartTime}}</td>
+                <td class="text-right">
+                    {{game.HomeTeam.Name}}
+                    <span class="flag {{game.HomeTeam.Flag}}"></span>
+
+                </td>
+                <td class="text-center">
+                    <input class="txtScore" type="number" maxlength="1" ng-required="game.AwayGoals" onkeypress=" return isNumberKey(event) " ng-change="scoreChanged(group, game)" ng-model="game.HomeGoals" />
+                    <input class="txtScore" type="number" maxlength="1" ng-required="game.HomeGoals" onkeypress=" return isNumberKey(event) " ng-change="scoreChanged(group, game)" ng-model="game.AwayGoals" />
+                </td>
+                <td class="text-left">
+                    <span class="flag {{game.AwayTeam.Flag}}"></span>
+                    {{game.AwayTeam.Name}}
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <table class="span3 table-condensed soccer-table-center soccertable offset1">
+        <thead>
+            <tr>
+                <th>Lag</th>
+                <th>+</th>
+                <th>-</th>
+                <th>+/-</th>
+                <th>Poeng</th>
+            </tr>
+        </thead>
+        <tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="team in group.Teams">
+            <td>{{team.Name}}</td>
+            <td>{{team.goalsScored}}</td>
+            <td>{{team.goalsConceded}}</td>
+            <td>{{team.sumGoals}}</td>
+            <td>{{team.points}}</td>
+        </tr>
+        <tr>{{group.winner.Name}}</tr>
+    </table>
+
+</div>
+
+<div class="row">
+    <div class="span6">
+        <div class="headerGroups span3">Finalespill</div>
+    </div>
+</div>
+
+<div class="span7">
+    <table class="table-condensed scoreInputTable">
+        
+        <tr ng-repeat="playoffGame in betBaseController.playoffGames">
+            <td class="hidden-xs hidden-sm">{{playoffGame.StartTime}}</td>
+            <td>{{playoffGame.Name}}</td>
+            <td class="text-right" ng-hide="playoffGame.HomeTeam">
+                {{playoffGame.PlayoffGameDetails.HomeTeamDisplayName}}
+            </td>
+            <td class="text-right" ng-show="playoffGame.HomeTeam">
+                {{playoffGame.HomeTeam.Name}}
+                <span class="flag {{playoffGame.HomeTeam.Flag}}"></span>
+            </td>
+            <td class="text-center">
+                <input type="number" max="9"  ng-attr-class="{{(playoffGame.HomeGoals == playoffGame.AwayGoals && playoffGame.HomeGoals != null && playoffGame.AwayGoals != null) && 'errorBorder txtScore' || 'txtScore' }}" ng-disabled="!playoffGame.HomeTeam.Name || !playoffGame.AwayTeam.Name"  onkeypress=" return isNumberKey(event) " ng-change="playoffGameScoreChanged(playoffGame)" ng-model="playoffGame.HomeGoals" /> -
+                <input ng-attr-class="{{(playoffGame.HomeGoals == playoffGame.AwayGoals && playoffGame.HomeGoals != null && playoffGame.AwayGoals != null) && 'errorBorder txtScore' || 'txtScore' }}" type="number" max="9" ng-disabled="!playoffGame.HomeTeam.Name || !playoffGame.AwayTeam.Name"  onkeypress=" return isNumberKey(event) " ng-change="playoffGameScoreChanged(playoffGame)" ng-model="playoffGame.AwayGoals" />
+            </td>
+            <td class="text-left" ng-hide="playoffGame.AwayTeam">
+                {{playoffGame.PlayoffGameDetails.AwayTeamDisplayName}}
+            </td>
+            <td class="text-left" ng-show="playoffGame.AwayTeam">
+                <span class="flag {{playoffGame.AwayTeam.Flag}}"></span>
+                {{playoffGame.AwayTeam.Name}}
+            </td>
+        </tr>
+    </table>
+    <div class="row">
+        <input class="save-bet-btn span2" ng-disabled="!betBaseController.modelChanged" ng-attr-title="{{!betBaseController.modelChanged && 'Gjør endring for å lagre' || '' }}" type="submit" value="Lagre" />
+        <p class="errorText span4" ng-show="betBaseController.errorMessage.length > 0">{{betBaseController.errorMessage}}</p>
+        <p class="text-success span4" ng-show="betBaseController.successMessage.length > 0">{{betBaseController.successMessage}}</p>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+﻿
+<div class="row" ng-repeat="group in betBaseController.groups">
+
+    <div class="span6">
+        <div class="headerGroups span3">{{group.Name}}</div>
+
+        <table class="span6 table-condensed scoreInputTable">
+            <tr ng-repeat="game in group.Games">
+                <td class="hidden-xs hidden-sm">{{game.StartTime | date:'dd.MM.yy HH:mm'}}</td>
+                <td class="text-right">
+                    {{game.HomeTeam.Name}}
+                    <span class="flag {{game.HomeTeam.Flag}}"></span>
+
+                </td>
+                <td class="text-center">
+                    <span>{{game.HomeGoals}}</span> - 
+                    <span>{{game.AwayGoals}}</span>
+                </td>
+                <td class="text-left">
+                    <span class="flag {{game.AwayTeam.Flag}}"></span>
+                    {{game.AwayTeam.Name}}
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <table class="span3 table-condensed soccer-table-center soccertable offset1">
+        <thead>
+            <tr>
+                <th>Lag</th>
+                <th>+</th>
+                <th>-</th>
+                <th>+/-</th>
+                <th>Poeng</th>
+            </tr>
+        </thead>
+        <tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="team in group.Teams">
+            <td>{{team.Name}}</td>
+            <td>{{team.goalsScored}}</td>
+            <td>{{team.goalsConceded}}</td>
+            <td>{{team.sumGoals}}</td>
+            <td>{{team.points}}</td>
+        </tr>
+        <tr>{{group.winner.Name}}</tr>
+    </table>
+
+</div>
+
+<div class="row">
+    <div class="span6">
+        <div class="headerGroups span3" ng-show="betBaseController.playoffGames.length>0">Finalespill</div>
+    </div>
+</div>
+
+<div class="span7">
+    <table class="table-condensed scoreInputTable">
+        <tr ng-repeat="playoffGame in betBaseController.playoffGames">
+            <td class="hidden-xs hidden-sm">{{playoffGame.StartTime | date:'dd.MM.yy HH:mm'}}</td>
+            <td>{{playoffGame.Name}}</td>
+            <td class="text-right" ng-hide="playoffGame.HomeTeam">
+                {{playoffGame.PlayoffGameDetails.HomeTeamDisplayName}}
+            </td>
+            <td class="text-right" ng-show="playoffGame.HomeTeam">
+                {{playoffGame.HomeTeam.Name}}
+                <span class="flag {{playoffGame.HomeTeam.Flag}}"></span>
+            </td>
+            <td class="text-center">
+                <span>{{playoffGame.HomeGoals}}</span> -
+                <span>{{playoffGame.AwayGoals}}</span>
+            </td>
+            <td class="text-left" ng-hide="playoffGame.AwayTeam">
+                {{playoffGame.PlayoffGameDetails.AwayTeamDisplayName}}
+            </td>
+            <td class="text-left" ng-show="playoffGame.AwayTeam">
+                <span class="flag {{playoffGame.AwayTeam.Flag}}"></span>
+                {{playoffGame.AwayTeam.Name}}
+            </td>
+        </tr>
+    </table>
+</div>

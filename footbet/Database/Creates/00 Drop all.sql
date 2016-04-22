@@ -1,0 +1,15 @@
+﻿drop TABLE Bets
+drop TABLE Games
+drop TABLE TeamGames
+drop TABLE Teams
+drop TABLE Groups
+drop TABLE SportsEvents
+drop TABLE Results
+drop TABLE UserBets
+drop TABLE UserProfiles
+drop TABLE UserScores
+drop TABLE ScoreBasis
+drop TABLE Leagues
+drop TABLE LeagueUser
+drop TABLE PlayoffGameDetails
+drop TABLE PlayoffBets

@@ -1,0 +1,12 @@
+﻿<!doctype html>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html ng-app="footballCompApp">
+    <head>
+        @Scripts.Render("~/scriptbundles/leaguebundle")
+    </head>
+    <body>
+       @Html.Partial("_Leaderboard")
+    </body>
+</html>

@@ -1,0 +1,28 @@
+﻿<div class="row">
+    <div class="col-lg-8 col-xs-12 {{messageClass}}" ng-show="message.length > 0">{{message}}</div>
+</div>
+<div class="row">
+    
+    <div class="col-md-4 col-xs-12 col-sm-4 col-lg-4">
+        <fieldset>
+            <legend class="headerGroups">Bli med i en liga</legend>
+            <p>Legg inn den private ligakoden i boksen under og trykk "Bli med i liga" knappen.</p>
+            <div class="form-group">
+                <input type="text" class="form-control " required="" placeholder="Liga-kode" ng-model="leagueCode" />
+            </div>
+            <a href="" class="btn-blue" ng-click="joinLeague()">Bli med i liga</a>
+        </fieldset>
+    </div>
+
+    <div class="col-md-4 col-xs-12 col-sm-4 col-lg-4">
+        <fieldset>
+            <legend class="headerGroups">Opprett en ny liga</legend>
+            <p>Legg inn navn på ligaen for å opprette denne:</p>
+            <br style="line-height:1.5">
+            <div class="form-group">
+                <input type="text" class="form-control" required="" placeholder="Liganavn" ng-model="leagueName" />
+            </div>
+            <a href="" ng-click="addNewLeague()" class="btn-blue">Opprett liga</a>
+        </fieldset>
+    </div>
+</div>

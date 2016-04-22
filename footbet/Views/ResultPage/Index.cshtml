@@ -1,0 +1,17 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html ng-app="footballCompApp">
+    <head>
+        @Scripts.Render("~/scriptbundles/betbundle")
+        @Scripts.Render("~/scriptbundles/resultpagectrl")
+    </head>
+    <body>
+        <h2>Resultater</h2>
+        <div ng-controller="ResultPageCtrl">
+            @Html.Partial("_userBetPartial")
+        </div>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+﻿<!doctype html>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ReturnUrl = "/Bet";
+}
+<html ng-app="footballCompApp">
+    <head>
+        @Scripts.Render("~/scriptbundles/betbundle")
+        @Scripts.Render("~/scriptbundles/resultctrl")
+    </head>
+    <body>
+        <div ng-controller="ResultCtrl">
+            <h4>Registrer resultater</h4>
+            <hr />
+            <div ng-controller="FootballCompAppCtrl">
+                <form ng-submit="saveResultBets()">
+                    @Html.Partial("_betPartial")
+                </form>
+                {{message}}
+            </div>
+        </div>
+    </body>
+</html>

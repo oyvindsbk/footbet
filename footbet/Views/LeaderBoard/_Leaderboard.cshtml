@@ -1,0 +1,23 @@
+﻿<div class="row" ng-controller="LeaderboardCtrl" ng-show="headerText != ''">
+    <div class="headerGroups">{{headerText}}</div>
+    <table class="col-md-8 col-xs-12 col-sm-10 col-lg-8 table-condensed soccertable">
+        <thead>
+            <tr>
+                <th>Posisjon</th>
+                <th>Navn</th>
+                <th>Brukernavn</th>
+                <th>Gruppespillpoeng</th>
+                <th>Sluttspillpoeng</th>
+                <th>Poeng totalt</th>
+            </tr>
+        </thead>
+        <tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="user in leaderboard | orderBy: '-Points'">
+            <td>{{user.Position}}</td>
+            <td><a href="/UserBet?username={{user.UserName}}" ng-click="showUserBet(user.UserName)">{{user.Name}}</a></td>
+            <td>{{user.UserName}}</td>
+            <td>{{user.Points - user.PlayoffScore}}</td>
+            <td>{{user.PlayoffScore}}</td>
+            <td>{{user.Points}}</td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,13 @@
+﻿<!DOCTYPE html>
+<html ng-app="footballCompApp">
+<head>
+    <meta charset="utf-8" />
+    @Scripts.Render("~/scriptbundles/leaguebundle")
+</head>
+<body >
+    <div ng-controller="LeagueCtrl">
+        <div ng-show="leagues.length > 0">@Html.Partial("_ManageLeaguesView")</div>
+        <div class="row top-buffer">@Html.Partial("_JoinLeagueView")</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/scriptbundles/todaysgamesbundle")
+
+<div ng-app="footballCompApp">
+    <div ng-controller="TodaysGamesCtrl">
+        <div class="span8">
+            <div class="container-fluid">
+            <ul class="pager row">
+                    <li class="previous hidden-xs hidden-sm" ng-click="previousDay()" ng-class="previousButtonDisabled ? 'disabled' : ''"><a href="">&larr; Forrige</a></li>
+                    <li class="previous hidden-lg hidden-md" ng-click="previousDay()" ng-class="previousButtonDisabled ? 'disabled' : ''"><a href="">&larr;</a></li>
+                    <li class="headerTodaysGames col-lg-9 hidden-xs hidden-sm">
+                    <span class="">Kamper {{todaysDate | date:'EEEE d MMMM'}}</span>
+                </li>
+                    <li class="headerTodaysGames col-xs-8 col-sm-8 hidden-lg hidden-md">
+                        <span class="">{{todaysDate | date:'d MMMM'}}</span>
+                    </li>
+                    <li class="next hidden-xs hidden-sm" ng-click="nextDay()" ng-class="nextButtonDisabled ? 'disabled' : ''"><a href="">Neste &rarr;</a></li>
+                    <li class="next hidden-lg hidden-md" ng-click="nextDay()" ng-class="nextButtonDisabled ? 'disabled' : ''"><a href="">&rarr;</a></li>
+            </ul>
+            </div>
+            <div class="container-fluid">
+                <div ng-repeat="game in todaysGames | orderBy: 'StartTime'">
+                <div class="row todays-games-list todays-games-list-item" ng-click="areDetailsShown = !areDetailsShown">
+                        <div class="nopadding col-lg-3 col-md-3 hidden-xs hidden-sm">{{game.StartTime}}</div>
+                    <div class="col-lg-8 col-md-8">
+                        {{game.HomeTeam.Name}}
+                        <span class="flag {{game.HomeTeam.Flag}}"></span>
+                        <span class="todays-games-list-score">{{game.HomeGoals}} - {{game.AwayGoals}}</span>
+                        <span class="flag {{game.AwayTeam.Flag}}"></span>
+                        {{game.AwayTeam.Name}}
+                    </div>
+                </div>
+                <div class="todays-games-list-results" ng-show="areDetailsShown" ng-repeat="(score, users) in game.Bets">
+                    <div>
+                            <b>{{score}} ({{users.length}}):</b> <span ng-repeat="user in users">{{user}}{{$last ? '' : ', '}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

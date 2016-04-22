@@ -1,0 +1,16 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ReturnUrl = "/League";
+}
+@Scripts.Render("~/scriptbundles/betbundle")
+@Scripts.Render("~/scriptbundles/betctrl")
+<div ng-app="footballCompApp">
+    <div ng-controller="FootballCompAppCtrl">
+        <form ng-submit="save()">
+            <h2>Opprett ditt spill <span class="errorText" ng-show="numberOfIncompleteGames > 0">{{userBetIncompleteMessage}}</span></h2>
+            <div ng-show="betBaseController.groups">
+                @Html.Partial("_betPartial")
+            </div>
+        </form>
+    </div>
+</div>

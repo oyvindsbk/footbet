@@ -1,0 +1,28 @@
+SET ANSI_NULLS OFF
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Games](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](55) NOT NULL,
+	[HomeTeam] [int] NULL,
+	[AwayTeam] [int] NULL,
+	[StartTime] [datetime] NOT NULL,
+	[GameType] [int] NOT NULL,
+	[SportsEventId] [int] NOT NULL,
+	[GroupId] [int] NULL FOREIGN KEY REFERENCES Groups(Id),
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)
+)
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
