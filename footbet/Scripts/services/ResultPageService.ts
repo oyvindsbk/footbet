@@ -1,19 +1,21 @@
 ﻿module Services {
     "use strict";
 
-    export class LeaderboardService {
+    export class ResultPageService {
         static $inject = [
             "$http"
         ];
 
-        constructor(private $http) {}
+        constructor(private $http) { }
 
-        public getLeaderboard(): ng.IPromise<ILeaderboard> {
-            var leaderboard = this.$http({
-                method: 'POST',
-                url: "../Leaderboard/GetOverallLeaderboardBySportsEventId",
-            }).then(response => response.data);
-            return leaderboard;
+        public loadResult(): ng.IPromise<IBetViewModel> {
+            var response = this.$http({
+                    url: "../ResultPage/GetResults",
+                    method: "POST"
+                }).error(function (data, status) {
+                    betBaseController.errorMessage = status;
+                });
+            return response;
         }
 
         public getLeaderboardForLeague(leagueId: number): ng.IPromise<ILeaderboard> {

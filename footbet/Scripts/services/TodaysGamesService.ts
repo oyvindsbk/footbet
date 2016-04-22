@@ -8,7 +8,7 @@
 
         constructor(private $http) { }
 
-        private getPreviousGames (daysFromToday: number) : IGame[]{
+        public getPreviousGames (daysFromToday: number) : ng.IPromise<ITodaysGames>{
             var todaysGames = this.$http({
                 method: 'POST',
                 url: "../TodaysGames/GetPreviousGames",
@@ -22,7 +22,7 @@
             return todaysGames;
         }
 
-        private getNextGames(daysFromToday: number): IGame[] {
+        public getNextGames(daysFromToday: number): ng.IPromise<ITodaysGames> {
             var todaysGames = this.$http({
                 method: 'POST',
                 url: "../TodaysGames/GetNextGames",

@@ -109,7 +109,7 @@
             return 0;
         }
 
-        private initializeGroupsForBet(): void {
+        initializeGroupsForBet(): void {
             angular.forEach(this.groups, group => {
                 angular.forEach(group.teams, team => {
                     team.goalsConceded = 0;
@@ -131,7 +131,7 @@
             });
         }
 
-        private initializePlayoffGamesForBet(playoffGames: IGame[]) {
+        initializePlayoffGamesForBet(playoffGames: IGame[]) {
             angular.forEach(playoffGames, playoffGame => {
                 playoffGame.playoffGameDetails = playoffGame.playoffGameDetails[0];
             });

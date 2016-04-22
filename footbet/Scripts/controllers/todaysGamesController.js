@@ -1,58 +1,76 @@
-﻿footballCompApp.controller('TodaysGamesCtrl', ['$scope', 'todaysGamesService', function ($scope, todaysGamesService) {
-    $scope.todaysGames = [];
-    $scope.areDetailsShown = false;
-    $scope.daysFromNow = 0;
-    $scope.todaysDate = Date.now();
-    $scope.nextButtonDisabled = false;
-    $scope.previousButtonDisabled = false;
-
-    $scope.nextDay = function () {
-        if ($scope.nextButtonDisabled) return;
-        $scope.daysFromNow++;
-        $scope.getNextGames();
-    };
-
-    $scope.previousDay = function () {
-        if ($scope.previousButtonDisabled) return;
-        $scope.daysFromNow--;
-        $scope.getPreviousGames();
-    };
-
-    $scope.getNextGames = function () {
-        todaysGamesService.getNextGames($scope.daysFromNow).then(function (todaysGames) {
-            $scope.previousButtonDisabled = false;
-            $scope.todaysGames = todaysGames.TodaysGamesSpecification;
-            $scope.nextButtonDisabled = $scope.evaluateNextButtonDisabled();
-            $scope.daysFromNow += todaysGames.NumberOfDaysFromToday;
-            $scope.todaysDate = getTodaysDatePlusDays($scope.daysFromNow);
-
-        });;
-    };
-
-    $scope.getPreviousGames = function () {
-        todaysGamesService.getPreviousGames($scope.daysFromNow).then(function (todaysGames) {
-            $scope.nextButtonDisabled = false;
-            $scope.todaysGames = todaysGames.TodaysGamesSpecification;
-            $scope.previousButtonDisabled = $scope.evaluatePreviousButtonDisabled();
-            $scope.daysFromNow += todaysGames.NumberOfDaysFromToday;
-            $scope.todaysDate = getTodaysDatePlusDays($scope.daysFromNow);
-        });;
-    };
-
-    $scope.evaluateNextButtonDisabled = function () {
-        var eventEnds = new Date(2014, 06, 12);
-        if ($scope.todaysDate >= eventEnds.getTime()) {
-            return true;
+/// <reference path="../../typings/angularjs/angular.d.ts" />
+/// <reference path="../../typings/angularjs/angular-resource.d.ts" />
+var Controllers;
+(function (Controllers) {
+    "use strict";
+    var TodaysGamesController = (function () {
+        function TodaysGamesController($scope, todaysGamesService) {
+            this.$scope = $scope;
+            this.todaysGamesService = todaysGamesService;
+            this.todaysDate = new Date();
         }
-        return false;
-    };
-     
-    $scope.evaluatePreviousButtonDisabled = function () {
-        var eventEnds = new Date(2014, 05, 14);
-        if ($scope.todaysDate < eventEnds.getTime()) {
-            return true;
-        }
-        return false;
-    };
-    $scope.getNextGames();
-}]);
+        TodaysGamesController.prototype.nextDay = function () {
+            if (this.nextButtonDisabled)
+                return;
+            this.daysFromNow++;
+            this.getNextGames();
+        };
+        TodaysGamesController.prototype.previousDay = function () {
+            if (this.previousButtonDisabled)
+                return;
+            this.daysFromNow--;
+            this.getPreviousGames();
+        };
+        TodaysGamesController.prototype.getNextGames = function () {
+            var _this = this;
+            this.todaysGamesService.getNextGames(this.daysFromNow).then(function (todaysGames) {
+                _this.previousButtonDisabled = false;
+                _this.todaysGames = todaysGames.todaysGamesSpecifications;
+                _this.nextButtonDisabled = _this.isNextButtonDisabled();
+                _this.daysFromNow += todaysGames.numberOfDaysFromToday;
+                _this.todaysDate = _this.getTodaysDatePlusDays(_this.daysFromNow);
+            });
+        };
+        TodaysGamesController.prototype.getPreviousGames = function () {
+            var _this = this;
+            this.todaysGamesService.getPreviousGames(this.daysFromNow).then(function (todaysGames) {
+                _this.nextButtonDisabled = false;
+                _this.todaysGames = todaysGames.todaysGamesSpecifications;
+                _this.previousButtonDisabled = _this.isPreviousButtonDisabled();
+                _this.daysFromNow += todaysGames.numberOfDaysFromToday;
+                _this.todaysDate = _this.getTodaysDatePlusDays(_this.daysFromNow);
+            });
+            ;
+        };
+        ;
+        TodaysGamesController.prototype.isNextButtonDisabled = function () {
+            var eventEnds = new Date(2014, 6, 22);
+            if (this.todaysDate.getTime() >= eventEnds.getTime()) {
+                return true;
+            }
+            return false;
+        };
+        TodaysGamesController.prototype.isPreviousButtonDisabled = function () {
+            var eventStarts = new Date(2014, 6, 10);
+            if (this.todaysDate < eventStarts) {
+                return true;
+            }
+            return false;
+        };
+        TodaysGamesController.prototype.getTodaysDatePlusDays = function (daysToAdd) {
+            var date = new Date();
+            return date.addDays(daysToAdd);
+        };
+        TodaysGamesController.$inject = [
+            "$scope",
+            "todaysGamesService"
+        ];
+        return TodaysGamesController;
+    })();
+    Controllers.TodaysGamesController = TodaysGamesController;
+})(Controllers || (Controllers = {}));
+Date.prototype.addDays = function (days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+};

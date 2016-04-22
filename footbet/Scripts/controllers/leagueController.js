@@ -1,85 +1,72 @@
-﻿footballCompApp.controller('LeagueCtrl', ["$scope", "$http", "$rootScope", function ($scope, $http, $rootScope) {
-    $scope.messageClass = "";
-
-    $scope.leagueName = "";
-    $scope.leagueCode = "";
-    $scope.message = "";
-    $scope.leagues = [];
-    $scope.selectedLeague = $scope.leagues[1];
-
-    $scope.loadLeagues = function() {
-        $http({
-            method: 'GET',
-            url: "GetLeaguesForUser",
-        }).success(function (leagues) {
-            $scope.leagues = leagues;
-        }).error(function (data, status) {
-        });
-    };
-
-    $scope.joinLeague = function() {
-        $http({
-            method: 'POST',
-            url: "AddCurrentUserToLeagueByGuid",
-            data: { guid: $scope.leagueCode },
-        }).success(function (data) {
-            if (typeof data.ExceptionMessage != 'undefined') {
-                $scope.message = data.ExceptionMessage;
-                $scope.messageClass = "error";
-            } else {
-                $scope.loadLeagues();
-            }
-
-        }).error(function (data, status) {
-        });
-    }
-
-    $scope.addCurrentUserToLeague = function () {
-        $http({
-            method: 'POST',
-            url: "AddCurrentUserToLeague",
-            data: { leagueName: $scope.leagueName },
-        }).success(function (data) {
-            if (typeof data.ExceptionMessage != 'undefined') {
-                $scope.message = data.ExceptionMessage;
-                $scope.messageClass = "error";
-            } else {
-                $scope.message = "Her er din kode " + data;
-                $scope.messageClass = "success";
-                $scope.loadLeagues();
-            }
-
-        }).error(function (data, status) {
-        });
-    };
-
-    $scope.showLeague = function(league) {
-        $rootScope.$broadcast("showLeagueEvent", league);
-    };
-
-    $scope.addNewLeague = function () {
-        if ($scope.leagueName == "") {
-            $scope.message = "Liganavn kan ikke være tomt";
-            $scope.messageClass = "error";
-            return;
+/// <reference path="../../typings/angularjs/angular.d.ts" />
+/// <reference path="../../typings/angularjs/angular-resource.d.ts" />
+var Controllers;
+(function (Controllers) {
+    "use strict";
+    var LeagueController = (function () {
+        function LeagueController($scope, $rootScope, leagueService) {
+            this.$scope = $scope;
+            this.$rootScope = $rootScope;
+            this.leagueService = leagueService;
+            this.selectedLeague = this.leagues[1];
+            this.loadLeagues();
         }
-        $http({
-            method: 'POST',
-            url: "AddNewLeague",
-            data: { leagueName: $scope.leagueName },
-        }).success(function (data) {
-            if (typeof data.ExceptionMessage != 'undefined') {
-                $scope.message = data.ExceptionMessage;
-                $scope.messageClass = "error";
-            } else {
-                $scope.message = "Her er din kode " + data;
-                $scope.messageClass = "success";
-                $scope.loadLeagues();
-
+        LeagueController.prototype.loadLeagues = function () {
+            var _this = this;
+            this.leagueService.getLeagues().then(function (leagues) {
+                _this.leagues = leagues;
+            });
+        };
+        LeagueController.prototype.joinLeague = function () {
+            var _this = this;
+            this.leagueService.joinLeague(this.leagueCode).then(function (response) {
+                if (response.isError) {
+                    _this.message = response.message;
+                    _this.messageClass = "error";
+                }
+                else
+                    _this.loadLeagues();
+            });
+        };
+        LeagueController.prototype.addCurrentUserToLeague = function () {
+            var _this = this;
+            this.leagueService.addCurrentUserToLeague(this.leagueName).then(function (response) {
+                _this.message = response.message;
+                if (response.isError) {
+                    _this.messageClass = "error";
+                }
+                else {
+                    _this.messageClass = "success";
+                    _this.loadLeagues();
+                }
+            });
+        };
+        LeagueController.prototype.addNewLeague = function () {
+            var _this = this;
+            if (this.leagueName === "") {
+                this.message = "Liganavn kan ikke være tomt";
+                this.messageClass = "error";
+                return;
             }
-        }).error(function (data, status) {
-        });
-    };
-
-    $scope.loadLeagues();
-}]);
+            this.leagueService.addNewLeague(this.leagueName).then(function (response) {
+                _this.message = response.message;
+                if (response.isError) {
+                    _this.messageClass = "error";
+                }
+                else {
+                    _this.messageClass = "success";
+                    _this.loadLeagues();
+                }
+            });
+        };
+        LeagueController.prototype.showLeague = function (league) {
+            this.$rootScope.$broadcast("showLeagueEvent", league);
+        };
+        LeagueController.$inject = [
+            "$scope",
+            "$rootScope"
+        ];
+        return LeagueController;
+    })();
+    Controllers.LeagueController = LeagueController;
+})(Controllers || (Controllers = {}));

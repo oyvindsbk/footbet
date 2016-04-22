@@ -1,36 +1,47 @@
-﻿footballCompApp.controller('ResultPageCtrl', ["$scope", "$http", "$rootScope", "betBaseController", function ($scope, $http, $rootScope, betBaseController) {
-    $scope.betBaseController = betBaseController;
-
-    $scope.loadResult = function() {
-        $http({
-            url: "../ResultPage/GetResults",
-            method: "POST",
-        }).success(function(betViewModel) {
-            betBaseController.groups = betViewModel.Groups;
-            betBaseController.initializeGroupsForBet();
-            betBaseController.initializePlayoffGamesForBet(betViewModel.PlayoffGames);
-            $rootScope.$broadcast('modelLoaded', true);
-        }).error(function(data, status) {
-            betBaseController.errorMessage = status;
-        });
-    };
-
-    $scope.initializeGroupsAndPlayoffGames = function () {
-        angular.forEach(betBaseController.groups, function (group) {
-            betBaseController.setWinnerAndRunnerUpInGroup(group);
-            betBaseController.setPlayoffGameTeams(group);
-        });
-    };
-
-    //Initialize
-    $scope.resultPageControllerInit = function () {
-        $scope.initializeGroupsAndPlayoffGames();
-    };
-
-    $scope.$on('modelLoaded', function (event, mass) {
-        $scope.resultPageControllerInit();
-    });
-
-    $scope.loadResult();
-
-}]);
+/// <reference path="../../typings/angularjs/angular.d.ts" />
+/// <reference path="../../typings/angularjs/angular-resource.d.ts" />
+var Controllers;
+(function (Controllers) {
+    "use strict";
+    var ResultPageController = (function () {
+        function ResultPageController($scope, $rootScope, betBaseController, resultPageService) {
+            var _this = this;
+            this.$scope = $scope;
+            this.$rootScope = $rootScope;
+            this.betBaseController = betBaseController;
+            this.resultPageService = resultPageService;
+            $scope.$on('modelLoaded', function () {
+                _this.resultPageControllerInit();
+            });
+            this.loadResult();
+        }
+        ResultPageController.prototype.loadResult = function () {
+            var _this = this;
+            this.resultPageService.loadResult().then(function (betViewModel) {
+                _this.betBaseController.groups = betViewModel.groups;
+                _this.betBaseController.initializeGroupsForBet();
+                _this.betBaseController.initializePlayoffGamesForBet(betViewModel.playoffGames);
+                _this.$rootScope.$broadcast('modelLoaded', true);
+            });
+        };
+        ResultPageController.prototype.initializeGroupsAndPlayoffGames = function () {
+            var _this = this;
+            angular.forEach(this.betBaseController.groups, function (group) {
+                _this.betBaseController.setWinnerAndRunnerUpInGroup(group);
+                //TODO: recursivly -true false?
+                _this.betBaseController.setPlayoffGameTeams(group, false);
+            });
+        };
+        ResultPageController.prototype.resultPageControllerInit = function () {
+            this.initializeGroupsAndPlayoffGames();
+        };
+        ResultPageController.$inject = [
+            "$scope",
+            "$http",
+            "$rootScope",
+            "betBaseController"
+        ];
+        return ResultPageController;
+    })();
+    Controllers.ResultPageController = ResultPageController;
+})(Controllers || (Controllers = {}));

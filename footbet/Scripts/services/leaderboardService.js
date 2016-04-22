@@ -9,7 +9,6 @@ var Services;
             var leaderboard = this.$http({
                 method: 'POST',
                 url: "../Leaderboard/GetOverallLeaderboardBySportsEventId",
-                data: {},
             }).then(function (response) { return response.data; });
             return leaderboard;
         };
