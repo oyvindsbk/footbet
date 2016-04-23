@@ -32,7 +32,7 @@ namespace Footbet
                        "~/Scripts/libs/angular/angular.min.js",
                        "~/Scripts/libs/angular-ui-bootstrap/ui-bootstrap-0.7.0.min.js",
                        "~/Scripts/libs/angular-ui-bootstrap/ui-bootstrap-tpls-0.7.0.min.js",
-                       "~/Scripts/common.js",
+      
                        "~/Scripts/app.js",
                        "~/Scripts/libs/angular/i18n/angular-locale_no.js"));
 
