@@ -51,7 +51,7 @@ module Controllers {
                 this.previousButtonDisabled = this.isPreviousButtonDisabled();
                 this.daysFromNow += todaysGames.numberOfDaysFromToday;
                 this.todaysDate = this.getTodaysDatePlusDays(this.daysFromNow);
-            });;
+            });
         };
 
 

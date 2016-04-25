@@ -40,7 +40,6 @@ var Controllers;
                 _this.daysFromNow += todaysGames.numberOfDaysFromToday;
                 _this.todaysDate = _this.getTodaysDatePlusDays(_this.daysFromNow);
             });
-            ;
         };
         ;
         TodaysGamesController.prototype.isNextButtonDisabled = function () {
