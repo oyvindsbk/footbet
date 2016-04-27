@@ -4,7 +4,6 @@ using Microsoft.AspNet.Identity;
 
 namespace Footbet.Controllers
 {
-    [System.Web.Mvc.Authorize]
     public class Common : Controller
     {
         public string GetUserId()

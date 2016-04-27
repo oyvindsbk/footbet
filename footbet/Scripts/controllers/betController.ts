@@ -46,7 +46,7 @@ module Controllers {
         private save() {
             this.betBaseController.modelChanged = false;
             this.numberOfIncompleteGames = this.betBaseController.validateIfUserBetIsComplete();
-            if (this.numberOfIncompleteGames == 64) {
+            if (this.numberOfIncompleteGames === 64) {
                 this.betBaseController.errorMessage = "Fyll inn resultater!";
                 return;
             }
@@ -58,7 +58,7 @@ module Controllers {
                     this.betBaseController.modelChanged = true;
                     this.betBaseController.errorMessage = response.ExceptionMessage;
                 } else {
-                    if (this.numberOfIncompleteGames == 0) {
+                    if (this.numberOfIncompleteGames === 0) {
                         this.betBaseController.successMessage = response;
                     } else {
                         this.betBaseController.errorMessage = "Ditt spill er lagret, men du mangler noen resultater. Husk å fyll inn disse før VM starter!";
@@ -69,3 +69,7 @@ module Controllers {
     }
 
 }
+
+angular
+    .module("footballCompApp")
+    .controller("BetController", Controllers.BetController);

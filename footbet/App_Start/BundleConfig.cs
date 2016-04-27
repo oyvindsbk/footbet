@@ -8,10 +8,14 @@ namespace Footbet
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-           // Use the development version of Modernizr to develop with and learn from. Then, when you're
+            // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-//            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-//                        "~/Scripts/libs/modernizr-*"));
+            //            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+            //                        "~/Scripts/libs/modernizr-*"));
+
+            bundles.Add(new ScriptBundle("~/bundles/base").Include(
+                       "~/Scripts/app.js",
+                       "~/Scripts/viewModels/ViewModels.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/libs/bootstrap.js",
@@ -33,13 +37,11 @@ namespace Footbet
                        "~/Scripts/libs/angular-ui-bootstrap/ui-bootstrap-0.7.0.min.js",
                        "~/Scripts/libs/angular-ui-bootstrap/ui-bootstrap-tpls-0.7.0.min.js",
       
-                       "~/Scripts/app.js",
+                       
                        "~/Scripts/libs/angular/i18n/angular-locale_no.js"));
 
             bundles.Add(new ScriptBundle("~/scriptbundles/betbundle").Include(
-                "~/Scripts/services/betService.js",
-                "~/Scripts/directives/betDirectives.js"
-                ));
+                "~/Scripts/services/betService.js"));
 
             bundles.Add(new ScriptBundle("~/scriptbundles/leaguebundle").Include(
                "~/Scripts/controllers/leagueController.js",

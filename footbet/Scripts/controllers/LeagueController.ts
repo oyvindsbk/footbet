@@ -74,3 +74,7 @@ module Controllers {
     }
 
 }
+
+angular
+    .module("footballCompApp")
+    .controller("LeagueController", Controllers.LeagueController);

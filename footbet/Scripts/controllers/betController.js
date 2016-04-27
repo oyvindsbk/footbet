@@ -38,7 +38,7 @@ var Controllers;
             var _this = this;
             this.betBaseController.modelChanged = false;
             this.numberOfIncompleteGames = this.betBaseController.validateIfUserBetIsComplete();
-            if (this.numberOfIncompleteGames == 64) {
+            if (this.numberOfIncompleteGames === 64) {
                 this.betBaseController.errorMessage = "Fyll inn resultater!";
                 return;
             }
@@ -50,7 +50,7 @@ var Controllers;
                     _this.betBaseController.errorMessage = response.ExceptionMessage;
                 }
                 else {
-                    if (_this.numberOfIncompleteGames == 0) {
+                    if (_this.numberOfIncompleteGames === 0) {
                         _this.betBaseController.successMessage = response;
                     }
                     else {
@@ -68,3 +68,7 @@ var Controllers;
     })();
     Controllers.BetController = BetController;
 })(Controllers || (Controllers = {}));
+angular
+    .module("footballCompApp")
+    .controller("BetController", Controllers.BetController);
+//# sourceMappingURL=BetController.js.map

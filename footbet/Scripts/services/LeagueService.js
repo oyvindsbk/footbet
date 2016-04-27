@@ -66,3 +66,4 @@ var Services;
     })();
     Services.LeagueService = LeagueService;
 })(Services || (Services = {}));
+//# sourceMappingURL=LeagueService.js.map

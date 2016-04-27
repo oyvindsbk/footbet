@@ -2,8 +2,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.ReturnUrl = "/League";
 }
-@Scripts.Render("~/scriptbundles/betbundle")
-@Scripts.Render("~/scriptbundles/betctrl")
 <div ng-app="footballCompApp">
     <div ng-controller="FootballCompAppCtrl">
         <form ng-submit="save()">

@@ -68,8 +68,12 @@ var Controllers;
     })();
     Controllers.TodaysGamesController = TodaysGamesController;
 })(Controllers || (Controllers = {}));
+angular
+    .module("footballCompApp")
+    .controller("TodaysGamesController", Controllers.TodaysGamesController);
 Date.prototype.addDays = function (days) {
     var date = new Date(this.valueOf());
     date.setDate(date.getDate() + days);
     return date;
 };
+//# sourceMappingURL=TodaysGamesController.js.map

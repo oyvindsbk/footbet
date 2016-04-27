@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>@ViewBag.Title - Tipping VM 2014</title>
         @Styles.Render("~/Content/css")
+        <script type="text/javascript" src="~/node_modules/jquery/dist/jquery.min.js"></script>
         <script type="text/javascript" src="~/node_modules/angular/angular.min.js"></script>        
-        @Scripts.Render("~/bundles/bootstrap")
-        @Scripts.Render("~/bundles/angular")
+        <script type="text/javascript" src="~/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>        
         @RenderSection("scripts", false)
     </head>
 <body>
@@ -73,7 +73,23 @@
         <div class="col-lg-2 col-md-1 hidden-sm hidden-xs">
         </div>
     </div>
+    <script src="../../Scripts/services/BetBaseController.js" type="text/javascript"></script>
+    <script src="../../Scripts/services/LeaderBoardService.js" type="text/javascript"></script>
+    <script src="../../Scripts/services/LeagueService.js" type="text/javascript"></script>
+    <script src="../../Scripts/services/BetService.js" type="text/javascript"></script>
+    <script src="../../Scripts/services/LeaderBoardService.js" type="text/javascript"></script>
+    <script src="../../Scripts/services/LeagueService.js" type="text/javascript"></script>
+    <script src="../../Scripts/services/TodaysGamesService.js" type="text/javascript"></script>
 
+    <script src="../../Scripts/app.js" type="text/javascript"></script>
+    <script src="../../Scripts/controllers/BetController.js" type="text/javascript"></script>
+    <script src="../../Scripts/controllers/LeaderBoardController.js" type="text/javascript"></script>
+    <script src="../../Scripts/controllers/LeagueController.js" type="text/javascript"></script>
+    <script src="../../Scripts/controllers/ResultController.js" type="text/javascript"></script>
+    <script src="../../Scripts/controllers/TodaysGamesController.js" type="text/javascript"></script>
+    <script src="../../Scripts/controllers/UserBetController.js" type="text/javascript"></script>
+    <script src="../../Scripts/controllers/ResultPageController.js" type="text/javascript"></script>
+    <script src="../../Scripts/viewModels/ViewModels.js" type="text/javascript"></script>
 </body>
 
 </html>

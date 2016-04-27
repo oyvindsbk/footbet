@@ -45,3 +45,7 @@ module Controllers {
         }
     }
 }
+
+angular
+    .module("footballCompApp")
+    .controller("ResultPageController", Controllers.ResultPageController);

@@ -10,7 +10,7 @@ var Services;
                 url: "../ResultPage/GetResults",
                 method: "POST"
             }).error(function (data, status) {
-                betBaseController.errorMessage = status;
+                return status;
             });
             return response;
         };
@@ -30,3 +30,4 @@ var Services;
     })();
     Services.ResultPageService = ResultPageService;
 })(Services || (Services = {}));
+//# sourceMappingURL=ResultPageService.js.map

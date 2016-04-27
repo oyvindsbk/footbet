@@ -12,6 +12,7 @@ CREATE TABLE [dbo].[Groups](
 	[Name] [varchar](55) NOT NULL,
 	[WinnerTeamCode] [varchar](55) NULL,
 	[RunnerUpTeamCode] [varchar](55) NULL,
+	[ThirdPlaceTeamCode] [varchar](55) NULL,
 	[WinnerGameCode] [varchar](55) NULL,
 	[RunnerUpGameCode] [varchar](55) NULL,
 	[SportsEventId] [int] NOT NULL FOREIGN KEY REFERENCES SportsEvents(Id)

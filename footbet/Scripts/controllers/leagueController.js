@@ -70,3 +70,7 @@ var Controllers;
     })();
     Controllers.LeagueController = LeagueController;
 })(Controllers || (Controllers = {}));
+angular
+    .module("footballCompApp")
+    .controller("LeagueController", Controllers.LeagueController);
+//# sourceMappingURL=LeagueController.js.map

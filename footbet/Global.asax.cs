@@ -24,7 +24,7 @@ namespace Footbet
                     .CreateAndConfigure()
                     .InitializeWebApiInfrastructure();
 
-            //Database.SetInitializer(new InitializeUserDb());
+            Database.SetInitializer(new InitializeUserDb());
             Database.SetInitializer<FootBetDbContext>(null);
 
         }

@@ -14,7 +14,5 @@
                     url: "../User/GetUsers"
                 });
         }
-
-      
     }
 }

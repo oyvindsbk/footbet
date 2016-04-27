@@ -40,3 +40,4 @@ var Services;
     })();
     Services.TodaysGamesService = TodaysGamesService;
 })(Services || (Services = {}));
+//# sourceMappingURL=TodaysGamesService.js.map

@@ -39,3 +39,7 @@ module Controllers {
         }
     }
 }
+
+angular
+    .module("footballCompApp")
+    .controller("LeaderboardController", Controllers.LeaderboardController);

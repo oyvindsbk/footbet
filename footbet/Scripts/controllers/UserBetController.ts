@@ -71,3 +71,6 @@ module Controllers {
 
     }
 }
+angular
+    .module("footballCompApp")
+    .controller("UserBetController", Controllers.UserBetController);

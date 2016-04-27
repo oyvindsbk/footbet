@@ -38,3 +38,7 @@ var Controllers;
     })();
     Controllers.ResultController = ResultController;
 })(Controllers || (Controllers = {}));
+angular
+    .module("footballCompApp")
+    .controller("ResultController", Controllers.ResultController);
+//# sourceMappingURL=ResultController.js.map

@@ -50,3 +50,4 @@ var Services;
     })();
     Services.BetService = BetService;
 })(Services || (Services = {}));
+//# sourceMappingURL=BetService.js.map

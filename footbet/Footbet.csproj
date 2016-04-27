@@ -320,8 +320,8 @@
     <Content Include="Database\Inserts\01 EventsInsert.sql" />
     <Content Include="Database\Inserts\02 GroupInsert.sql" />
     <Content Include="Database\Inserts\03 TeamInsert.sql" />
-    <Content Include="Database\Inserts\04 GameInsert.sql" />
-    <Content Include="Database\Inserts\04 PlayoffGameInsert.sql" />
+    <Content Include="Database\Inserts\04 Games insert 2016.sql" />
+    <Content Include="Database\Inserts\04 Games insert 2014.sql" />
     <Content Include="Database\Inserts\05 TeamGameInsert.sql" />
     <Content Include="Database\Inserts\07 ScoreBasis.sql" />
     <Content Include="Database\Inserts\06 PlayoffGameDetailsInsert.sql" />
@@ -333,23 +333,10 @@
     <Content Include="Resources\brasil-wrong-old.txt" />
     <Content Include="Resources\brasil-games.txt" />
     <Content Include="Resources\brasil-teams.txt" />
-    <Content Include="Scripts\app.js" />
-    <Content Include="Scripts\controllers\betController.js" />
-    <Content Include="Scripts\controllers\todaysGamesController.js" />
-    <Content Include="Scripts\controllers\resultPageController.js" />
-    <Content Include="Scripts\controllers\userBetController.js" />
-    <Content Include="Scripts\directives\betDirectives.js" />
-    <Content Include="Scripts\services\betService.js" />
-    <Content Include="Scripts\controllers\leaderboardController.js" />
-    <Content Include="Scripts\controllers\leagueController.js" />
-    <Content Include="Scripts\controllers\resultController.js" />
     <Content Include="fonts\brasil.otf" />
     <Content Include="fonts\brasil.eot" />
     <None Include="Properties\PublishProfiles\brasilvm - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\brasilvm - Web Deploy.pubxml" />
-    <Content Include="Scripts\services\todaysGamesService.js" />
-    <Content Include="Scripts\services\leaderboardService.js" />
-    <Content Include="Scripts\services\leagueService.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -404,6 +391,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\app.ts" />
     <TypeScriptCompile Include="Scripts\controllers\BetController.ts" />
     <TypeScriptCompile Include="Scripts\controllers\LeaderboardController.ts" />
     <TypeScriptCompile Include="Scripts\controllers\LeagueController.ts" />

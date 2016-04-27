@@ -62,3 +62,7 @@ var Controllers;
     })();
     Controllers.UserBetController = UserBetController;
 })(Controllers || (Controllers = {}));
+angular
+    .module("footballCompApp")
+    .controller("UserBetController", Controllers.UserBetController);
+//# sourceMappingURL=UserBetController.js.map

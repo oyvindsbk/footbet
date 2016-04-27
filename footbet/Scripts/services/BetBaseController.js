@@ -250,3 +250,4 @@ var Services;
     })();
     Services.BetBaseController = BetBaseController;
 })(Services || (Services = {}));
+//# sourceMappingURL=BetBaseController.js.map

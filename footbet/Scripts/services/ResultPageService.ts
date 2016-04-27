@@ -13,8 +13,8 @@
                     url: "../ResultPage/GetResults",
                     method: "POST"
                 }).error(function (data, status) {
-                    betBaseController.errorMessage = status;
-                });
+                return status;
+            });
             return response;
         }
 

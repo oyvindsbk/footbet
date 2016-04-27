@@ -12,7 +12,6 @@ using Microsoft.AspNet.Identity;
 
 namespace Footbet.Controllers
 {
-    [Authorize]
     public class BetController : Common
     {
         private readonly IUserBetRepository _userBetRepository;
