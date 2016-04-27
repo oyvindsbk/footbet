@@ -195,7 +195,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="CastleWindsor\Bootstrapper.cs" />
-    <Compile Include="CastleWindsor\Facilities\EntityFrameworkFacility.cs" />
     <Compile Include="CastleWindsor\Installers\AdditionalInstallers.cs" />
     <Compile Include="CastleWindsor\Installers\ControllerInstaller.cs" />
     <Compile Include="CastleWindsor\Installers\PersistenceInstaller.cs" />
@@ -335,12 +334,22 @@
     <Content Include="Resources\brasil-games.txt" />
     <Content Include="Resources\brasil-teams.txt" />
     <Content Include="Scripts\app.js" />
-    <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\controllers\betController.js" />
+    <Content Include="Scripts\controllers\todaysGamesController.js" />
+    <Content Include="Scripts\controllers\resultPageController.js" />
+    <Content Include="Scripts\controllers\userBetController.js" />
     <Content Include="Scripts\directives\betDirectives.js" />
+    <Content Include="Scripts\services\betService.js" />
+    <Content Include="Scripts\controllers\leaderboardController.js" />
+    <Content Include="Scripts\controllers\leagueController.js" />
+    <Content Include="Scripts\controllers\resultController.js" />
     <Content Include="fonts\brasil.otf" />
     <Content Include="fonts\brasil.eot" />
     <None Include="Properties\PublishProfiles\brasilvm - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\brasilvm - Web Deploy.pubxml" />
+    <Content Include="Scripts\services\todaysGamesService.js" />
+    <Content Include="Scripts\services\leaderboardService.js" />
+    <Content Include="Scripts\services\leagueService.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -376,6 +385,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="CastleWindsor\Facilities\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
