@@ -22,7 +22,7 @@
             private orderByFilter) {}
 
         public loadModel(userName): void {
-            this.$resource(`../Bet/GetBasisForBet/${userName}`).query(null, (betViewModel) => {
+            this.$resource(`../Bet/GetBasisForBet/${userName}`).get((betViewModel) => {
                 this.groups = betViewModel.Groups;
                 this.initializeGroupsForBet();
                 this.initializePlayoffGamesForBet(betViewModel.PlayoffGames);
@@ -133,7 +133,7 @@
 
         initializePlayoffGamesForBet(playoffGames: IGame[]) {
             angular.forEach(playoffGames, playoffGame => {
-                playoffGame.playoffGameDetails = playoffGame.playoffGameDetails[0];
+                playoffGame.PlayoffGameDetails = playoffGame.PlayoffGameDetails[0];
             });
             this.playoffGames = playoffGames;
         }
@@ -174,23 +174,23 @@
             var isHomeTeam: boolean;
             var proceedingTeam: ITeam;
             var nextGameId: number;
-            if (playoffGame.playoffGameDetails.nextPlayoffGame != null) {
+            if (playoffGame.PlayoffGameDetails.nextPlayoffGame != null) {
                 proceedingTeam = this.getWinnerOfGame(playoffGame);
 
                 if (proceedingTeam == null) return;
 
-                isHomeTeam = playoffGame.playoffGameDetails.isHomeTeamNextGame;
-                nextGameId = playoffGame.playoffGameDetails.nextPlayoffGame;
+                isHomeTeam = playoffGame.PlayoffGameDetails.isHomeTeamNextGame;
+                nextGameId = playoffGame.PlayoffGameDetails.nextPlayoffGame;
                 this.setNextPlayoffGame(nextGameId, proceedingTeam, isHomeTeam);
             }
 
-            if (playoffGame.playoffGameDetails.nextPlayoffGameRunnerUp != null) {
+            if (playoffGame.PlayoffGameDetails.nextPlayoffGameRunnerUp != null) {
                 proceedingTeam = this.getRunnerUpOfGame(playoffGame);
 
                 if (proceedingTeam == null) return;
 
-                isHomeTeam = playoffGame.playoffGameDetails.isHomeTeamInRunnerUpGame;
-                nextGameId = playoffGame.playoffGameDetails.nextPlayoffGameRunnerUp;
+                isHomeTeam = playoffGame.PlayoffGameDetails.isHomeTeamInRunnerUpGame;
+                nextGameId = playoffGame.PlayoffGameDetails.nextPlayoffGameRunnerUp;
                 this.setNextPlayoffGame(nextGameId, proceedingTeam, isHomeTeam);
             }
 

@@ -2,7 +2,6 @@
 /// <reference path="../../typings/angularjs/angular-resource.d.ts" />
 module Controllers {
     "use strict";
-
     export class LeaderboardController {
         leaderboard: Services.ILeaderboard;
         headerText: string = "";

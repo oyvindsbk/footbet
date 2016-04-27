@@ -62,10 +62,12 @@ var Controllers;
         ;
         BetController.$inject = [
             "$scope",
-            "$window"
+            "$window",
+            "betBaseController",
+            "betService"
         ];
         return BetController;
-    })();
+    }());
     Controllers.BetController = BetController;
 })(Controllers || (Controllers = {}));
 angular

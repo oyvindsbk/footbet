@@ -65,4 +65,3 @@ var Controllers;
 angular
     .module("footballCompApp")
     .controller("UserBetController", Controllers.UserBetController);
-//# sourceMappingURL=UserBetController.js.map

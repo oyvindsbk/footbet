@@ -12,7 +12,7 @@ var Services;
         }
         BetBaseController.prototype.loadModel = function (userName) {
             var _this = this;
-            this.$resource("../Bet/GetBasisForBet/" + userName).query(null, function (betViewModel) {
+            this.$resource("../Bet/GetBasisForBet/" + userName).get(function (betViewModel) {
                 _this.groups = betViewModel.Groups;
                 _this.initializeGroupsForBet();
                 _this.initializePlayoffGamesForBet(betViewModel.PlayoffGames);
@@ -250,4 +250,3 @@ var Services;
     })();
     Services.BetBaseController = BetBaseController;
 })(Services || (Services = {}));
-//# sourceMappingURL=BetBaseController.js.map

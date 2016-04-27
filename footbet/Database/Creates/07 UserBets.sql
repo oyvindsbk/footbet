@@ -11,7 +11,9 @@ CREATE TABLE [dbo].[UserBets](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[SportsEventId] int NOT NULL FOREIGN KEY REFERENCES SportsEvents(Id),
 	[UserId] [varchar](255) NOT NULL, 
-	[IsResultBet] bit NOT NULL
+	[IsResultBet] bit NOT NULL,
+	[CreatedAt] [datetime] NOT NULL,
+
  CONSTRAINT [PrimaryKey_1055e9b1-54a2-4452-b154-79f38c806047] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC

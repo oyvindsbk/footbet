@@ -3,10 +3,10 @@
     ViewBag.ReturnUrl = "/League";
 }
 <div ng-app="footballCompApp">
-    <div ng-controller="FootballCompAppCtrl">
+    <div ng-controller="BetController as ctl">
         <form ng-submit="save()">
-            <h2>Opprett ditt spill <span class="errorText" ng-show="numberOfIncompleteGames > 0">{{userBetIncompleteMessage}}</span></h2>
-            <div ng-show="betBaseController.groups">
+            <h2>Opprett ditt spill <span class="errorText" ng-show="ctl.numberOfIncompleteGames > 0">{{ctl.userBetIncompleteMessage}}</span></h2>
+            <div ng-show="ctl.betBaseController.groups">
                 @Html.Partial("_betPartial")
             </div>
         </form>

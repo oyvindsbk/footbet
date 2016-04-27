@@ -10,6 +10,7 @@ GO
 
 CREATE TABLE [dbo].[UserScores](
 	[Score] [int] NOT NULL,
+	[PlayoffScore] [int] NULL,
 	[SportsEventId] int NOT NULL FOREIGN KEY REFERENCES SportsEvents(Id),
 	[UserId] [varchar](255) NOT NULL,
 	[Id] [int] IDENTITY(1,1) NOT NULL,

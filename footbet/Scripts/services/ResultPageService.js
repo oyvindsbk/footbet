@@ -30,4 +30,3 @@ var Services;
     })();
     Services.ResultPageService = ResultPageService;
 })(Services || (Services = {}));
-//# sourceMappingURL=ResultPageService.js.map
