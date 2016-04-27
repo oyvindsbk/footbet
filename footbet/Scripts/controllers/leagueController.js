@@ -73,4 +73,3 @@ var Controllers;
 angular
     .module("footballCompApp")
     .controller("LeagueController", Controllers.LeagueController);
-//# sourceMappingURL=LeagueController.js.map

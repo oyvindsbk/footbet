@@ -40,4 +40,3 @@ var Controllers;
 angular
     .module("footballCompApp")
     .controller("LeaderboardController", Controllers.LeaderboardController);
-//# sourceMappingURL=LeaderboardController.js.map

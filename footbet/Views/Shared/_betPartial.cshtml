@@ -1,5 +1,5 @@
 ﻿
-<div class="row" ng-repeat="group in betBaseController.groups">
+<div class="row" ng-repeat="group in ctl.betBaseController.groups">
 
     <div class="span6">
         <div class="headerGroups span3">{{group.Name}}</div>
@@ -55,7 +55,7 @@
 <div class="span7">
     <table class="table-condensed scoreInputTable">
         
-        <tr ng-repeat="playoffGame in betBaseController.playoffGames">
+        <tr ng-repeat="playoffGame in ctl.betBaseController.playoffGames">
             <td class="hidden-xs hidden-sm">{{playoffGame.StartTime}}</td>
             <td>{{playoffGame.Name}}</td>
             <td class="text-right" ng-hide="playoffGame.HomeTeam">
@@ -79,8 +79,8 @@
         </tr>
     </table>
     <div class="row">
-        <input class="save-bet-btn span2" ng-disabled="!betBaseController.modelChanged" ng-attr-title="{{!betBaseController.modelChanged && 'Gjør endring for å lagre' || '' }}" type="submit" value="Lagre" />
-        <p class="errorText span4" ng-show="betBaseController.errorMessage.length > 0">{{betBaseController.errorMessage}}</p>
-        <p class="text-success span4" ng-show="betBaseController.successMessage.length > 0">{{betBaseController.successMessage}}</p>
+        <input class="save-bet-btn span2" ng-disabled="!ctl.betBaseController.modelChanged" ng-attr-title="{{!betBaseController.modelChanged && 'Gjør endring for å lagre' || '' }}" type="submit" value="Lagre" />
+        <p class="errorText span4" ng-show="ctl.betBaseController.errorMessage.length > 0">{{ctl.betBaseController.errorMessage}}</p>
+        <p class="text-success span4" ng-show="ctl.betBaseController.successMessage.length > 0">{{ctl.betBaseController.successMessage}}</p>
     </div>
 </div>

@@ -62,7 +62,9 @@ var Controllers;
         ;
         BetController.$inject = [
             "$scope",
-            "$window"
+            "$window",
+            "betBaseController",
+            "betService"
         ];
         return BetController;
     })();
@@ -71,4 +73,3 @@ var Controllers;
 angular
     .module("footballCompApp")
     .controller("BetController", Controllers.BetController);
-//# sourceMappingURL=BetController.js.map

@@ -18,4 +18,3 @@ var Services;
     })();
     Services.UserBetService = UserBetService;
 })(Services || (Services = {}));
-//# sourceMappingURL=UserBetService.js.map

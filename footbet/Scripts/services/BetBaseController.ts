@@ -22,7 +22,7 @@
             private orderByFilter) {}
 
         public loadModel(userName): void {
-            this.$resource(`../Bet/GetBasisForBet/${userName}`).query(null, (betViewModel) => {
+            this.$resource(`../Bet/GetBasisForBet/${userName}`).get((betViewModel) => {
                 this.groups = betViewModel.Groups;
                 this.initializeGroupsForBet();
                 this.initializePlayoffGamesForBet(betViewModel.PlayoffGames);

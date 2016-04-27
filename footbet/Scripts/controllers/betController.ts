@@ -9,7 +9,9 @@ module Controllers {
         private userBetIncompleteMessage: string;
         static $inject = [
             "$scope",
-            "$window"
+            "$window",
+            "betBaseController",
+            "betService"
         ];
 
         constructor(

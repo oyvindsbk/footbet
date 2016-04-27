@@ -48,4 +48,3 @@ var Controllers;
 angular
     .module("footballCompApp")
     .controller("ResultPageController", Controllers.ResultPageController);
-//# sourceMappingURL=ResultPageController.js.map
