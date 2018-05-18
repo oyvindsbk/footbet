@@ -7,6 +7,8 @@ using System.Web.Routing;
 using Footbet.CastleWindsor;
 using Footbet.CastleWindsor.Web;
 using Footbet.Data;
+using Newtonsoft.Json.Serialization;
+using System.Web.Http;
 
 namespace Footbet
 {
@@ -23,8 +25,8 @@ namespace Footbet
             Bootstrapper
                     .CreateAndConfigure()
                     .InitializeWebApiInfrastructure();
-
             Database.SetInitializer(new InitializeUserDb());
+            
             Database.SetInitializer<FootBetDbContext>(null);
 
         }

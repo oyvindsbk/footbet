@@ -117,7 +117,7 @@ var Services;
         };
         BetBaseController.prototype.initializePlayoffGamesForBet = function (playoffGames) {
             angular.forEach(playoffGames, function (playoffGame) {
-                playoffGame.playoffGameDetails = playoffGame.playoffGameDetails[0];
+                playoffGame.playoffGameDetails = playoffGame.PlayoffGameDetails[0];
             });
             this.playoffGames = playoffGames;
         };

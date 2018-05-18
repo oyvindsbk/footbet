@@ -1,0 +1,15 @@
+{
+	"compileOnSave": true,
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es3",
+        "noImplicitAny": false,
+        "outDir": "built",
+        "rootDir": ".",
+        "sourceMap": true,
+		"watch": true
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}

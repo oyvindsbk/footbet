@@ -47,7 +47,7 @@ module Services {
         homeTeam: ITeam;
         awayTeam: ITeam;
         teamGames: ITeamGame[];
-        PlayoffGameDetails: IPlayoffGameDetails;
+        playoffGameDetails: IPlayoffGameDetails;
     }
 
     export interface IPlayoffGameDetails {
