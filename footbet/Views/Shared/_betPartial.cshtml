@@ -34,7 +34,7 @@
             </tr>
         </thead>
         <tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="team in group.teams">
-            <td>{{team.name}}</td>
+            <td>{{$index+1}} <span class="flag {{team.flag}}"></span> {{team.name}}</td>
             <td>{{team.goalsScored}}</td>
             <td>{{team.goalsConceded}}</td>
             <td>{{team.sumGoals}}</td>
