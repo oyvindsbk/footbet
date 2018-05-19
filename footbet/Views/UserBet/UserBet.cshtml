@@ -12,7 +12,7 @@
             <h1 ng-show="showSearch">Søk etter spiller (brukernavn)</h1>
             <div class="row" ng-show="showSearch">
                 <form class='container-fluid' ng-submit="searchUserBet()">
-                    <input type="text" class="span6" ng-show="users.length > 0" ng-model="selectedUser" typeahead="user.UserName for user in users | filter:$viewValue | limitTo:8 | orderBy:'UserName'" class=" form-control">
+                    <input type="text" class="span6" ng-show="users.length > 0" ng-model="selectedUser" typeahead="user.userName for user in users | filter:$viewValue | limitTo:8 | orderBy:'userName'" class=" form-control">
                     <input class="span2" ng-disabled="!selectedUser" type="submit" value="Søk" />
                     <p class="errorText span4" ng-show="errorMessage.length > 0">{{errorMessage}}</p>
                 </form>

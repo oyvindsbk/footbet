@@ -10,10 +10,10 @@
             </tr>
         </thead>
         <tr ng-class-odd="'odd'" ng-click="showLeague(league)" ng-class-even="'even'" ng-repeat="league in leagues">
-            <td><b>{{league.Name}}</b></td>
-            <td>{{league.CurrentUsersPosition}}</td>
-            <td>{{league.NumberOfMembers}}</td>
-            <td><span ng-hide="league.Guid == 'DefaultLeague'">{{league.Guid}}</span></td>
+            <td><b>{{league.name}}</b></td>
+            <td>{{league.currentUsersPosition}}</td>
+            <td>{{league.numberOfMembers}}</td>
+            <td><span ng-hide="league.guid == 'DefaultLeague'">{{league.guid}}</span></td>
         </tr>
 
     </table>

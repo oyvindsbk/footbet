@@ -11,13 +11,13 @@
                 <th>Poeng totalt</th>
             </tr>
         </thead>
-        <tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="user in leaderboard | orderBy: '-Points'">
+        <tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="user in leaderboard | orderBy: '-points'">
             <td>{{user.Position}}</td>
-            <td><a href="/UserBet?username={{user.UserName}}" ng-click="showUserBet(user.UserName)">{{user.Name}}</a></td>
-            <td>{{user.UserName}}</td>
-            <td>{{user.Points - user.PlayoffScore}}</td>
-            <td>{{user.PlayoffScore}}</td>
-            <td>{{user.Points}}</td>
+            <td><a href="/UserBet?username={{user.UserName}}" ng-click="showUserBet(user.userName)">{{user.name}}</a></td>
+            <td>{{user.userName}}</td>
+            <td>{{user.points - user.playoffScore}}</td>
+            <td>{{user.playoffScore}}</td>
+            <td>{{user.points}}</td>
         </tr>
     </table>
 </div>

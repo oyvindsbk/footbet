@@ -20,15 +20,15 @@
             </ul>
             </div>
             <div class="container-fluid">
-                <div ng-repeat="game in todaysGames | orderBy: 'StartTime'">
+                <div ng-repeat="game in todaysGames | orderBy: 'startTime'">
                 <div class="row todays-games-list todays-games-list-item" ng-click="areDetailsShown = !areDetailsShown">
-                        <div class="nopadding col-lg-3 col-md-3 hidden-xs hidden-sm">{{game.StartTime}}</div>
+                        <div class="nopadding col-lg-3 col-md-3 hidden-xs hidden-sm">{{game.startTime}}</div>
                     <div class="col-lg-8 col-md-8">
-                        {{game.HomeTeam.Name}}
-                        <span class="flag {{game.HomeTeam.Flag}}"></span>
-                        <span class="todays-games-list-score">{{game.HomeGoals}} - {{game.AwayGoals}}</span>
-                        <span class="flag {{game.AwayTeam.Flag}}"></span>
-                        {{game.AwayTeam.Name}}
+                        {{game.homeTeam.Name}}
+                        <span class="flag {{game.homeTeam.flag}}"></span>
+                        <span class="todays-games-list-score">{{game.homeGoals}} - {{game.awayGoals}}</span>
+                        <span class="flag {{game.awayTeam.flag}}"></span>
+                        {{game.awayTeam.name}}
                     </div>
                 </div>
                 <div class="todays-games-list-results" ng-show="areDetailsShown" ng-repeat="(score, users) in game.Bets">
