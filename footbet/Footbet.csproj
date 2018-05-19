@@ -215,6 +215,7 @@
     <Compile Include="Controllers\TodaysGamesController.cs" />
     <Compile Include="Controllers\UserBetController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Extentions\DateTimeExtention.cs" />
     <Compile Include="Models\DomainModels\TodaysGamesSpecification.cs" />
     <Compile Include="Models\DomainModels\ApplicationUser.cs" />
     <Compile Include="Models\TodaysGamesViewModel.cs" />
@@ -295,6 +296,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\flags.css" />
+    <Content Include="Content\images\1200px-2018_FIFA_World_Cup.png" />
     <Content Include="Content\images\brasil-medium.PNG" />
     <Content Include="Content\images\brasil-small.PNG" />
     <Content Include="Content\images\brasil.png" />
@@ -325,10 +327,16 @@
     <Content Include="Database\Inserts\05 TeamGameInsert.sql" />
     <Content Include="Database\Inserts\07 ScoreBasis.sql" />
     <Content Include="Database\Inserts\06 PlayoffGameDetailsInsert.sql" />
+    <Content Include="Database\Inserts\2018\01 EventsInsert.sql" />
+    <Content Include="Database\Inserts\2018\02 GroupInsert.sql" />
+    <Content Include="Database\Inserts\2018\03 TeamInsert.sql" />
+    <Content Include="Database\Inserts\2018\04 GamesInsert.sql" />
+    <Content Include="Database\Inserts\2018\05 PlayoffGameDetailsInsert.sql" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="fonts\russia.ttf" />
     <None Include="Properties\PublishProfiles\russlandvm - Web Deploy.pubxml" />
     <None Include="Resources\brasil.txt" />
     <Content Include="Resources\brasil-wrong-old.txt" />

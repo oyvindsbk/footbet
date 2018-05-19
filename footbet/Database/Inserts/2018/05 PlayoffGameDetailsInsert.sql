@@ -1,30 +1,3 @@
-INSERT INTO [dbo].[PlayOffGameDetails]
-           ([NextPlayoffGame], [IsHomeTeamNextGame], [GameId],[HomeTeamDisplayName], [AwayTeamDisplayName])
-     VALUES
-           (109, 1, 101, 'A2', 'C2'), 
-		   (110, 1, 102, 'B1', '3rd A/C/D'), 
-		   (109, 0, 103, 'D1', '3rd B/E/F'), 
-		   (112, 1, 104, 'A1', '3rd C/D/E'),
-		   (111, 1, 105, 'C1', '3rd A/B/F'), 
-		   (110, 0, 106, 'F1', 'E2'),
-		   (111, 0, 107, 'E1', 'D2'), 
-		   (112, 0, 108, 'B21', 'F2'), 
-		   (113, 1, 109, 'Vinner 1', 'Vinner 3'), 
-		   (113, 0, 110, 'Vinner 2', 'Vinner 6'), 
-		   (114, 1, 111, 'Vinner 5', 'Vinner 7'), 
-		   (114, 0, 112, 'Vinner 4', 'Vinner 8')
-		   
-GO 
-
-
-INSERT INTO [dbo].[PlayOffGameDetails]
-           ([NextPlayoffGame], [IsHomeTeamNextGame], [GameId],[HomeTeamDisplayName], [AwayTeamDisplayName])
-     VALUES
-           (115, 1, 113, 'Vinner kvart 1', 'Vinner kvart 2'), 
-		   (115, 0, 114, 'Vinner kvart 3', 'Vinner kvart 4'),
-		   (null, null, 115, 'Vinner semi 1', 'Vinner semi 2')
-GO 
-
 
 INSERT INTO [dbo].[PlayOffGameDetails]
            ([NextPlayoffGame], [IsHomeTeamNextGame], [GameId],[HomeTeamDisplayName], [AwayTeamDisplayName])

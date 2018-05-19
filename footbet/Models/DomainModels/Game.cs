@@ -18,8 +18,8 @@ namespace Footbet.Models.DomainModels
         public int SportsEventId { get; set; }
         public int? GroupId { get; set; }
 
+
         public virtual ICollection<Bet> Bets { get; set; }
-        public virtual ICollection<TeamGame> TeamGames { get; set; }
         public virtual ICollection<PlayoffGameDetails> PlayoffGameDetails { get; set; }
     }
 }

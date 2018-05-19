@@ -6,7 +6,7 @@
 
         <table class="span6 table-condensed scoreInputTable">
             <tr ng-repeat="game in group.Games">
-                <td class="hidden-xs hidden-sm">{{game.StartTime | date:'dd.MM.yy HH:mm'}}</td>
+                <td class="hidden-xs hidden-sm">{{game.StartTime}}</td>
                 <td class="text-right">
                     {{game.HomeTeam.Name}}
                     <span class="flag {{game.HomeTeam.Flag}}"></span>
@@ -55,7 +55,7 @@
 <div class="span7">
     <table class="table-condensed scoreInputTable">
         <tr ng-repeat="playoffGame in betBaseController.playoffGames">
-            <td class="hidden-xs hidden-sm">{{playoffGame.StartTime | date:'dd.MM.yy HH:mm'}}</td>
+            <td class="hidden-xs hidden-sm">{{playoffGame.startTime}}</td>
             <td>{{playoffGame.Name}}</td>
             <td class="text-right" ng-hide="playoffGame.HomeTeam">
                 {{playoffGame.PlayoffGameDetails.HomeTeamDisplayName}}

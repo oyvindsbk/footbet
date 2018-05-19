@@ -47,8 +47,7 @@ namespace Footbet.Repositories
 
         public IList<Game> GetPlayOffGamesBySportsEventId(int sportsEventId)
         {
-            var games = GetGamesFromResource();
-            return games.Where(x => x.SportsEventId == sportsEventId && x.GameType != (int)GameType.GroupGame).ToList();
+            return _repository.FindBy(x => x.SportsEventId == sportsEventId && x.GameType != (int)GameType.GroupGame).ToList();
         }
 
         private IEnumerable<Game> GetGamesFromResource()

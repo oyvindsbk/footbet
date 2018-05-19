@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Resources;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using Footbet.Controllers.Helpers;
+using Footbet.Extentions;
 using Footbet.Models;
 using Footbet.Models.DomainModels;
 using Footbet.Repositories.Contracts;
@@ -18,13 +20,21 @@ namespace Footbet.Controllers
         private readonly JavaScriptSerializer _javaScriptSerializer;
         private readonly ITeamRepository _teamRepository;
         private readonly IUserRepository _userRepository;
+        private readonly IGroupRepository _groupRepository;
+        private readonly IGameRepository _gameRepository;
 
-        public BetController(JavaScriptSerializer javaScriptSerializer, IUserBetRepository userBetRepository, ITeamRepository teamRepository, IUserRepository userRepository)
+        public BetController(JavaScriptSerializer javaScriptSerializer,
+            IUserBetRepository userBetRepository,
+            ITeamRepository teamRepository,
+            IUserRepository userRepository,
+            IGroupRepository groupRepository, IGameRepository gameRepository)
         {
             _javaScriptSerializer = javaScriptSerializer;
             _userBetRepository = userBetRepository;
             _teamRepository = teamRepository;
             _userRepository = userRepository;
+            _groupRepository = groupRepository;
+            _gameRepository = gameRepository;
         }
 
         public ViewResult Index()
@@ -34,13 +44,23 @@ namespace Footbet.Controllers
 
         public ActionResult GetBasisForBet(string userName, int sportsEventId = 1)
         {
-
             if (userName == null)
             {
                 userName = User.Identity.GetUserName();
             }
 
             var gameSetup = Resources.gameSetupBrasil;
+            var groups = _groupRepository.GetGroupsBySportsEventId(sportsEventId).ToList();
+            if (groups != null)
+            {
+                var viewModel = new BetViewModel
+                {
+                    Groups = groups.Select(MapToGroupViewModel).ToList(),
+                    PlayoffGames = GetPlayoffGames()
+                };
+                return ToJsonResult(viewModel);
+            }
+
 
             var betViewModel = _javaScriptSerializer.Deserialize<BetViewModel>(gameSetup);
 
@@ -56,6 +76,60 @@ namespace Footbet.Controllers
             MapPlayoffBetsToGameViewModels(betViewModel.PlayoffGames, userBet);
 
             return ToJsonResult(betViewModel);
+        }
+
+        private List<GameViewModel> GetPlayoffGames()
+        {
+            var games = _gameRepository.GetPlayOffGamesBySportsEventId(1);
+
+            return games.Select(game => new GameViewModel
+                {
+                    PlayoffGameDetails = game.PlayoffGameDetails.ToList(),
+                    Id = game.Id,
+                    SportsEventId = game.SportsEventId,
+                    StartTime = game.StartTime.ToFormattedString(),
+                })
+                .ToList();
+        }
+
+        private static GroupViewModel MapToGroupViewModel(Group group)
+        {
+            return new GroupViewModel
+            {
+                Id = group.Id,
+                Name = group.Name,
+                RunnerUpGameCode = group.RunnerUpGameCode,
+                WinnerGameCode = group.WinnerGameCode,
+                SportsEventId = group.SportsEventId,
+                Teams = group.Teams.Select(team => MapToTeamViewModel(group, team)).ToList(),
+                Games = group.Games.Select(groupGame => MapGameViewModel(group, groupGame)).ToList()
+            };
+        }
+
+        private static TeamViewModel MapToTeamViewModel(Group group, Team team)
+        {
+            return new TeamViewModel
+            {
+                Flag = team.Flag,
+                GroupId = group.Id,
+                Id = team.Id,
+                Name = team.Name,
+                SportsEventId = team.SportsEventId
+            };
+        }
+
+        private static GameViewModel MapGameViewModel(Group group, Game groupGame)
+        {
+           return new GameViewModel
+            {
+                HomeTeam = group.Teams.First(x => x.Id == groupGame.HomeTeam),
+                AwayTeam = group.Teams.First(x => x.Id == groupGame.AwayTeam),
+                GameType = groupGame.GameType,
+                Id = groupGame.Id,
+                SportsEventId = groupGame.SportsEventId,
+                StartTime = groupGame.StartTime.ToFormattedString(),
+                Name = groupGame.Name
+            };
         }
 
         private UserBet GetUserBetForUserWithUserName(string userName)
@@ -76,16 +150,20 @@ namespace Footbet.Controllers
         {
             if (EventHasStarted())
             {
-                return CreateJsonError("Kvartfinale 5 har startet!");//"VM er i gang! For sent å lagre spill nå :)
+                return CreateJsonError("VM er i gang! For sent å lagre spill nå :)"); //
             }
 
-            var groupGamesResultViewModel = _javaScriptSerializer.Deserialize<List<GameResultViewModel>>(groupGamesResult);
-            var playoffGamesResultViewModel = _javaScriptSerializer.Deserialize<List<PlayoffBetViewModel>>(playoffGamesResult);
+            var groupGamesResultViewModel =
+                _javaScriptSerializer.Deserialize<List<GameResultViewModel>>(groupGamesResult);
+            var playoffGamesResultViewModel =
+                _javaScriptSerializer.Deserialize<List<PlayoffBetViewModel>>(playoffGamesResult);
 
-            var insertUserBetSuccess = CreateAndInsertUserBet(sportsEventId, groupGamesResultViewModel, playoffGamesResultViewModel);
+            var insertUserBetSuccess =
+                CreateAndInsertUserBet(sportsEventId, groupGamesResultViewModel, playoffGamesResultViewModel);
 
             if (!insertUserBetSuccess)
-                return CreateJsonError("Lagring mislyktes. Vennligst sørg for at ingen finalespillkamper ender uavgjort.");
+                return CreateJsonError(
+                    "Lagring mislyktes. Vennligst sørg for at ingen finalespillkamper ender uavgjort.");
 
             return Content("Ditt spill er lagret!");
         }
@@ -95,13 +173,15 @@ namespace Footbet.Controllers
             return DateTime.Now > new DateTime(2014, 06, 30, 16, 00, 00);
         }
 
-        private bool CreateAndInsertUserBet(int sportsEventId, IEnumerable<GameResultViewModel> groupGamesResultViewModel, List<PlayoffBetViewModel> playoffGamesResultViewModel)
+        private bool CreateAndInsertUserBet(int sportsEventId,
+            IEnumerable<GameResultViewModel> groupGamesResultViewModel,
+            List<PlayoffBetViewModel> playoffGamesResultViewModel)
         {
             var userId = GetUserId();
             var userBet = CreateUserBet(groupGamesResultViewModel, playoffGamesResultViewModel, sportsEventId, userId);
-            
+
             if (PlayoffBetsNotValid(userBet)) return false;
-            
+
             _userBetRepository.SaveOrUpdateUserBet(userBet);
 
             return true;
@@ -115,11 +195,13 @@ namespace Footbet.Controllers
         }
 
 
-        public UserBet CreateUserBet(IEnumerable<GameResultViewModel> gameResultViewModels, List<PlayoffBetViewModel> playoffGamesResultViewModel, int sportsEventId, string userId, bool isResultBet = false)
+        public UserBet CreateUserBet(IEnumerable<GameResultViewModel> gameResultViewModels,
+            List<PlayoffBetViewModel> playoffGamesResultViewModel, int sportsEventId, string userId,
+            bool isResultBet = false)
         {
             var userBet = new UserBet
             {
-                SportsEventId = sportsEventId, 
+                SportsEventId = sportsEventId,
                 UserId = userId,
                 IsResultBet = isResultBet,
                 Bets = new List<Bet>(),
@@ -155,7 +237,8 @@ namespace Footbet.Controllers
             gameViewModel.AwayGoals = matchingBet.AwayGoals;
         }
 
-        private List<PlayoffBet> ExtractBetsFromPlayOffGameResults(IEnumerable<PlayoffBetViewModel> playoffGamesResultViewModel, UserBet userBet)
+        private List<PlayoffBet> ExtractBetsFromPlayOffGameResults(
+            IEnumerable<PlayoffBetViewModel> playoffGamesResultViewModel, UserBet userBet)
         {
             var playoffBets = new List<PlayoffBet>();
             foreach (var playoffBetViewModel in playoffGamesResultViewModel)
@@ -165,9 +248,11 @@ namespace Footbet.Controllers
 //                    continue;
 //                }
 
-                var playoffBet = BetMappers.MapPlayoffGamesResultViewModelToPlayoffBets(playoffBetViewModel, userBet.Id);
+                var playoffBet =
+                    BetMappers.MapPlayoffGamesResultViewModelToPlayoffBets(playoffBetViewModel, userBet.Id);
                 playoffBets.Add(playoffBet);
             }
+
             return playoffBets;
         }
 
@@ -176,10 +261,11 @@ namespace Footbet.Controllers
             return playoffBetViewModel.HomeTeam == null && playoffBetViewModel.AwayTeam == null;
         }
 
-        private List<Bet> ExtractBetsFromGameResults(IEnumerable<GameResultViewModel> gameResultViewModels, UserBet userBet)
+        private List<Bet> ExtractBetsFromGameResults(IEnumerable<GameResultViewModel> gameResultViewModels,
+            UserBet userBet)
         {
-            return gameResultViewModels.Select(gameResultViewModel => BetMappers.MapGameResultViewModelToBet(gameResultViewModel, userBet.Id)).ToList();
+            return gameResultViewModels.Select(gameResultViewModel =>
+                BetMappers.MapGameResultViewModelToBet(gameResultViewModel, userBet.Id)).ToList();
         }
-
     }
 }

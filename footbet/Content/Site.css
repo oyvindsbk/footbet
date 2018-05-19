@@ -28,8 +28,7 @@
 
 @font-face {
     font-family: "BrasilFont";
-    src: url('../fonts/brasil.otf') format("opentype"),
-         url('../fonts/brasil.eot');
+    src: url('../fonts/russia.ttf') format("opentype");
 }
 
 /*style.css*/

@@ -146,10 +146,6 @@ INSERT INTO [dbo].[TeamGames]
 
 (48	,30	,1),
 (48	,31	,0)
-
-
-
-
 GO
 
 

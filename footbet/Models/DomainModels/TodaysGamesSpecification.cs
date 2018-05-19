@@ -16,6 +16,7 @@ namespace Footbet.Models.DomainModels
         public string Name { get; set; }
         public Team HomeTeam { get; set; }
         public Team AwayTeam { get; set; }
+        //TODO: IList<PlayoffGameDetails>->PlayoffGameDetails?
         public IList<PlayoffGameDetails> PlayoffGameDetails { get; set; }
         public Dictionary<string,List<string>> Bets { get; set; }
     }
