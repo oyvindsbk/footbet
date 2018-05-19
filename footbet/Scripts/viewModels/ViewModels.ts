@@ -87,7 +87,7 @@ module Services {
 
     export interface ITodaysGames {
         numberOfDaysFromToday: number;
-        todaysGamesSpecifications: ITodaysGamesSpecification[];
+        todaysGamesSpecification: ITodaysGamesSpecification[];
     }
 
     export interface ITodaysGamesSpecification {

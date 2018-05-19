@@ -18,7 +18,9 @@ module Controllers {
 
         constructor(private $scope: ng.IScope,
             private todaysGamesService: Services.TodaysGamesService) {
-
+            this.daysFromNow = 0;
+            
+            this.getNextGames();
         }
 
         private nextDay () {
@@ -33,30 +35,32 @@ module Controllers {
             this.getPreviousGames();
         }
 
-        private getNextGames () {
+        private getNextGames() {
+            this.nextButtonDisabled = true;
             this.todaysGamesService.getNextGames(this.daysFromNow).then(todaysGames => {
                 this.previousButtonDisabled = false;
-                this.todaysGames = todaysGames.todaysGamesSpecifications;
-                this.nextButtonDisabled = this.isNextButtonDisabled();
+                this.todaysGames = todaysGames.todaysGamesSpecification;
                 this.daysFromNow += todaysGames.numberOfDaysFromToday;
                 this.todaysDate = this.getTodaysDatePlusDays(this.daysFromNow);
+                this.nextButtonDisabled = this.isNextButtonDisabled();
 
             });
         }
 
         private getPreviousGames() {
+            this.previousButtonDisabled = true;
             this.todaysGamesService.getPreviousGames(this.daysFromNow).then(todaysGames => {
                 this.nextButtonDisabled = false;
-                this.todaysGames = todaysGames.todaysGamesSpecifications;
-                this.previousButtonDisabled = this.isPreviousButtonDisabled();
+                this.todaysGames = todaysGames.todaysGamesSpecification;
                 this.daysFromNow += todaysGames.numberOfDaysFromToday;
                 this.todaysDate = this.getTodaysDatePlusDays(this.daysFromNow);
+                this.previousButtonDisabled = this.isPreviousButtonDisabled();
             });
         };
 
 
         private isNextButtonDisabled () {
-            var eventEnds = new Date(2014, 6, 22);
+            var eventEnds = new Date(2018, 6, 15);
             if (this.todaysDate.getTime() >= eventEnds.getTime()) {
                 return true;
             }
@@ -64,7 +68,7 @@ module Controllers {
         }
 
         private isPreviousButtonDisabled() {
-            var eventStarts = new Date(2014, 6, 10);
+            var eventStarts = new Date(2018, 5, 14);
             if (this.todaysDate < eventStarts) {
                 return true;
             }
@@ -75,7 +79,6 @@ module Controllers {
             var date = new Date();
             return date.addDays(daysToAdd);
         }
-
     }
 }
 

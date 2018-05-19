@@ -3,7 +3,7 @@ using System.Linq;
 using Footbet.Models.DomainModels;
 using Footbet.Models.Enums;
 
-namespace Footbet.Controllers.Helpers
+namespace Footbet.Helpers
 {
     public interface IGameScoreEvaluator
     {

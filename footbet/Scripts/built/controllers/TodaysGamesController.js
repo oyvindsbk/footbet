@@ -8,6 +8,8 @@ var Controllers;
             this.$scope = $scope;
             this.todaysGamesService = todaysGamesService;
             this.todaysDate = new Date();
+            this.daysFromNow = 0;
+            this.getNextGames();
         }
         TodaysGamesController.prototype.nextDay = function () {
             if (this.nextButtonDisabled)
@@ -23,34 +25,36 @@ var Controllers;
         };
         TodaysGamesController.prototype.getNextGames = function () {
             var _this = this;
+            this.nextButtonDisabled = true;
             this.todaysGamesService.getNextGames(this.daysFromNow).then(function (todaysGames) {
                 _this.previousButtonDisabled = false;
-                _this.todaysGames = todaysGames.todaysGamesSpecifications;
-                _this.nextButtonDisabled = _this.isNextButtonDisabled();
+                _this.todaysGames = todaysGames.todaysGamesSpecification;
                 _this.daysFromNow += todaysGames.numberOfDaysFromToday;
                 _this.todaysDate = _this.getTodaysDatePlusDays(_this.daysFromNow);
+                _this.nextButtonDisabled = _this.isNextButtonDisabled();
             });
         };
         TodaysGamesController.prototype.getPreviousGames = function () {
             var _this = this;
+            this.previousButtonDisabled = true;
             this.todaysGamesService.getPreviousGames(this.daysFromNow).then(function (todaysGames) {
                 _this.nextButtonDisabled = false;
-                _this.todaysGames = todaysGames.todaysGamesSpecifications;
-                _this.previousButtonDisabled = _this.isPreviousButtonDisabled();
+                _this.todaysGames = todaysGames.todaysGamesSpecification;
                 _this.daysFromNow += todaysGames.numberOfDaysFromToday;
                 _this.todaysDate = _this.getTodaysDatePlusDays(_this.daysFromNow);
+                _this.previousButtonDisabled = _this.isPreviousButtonDisabled();
             });
         };
         ;
         TodaysGamesController.prototype.isNextButtonDisabled = function () {
-            var eventEnds = new Date(2014, 6, 22);
+            var eventEnds = new Date(2018, 6, 15);
             if (this.todaysDate.getTime() >= eventEnds.getTime()) {
                 return true;
             }
             return false;
         };
         TodaysGamesController.prototype.isPreviousButtonDisabled = function () {
-            var eventStarts = new Date(2014, 6, 10);
+            var eventStarts = new Date(2018, 5, 14);
             if (this.todaysDate < eventStarts) {
                 return true;
             }

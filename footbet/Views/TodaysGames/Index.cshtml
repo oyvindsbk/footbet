@@ -3,35 +3,35 @@
 }
 
 <div ng-app="footballCompApp">
-    <div ng-controller="TodaysGamesController">
+    <div ng-controller="TodaysGamesController as ctl">
         <div class="span8">
             <div class="container-fluid">
             <ul class="pager row">
-                    <li class="previous hidden-xs hidden-sm" ng-click="previousDay()" ng-class="previousButtonDisabled ? 'disabled' : ''"><a href="">&larr; Forrige</a></li>
-                    <li class="previous hidden-lg hidden-md" ng-click="previousDay()" ng-class="previousButtonDisabled ? 'disabled' : ''"><a href="">&larr;</a></li>
+                    <li class="previous hidden-xs hidden-sm" ng-click="ctl.previousDay()" ng-class="ctl.previousButtonDisabled ? 'disabled' : ''"><a href="">&larr; Forrige</a></li>
+                    <li class="previous hidden-lg hidden-md" ng-click="ctl.previousDay()" ng-class="ctl.previousButtonDisabled ? 'disabled' : ''"><a href="">&larr;</a></li>
                     <li class="headerTodaysGames col-lg-9 hidden-xs hidden-sm">
-                    <span class="">Kamper {{todaysDate | date:'EEEE d MMMM'}}</span>
+                    <span class="">{{ctl.todaysDate | date:'EEEE d MMMM'}}</span>
                 </li>
                     <li class="headerTodaysGames col-xs-8 col-sm-8 hidden-lg hidden-md">
-                        <span class="">{{todaysDate | date:'d MMMM'}}</span>
+                        <span class="">{{ctl.todaysDate | date:'d MMMM'}}</span>
                     </li>
-                    <li class="next hidden-xs hidden-sm" ng-click="nextDay()" ng-class="nextButtonDisabled ? 'disabled' : ''"><a href="">Neste &rarr;</a></li>
-                    <li class="next hidden-lg hidden-md" ng-click="nextDay()" ng-class="nextButtonDisabled ? 'disabled' : ''"><a href="">&rarr;</a></li>
+                    <li class="next hidden-xs hidden-sm" ng-click="ctl.nextDay()" ng-class="ctl.nextButtonDisabled ? 'disabled' : ''"><a href="">Neste &rarr;</a></li>
+                    <li class="next hidden-lg hidden-md" ng-click="ctl.nextDay()" ng-class="ctl.nextButtonDisabled ? 'disabled' : ''"><a href="">&rarr;</a></li>
             </ul>
             </div>
             <div class="container-fluid">
-                <div ng-repeat="game in todaysGames | orderBy: 'startTime'">
-                <div class="row todays-games-list todays-games-list-item" ng-click="areDetailsShown = !areDetailsShown">
+                <div ng-repeat="game in ctl.todaysGames | orderBy: 'startTime'">
+                <div class="row todays-games-list todays-games-list-item" ng-click="ctl.areDetailsShown = !ctl.areDetailsShown">
                         <div class="nopadding col-lg-3 col-md-3 hidden-xs hidden-sm">{{game.startTime}}</div>
                     <div class="col-lg-8 col-md-8">
-                        {{game.homeTeam.Name}}
+                        {{game.homeTeam.name}}
                         <span class="flag {{game.homeTeam.flag}}"></span>
                         <span class="todays-games-list-score">{{game.homeGoals}} - {{game.awayGoals}}</span>
                         <span class="flag {{game.awayTeam.flag}}"></span>
                         {{game.awayTeam.name}}
                     </div>
                 </div>
-                <div class="todays-games-list-results" ng-show="areDetailsShown" ng-repeat="(score, users) in game.Bets">
+                <div class="todays-games-list-results" ng-show="ctl.areDetailsShown" ng-repeat="(score, users) in game.bets">
                     <div>
                             <b>{{score}} ({{users.length}}):</b> <span ng-repeat="user in users">{{user}}{{$last ? '' : ', '}}</span>
                         </div>

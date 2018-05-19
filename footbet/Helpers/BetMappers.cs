@@ -3,7 +3,7 @@ using System.Linq;
 using Footbet.Models;
 using Footbet.Models.DomainModels;
 
-namespace Footbet.Controllers.Helpers
+namespace Footbet.Helpers
 {
     public class BetMappers
     {

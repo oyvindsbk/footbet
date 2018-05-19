@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
 </head>
 <body >
-    <div ng-controller="LeagueController">
-        <div ng-show="leagues.length > 0">@Html.Partial("_ManageLeaguesView")</div>
+    <div ng-controller="LeagueController as ctl">
+        <div ng-show="ctl.leagues.length > 0">@Html.Partial("_ManageLeaguesView")</div>
         <div class="row top-buffer">@Html.Partial("_JoinLeagueView")</div>
     </div>
 </body>

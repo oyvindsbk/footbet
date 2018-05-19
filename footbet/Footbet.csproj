@@ -207,8 +207,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BetController.cs" />
     <Compile Include="Controllers\Common.cs" />
-    <Compile Include="Controllers\Helpers\GameScoreEvaluator.cs" />
-    <Compile Include="Controllers\Helpers\BetMappers.cs" />
+    <Compile Include="Helpers\EventHelpers.cs" />
+    <Compile Include="Helpers\GameScoreEvaluator.cs" />
+    <Compile Include="Helpers\BetMappers.cs" />
     <Compile Include="Controllers\LeaderBoardController.cs" />
     <Compile Include="Controllers\LeagueController.cs" />
     <Compile Include="Controllers\ResultPageController.cs" />

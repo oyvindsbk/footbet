@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
+using Footbet.Helpers;
 using Footbet.Services.Contracts;
 
 namespace Footbet.Controllers
@@ -21,8 +22,6 @@ namespace Footbet.Controllers
         public ActionResult GetPreviousGames(int daysFromToday, int sportsEventId = 1)
         {
             var date = DateTime.Now.AddDays(daysFromToday);
-            if (date < new DateTime(2014, 06, 12)) return CreateJsonError("VM har ikke startet");
-
             var gamesForDay = _todaysGamesService.GetPreviousGames(date, sportsEventId);
             return ToJsonResult(gamesForDay);
         }
@@ -30,10 +29,14 @@ namespace Footbet.Controllers
         public ActionResult GetNextGames(int daysFromToday, int sportsEventId = 1)
         {
             var date = DateTime.Now.AddDays(daysFromToday);
-            if (date > new DateTime(2014, 07, 14)) return CreateJsonError("VM er over!");
-
+            if (date > EventHelpers.EventEnd)
+                return CreateJsonError("VM er over!");
+            if (date < EventHelpers.EventStart)
+                date = EventHelpers.EventStart;
             var gamesForDay = _todaysGamesService.GetNextGames(date, sportsEventId);
-            return ToJsonResult(gamesForDay);
+            if (date == EventHelpers.EventStart)
+                gamesForDay.NumberOfDaysFromToday = (int)(EventHelpers.EventStart - DateTime.Now).TotalDays + 1;
+             return ToJsonResult(gamesForDay);
         }
     }
 }

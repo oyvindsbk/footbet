@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
-using Footbet.Controllers.Helpers;
+using Footbet.Helpers;
 using Footbet.Models;
 using Footbet.Models.DomainModels;
 using Footbet.Models.Enums;
@@ -38,7 +39,7 @@ namespace Footbet.Services
             int numberOfDaysFromToday;
             var todaysGames = _gameService.GetGamesForDateOrFollowingDateIfNoGamesOnThisDate(sportsEventId, date, true, out numberOfDaysFromToday);
 
-            return CreateTodaysGamesViewModel(sportsEventId, todaysGames, numberOfDaysFromToday);
+            return MapToTodaysGamesViewModel(sportsEventId, todaysGames, numberOfDaysFromToday);
         }
 
         public TodaysGamesViewModel GetPreviousGames(DateTime date, int sportsEventId)
@@ -48,31 +49,49 @@ namespace Footbet.Services
             
             var numberOfDaysFromTodayNegated = numberOfDaysFromToday*-1;
             
-            return CreateTodaysGamesViewModel(sportsEventId, todaysGames, numberOfDaysFromTodayNegated);
+            return MapToTodaysGamesViewModel(sportsEventId, todaysGames, numberOfDaysFromTodayNegated);
         }
 
-        private TodaysGamesViewModel CreateTodaysGamesViewModel(int sportsEventId, IEnumerable<Game> todaysGames, int numberOfDaysFromToday)
+        private TodaysGamesViewModel MapToTodaysGamesViewModel(int sportsEventId, IEnumerable<Game> todaysGames, int numberOfDaysFromToday)
         {
             var todaysGamesViewModel = new TodaysGamesViewModel();
             var userBets = _userBetRepository.GetAllUserBetsBySportsEventIdWithoutResultBet(sportsEventId);
 
             var teams = _teamRepository.GetTeamsBySportsEventId(sportsEventId);
             var result = _resultRepository.GetResultBySportsEventId(1);
-            var resultUserBet = _userBetRepository.GetUserBetById(result.UserBetId);
-            var todaysGamesSpecifications = todaysGames.Select(todaysGame => CreateTodaysGamesViewModel(todaysGame, userBets, teams, resultUserBet)).ToList();
+            
+            var todaysGamesSpecification = CreateTodaysGamesSpecification(todaysGames, result, userBets, teams);
 
             todaysGamesViewModel.NumberOfDaysFromToday = numberOfDaysFromToday;
-            todaysGamesViewModel.TodaysGamesSpecification = todaysGamesSpecifications;
+            todaysGamesViewModel.TodaysGamesSpecification = todaysGamesSpecification;
 
             return todaysGamesViewModel;
         }
 
+        private List<TodaysGamesSpecification> CreateTodaysGamesSpecification(
+            IEnumerable<Game> todaysGames, Results result, List<UserBet> userBets, List<Team> teams)
+        {
+            if (result != null && EventHelpers.EventHasStarted())
+            {
+                var resultUserBet = _userBetRepository.GetUserBetById(result.UserBetId);
+                return todaysGames
+                    .Select(todaysGame => MapToTodaysGamesViewModel(todaysGame, userBets, teams, resultUserBet)).ToList();
+            }
 
-        private TodaysGamesSpecification CreateTodaysGamesViewModel(Game todaysGame, IEnumerable<UserBet> userBets, List<Team> teams, UserBet resultUserBet)
+            return todaysGames
+                .Select(todaysGame => MapToTodaysGamesViewModel(todaysGame, null, teams, null)).ToList();
+        }
+
+
+        private TodaysGamesSpecification MapToTodaysGamesViewModel(Game todaysGame, IEnumerable<UserBet> userBets, List<Team> teams, UserBet resultUserBet)
         {
             var todaysGamesSpecification = MapGameToTodaysGameSpecification(todaysGame);
 
             SetTeamsForTodaysGameSpecification(todaysGame, todaysGamesSpecification, resultUserBet, teams);
+
+            if (userBets == null || resultUserBet == null)
+                return todaysGamesSpecification;
+
             SetResultsIfAvailable(resultUserBet, todaysGamesSpecification);
             SetValuesFromUserBets(todaysGame, userBets, todaysGamesSpecification, resultUserBet);
 
@@ -302,10 +321,10 @@ namespace Footbet.Services
             {
                 Id = game.Id,
                 GameType = game.GameType,
-                StartTime = game.StartTime.AddHours(2).ToString("dd.MM.yy HH:mm"),
+                StartTime = game.StartTime.ToString("dd.MM.yy HH:mm", CultureInfo.InvariantCulture),
                 Name = game.Name,
                 SportsEventId = game.SportsEventId,
-                PlayoffGameDetails = game.PlayoffGameDetails.ToList(),
+                PlayoffGameDetails = game.PlayoffGameDetails?.ToList(),
                 Bets = new Dictionary<string, List<string>>()
             };
         }
