@@ -10,11 +10,12 @@ module Controllers {
         leagueCode: string;
         message: string;
         leagues: Services.ILeague[];
-        selectedLeague = this.leagues[1];
+        selectedLeague: Services.ILeague;
 
         static $inject = [
             "$scope",
-            "$rootScope"
+            "$rootScope",
+            "leagueService"
         ];
 
         constructor(private $scope: ng.IScope,
@@ -26,6 +27,7 @@ module Controllers {
         private loadLeagues(): void {
             this.leagueService.getLeagues().then((leagues: Services.ILeague[]) => {
                 this.leagues = leagues;
+                this.selectedLeague = leagues[0];
             });
         }
 

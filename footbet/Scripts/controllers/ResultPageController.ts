@@ -8,9 +8,9 @@ module Controllers {
 
         static $inject = [
             "$scope",
-            "$http",
             "$rootScope",
-            "betBaseController"
+            "betBaseController",
+            "resultPageService"
         ];
 
         constructor(private $scope: ng.IScope,

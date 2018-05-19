@@ -8,13 +8,13 @@ var Controllers;
             this.$scope = $scope;
             this.$rootScope = $rootScope;
             this.leagueService = leagueService;
-            this.selectedLeague = this.leagues[1];
             this.loadLeagues();
         }
         LeagueController.prototype.loadLeagues = function () {
             var _this = this;
             this.leagueService.getLeagues().then(function (leagues) {
                 _this.leagues = leagues;
+                _this.selectedLeague = leagues[0];
             });
         };
         LeagueController.prototype.joinLeague = function () {
@@ -64,7 +64,8 @@ var Controllers;
         };
         LeagueController.$inject = [
             "$scope",
-            "$rootScope"
+            "$rootScope",
+            "leagueService"
         ];
         return LeagueController;
     }());

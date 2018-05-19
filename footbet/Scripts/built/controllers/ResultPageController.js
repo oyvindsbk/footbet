@@ -37,9 +37,9 @@ var Controllers;
         };
         ResultPageController.$inject = [
             "$scope",
-            "$http",
             "$rootScope",
-            "betBaseController"
+            "betBaseController",
+            "resultPageService"
         ];
         return ResultPageController;
     }());
