@@ -10,7 +10,6 @@ module Controllers {
         leagueCode: string;
         message: string;
         leagues: Services.ILeague[];
-        selectedLeague: Services.ILeague;
 
         static $inject = [
             "$scope",
@@ -27,7 +26,7 @@ module Controllers {
         private loadLeagues(): void {
             this.leagueService.getLeagues().then((leagues: Services.ILeague[]) => {
                 this.leagues = leagues;
-                this.selectedLeague = leagues[0];
+                this.showLeague(leagues[0]);
             });
         }
 

@@ -148,9 +148,9 @@ namespace Footbet.Controllers
         [System.Web.Http.AcceptVerbs("GET", "POST")]
         public ActionResult SavePersonBet(string groupGamesResult, string playoffGamesResult, int sportsEventId = 1)
         {
-            if (EventHasStarted())
+            if (EventHelpers.EventHasStarted())
             {
-                return CreateJsonError("VM er i gang! For sent å lagre spill nå :)"); //
+                return CreateJsonError("VM er i gang! For sent å lagre spill nå :)"); 
             }
 
             var groupGamesResultViewModel =
@@ -168,12 +168,7 @@ namespace Footbet.Controllers
             return Content("Ditt spill er lagret!");
         }
 
-        private static bool EventHasStarted()
-        {
-            return DateTime.Now > new DateTime(2014, 06, 30, 16, 00, 00);
-        }
-
-        private bool CreateAndInsertUserBet(int sportsEventId,
+       private bool CreateAndInsertUserBet(int sportsEventId,
             IEnumerable<GameResultViewModel> groupGamesResultViewModel,
             List<PlayoffBetViewModel> playoffGamesResultViewModel)
         {

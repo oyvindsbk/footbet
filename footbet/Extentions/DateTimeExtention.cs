@@ -10,7 +10,7 @@ namespace Footbet.Extentions
     {
         public static string ToFormattedString(this DateTime dateTime)
         {
-            return dateTime.ToString("dd.MM.yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            return dateTime.ToString("dd.MM.yyyy HH:mm", CultureInfo.InvariantCulture);
         }
     }
 }

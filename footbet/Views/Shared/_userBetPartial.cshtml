@@ -1,5 +1,5 @@
 ﻿
-<div class="row" ng-repeat="group in betBaseController.groups">
+<div class="row" ng-repeat="group in ctl.betBaseController.groups">
 
     <div class="span6">
         <div class="headerGroups span3">{{group.name}}</div>
@@ -41,20 +41,20 @@
             <td>{{team.sumGoals}}</td>
             <td>{{team.points}}</td>
         </tr>
-        <tr>{{group.winner.name}}</tr>
+        @*<tr>{{group.winner.name}}</tr>*@
     </table>
 
 </div>
 
 <div class="row">
     <div class="span6">
-        <div class="headerGroups span3" ng-show="betBaseController.playoffGames.length>0">Finalespill</div>
+        <div class="headerGroups span3" ng-show="ctl.betBaseController.playoffGames.length>0">Finalespill</div>
     </div>
 </div>
 
 <div class="span7">
     <table class="table-condensed scoreInputTable">
-        <tr ng-repeat="playoffGame in betBaseController.playoffGames">
+        <tr ng-repeat="playoffGame in ctl.betBaseController.playoffGames">
             <td class="hidden-xs hidden-sm">{{playoffGame.startTime}}</td>
             <td>{{playoffGame.name}}</td>
             <td class="text-right" ng-hide="playoffGame.homeTeam">

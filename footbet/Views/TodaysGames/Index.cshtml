@@ -9,17 +9,15 @@
             <ul class="pager row">
                     <li class="previous hidden-xs hidden-sm" ng-click="ctl.previousDay()" ng-class="ctl.previousButtonDisabled ? 'disabled' : ''"><a href="">&larr; Forrige</a></li>
                     <li class="previous hidden-lg hidden-md" ng-click="ctl.previousDay()" ng-class="ctl.previousButtonDisabled ? 'disabled' : ''"><a href="">&larr;</a></li>
-                    <li class="headerTodaysGames col-lg-9 hidden-xs hidden-sm">
-                    <span class="">{{ctl.todaysDate | date:'EEEE d MMMM'}}</span>
-                </li>
-                    <li class="headerTodaysGames col-xs-8 col-sm-8 hidden-lg hidden-md">
-                        <span class="">{{ctl.todaysDate | date:'d MMMM'}}</span>
+                    <li class="headerTodaysGames col-lg-9 col-xs-8 col-sm-8 ng-cloak" ng-if="ctl.loaded">
+                        <span class="" >{{ctl.todaysDate | date:'EEEE d MMMM'}}</span>
                     </li>
+                    
                     <li class="next hidden-xs hidden-sm" ng-click="ctl.nextDay()" ng-class="ctl.nextButtonDisabled ? 'disabled' : ''"><a href="">Neste &rarr;</a></li>
                     <li class="next hidden-lg hidden-md" ng-click="ctl.nextDay()" ng-class="ctl.nextButtonDisabled ? 'disabled' : ''"><a href="">&rarr;</a></li>
             </ul>
             </div>
-            <div class="container-fluid">
+            <div class="container-fluid ng-cloak">
                 <div ng-repeat="game in ctl.todaysGames | orderBy: 'startTime'">
                 <div class="row todays-games-list todays-games-list-item" ng-click="ctl.areDetailsShown = !ctl.areDetailsShown">
                         <div class="nopadding col-lg-3 col-md-3 hidden-xs hidden-sm">{{game.startTime}}</div>

@@ -10,6 +10,7 @@ var Controllers;
             this.betBaseController = betBaseController;
             this.betService = betService;
             this.betBaseController.isRequired = false;
+            this.betBaseController.loadModel("");
             $scope.$on('modelLoaded', function () {
                 _this.userBetControllerInit();
             });

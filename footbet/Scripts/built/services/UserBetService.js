@@ -6,10 +6,11 @@ var Services;
             this.$http = $http;
         }
         UserBetService.prototype.getUsers = function () {
-            return this.$http({
-                method: 'GET',
+            var promise = this.$http({
+                method: "GET",
                 url: "../User/GetUsers"
-            });
+            }).then(function (response) { return response.data; });
+            return promise;
         };
         UserBetService.$inject = [
             "$http"

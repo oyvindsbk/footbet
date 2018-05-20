@@ -87,6 +87,7 @@ module Services {
 
     export interface ITodaysGames {
         numberOfDaysFromToday: number;
+        isFirstDay: boolean;
         todaysGamesSpecification: ITodaysGamesSpecification[];
     }
 
@@ -102,7 +103,7 @@ module Services {
         sportsEventId: number;
         homeTeam: ITeam;
         awayTeam: ITeam;
-        PlayoffGameDetails: IPlayoffGameDetails;
+        playoffGameDetails: IPlayoffGameDetails;
         bets: [string, string[]];
     }
 

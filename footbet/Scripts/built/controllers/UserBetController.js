@@ -18,23 +18,26 @@ var Controllers;
             });
         }
         UserBetController.prototype.loadByLocation = function () {
+            var _this = this;
             var url = this.$location.absUrl();
             var userNameByLocation = url.split("username=")[1];
-            if (userNameByLocation != null) {
+            if (userNameByLocation) {
                 this.showSearch = false;
                 this.selectedUserName = userNameByLocation;
                 this.betBaseController.loadModel(userNameByLocation);
                 this.showUserBet = true;
             }
             else {
-                this.userBetService.getUsers();
+                this.userBetService.getUsers().then(function (users) {
+                    _this.users = users;
+                });
             }
         };
-        UserBetController.prototype.searchUserBet = function () {
+        UserBetController.prototype.searchUserBet = function (searchText) {
             var _this = this;
             this.showUserBet = false;
             angular.forEach(this.users, function (user) {
-                if (user.userName === _this.selectedUserName) {
+                if (user.userName === searchText) {
                     _this.betBaseController.loadModel(user.userName);
                     _this.errorMessage = "";
                     _this.showUserBet = true;
@@ -56,7 +59,8 @@ var Controllers;
         UserBetController.$inject = [
             "$scope",
             "$location",
-            "betBaseController"
+            "betBaseController",
+            "userBetService"
         ];
         return UserBetController;
     }());

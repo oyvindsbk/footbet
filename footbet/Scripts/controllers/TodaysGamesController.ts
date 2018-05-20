@@ -7,6 +7,7 @@ module Controllers {
         message: string;
         todaysGames: Services.ITodaysGamesSpecification[];
         areDetailsShown: boolean;
+        loaded: boolean;
         daysFromNow: number;
         todaysDate: Date = new Date();
         nextButtonDisabled: boolean;
@@ -19,20 +20,33 @@ module Controllers {
         constructor(private $scope: ng.IScope,
             private todaysGamesService: Services.TodaysGamesService) {
             this.daysFromNow = 0;
-            
-            this.getNextGames();
+
+            this.loadTodaysGames();
         }
 
-        private nextDay () {
+        private nextDay() {
             if (this.nextButtonDisabled) return;
             this.daysFromNow++;
             this.getNextGames();
         }
 
-        private previousDay () {
+        private previousDay() {
             if (this.previousButtonDisabled) return;
             this.daysFromNow--;
             this.getPreviousGames();
+        }
+
+        private loadTodaysGames() {
+            this.nextButtonDisabled = true;
+            this.previousButtonDisabled = true;
+            this.todaysGamesService.getNextGames(this.daysFromNow).then(todaysGames => {
+                if (!todaysGames.isFirstDay)
+                    this.previousButtonDisabled = true;
+                this.nextButtonDisabled = this.isNextButtonDisabled();
+                this.todaysGames = todaysGames.todaysGamesSpecification;
+                this.daysFromNow += todaysGames.numberOfDaysFromToday;
+                this.loaded = true;
+            });
         }
 
         private getNextGames() {
@@ -43,7 +57,6 @@ module Controllers {
                 this.daysFromNow += todaysGames.numberOfDaysFromToday;
                 this.todaysDate = this.getTodaysDatePlusDays(this.daysFromNow);
                 this.nextButtonDisabled = this.isNextButtonDisabled();
-
             });
         }
 
@@ -59,7 +72,7 @@ module Controllers {
         };
 
 
-        private isNextButtonDisabled () {
+        private isNextButtonDisabled() {
             var eventEnds = new Date(2018, 6, 15);
             if (this.todaysDate.getTime() >= eventEnds.getTime()) {
                 return true;
@@ -75,7 +88,7 @@ module Controllers {
             return false;
         }
 
-        private getTodaysDatePlusDays (daysToAdd: number): Date {
+        private getTodaysDatePlusDays(daysToAdd: number): Date {
             var date = new Date();
             return date.addDays(daysToAdd);
         }
@@ -90,10 +103,8 @@ interface Date {
     addDays(days: number): Date;
 }
 
-Date.prototype.addDays = function (days) {
+Date.prototype.addDays = function(days) {
     var date = new Date(this.valueOf());
     date.setDate(date.getDate() + days);
     return date;
 }
-
-

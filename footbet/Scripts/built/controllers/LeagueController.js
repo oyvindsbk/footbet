@@ -14,7 +14,7 @@ var Controllers;
             var _this = this;
             this.leagueService.getLeagues().then(function (leagues) {
                 _this.leagues = leagues;
-                _this.selectedLeague = leagues[0];
+                _this.showLeague(leagues[0]);
             });
         };
         LeagueController.prototype.joinLeague = function () {

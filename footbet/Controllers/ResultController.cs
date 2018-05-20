@@ -89,10 +89,6 @@ namespace Footbet.Controllers
                 var referencePlayoffBets = referenceUserBet.PlayoffBets;
                 var currentUserScore = userScores.First(x => x.UserId == userBet.UserId);
                 currentUserScore.Score = 0;
-                if (currentUserScore.UserId == "96ef45fb-4da7-46d9-aa10-4e6994ec5c9e")
-                {
-                    currentUserScore.Score = -9;
-                }
 
                 foreach (var referenceBet in referenceBets)
                 {
@@ -161,9 +157,11 @@ namespace Footbet.Controllers
         private static int AddScoreForEndingPlayoffGames(IEnumerable<PlayoffBet> playoffBetsByGameTypeReference, IEnumerable<PlayoffBet> usersBetByGameType, List<ScoreBasis> scoreBasisByGameType)
         {
             var scoreForGameType = 0;
-            if (!playoffBetsByGameTypeReference.Any()) return 0;
+            var betsByGameTypeReference = playoffBetsByGameTypeReference as PlayoffBet[] ?? playoffBetsByGameTypeReference.ToArray();
+            if (!betsByGameTypeReference.Any())
+                return 0;
             
-            var playoffGameResult = playoffBetsByGameTypeReference.First();
+            var playoffGameResult = betsByGameTypeReference.First();
             
             var userPlayoffGame = usersBetByGameType.First();
 

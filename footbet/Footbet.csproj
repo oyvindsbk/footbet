@@ -332,7 +332,8 @@
     <Content Include="Database\Inserts\2018\02 GroupInsert.sql" />
     <Content Include="Database\Inserts\2018\03 TeamInsert.sql" />
     <Content Include="Database\Inserts\2018\04 GamesInsert.sql" />
-    <Content Include="Database\Inserts\2018\05 PlayoffGameDetailsInsert.sql" />
+    <Content Include="Database\Inserts\2018\05 PlayoffGameDetailsInsert - Copy.sql" />
+    <Content Include="Database\Inserts\2018\06 LeagueInsert.sql" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

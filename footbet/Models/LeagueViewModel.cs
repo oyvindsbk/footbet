@@ -7,6 +7,6 @@
         public int SportsEventId { get; set; }
         public string Guid { get; set; }
         public int NumberOfMembers { get; set; }
-        public int CurrentUsersPosition { get; set; }
+        public int? CurrentUsersPosition { get; set; }
     }
 }

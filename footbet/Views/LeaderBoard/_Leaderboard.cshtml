@@ -12,7 +12,7 @@
             </tr>
         </thead>
         <tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="user in ctl.leaderboard | orderBy: '-points'">
-            <td>{{user.Position}}</td>
+            <td>{{user.position}}</td>
             <td><a href="/UserBet?username={{user.userName}}" ng-click="ctl.showUserBet(user.userName)">{{user.name}}</a></td>
             <td>{{user.userName}}</td>
             <td>{{user.points - user.playoffScore}}</td>

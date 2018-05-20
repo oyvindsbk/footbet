@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Footbet.Models;
@@ -116,7 +115,7 @@ namespace Footbet.Controllers
             {
                 UserName = user.UserName,
                 Points = score.Score,
-                PlayoffScore = score.PlayoffScore,
+                PlayoffScore = score.PlayoffScore ?? 0,
                 Name = user.Name,
                 Position = position
             };

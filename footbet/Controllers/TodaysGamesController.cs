@@ -35,8 +35,11 @@ namespace Footbet.Controllers
                 date = EventHelpers.EventStart;
             var gamesForDay = _todaysGamesService.GetNextGames(date, sportsEventId);
             if (date == EventHelpers.EventStart)
+            {
+                gamesForDay.IsFirstDay = true;
                 gamesForDay.NumberOfDaysFromToday = (int)(EventHelpers.EventStart - DateTime.Now).TotalDays + 1;
-             return ToJsonResult(gamesForDay);
+            }
+            return ToJsonResult(gamesForDay);
         }
     }
 }

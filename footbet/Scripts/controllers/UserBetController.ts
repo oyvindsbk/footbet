@@ -12,7 +12,8 @@ module Controllers {
         static $inject = [
             "$scope",
             "$location",
-            "betBaseController"
+            "betBaseController",
+            "userBetService"
         ];
 
         constructor(private $scope: ng.IScope,
@@ -32,22 +33,24 @@ module Controllers {
         private loadByLocation () {
             var url = this.$location.absUrl();
             var userNameByLocation = url.split("username=")[1];
-            if (userNameByLocation != null) {
+            if (userNameByLocation) {
                 this.showSearch = false;
                 this.selectedUserName = userNameByLocation;
                 this.betBaseController.loadModel(userNameByLocation);
                 this.showUserBet = true;
 
             } else {
-                this.userBetService.getUsers();
+                this.userBetService.getUsers().then((users) => {
+                    this.users = users;
+                });
             }
         }
 
-        private searchUserBet () {
+        private searchUserBet (searchText) {
             this.showUserBet = false;
 
             angular.forEach(this.users, user => {
-                if (user.userName === this.selectedUserName) {
+                if (user.userName === searchText) {
                     this.betBaseController.loadModel(user.userName);
                     this.errorMessage = "";
                     this.showUserBet = true;
