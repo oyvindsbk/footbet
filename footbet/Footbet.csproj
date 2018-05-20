@@ -299,10 +299,6 @@
     <Content Include="Content\bundle.js" />
     <Content Include="Content\flags.css" />
     <Content Include="Content\images\1200px-2018_FIFA_World_Cup.png" />
-    <Content Include="Content\images\brasil-medium.PNG" />
-    <Content Include="Content\images\brasil-small.PNG" />
-    <Content Include="Content\images\brasil.png" />
-    <Content Include="Content\images\brasil2.PNG" />
     <Content Include="Content\images\flags.png" />
     <Content Include="Content\navbars.css" />
     <Content Include="Content\soccertable.css" />
@@ -347,10 +343,6 @@
     <None Include="Resources\basis-for-bet.txt" />
     <Content Include="Resources\games.txt" />
     <Content Include="Resources\teams.txt" />
-    <Content Include="fonts\brasil.otf" />
-    <Content Include="fonts\brasil.eot" />
-    <None Include="Properties\PublishProfiles\brasilvm - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\brasilvm - Web Deploy.pubxml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
