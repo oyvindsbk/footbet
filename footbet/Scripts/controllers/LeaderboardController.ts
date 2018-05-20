@@ -5,7 +5,6 @@ module Controllers {
     export class LeaderboardController {
         leaderboard: Services.ILeaderboard;
         headerText: string = "";
-        leaderboardService: Services.LeaderboardService;
         numberOfIncompleteGames: number = 0;
         userBetIncompleteMessage: string;
 
@@ -17,10 +16,10 @@ module Controllers {
 
         constructor(private $scope: ng.IScope,
             private $rootScope: ng.IRootScopeService,
-            private leaderBoardService: Services.LeaderboardService) {
-            this.$rootScope.$on("showLeagueEvent", (event, league) => {
-                this.getLeaderboardForLeague(league.Id);
-                this.headerText = "Stilling for " + league.Name;
+            private leaderboardService: Services.LeaderboardService) {
+            this.$rootScope.$on("showLeagueEvent", (event, league: Services.ILeague) => {
+                this.getLeaderboardForLeague(league.id);
+                this.headerText = "Stilling for " + league.name;
             });
         }
 

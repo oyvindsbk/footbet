@@ -9,7 +9,7 @@
                 <th>Ligakode</th>
             </tr>
         </thead>
-        <tr ng-class-odd="'odd'" ng-click="showLeague(league)" ng-class-even="'even'" ng-repeat="league in leagues">
+        <tr ng-class-odd="'odd'" ng-click="ctl.showLeague(league)" ng-class-even="'even'" ng-repeat="league in ctl.leagues">
             <td><b>{{league.name}}</b></td>
             <td>{{league.currentUsersPosition}}</td>
             <td>{{league.numberOfMembers}}</td>

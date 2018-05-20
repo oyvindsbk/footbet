@@ -286,6 +286,7 @@ GO
 
 CREATE TABLE [dbo].[UserScores](
 	[Score] [int] NOT NULL,
+	[PlayoffScore] [int] NULL,
 	[SportsEventId] int NOT NULL FOREIGN KEY REFERENCES SportsEvents(Id),
 	[UserId] [varchar](255) NOT NULL,
 	[Id] [int] IDENTITY(1,1) NOT NULL,
@@ -298,12 +299,6 @@ CREATE TABLE [dbo].[UserScores](
 GO
 
 SET ANSI_PADDING OFF
-GO
-
-SET ANSI_NULLS OFF
-GO
-
-SET QUOTED_IDENTIFIER ON
 GO
 
 SET ANSI_PADDING ON

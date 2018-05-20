@@ -49,12 +49,12 @@ var Controllers;
                 return;
             }
             this.leagueService.addNewLeague(this.leagueName).then(function (response) {
-                _this.message = response.message;
                 if (response.isError) {
                     _this.messageClass = "error";
                 }
                 else {
                     _this.messageClass = "success";
+                    _this.message = response.message;
                     _this.loadLeagues();
                 }
             });

@@ -4,16 +4,16 @@ var Controllers;
 (function (Controllers) {
     "use strict";
     var LeaderboardController = (function () {
-        function LeaderboardController($scope, $rootScope, leaderBoardService) {
+        function LeaderboardController($scope, $rootScope, leaderboardService) {
             var _this = this;
             this.$scope = $scope;
             this.$rootScope = $rootScope;
-            this.leaderBoardService = leaderBoardService;
+            this.leaderboardService = leaderboardService;
             this.headerText = "";
             this.numberOfIncompleteGames = 0;
             this.$rootScope.$on("showLeagueEvent", function (event, league) {
-                _this.getLeaderboardForLeague(league.Id);
-                _this.headerText = "Stilling for " + league.Name;
+                _this.getLeaderboardForLeague(league.id);
+                _this.headerText = "Stilling for " + league.name;
             });
         }
         LeaderboardController.prototype.getLeaderboard = function () {

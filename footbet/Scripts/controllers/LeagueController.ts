@@ -60,11 +60,11 @@ module Controllers {
             }
 
             this.leagueService.addNewLeague(this.leagueName).then((response: Services.IResponse) => {
-                this.message = response.message;
                 if (response.isError) {
                     this.messageClass = "error";
                 } else {
                     this.messageClass = "success";
+                    this.message = response.message;
                     this.loadLeagues();
                 }
             });

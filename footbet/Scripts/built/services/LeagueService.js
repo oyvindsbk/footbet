@@ -6,58 +6,67 @@ var Services;
             this.$http = $http;
         }
         LeagueService.prototype.getLeagues = function () {
-            var leagues = this.$http({
+            var promise = this.$http({
                 method: "GET",
-                url: "../GetLeaguesForUser"
+                url: "GetLeaguesForUser"
             }).then(function (response) { return response.data; });
-            return leagues;
+            return promise;
         };
         LeagueService.prototype.joinLeague = function (leagueCode) {
-            var response = this.$http({
+            var promise = this.$http({
                 method: "POST",
                 url: "AddCurrentUserToLeagueByGuid",
                 data: { guid: leagueCode }
-            }).success(function (data) {
-                if (typeof data.ExceptionMessage != "undefined") {
+            }).then(function (result) {
+                var data = result.data;
+                var response = {};
+                if (data.ExceptionMessage) {
                     response.message = data.ExceptionMessage;
                     response.isError = true;
                 }
+                return response;
             });
-            return response;
+            return promise;
         };
         LeagueService.prototype.addCurrentUserToLeague = function (leagueName) {
-            var response = this.$http({
+            var result = this.$http({
                 method: "POST",
                 url: "AddCurrentUserToLeague",
                 data: { leagueName: leagueName }
-            }).success(function (data) {
-                if (typeof data.ExceptionMessage != "undefined") {
+            }).then(function (result) {
+                var data = result.data;
+                var response = {};
+                if (data.ExceptionMessage) {
                     response.message = data.ExceptionMessage;
                     response.isError = true;
                 }
                 else {
-                    response.message = "Her er din kode " + data;
+                    response.message = "KODE FOR \u00C5 BLI MED I LIGA: " + data;
                     response.isError = false;
                 }
+                return response;
             });
-            return response;
+            return result;
         };
         LeagueService.prototype.addNewLeague = function (leagueName) {
-            var response = this.$http({
+            var promise = this.$http({
                 method: "POST",
                 url: "AddNewLeague",
                 data: { leagueName: leagueName }
-            }).success(function (data) {
-                if (typeof data.ExceptionMessage != "undefined") {
+            }).then(function (result) {
+                var data = result.data;
+                var response = {};
+                if (data.ExceptionMessage) {
                     response.message = data.ExceptionMessage;
                     response.isError = true;
                 }
                 else {
-                    response.message = "Her er din kode " + data;
+                    response.message = "KODE FOR \u00C5 BLI MED I LIGA: " + data;
                     response.isError = false;
                 }
+                return response;
             });
-            return response;
+            return promise;
         };
         LeagueService.$inject = [
             "$http"

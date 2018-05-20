@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Footbet.Models;
@@ -31,6 +32,39 @@ namespace Footbet.Controllers
         {
             var userScores = _userScoreRepository.GetAllUserScoresBySportsEventId(sportsEventId);
             var leagueUsers = _leagueUserRepository.GetLeagueUsersByLeagueId(leagueId);
+            var leaderboard = userScores.Any() ? 
+                CreateLeaderboardWithUserScores(leagueUsers, userScores) :
+                CreateLeaderBoardWithoutUserScores(leagueUsers);
+
+            return ToJsonResult(leaderboard);
+        }
+
+        private List<LeaderboardUserViewModel> CreateLeaderBoardWithoutUserScores(List<LeagueUser> leagueUsers)
+        {
+            var leaderboard = new List<LeaderboardUserViewModel>();
+
+            foreach (var leagueUser in leagueUsers)
+            {
+                var user = _userRepository.GetUserByUserId(leagueUser.UserId);
+
+                if (user == null)
+                    continue;
+
+                var leaderboardUserViewModel = CreateLeaderBoardUserViewModel(user, new UserScore(), 0);
+                leaderboard.Add(leaderboardUserViewModel);
+            }
+
+            var leaderBoardSorted = leaderboard.OrderByDescending(x => x.UserName).ToList();
+            for (var i = 0; i < leaderBoardSorted.Count; i++)
+            {
+                leaderBoardSorted[i].Position = i + 1;
+            }
+
+            return leaderBoardSorted;
+        }
+
+        private List<LeaderboardUserViewModel> CreateLeaderboardWithUserScores(List<LeagueUser> leagueUsers, List<UserScore> userScores)
+        {
             var leaderboard = new List<LeaderboardUserViewModel>();
 
             foreach (var leagueUser in leagueUsers)
@@ -39,17 +73,17 @@ namespace Footbet.Controllers
 
                 if (score == null)
                     continue;
-                
-                    var user = _userRepository.GetUserByUserId(leagueUser.UserId);
-                
-                    if (user == null)
-                        continue;
-                    var usersPositionInLeague = GetPositionOfUserInLeague(user.Id, leagueUsers, userScores);
-                    var leaderboardUserViewModel = CreateLeaderBoardUserViewModel(user, score, usersPositionInLeague);
-                    leaderboard.Add(leaderboardUserViewModel);
-                }
 
-            return ToJsonResult(leaderboard);
+                var user = _userRepository.GetUserByUserId(leagueUser.UserId);
+
+                if (user == null)
+                    continue;
+                var usersPositionInLeague = GetPositionOfUserInLeague(user.Id, leagueUsers, userScores);
+                var leaderboardUserViewModel = CreateLeaderBoardUserViewModel(user, score, usersPositionInLeague);
+                leaderboard.Add(leaderboardUserViewModel);
+            }
+
+            return leaderboard;
         }
 
         //DUPLICATED IN LEAGUE CONTROLLER
@@ -57,7 +91,7 @@ namespace Footbet.Controllers
         {
             var userScoresLeagueList = CreateUserScoresLeagueList(leagueUsers, userScores);
             var currentUserScore = userScoresLeagueList.FirstOrDefault(x => x.UserId == userId);
-            if (currentUserScore == null) return userScoresLeagueList.Count();
+            if (currentUserScore == null) return userScoresLeagueList.Count;
             return 1 + userScoresLeagueList.Count(userScore => userScore.UserId != userId && userScore.Score > currentUserScore.Score);
         }
         //DUPLICATED IN LEAGUE CONTROLLER

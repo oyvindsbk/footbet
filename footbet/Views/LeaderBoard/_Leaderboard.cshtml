@@ -1,4 +1,4 @@
-﻿<div class="row" ng-controller="LeaderboardController" ng-show="headerText != ''">
+﻿<div class="row" ng-controller="LeaderboardController as ctl" ng-show="headerText != ''">
     <div class="headerGroups">{{headerText}}</div>
     <table class="col-md-8 col-xs-12 col-sm-10 col-lg-8 table-condensed soccertable">
         <thead>
@@ -11,9 +11,9 @@
                 <th>Poeng totalt</th>
             </tr>
         </thead>
-        <tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="user in leaderboard | orderBy: '-points'">
+        <tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="user in ctl.leaderboard | orderBy: '-points'">
             <td>{{user.Position}}</td>
-            <td><a href="/UserBet?username={{user.UserName}}" ng-click="showUserBet(user.userName)">{{user.name}}</a></td>
+            <td><a href="/UserBet?username={{user.userName}}" ng-click="ctl.showUserBet(user.userName)">{{user.name}}</a></td>
             <td>{{user.userName}}</td>
             <td>{{user.points - user.playoffScore}}</td>
             <td>{{user.playoffScore}}</td>

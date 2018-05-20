@@ -9,60 +9,71 @@
         constructor(private $http) {}
 
         getLeagues(): ng.IPromise<ILeague[]> {
-            var leagues = this.$http({
+            var promise = this.$http({
                 method: "GET",
-                url: "../GetLeaguesForUser"
+                url: "GetLeaguesForUser"
             }).then(response => response.data);
-            return leagues;
+            return promise;
         }
 
         joinLeague(leagueCode: string): ng.IPromise<IResponse> {
-            var response = this.$http({
+            var promise = this.$http({
                 method: "POST",
                 url: "AddCurrentUserToLeagueByGuid",
                 data: { guid: leagueCode }
-            }).success(data => {
-                if (typeof data.ExceptionMessage != "undefined") {
+            }).then(result => {
+                var data = result.data;
+                var response = <IResponse>{};
+                if (data.ExceptionMessage) {
                     response.message = data.ExceptionMessage;
                     response.isError = true;
                 }
+                return response;
             });
-            return response;
+            return promise;
         }
 
         addCurrentUserToLeague(leagueName: string): ng.IPromise<IResponse> {
-            var response = this.$http({
+            var result = this.$http({
                 method: "POST",
                 url: "AddCurrentUserToLeague",
                 data: { leagueName: leagueName }
-            }).success(data => {
-                if (typeof data.ExceptionMessage != "undefined") {
+            }).then(result => {
+                var data = result.data;
+                var response = <IResponse>{};
+
+                if (data.ExceptionMessage) {
                     response.message = data.ExceptionMessage;
                     response.isError = true;
                 } else {
-                    response.message = `Her er din kode ${data}`;
+                    response.message = `KODE FOR Å BLI MED I LIGA: ${data}`;
                     response.isError = false;
                 }
+                return response;
             });
-            return response;
+            return result;
         }
 
         addNewLeague(leagueName: string): ng.IPromise<IResponse> {
-            var response = this.$http({
+            var promise = this.$http({
                 method: "POST",
                 url: "AddNewLeague",
                 data: { leagueName: leagueName }
-            }).success(data => {
-                if (typeof data.ExceptionMessage != "undefined") {
+            }).then(result => {
+                var data = result.data;
+                var response = <IResponse>{};
+
+                if (data.ExceptionMessage) {
                     response.message = data.ExceptionMessage;
                     response.isError = true;
                 } else {
-                    response.message = `Her er din kode ${data}`;
+                    response.message = `KODE FOR Å BLI MED I LIGA: ${data}`;
                     response.isError = false;
                 }
+                return response;
             });
 
-            return response;
+            return promise;
         }
     }
 }
