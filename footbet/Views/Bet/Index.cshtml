@@ -4,7 +4,7 @@
 }
 <div ng-app="footballCompApp">
     <div ng-controller="BetController as ctl" class="ng-cloak">
-        <form ng-submit="save()">
+        <form ng-submit="ctl.save()">
             <h2>Opprett ditt spill <span class="errorText" ng-show="ctl.numberOfIncompleteGames > 0">{{ctl.userBetIncompleteMessage}}</span></h2>
             <div ng-show="ctl.betBaseController.groups">
                 @Html.Partial("_betPartial")
