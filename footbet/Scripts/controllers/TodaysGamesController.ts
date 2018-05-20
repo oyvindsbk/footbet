@@ -40,12 +40,13 @@ module Controllers {
             this.nextButtonDisabled = true;
             this.previousButtonDisabled = true;
             this.todaysGamesService.getNextGames(this.daysFromNow).then(todaysGames => {
-                if (!todaysGames.isFirstDay)
-                    this.previousButtonDisabled = true;
+                this.previousButtonDisabled = todaysGames.isFirstDay;
                 this.nextButtonDisabled = this.isNextButtonDisabled();
                 this.todaysGames = todaysGames.todaysGamesSpecification;
                 this.daysFromNow += todaysGames.numberOfDaysFromToday;
                 this.loaded = true;
+                this.todaysDate = this.getTodaysDatePlusDays(this.daysFromNow);
+
             });
         }
 
@@ -63,11 +64,11 @@ module Controllers {
         private getPreviousGames() {
             this.previousButtonDisabled = true;
             this.todaysGamesService.getPreviousGames(this.daysFromNow).then(todaysGames => {
+                this.previousButtonDisabled = todaysGames.isFirstDay;
                 this.nextButtonDisabled = false;
                 this.todaysGames = todaysGames.todaysGamesSpecification;
                 this.daysFromNow += todaysGames.numberOfDaysFromToday;
                 this.todaysDate = this.getTodaysDatePlusDays(this.daysFromNow);
-                this.previousButtonDisabled = this.isPreviousButtonDisabled();
             });
         };
 

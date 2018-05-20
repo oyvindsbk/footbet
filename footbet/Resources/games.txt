@@ -1,0 +1,946 @@
+[
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 1,
+    "name": "Kamp 1",
+    "homeTeam": 1,
+    "awayTeam": 2,
+    "startTime": "2018-06-14T17:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 1
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 2,
+    "name": "Kamp 2",
+    "homeTeam": 3,
+    "awayTeam": 4,
+    "startTime": "2018-06-15T14:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 1
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 3,
+    "name": "Kamp 17",
+    "homeTeam": 1,
+    "awayTeam": 3,
+    "startTime": "2018-06-19T20:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 1
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 4,
+    "name": "Kamp 18",
+    "homeTeam": 4,
+    "awayTeam": 2,
+    "startTime": "2018-06-20T17:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 1
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 5,
+    "name": "Kamp 33",
+    "homeTeam": 2,
+    "awayTeam": 3,
+    "startTime": "2018-06-25T16:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 1
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 6,
+    "name": "Kamp 34",
+    "homeTeam": 4,
+    "awayTeam": 1,
+    "startTime": "2018-06-25T16:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 1
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 7,
+    "name": "Kamp 3",
+    "homeTeam": 7,
+    "awayTeam": 8,
+    "startTime": "2018-06-15T17:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 2
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 8,
+    "name": "Kamp 4",
+    "homeTeam": 5,
+    "awayTeam": 6,
+    "startTime": "2018-06-15T20:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 2
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 9,
+    "name": "Kamp 19",
+    "homeTeam": 5,
+    "awayTeam": 7,
+    "startTime": "2018-06-20T14:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 2
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 10,
+    "name": "Kamp 20",
+    "homeTeam": 8,
+    "awayTeam": 6,
+    "startTime": "2018-06-20T20:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 2
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 11,
+    "name": "Kamp 35",
+    "homeTeam": 8,
+    "awayTeam": 5,
+    "startTime": "2018-06-25T20:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 2
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 12,
+    "name": "Kamp 36",
+    "homeTeam": 6,
+    "awayTeam": 7,
+    "startTime": "2018-06-25T20:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 2
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 13,
+    "name": "Kamp 5",
+    "homeTeam": 9,
+    "awayTeam": 10,
+    "startTime": "2018-06-16T12:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 3
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 14,
+    "name": "Kamp 6",
+    "homeTeam": 11,
+    "awayTeam": 12,
+    "startTime": "2018-06-16T18:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 3
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 15,
+    "name": "Kamp 21",
+    "homeTeam": 12,
+    "awayTeam": 10,
+    "startTime": "2018-06-21T14:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 3
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 16,
+    "name": "Kamp 22",
+    "homeTeam": 9,
+    "awayTeam": 11,
+    "startTime": "2018-06-21T17:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 3
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 17,
+    "name": "Kamp 37",
+    "homeTeam": 12,
+    "awayTeam": 9,
+    "startTime": "2018-06-26T16:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 3
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 18,
+    "name": "Kamp 38",
+    "homeTeam": 10,
+    "awayTeam": 11,
+    "startTime": "2018-06-26T16:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 3
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 19,
+    "name": "Kamp 7",
+    "homeTeam": 13,
+    "awayTeam": 14,
+    "startTime": "2018-06-16T15:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 4
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 20,
+    "name": "Kamp 8",
+    "homeTeam": 15,
+    "awayTeam": 16,
+    "startTime": "2018-06-16T21:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 4
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 21,
+    "name": "Kamp 23",
+    "homeTeam": 13,
+    "awayTeam": 15,
+    "startTime": "2018-06-21T20:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 4
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 22,
+    "name": "Kamp 24",
+    "homeTeam": 16,
+    "awayTeam": 14,
+    "startTime": "2018-06-22T17:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 4
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 23,
+    "name": "Kamp 39",
+    "homeTeam": 16,
+    "awayTeam": 13,
+    "startTime": "2018-06-26T20:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 4
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 24,
+    "name": "Kamp 40",
+    "homeTeam": 14,
+    "awayTeam": 15,
+    "startTime": "2018-06-26T20:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 4
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 25,
+    "name": "Kamp 9",
+    "homeTeam": 19,
+    "awayTeam": 20,
+    "startTime": "2018-06-17T14:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 5
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 26,
+    "name": "Kamp 10",
+    "homeTeam": 17,
+    "awayTeam": 18,
+    "startTime": "2018-06-17T20:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 5
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 27,
+    "name": "Kamp 25",
+    "homeTeam": 17,
+    "awayTeam": 19,
+    "startTime": "2018-06-22T14:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 5
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 28,
+    "name": "Kamp 26",
+    "homeTeam": 20,
+    "awayTeam": 18,
+    "startTime": "2018-06-22T20:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 5
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 29,
+    "name": "Kamp 41",
+    "homeTeam": 18,
+    "awayTeam": 19,
+    "startTime": "2018-06-27T20:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 5
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 30,
+    "name": "Kamp 42",
+    "homeTeam": 20,
+    "awayTeam": 17,
+    "startTime": "2018-06-27T20:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 5
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 31,
+    "name": "Kamp 11",
+    "homeTeam": 21,
+    "awayTeam": 22,
+    "startTime": "2018-06-17T17:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 6
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 32,
+    "name": "Kamp 12",
+    "homeTeam": 23,
+    "awayTeam": 24,
+    "startTime": "2018-06-18T14:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 6
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 33,
+    "name": "Kamp 27",
+    "homeTeam": 24,
+    "awayTeam": 22,
+    "startTime": "2018-06-23T17:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 6
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 34,
+    "name": "Kamp 28",
+    "homeTeam": 21,
+    "awayTeam": 23,
+    "startTime": "2018-06-23T20:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 6
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 35,
+    "name": "Kamp 43",
+    "homeTeam": 22,
+    "awayTeam": 23,
+    "startTime": "2018-06-27T16:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 6
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 36,
+    "name": "Kamp 44",
+    "homeTeam": 24,
+    "awayTeam": 21,
+    "startTime": "2018-06-27T16:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 6
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 37,
+    "name": "Kamp 13",
+    "homeTeam": 25,
+    "awayTeam": 26,
+    "startTime": "2018-06-18T17:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 7
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 38,
+    "name": "Kamp 14",
+    "homeTeam": 27,
+    "awayTeam": 28,
+    "startTime": "2018-06-18T20:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 7
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 39,
+    "name": "Kamp 29",
+    "homeTeam": 25,
+    "awayTeam": 27,
+    "startTime": "2018-06-23T14:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 7
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 40,
+    "name": "Kamp 30",
+    "homeTeam": 28,
+    "awayTeam": 26,
+    "startTime": "2018-06-24T14:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 7
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 41,
+    "name": "Kamp 45",
+    "homeTeam": 28,
+    "awayTeam": 25,
+    "startTime": "2018-06-28T20:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 7
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 42,
+    "name": "Kamp 46",
+    "homeTeam": 26,
+    "awayTeam": 27,
+    "startTime": "2018-06-28T20:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 7
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 43,
+    "name": "Kamp 15",
+    "homeTeam": 31,
+    "awayTeam": 32,
+    "startTime": "2018-06-19T14:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 8
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 44,
+    "name": "Kamp 16",
+    "homeTeam": 29,
+    "awayTeam": 30,
+    "startTime": "2018-06-19T17:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 8
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 45,
+    "name": "Kamp 31",
+    "homeTeam": 32,
+    "awayTeam": 30,
+    "startTime": "2018-06-24T17:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 8
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 46,
+    "name": "Kamp 32",
+    "homeTeam": 29,
+    "awayTeam": 31,
+    "startTime": "2018-06-24T20:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 8
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 47,
+    "name": "Kamp 47",
+    "homeTeam": 30,
+    "awayTeam": 31,
+    "startTime": "2018-06-28T16:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 8
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [],
+    "id": 48,
+    "name": "Kamp 48",
+    "homeTeam": 32,
+    "awayTeam": 29,
+    "startTime": "2018-06-28T16:00:00",
+    "gameType": 1,
+    "sportsEventId": 1,
+    "groupId": 8
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [
+      {
+        "id": 1,
+        "isHomeTeamNextGame": 0,
+        "nextPlayoffGame": 57,
+        "nextPlayoffGameRunnerUp": null,
+        "isHomeTeamInRunnerUpGame": null,
+        "homeTeamDisplayName": "C1",
+        "awayTeamDisplayName": "D2",
+        "gameId": 49
+      }
+    ],
+    "id": 49,
+    "name": "8-delsfinale 1",
+    "homeTeam": null,
+    "awayTeam": null,
+    "startTime": "2018-06-30T16:00:00",
+    "gameType": 2,
+    "sportsEventId": 1,
+    "groupId": null
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [
+      {
+        "id": 2,
+        "isHomeTeamNextGame": 1,
+        "nextPlayoffGame": 57,
+        "nextPlayoffGameRunnerUp": null,
+        "isHomeTeamInRunnerUpGame": null,
+        "homeTeamDisplayName": "A1",
+        "awayTeamDisplayName": "B2",
+        "gameId": 50
+      }
+    ],
+    "id": 50,
+    "name": "8-delsfinale 2",
+    "homeTeam": null,
+    "awayTeam": null,
+    "startTime": "2018-06-30T20:00:00",
+    "gameType": 2,
+    "sportsEventId": 1,
+    "groupId": null
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [
+      {
+        "id": 3,
+        "isHomeTeamNextGame": 1,
+        "nextPlayoffGame": 60,
+        "nextPlayoffGameRunnerUp": null,
+        "isHomeTeamInRunnerUpGame": null,
+        "homeTeamDisplayName": "B1",
+        "awayTeamDisplayName": "A2",
+        "gameId": 51
+      }
+    ],
+    "id": 51,
+    "name": "8-delsfinale 3",
+    "homeTeam": null,
+    "awayTeam": null,
+    "startTime": "2018-07-01T16:00:00",
+    "gameType": 2,
+    "sportsEventId": 1,
+    "groupId": null
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [
+      {
+        "id": 4,
+        "isHomeTeamNextGame": 0,
+        "nextPlayoffGame": 60,
+        "nextPlayoffGameRunnerUp": null,
+        "isHomeTeamInRunnerUpGame": null,
+        "homeTeamDisplayName": "D1",
+        "awayTeamDisplayName": "C2",
+        "gameId": 52
+      }
+    ],
+    "id": 52,
+    "name": "8-delsfinale 4",
+    "homeTeam": null,
+    "awayTeam": null,
+    "startTime": "2018-07-01T20:00:00",
+    "gameType": 2,
+    "sportsEventId": 1,
+    "groupId": null
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [
+      {
+        "id": 5,
+        "isHomeTeamNextGame": 1,
+        "nextPlayoffGame": 58,
+        "nextPlayoffGameRunnerUp": null,
+        "isHomeTeamInRunnerUpGame": null,
+        "homeTeamDisplayName": "E1",
+        "awayTeamDisplayName": "F2",
+        "gameId": 53
+      }
+    ],
+    "id": 53,
+    "name": "8-delsfinale 5",
+    "homeTeam": null,
+    "awayTeam": null,
+    "startTime": "2018-07-02T16:00:00",
+    "gameType": 2,
+    "sportsEventId": 1,
+    "groupId": null
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [
+      {
+        "id": 6,
+        "isHomeTeamNextGame": 0,
+        "nextPlayoffGame": 58,
+        "nextPlayoffGameRunnerUp": null,
+        "isHomeTeamInRunnerUpGame": null,
+        "homeTeamDisplayName": "G1",
+        "awayTeamDisplayName": "H2",
+        "gameId": 54
+      }
+    ],
+    "id": 54,
+    "name": "8-delsfinale 6",
+    "homeTeam": null,
+    "awayTeam": null,
+    "startTime": "2018-07-02T20:00:00",
+    "gameType": 2,
+    "sportsEventId": 1,
+    "groupId": null
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [
+      {
+        "id": 7,
+        "isHomeTeamNextGame": 1,
+        "nextPlayoffGame": 59,
+        "nextPlayoffGameRunnerUp": null,
+        "isHomeTeamInRunnerUpGame": null,
+        "homeTeamDisplayName": "F1",
+        "awayTeamDisplayName": "E2",
+        "gameId": 55
+      }
+    ],
+    "id": 55,
+    "name": "8-delsfinale 7",
+    "homeTeam": null,
+    "awayTeam": null,
+    "startTime": "2018-07-03T16:00:00",
+    "gameType": 2,
+    "sportsEventId": 1,
+    "groupId": null
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [
+      {
+        "id": 8,
+        "isHomeTeamNextGame": 0,
+        "nextPlayoffGame": 59,
+        "nextPlayoffGameRunnerUp": null,
+        "isHomeTeamInRunnerUpGame": null,
+        "homeTeamDisplayName": "H1",
+        "awayTeamDisplayName": "G2",
+        "gameId": 56
+      }
+    ],
+    "id": 56,
+    "name": "8-delsfinale 8",
+    "homeTeam": null,
+    "awayTeam": null,
+    "startTime": "2018-07-03T20:00:00",
+    "gameType": 2,
+    "sportsEventId": 1,
+    "groupId": null
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [
+      {
+        "id": 9,
+        "isHomeTeamNextGame": 1,
+        "nextPlayoffGame": 61,
+        "nextPlayoffGameRunnerUp": null,
+        "isHomeTeamInRunnerUpGame": null,
+        "homeTeamDisplayName": "Vinner A1/B2",
+        "awayTeamDisplayName": "Vinner C1/2D",
+        "gameId": 57
+      }
+    ],
+    "id": 57,
+    "name": "Kvartfinale 1",
+    "homeTeam": null,
+    "awayTeam": null,
+    "startTime": "2018-07-06T16:00:00",
+    "gameType": 3,
+    "sportsEventId": 1,
+    "groupId": null
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [
+      {
+        "id": 10,
+        "isHomeTeamNextGame": 0,
+        "nextPlayoffGame": 61,
+        "nextPlayoffGameRunnerUp": null,
+        "isHomeTeamInRunnerUpGame": null,
+        "homeTeamDisplayName": "Vinner E1/2F",
+        "awayTeamDisplayName": "Vinner G1/H2",
+        "gameId": 58
+      }
+    ],
+    "id": 58,
+    "name": "Kvartfinale 2",
+    "homeTeam": null,
+    "awayTeam": null,
+    "startTime": "2018-07-06T20:00:00",
+    "gameType": 3,
+    "sportsEventId": 1,
+    "groupId": null
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [
+      {
+        "id": 11,
+        "isHomeTeamNextGame": 1,
+        "nextPlayoffGame": 62,
+        "nextPlayoffGameRunnerUp": null,
+        "isHomeTeamInRunnerUpGame": null,
+        "homeTeamDisplayName": "Vinner F1/E2",
+        "awayTeamDisplayName": "Vinner H1/G2",
+        "gameId": 59
+      }
+    ],
+    "id": 59,
+    "name": "Kvartfinale 3",
+    "homeTeam": null,
+    "awayTeam": null,
+    "startTime": "2018-07-07T16:00:00",
+    "gameType": 3,
+    "sportsEventId": 1,
+    "groupId": null
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [
+      {
+        "id": 12,
+        "isHomeTeamNextGame": 0,
+        "nextPlayoffGame": 62,
+        "nextPlayoffGameRunnerUp": null,
+        "isHomeTeamInRunnerUpGame": null,
+        "homeTeamDisplayName": "Vinner B1/A2",
+        "awayTeamDisplayName": "Vinner D1/2C",
+        "gameId": 60
+      }
+    ],
+    "id": 60,
+    "name": "Kvartfinale 4",
+    "homeTeam": null,
+    "awayTeam": null,
+    "startTime": "2018-07-07T20:00:00",
+    "gameType": 3,
+    "sportsEventId": 1,
+    "groupId": null
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [
+      {
+        "id": 13,
+        "isHomeTeamNextGame": 1,
+        "nextPlayoffGame": 64,
+        "nextPlayoffGameRunnerUp": 63,
+        "isHomeTeamInRunnerUpGame": 1,
+        "homeTeamDisplayName": "Vinner KF 1",
+        "awayTeamDisplayName": "Vinner KF 2",
+        "gameId": 61
+      }
+    ],
+    "id": 61,
+    "name": "Semifinale 1",
+    "homeTeam": null,
+    "awayTeam": null,
+    "startTime": "2018-07-10T20:00:00",
+    "gameType": 4,
+    "sportsEventId": 1,
+    "groupId": null
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [
+      {
+        "id": 14,
+        "isHomeTeamNextGame": 0,
+        "nextPlayoffGame": 64,
+        "nextPlayoffGameRunnerUp": 63,
+        "isHomeTeamInRunnerUpGame": 0,
+        "homeTeamDisplayName": "Vinner KF 3",
+        "awayTeamDisplayName": "Vinner KF 4",
+        "gameId": 62
+      }
+    ],
+    "id": 62,
+    "name": "Semifinale 2",
+    "homeTeam": null,
+    "awayTeam": null,
+    "startTime": "2018-07-11T20:00:00",
+    "gameType": 4,
+    "sportsEventId": 1,
+    "groupId": null
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [
+      {
+        "id": 15,
+        "isHomeTeamNextGame": null,
+        "nextPlayoffGame": null,
+        "nextPlayoffGameRunnerUp": null,
+        "isHomeTeamInRunnerUpGame": null,
+        "homeTeamDisplayName": "Taper SF 1",
+        "awayTeamDisplayName": "Taper SF 2",
+        "gameId": 63
+      }
+    ],
+    "id": 63,
+    "name": "Bronsefinale",
+    "homeTeam": null,
+    "awayTeam": null,
+    "startTime": "2018-07-14T16:00:00",
+    "gameType": 5,
+    "sportsEventId": 1,
+    "groupId": null
+  },
+  {
+    "bets": [],
+    "playoffGameDetails": [
+      {
+        "id": 16,
+        "isHomeTeamNextGame": null,
+        "nextPlayoffGame": null,
+        "nextPlayoffGameRunnerUp": null,
+        "isHomeTeamInRunnerUpGame": null,
+        "homeTeamDisplayName": "Vinner SF 1",
+        "awayTeamDisplayName": "Vinner SF 2",
+        "gameId": 64
+      }
+    ],
+    "id": 64,
+    "name": "Finale",
+    "homeTeam": null,
+    "awayTeam": null,
+    "startTime": "2018-07-15T17:00:00",
+    "gameType": 6,
+    "sportsEventId": 1,
+    "groupId": null
+  }
+]

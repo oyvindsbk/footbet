@@ -50,18 +50,7 @@ namespace Footbet.Controllers
             }
 
             var gameSetup = Resources.gameSetupRussia;
-            //var groups = _groupRepository.GetGroupsBySportsEventId(sportsEventId).ToList();
-            //if (groups != null)
-            //{
-            //    var viewModel = new BetViewModel
-            //    {
-            //        Groups = groups.Select(MapToGroupViewModel).ToList(),
-            //        PlayoffGames = GetPlayoffGames()
-            //    };
-            //    return ToJsonResult(viewModel);
-            //}
-
-
+       
             var betViewModel = _javaScriptSerializer.Deserialize<BetViewModel>(gameSetup);
 
             var userBet = GetUserBetForUserWithUserName(userName);

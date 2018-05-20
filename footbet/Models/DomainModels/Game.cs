@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
+
 namespace Footbet.Models.DomainModels
 {
     public class Game
@@ -17,7 +19,6 @@ namespace Footbet.Models.DomainModels
         public int GameType { get; set; }
         public int SportsEventId { get; set; }
         public int? GroupId { get; set; }
-
 
         public virtual ICollection<Bet> Bets { get; set; }
         public virtual ICollection<PlayoffGameDetails> PlayoffGameDetails { get; set; }

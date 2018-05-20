@@ -345,9 +345,8 @@
     <Content Include="package.json" />
     <None Include="Properties\PublishProfiles\russlandvm - Web Deploy.pubxml" />
     <None Include="Resources\basis-for-bet.txt" />
-    <Content Include="Resources\brasil-wrong-old.txt" />
-    <Content Include="Resources\brasil-games.txt" />
-    <Content Include="Resources\brasil-teams.txt" />
+    <Content Include="Resources\games.txt" />
+    <Content Include="Resources\teams.txt" />
     <Content Include="fonts\brasil.otf" />
     <Content Include="fonts\brasil.eot" />
     <None Include="Properties\PublishProfiles\brasilvm - FTP.pubxml" />
@@ -401,8 +400,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

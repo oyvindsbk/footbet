@@ -61,124 +61,38 @@ namespace Footbet {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [{
-        ///	&quot;Id&quot;: 1,
-        ///	&quot;StartTime&quot;: &quot;\/Date(1402603200000)\/&quot;,
-        ///	&quot;HomeGoals&quot;: null,
-        ///	&quot;AwayGoals&quot;: null,
-        ///	&quot;Result&quot;: null,
-        ///	&quot;GameType&quot;: 1,
-        ///	&quot;SportsEventId&quot;: 1,
-        ///	&quot;Name&quot;: &quot;Kamp 1&quot;,
-        ///	&quot;HomeTeam&quot;: 1,
-        ///	&quot;AwayTeam&quot;: 2,
-        ///	&quot;PlayoffGameDetails&quot;: []
-        ///},
-        ///{
-        ///	&quot;Id&quot;: 2,
-        ///	&quot;StartTime&quot;: &quot;\/Date(1402675200000)\/&quot;,
-        ///	&quot;HomeGoals&quot;: null,
-        ///	&quot;AwayGoals&quot;: null,
-        ///	&quot;Result&quot;: null,
-        ///	&quot;GameType&quot;: 1,
-        ///	&quot;SportsEventId&quot;: 1,
-        ///	&quot;Name&quot;: &quot;Kamp 2&quot;,
-        ///	&quot;HomeTeam&quot;: 3,
-        ///	&quot;AwayTeam&quot;: 4,
-        ///	&quot;PlayoffGameDetails&quot;: []
-        ///},
-        ///{
-        ///	&quot;Id&quot;: 3,
-        ///	&quot;StartTime&quot;: &quot;\/ [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to [
+        ///  {
+        ///    &quot;playoffGameDetails&quot;: [],
+        ///    &quot;id&quot;: 1,
+        ///    &quot;name&quot;: &quot;Kamp 1&quot;,
+        ///    &quot;homeTeam&quot;: 1,
+        ///    &quot;awayTeam&quot;: 2,
+        ///    &quot;startTime&quot;: &quot;2018-06-14T17:00:00&quot;,
+        ///    &quot;gameType&quot;: 1,
+        ///    &quot;sportsEventId&quot;: 1,
+        ///    &quot;groupId&quot;: 1
+        ///  },
+        ///  {
+        ///    &quot;playoffGameDetails&quot;: [],
+        ///    &quot;id&quot;: 2,
+        ///    &quot;name&quot;: &quot;Kamp 2&quot;,
+        ///    &quot;homeTeam&quot;: 3,
+        ///    &quot;awayTeam&quot;: 4,
+        ///    &quot;startTime&quot;: &quot;2018-06-15T14:00:00&quot;,
+        ///    &quot;gameType&quot;: 1,
+        ///    &quot;sportsEventId&quot;: 1,
+        ///    &quot;groupId&quot;: 1
+        ///  },
+        ///  {
+        ///    &quot;playoffGameDetails&quot;: [],
+        ///    &quot;id&quot;: 3,
+        ///    &quot;name&quot;: &quot;Kamp 17&quot;,
+        ///    &quot;homeTeam&quot;:  [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string brasil_games {
+        internal static string games {
             get {
-                return ResourceManager.GetString("brasil_games", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to [{
-        ///	&quot;Id&quot;: 1,
-        ///	&quot;Name&quot;: &quot;Brasil&quot;,
-        ///	&quot;Flag&quot;: &quot;flag-br&quot;,
-        ///	&quot;GroupId&quot;: 1,
-        ///	&quot;SportsEventId&quot;: 1
-        ///},
-        ///{
-        ///	&quot;Id&quot;: 2,
-        ///	&quot;Name&quot;: &quot;Kroatia&quot;,
-        ///	&quot;Flag&quot;: &quot;flag-hr&quot;,
-        ///	&quot;GroupId&quot;: 1,
-        ///	&quot;SportsEventId&quot;: 1
-        ///},
-        ///{
-        ///	&quot;Id&quot;: 3,
-        ///	&quot;Name&quot;: &quot;Mexico&quot;,
-        ///	&quot;Flag&quot;: &quot;flag-mx&quot;,
-        ///	&quot;GroupId&quot;: 1,
-        ///	&quot;SportsEventId&quot;: 1
-        ///},
-        ///{
-        ///	&quot;Id&quot;: 4,
-        ///	&quot;Name&quot;: &quot;Kamerun&quot;,
-        ///	&quot;Flag&quot;: &quot;flag-cm&quot;,
-        ///	&quot;GroupId&quot;: 1,
-        ///	&quot;SportsEventId&quot;: 1
-        ///},
-        ///{
-        ///	&quot;Id&quot;: 5,
-        ///	&quot;Name&quot;: &quot;Spania&quot;,
-        ///	&quot;Flag&quot;: &quot;flag-es&quot;,
-        ///	&quot;GroupId&quot;: 2,
-        ///	&quot;SportsEventId&quot;: 1
-        ///},
-        ///{
-        ///	&quot;Id&quot;: 6,
-        ///	&quot;Name&quot;: &quot;Neder [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string brasil_teams {
-            get {
-                return ResourceManager.GetString("brasil_teams", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to {
-        ///	&quot;Groups&quot;: [{
-        ///		&quot;Id&quot;: 1,
-        ///		&quot;Name&quot;: &quot;Gruppe A&quot;,
-        ///		&quot;WinnerTeamCode&quot;: null,
-        ///		&quot;RunnerUpTeamCode&quot;: null,
-        ///		&quot;WinnerGameCode&quot;: &quot;49&quot;,
-        ///		&quot;RunnerUpGameCode&quot;: &quot;51&quot;,
-        ///		&quot;SportsEventId&quot;: 1,
-        ///		&quot;Teams&quot;: [{
-        ///			&quot;Id&quot;: 1,
-        ///			&quot;Name&quot;: &quot;Brasil&quot;,
-        ///			&quot;Flag&quot;: &quot;flag-br&quot;,
-        ///			&quot;GroupId&quot;: 1
-        ///		},
-        ///		{
-        ///			&quot;Id&quot;: 2,
-        ///			&quot;Name&quot;: &quot;Kroatia&quot;,
-        ///			&quot;Flag&quot;: &quot;flag-hr&quot;,
-        ///			&quot;GroupId&quot;: 1
-        ///		},
-        ///		{
-        ///			&quot;Id&quot;: 3,
-        ///			&quot;Name&quot;: &quot;Mexico&quot;,
-        ///			&quot;Flag&quot;: &quot;flag-mx&quot;,
-        ///			&quot;GroupId&quot;: 1
-        ///		},
-        ///		{
-        ///			&quot;Id&quot;: 4,
-        ///			&quot;Name&quot;: &quot;Kamerun&quot;,
-        ///			&quot;Flag&quot;: &quot;fl [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string brasil_wrong_old {
-            get {
-                return ResourceManager.GetString("brasil_wrong_old", resourceCulture);
+                return ResourceManager.GetString("games", resourceCulture);
             }
         }
         
@@ -188,6 +102,48 @@ namespace Footbet {
         internal static string gameSetupRussia {
             get {
                 return ResourceManager.GetString("gameSetupRussia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [
+        ///  {
+        ///    &quot;id&quot;: 1,
+        ///    &quot;name&quot;: &quot;Russland&quot;,
+        ///    &quot;flag&quot;: &quot;flag-ru&quot;,
+        ///    &quot;groupId&quot;: 1,
+        ///    &quot;sportsEventId&quot;: 1
+        ///  },
+        ///  {
+        ///    &quot;id&quot;: 2,
+        ///    &quot;name&quot;: &quot;Saudi-Arabia&quot;,
+        ///    &quot;flag&quot;: &quot;flag-sa&quot;,
+        ///    &quot;groupId&quot;: 1,
+        ///    &quot;sportsEventId&quot;: 1
+        ///  },
+        ///  {
+        ///    &quot;id&quot;: 3,
+        ///    &quot;name&quot;: &quot;Egypt&quot;,
+        ///    &quot;flag&quot;: &quot;flag-eg&quot;,
+        ///    &quot;groupId&quot;: 1,
+        ///    &quot;sportsEventId&quot;: 1
+        ///  },
+        ///  {
+        ///    &quot;id&quot;: 4,
+        ///    &quot;name&quot;: &quot;Uruguay&quot;,
+        ///    &quot;flag&quot;: &quot;flag-uy&quot;,
+        ///    &quot;groupId&quot;: 1,
+        ///    &quot;sportsEventId&quot;: 1
+        ///  },
+        ///  {
+        ///    &quot;id&quot;: 5,
+        ///    &quot;name&quot;: &quot;Portugal&quot;,
+        ///    &quot;flag&quot;: &quot;flag-pt&quot;,
+        ///    &quot;g [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string teams {
+            get {
+                return ResourceManager.GetString("teams", resourceCulture);
             }
         }
     }

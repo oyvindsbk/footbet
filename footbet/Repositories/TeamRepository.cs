@@ -19,18 +19,20 @@ namespace Footbet.Repositories
 
         public Team GetTeamById(int? teamId)
         {
-            var team = _repository.FindBy(x => x.Id == teamId).ToList();
+            var teams = GetTeamsFromResource();
+            var team = teams.Where(x => x.Id == teamId).ToList();
             return team.Count == 0 ? new Team() : team.First();
         }
 
         public List<Team> GetTeamsBySportsEventId(int sportsEventId)
         {
-            return _repository.FindBy(x => x.SportsEventId == sportsEventId).ToList();
+            var teams = GetTeamsFromResource();
+            return teams.Where(x => x.SportsEventId == sportsEventId).ToList();
         }
 
         private IEnumerable<Team> GetTeamsFromResource()
         {
-            var teamJson = Resources.brasil_teams;
+            var teamJson = Resources.teams;
             return _javaScriptSerializer.Deserialize<List<Team>>(teamJson);
         }
     }

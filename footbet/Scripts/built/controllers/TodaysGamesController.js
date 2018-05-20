@@ -28,12 +28,12 @@ var Controllers;
             this.nextButtonDisabled = true;
             this.previousButtonDisabled = true;
             this.todaysGamesService.getNextGames(this.daysFromNow).then(function (todaysGames) {
-                if (!todaysGames.isFirstDay)
-                    _this.previousButtonDisabled = true;
+                _this.previousButtonDisabled = todaysGames.isFirstDay;
                 _this.nextButtonDisabled = _this.isNextButtonDisabled();
                 _this.todaysGames = todaysGames.todaysGamesSpecification;
                 _this.daysFromNow += todaysGames.numberOfDaysFromToday;
                 _this.loaded = true;
+                _this.todaysDate = _this.getTodaysDatePlusDays(_this.daysFromNow);
             });
         };
         TodaysGamesController.prototype.getNextGames = function () {
@@ -51,11 +51,11 @@ var Controllers;
             var _this = this;
             this.previousButtonDisabled = true;
             this.todaysGamesService.getPreviousGames(this.daysFromNow).then(function (todaysGames) {
+                _this.previousButtonDisabled = todaysGames.isFirstDay;
                 _this.nextButtonDisabled = false;
                 _this.todaysGames = todaysGames.todaysGamesSpecification;
                 _this.daysFromNow += todaysGames.numberOfDaysFromToday;
                 _this.todaysDate = _this.getTodaysDatePlusDays(_this.daysFromNow);
-                _this.previousButtonDisabled = _this.isPreviousButtonDisabled();
             });
         };
         ;
