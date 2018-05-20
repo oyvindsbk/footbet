@@ -296,6 +296,7 @@
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bundle.js" />
     <Content Include="Content\flags.css" />
     <Content Include="Content\images\1200px-2018_FIFA_World_Cup.png" />
     <Content Include="Content\images\brasil-medium.PNG" />
@@ -305,6 +306,7 @@
     <Content Include="Content\images\flags.png" />
     <Content Include="Content\navbars.css" />
     <Content Include="Content\soccertable.css" />
+    <Content Include="Content\vendor.js" />
     <Content Include="Database\Creates\00 Drop all.sql" />
     <Content Include="Database\Creates\01 SportsEvents.sql" />
     <Content Include="Database\Creates\02 Groups.sql" />
@@ -339,8 +341,10 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\russia.ttf" />
+    <Content Include="gulpfile.js" />
+    <Content Include="package.json" />
     <None Include="Properties\PublishProfiles\russlandvm - Web Deploy.pubxml" />
-    <None Include="Resources\brasil.txt" />
+    <None Include="Resources\basis-for-bet.txt" />
     <Content Include="Resources\brasil-wrong-old.txt" />
     <Content Include="Resources\brasil-games.txt" />
     <Content Include="Resources\brasil-teams.txt" />
