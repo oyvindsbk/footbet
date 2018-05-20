@@ -6,7 +6,6 @@ drop TABLE Results
 drop TABLE PlayoffBets
 DROP TABLE Bets
 drop TABLE UserBets
-drop TABLE TeamGames
 drop TABLE Teams
 drop TABLE PlayoffGameDetails
 drop TABLE Games

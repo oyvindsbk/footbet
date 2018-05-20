@@ -38,10 +38,10 @@ var Services;
             if (!shouldSetPlayoffGameTeams)
                 return;
             angular.forEach(this.playoffGames, function (playoffGame) {
-                if (playoffGame.id === group.winnerGameCode) {
+                if (playoffGame.id === group.winnerGameId) {
                     playoffGame.homeTeam = group.winner;
                 }
-                if (playoffGame.id === group.runnerUpGameCode) {
+                if (playoffGame.id === group.runnerUpGameId) {
                     playoffGame.awayTeam = group.runnerUp;
                 }
                 if (setPlayoffGamesRecursively)
@@ -147,7 +147,7 @@ var Services;
             this.successMessage = "";
         };
         BetBaseController.prototype.playoffGameScoreChanged = function (playoffGame) {
-            if (playoffGame.homeGoals || playoffGame.awayGoals)
+            if (playoffGame.homeGoals == null || playoffGame.awayGoals == null)
                 return;
             var isHomeTeam;
             var proceedingTeam;

@@ -10,10 +10,8 @@ module Services {
     export interface IGroup extends ng.resource.IResource<IGroup> {
         id: number;
         name: string;
-        winnerTeamCode: string;
-        runnerUpTeamCode: string;
-        winnerGameCode: number;
-        runnerUpGameCode: number;
+        winnerGameId: number;
+        runnerUpGameId: number;
         sportsEventId: number;
         number: number;
         winner: ITeam;

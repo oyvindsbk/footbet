@@ -12,10 +12,8 @@ namespace Footbet.Models.DomainModels
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public string WinnerTeamCode { get; set; }
-        public string RunnerUpTeamCode { get; set; }
-        public string WinnerGameCode { get; set; }
-        public string RunnerUpGameCode { get; set; }
+        public int WinnerGameId { get; set; }
+        public int RunnerUpGameId { get; set; }
         public int SportsEventId { get; set; }
 
         public virtual ICollection<Team> Teams { get; set; }

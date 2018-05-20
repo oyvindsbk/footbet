@@ -10,11 +10,8 @@ GO
 CREATE TABLE [dbo].[Groups](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Name] [varchar](55) NOT NULL,
-	[WinnerTeamCode] [varchar](55) NULL,
-	[RunnerUpTeamCode] [varchar](55) NULL,
-	[ThirdPlaceTeamCode] [varchar](55) NULL,
-	[WinnerGameCode] [varchar](55) NULL,
-	[RunnerUpGameCode] [varchar](55) NULL,
+	[WinnerGameId] [int],
+	[RunnerUpGameId] [int],
 	[SportsEventId] [int] NOT NULL FOREIGN KEY REFERENCES SportsEvents(Id)
 PRIMARY KEY CLUSTERED 
 (

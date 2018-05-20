@@ -64,8 +64,8 @@
                     <span class="flag {{playoffGame.homeTeam.flag}}"></span>
                 </td>
                 <td class="text-center">
-                    <input type="number" max="9" ng-attr-class="{{(playoffGame.homeGoals == playoffGame.awayGoals && playoffGame.homeGoals != null && playoffGame.awayGoals != null) && 'errorBorder txtScore' || 'txtScore' }}" ng-disabled="!playoffGame.homeTeam.name || !playoffGame.awayTeam.name" ng-change="playoffGameScoreChanged(playoffGame)" ng-model="playoffGame.homeGoals" /> -
-                    <input ng-attr-class="{{(playoffGame.homeGoals == playoffGame.awayGoals && playoffGame.homeGoals != null && playoffGame.awayGoals != null) && 'errorBorder txtScore' || 'txtScore' }}" type="number" max="9" ng-disabled="!playoffGame.homeTeam.name || !playoffGame.awayTeam.name" ng-change="playoffGameScoreChanged(playoffGame)" ng-model="playoffGame.awayGoals" />
+                    <input type="number" max="9" ng-attr-class="{{(playoffGame.homeGoals == playoffGame.awayGoals && playoffGame.homeGoals != null && playoffGame.awayGoals != null) && 'errorBorder txtScore' || 'txtScore' }}" ng-disabled="!playoffGame.homeTeam.name || !playoffGame.awayTeam.name" ng-change="ctl.betBaseController.playoffGameScoreChanged(playoffGame)" ng-model="playoffGame.homeGoals" /> -
+                    <input ng-attr-class="{{(playoffGame.homeGoals == playoffGame.awayGoals && playoffGame.homeGoals != null && playoffGame.awayGoals != null) && 'errorBorder txtScore' || 'txtScore' }}" type="number" max="9" ng-disabled="!playoffGame.homeTeam.name || !playoffGame.awayTeam.name" ng-change="ctl.betBaseController.playoffGameScoreChanged(playoffGame)" ng-model="playoffGame.awayGoals" />
                 </td>
                 <td class="text-left" ng-hide="playoffGame.awayTeam">
                     {{playoffGame.playoffGameDetails.awayTeamDisplayName}}
@@ -77,7 +77,7 @@
             </tr>
         </table>
         <div class="row">
-            <input class="save-bet-btn span2" ng-disabled="!ctl.betBaseController.modelChanged" ng-attr-title="{{!betBaseController.modelChanged && 'Gjør endring for å lagre' || '' }}" type="submit" value="Lagre" />
+            <input class="save-bet-btn span2" ng-disabled="!ctl.betBaseController.modelChanged" ng-attr-title="{{!ctl.betBaseController.modelChanged && 'Gjør endring for å lagre' || '' }}" type="submit" value="Lagre" />
             <p class="errorText span4" ng-show="ctl.betBaseController.errorMessage.length > 0">{{ctl.betBaseController.errorMessage}}</p>
             <p class="text-success span4" ng-show="ctl.betBaseController.successMessage.length > 0">{{ctl.betBaseController.successMessage}}</p>
         </div>

@@ -87,8 +87,8 @@ namespace Footbet.Controllers
             {
                 Id = group.Id,
                 Name = group.Name,
-                RunnerUpGameCode = group.RunnerUpGameCode,
-                WinnerGameCode = group.WinnerGameCode,
+                RunnerUpGameId = group.RunnerUpGameId,
+                WinnerGameId = group.WinnerGameId,
                 SportsEventId = group.SportsEventId,
                 Teams = group.Teams.Select(team => MapToTeamViewModel(group, team)).ToList(),
                 Games = group.Games.Select(groupGame => MapGameViewModel(group, groupGame)).ToList()
