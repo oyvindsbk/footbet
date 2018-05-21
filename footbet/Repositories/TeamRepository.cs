@@ -9,17 +9,12 @@ namespace Footbet.Repositories
     public class TeamRepository :ITeamRepository
     {
         private readonly JavaScriptSerializer _javaScriptSerializer;
+        private readonly IGenericRepository<Team> _repository;
 
-        public TeamRepository(JavaScriptSerializer javaScriptSerializer)
+        public TeamRepository(JavaScriptSerializer javaScriptSerializer, IGenericRepository<Team> repository)
         {
             _javaScriptSerializer = javaScriptSerializer;
-        }
-
-        public Team GetTeamById(int teamId)
-        {
-            var teams = GetTeamsFromResource();
-            var team = teams.Where(x => x.Id == teamId).ToList();
-            return team.Count == 0 ? new Team() : team.First();
+            _repository = repository;
         }
 
         public Team GetTeamById(int? teamId)
@@ -37,7 +32,7 @@ namespace Footbet.Repositories
 
         private IEnumerable<Team> GetTeamsFromResource()
         {
-            var teamJson = Resources.brasil_teams;
+            var teamJson = Resources.teams;
             return _javaScriptSerializer.Deserialize<List<Team>>(teamJson);
         }
     }

@@ -8,15 +8,13 @@
 
     </head>
     <body>
-        <div ng-controller="ResultCtrl">
+        <div ng-controller="ResultController as ctl">
             <h4>Registrer resultater</h4>
             <hr />
-            <div ng-controller="FootballCompAppCtrl">
-                <form ng-submit="saveResultBets()">
+                <form ng-submit="ctl.saveResultBets()">
                     @Html.Partial("_betPartial")
                 </form>
                 {{message}}
-            </div>
         </div>
     </body>
 </html>

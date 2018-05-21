@@ -40,8 +40,10 @@ namespace Footbet.Repositories
         public IList<Game> GetGamesForDay(DateTime day, int sportsEventId)
         {
             var games = GetGamesFromResource();
+
             var fromDate = new DateTime(day.Year, day.Month, day.Day, 6, 0, 0);
             var toDate = new DateTime(day.Year, day.Month, day.Day, 5, 59, 59).AddDays(1);
+
             return games.Where(x => x.SportsEventId == sportsEventId && x.StartTime > fromDate && x.StartTime < toDate).ToList();
         }
 
@@ -53,7 +55,7 @@ namespace Footbet.Repositories
 
         private IEnumerable<Game> GetGamesFromResource()
         {
-            var gameJson = Resources.brasil_games;
+            var gameJson = Resources.games;
             return _javaScriptSerializer.Deserialize<List<Game>>(gameJson);
         }
     }

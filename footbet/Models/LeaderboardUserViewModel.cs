@@ -6,6 +6,6 @@
         public string UserName { get; set; }
         public int Points { get; set; }
         public int Position { get; set; }
-        public int? PlayoffScore { get; set; }
+        public int PlayoffScore { get; set; }
     }
 }

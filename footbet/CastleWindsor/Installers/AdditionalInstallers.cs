@@ -2,7 +2,7 @@
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using Footbet.Controllers.Helpers;
+using Footbet.Helpers;
 
 namespace Footbet.CastleWindsor.Installers
 {

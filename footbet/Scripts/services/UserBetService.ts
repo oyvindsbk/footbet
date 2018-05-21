@@ -9,10 +9,11 @@
         constructor(private $http) { }
 
         public getUsers(): ng.IPromise<IUser[]> {
-            return this.$http({
-                    method: 'GET',
-                    url: "../User/GetUsers"
-                });
+            var promise = this.$http({
+                method: "GET",
+                url: "../User/GetUsers"
+            }).then(response => response.data);
+            return promise;
         }
     }
 }

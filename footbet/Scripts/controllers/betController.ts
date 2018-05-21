@@ -13,7 +13,7 @@ module Controllers {
             "betBaseController",
             "betService"
         ];
-
+   
         constructor(
             private $scope,
             private $window: ng.IWindowService,

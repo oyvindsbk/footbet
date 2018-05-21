@@ -1,4 +1,5 @@
 ﻿using Microsoft.Owin;
+
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(Footbet.Startup))]
@@ -9,6 +10,7 @@ namespace Footbet
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            
         }
     }
 }

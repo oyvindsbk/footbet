@@ -1,0 +1,226 @@
+[
+  {
+    "id": 1,
+    "name": "Russland",
+    "flag": "flag-ru",
+    "groupId": 1,
+    "sportsEventId": 1
+  },
+  {
+    "id": 2,
+    "name": "Saudi-Arabia",
+    "flag": "flag-sa",
+    "groupId": 1,
+    "sportsEventId": 1
+  },
+  {
+    "id": 3,
+    "name": "Egypt",
+    "flag": "flag-eg",
+    "groupId": 1,
+    "sportsEventId": 1
+  },
+  {
+    "id": 4,
+    "name": "Uruguay",
+    "flag": "flag-uy",
+    "groupId": 1,
+    "sportsEventId": 1
+  },
+  {
+    "id": 5,
+    "name": "Portugal",
+    "flag": "flag-pt",
+    "groupId": 2,
+    "sportsEventId": 1
+  },
+  {
+    "id": 6,
+    "name": "Spania",
+    "flag": "flag-es",
+    "groupId": 2,
+    "sportsEventId": 1
+  },
+  {
+    "id": 7,
+    "name": "Marokko",
+    "flag": "flag-ma",
+    "groupId": 2,
+    "sportsEventId": 1
+  },
+  {
+    "id": 8,
+    "name": "Iran",
+    "flag": "flag-ir",
+    "groupId": 2,
+    "sportsEventId": 1
+  },
+  {
+    "id": 9,
+    "name": "Frankrike",
+    "flag": "flag-fr",
+    "groupId": 3,
+    "sportsEventId": 1
+  },
+  {
+    "id": 10,
+    "name": "Australia",
+    "flag": "flag-au",
+    "groupId": 3,
+    "sportsEventId": 1
+  },
+  {
+    "id": 11,
+    "name": "Peru",
+    "flag": "flag-pe",
+    "groupId": 3,
+    "sportsEventId": 1
+  },
+  {
+    "id": 12,
+    "name": "Danmark",
+    "flag": "flag-dk",
+    "groupId": 3,
+    "sportsEventId": 1
+  },
+  {
+    "id": 13,
+    "name": "Argentina",
+    "flag": "flag-ar",
+    "groupId": 4,
+    "sportsEventId": 1
+  },
+  {
+    "id": 14,
+    "name": "Island",
+    "flag": "flag-is",
+    "groupId": 4,
+    "sportsEventId": 1
+  },
+  {
+    "id": 15,
+    "name": "Kroatia",
+    "flag": "flag-hr",
+    "groupId": 4,
+    "sportsEventId": 1
+  },
+  {
+    "id": 16,
+    "name": "Nigeria",
+    "flag": "flag-ng",
+    "groupId": 4,
+    "sportsEventId": 1
+  },
+  {
+    "id": 17,
+    "name": "Brasil",
+    "flag": "flag-br",
+    "groupId": 5,
+    "sportsEventId": 1
+  },
+  {
+    "id": 18,
+    "name": "Sveits",
+    "flag": "flag-ch",
+    "groupId": 5,
+    "sportsEventId": 1
+  },
+  {
+    "id": 19,
+    "name": "Costa Rica",
+    "flag": "flag-cr",
+    "groupId": 5,
+    "sportsEventId": 1
+  },
+  {
+    "id": 20,
+    "name": "Serbia",
+    "flag": "flag-rs",
+    "groupId": 5,
+    "sportsEventId": 1
+  },
+  {
+    "id": 21,
+    "name": "Tyskland",
+    "flag": "flag-de",
+    "groupId": 6,
+    "sportsEventId": 1
+  },
+  {
+    "id": 22,
+    "name": "Mexico",
+    "flag": "flag-mx",
+    "groupId": 6,
+    "sportsEventId": 1
+  },
+  {
+    "id": 23,
+    "name": "Sverige",
+    "flag": "flag-se",
+    "groupId": 6,
+    "sportsEventId": 1
+  },
+  {
+    "id": 24,
+    "name": "Sør-Korea",
+    "flag": "flag-kr",
+    "groupId": 6,
+    "sportsEventId": 1
+  },
+  {
+    "id": 25,
+    "name": "Belgia",
+    "flag": "flag-be",
+    "groupId": 7,
+    "sportsEventId": 1
+  },
+  {
+    "id": 26,
+    "name": "Panama",
+    "flag": "flag-pa",
+    "groupId": 7,
+    "sportsEventId": 1
+  },
+  {
+    "id": 27,
+    "name": "Tunisia",
+    "flag": "flag-tn",
+    "groupId": 7,
+    "sportsEventId": 1
+  },
+  {
+    "id": 28,
+    "name": "England",
+    "flag": "flag-england",
+    "groupId": 7,
+    "sportsEventId": 1
+  },
+  {
+    "id": 29,
+    "name": "Polen",
+    "flag": "flag-pl",
+    "groupId": 8,
+    "sportsEventId": 1
+  },
+  {
+    "id": 30,
+    "name": "Senegal",
+    "flag": "flag-sn",
+    "groupId": 8,
+    "sportsEventId": 1
+  },
+  {
+    "id": 31,
+    "name": "Colombia",
+    "flag": "flag-co",
+    "groupId": 8,
+    "sportsEventId": 1
+  },
+  {
+    "id": 32,
+    "name": "Japan",
+    "flag": "flag-jp",
+    "groupId": 8,
+    "sportsEventId": 1
+  }
+]

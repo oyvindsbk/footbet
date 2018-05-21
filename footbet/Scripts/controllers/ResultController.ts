@@ -16,6 +16,7 @@ module Controllers {
             private betBaseController: Services.BetBaseController,
             private betService: Services.BetService) {
             this.betBaseController.isRequired = false;
+            this.betBaseController.loadModel("");
             $scope.$on('modelLoaded', () => {
                 this.userBetControllerInit();
             });

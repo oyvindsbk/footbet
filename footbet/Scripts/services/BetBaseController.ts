@@ -1,5 +1,4 @@
 ﻿module Services {
-    "use strict";
 
     export class BetBaseController {
         isRequired = true;
@@ -13,8 +12,10 @@
         successMessage: string;
         static $inject = [
             "$resource",
-            "$rootScope"
+            "$rootScope",
+            "orderByFilter"
         ];
+
 
         constructor(
             private $resource,
@@ -23,9 +24,9 @@
 
         public loadModel(userName): void {
             this.$resource(`../Bet/GetBasisForBet/${userName}`).get((betViewModel) => {
-                this.groups = betViewModel.Groups;
+                this.groups = betViewModel.groups;
                 this.initializeGroupsForBet();
-                this.initializePlayoffGamesForBet(betViewModel.PlayoffGames);
+                this.initializePlayoffGamesForBet(betViewModel.playoffGames);
                 this.$rootScope.$broadcast("modelLoaded", true);
 
             });
@@ -37,8 +38,7 @@
             if (isNaN(game.homeGoals) || isNaN(game.awayGoals)) return;
 
             this.updateTeamsInGroup(group);
-
-
+            
             this.setWinnerAndRunnerUpInGroup(group);
             this.setPlayoffGameTeams(group, true);
 
@@ -56,10 +56,10 @@
             if (!shouldSetPlayoffGameTeams) return;
 
             angular.forEach(this.playoffGames, (playoffGame) => {
-                if (playoffGame.id === group.winnerGameCode) {
+                if (playoffGame.id === group.winnerGameId) {
                     playoffGame.homeTeam = group.winner;
                 }
-                if (playoffGame.id === group.runnerUpGameCode) {
+                if (playoffGame.id === group.runnerUpGameId) {
                     playoffGame.awayTeam = group.runnerUp;
                 }
                 if (setPlayoffGamesRecursively)
@@ -168,7 +168,7 @@
         }
 
         private playoffGameScoreChanged(playoffGame: IGame): void {
-            if (playoffGame.homeGoals || playoffGame.awayGoals)
+            if (playoffGame.homeGoals == null || playoffGame.awayGoals == null)
                 return;
 
             var isHomeTeam: boolean;

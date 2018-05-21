@@ -8,17 +8,15 @@
         <title>Footbet</title>
     </head>
     <body>
-        <div ng-controller="UserBetCtrl">
-            <h1 ng-show="showSearch">Søk etter spiller (brukernavn)</h1>
-            <div class="row" ng-show="showSearch">
-                <form class='container-fluid' ng-submit="searchUserBet()">
-                    <input type="text" class="span6" ng-show="users.length > 0" ng-model="selectedUser" typeahead="user.UserName for user in users | filter:$viewValue | limitTo:8 | orderBy:'UserName'" class=" form-control">
-                    <input class="span2" ng-disabled="!selectedUser" type="submit" value="Søk" />
-                    <p class="errorText span4" ng-show="errorMessage.length > 0">{{errorMessage}}</p>
-                </form>
+        <div ng-controller="UserBetController as ctl" class="ng-cloak">
+            <h1 ng-show="ctl.showSearch">Søk etter spiller (brukernavn)</h1>
+            <div class="row" ng-show="ctl.showSearch">
+                    <input type="text" class="span6" ng-show="ctl.users.length > 0" ng-model="ctl.selectedUser" typeahead="user.userName for user in ctl.users | filter:$viewValue | limitTo:8 | orderBy:'userName'" class="form-control">
+                    <input class="span2" ng-disabled="!ctl.selectedUser" ng-click="ctl.searchUserBet(ctl.selectedUser)" type="submit" value="Søk" />
+                    <p class="errorText span4" ng-show="ctl.errorMessage.length > 0">{{ctl.errorMessage}}</p>
             </div>
-            <div ng-show="showUserBet">
-                <h2>Resultat for spiller: <span class="headerGroups">{{selectedUser}}</span></h2>
+            <div ng-show="ctl.showUserBet">
+                <h2>Resultat for spiller: <span class="headerGroups">{{ctl.selectedUser}}</span></h2>
                 @Html.Partial("_userBetPartial")
             </div>
         </div>

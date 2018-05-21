@@ -16,32 +16,32 @@ namespace Footbet
 
         private void InitializeIdentityForEF(FootBetDbContext context)
         {
-//            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-//            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-//            const string adminRole = "Admin";
-//            const string userRole = "Users";
-//
-//            if (!roleManager.RoleExists(adminRole))
-//            {
-//                roleManager.Create(new IdentityRole(adminRole));
-//            }
-//
-//            if (!roleManager.RoleExists(userRole))
-//            {
-//                roleManager.Create(new IdentityRole(userRole));
-//            }
-//
-//            var user = new ApplicationUser
-//            {
-//                UserName = "AdminEporkg"
-//            };
-//
-//            var adminresult = userManager.Create(user, "Syrlig 1 svak sterk");
-//
-//            if (adminresult.Succeeded)
-//            {
-//                userManager.AddToRole(user.Id, adminRole);
-//            }
+            //var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            //var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            //const string adminRole = "Admin";
+            //const string userRole = "Users";
+
+            //if (!roleManager.RoleExists(adminRole))
+            //{
+            //    roleManager.Create(new IdentityRole(adminRole));
+            //}
+
+            //if (!roleManager.RoleExists(userRole))
+            //{
+            //    roleManager.Create(new IdentityRole(userRole));
+            //}
+
+            //var user = new ApplicationUser
+            //{
+            //    UserName = "AdminEporkg"
+            //};
+
+            //var adminresult = userManager.Create(user, "Syrlig 1 svak sterk");
+
+            //if (adminresult.Succeeded)
+            //{
+            //    userManager.AddToRole(user.Id, adminRole);
+            //}
         }
     }
 }

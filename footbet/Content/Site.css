@@ -27,9 +27,8 @@
 }
 
 @font-face {
-    font-family: "BrasilFont";
-    src: url('../fonts/brasil.otf') format("opentype"),
-         url('../fonts/brasil.eot');
+    font-family: "RussiaFont";
+    src: url('../fonts/russia.ttf') format("opentype");
 }
 
 /*style.css*/
@@ -102,14 +101,14 @@ input::-webkit-inner-spin-button {
 
 @media (min-width: 751px) {
     .mainHeader {
-        font: 34px BrasilFont;
+        font: 34px RussiaFont;
         padding-left: 14px;
         top: 10px;
     }
 }
 
 @media (max-width: 750px) {
-    .mainHeader { font: 20px BrasilFont; }
+    .mainHeader { font: 20px RussiaFont; }
 }
 
 .nopadding {

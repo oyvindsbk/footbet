@@ -1,0 +1,1912 @@
+{
+  "groups": [
+    {
+      "id": 1,
+      "name": "Gruppe A",
+      
+      "winnerGameId": 50,
+      "runnerUpGameId": 51,
+      "sportsEventId": 1,
+      "teams": [
+        {
+          "id": 1,
+          "name": "Russland",
+          "flag": "flag-ru",
+          "groupId": 1,
+          "sportsEventId": 1
+        },
+        {
+          "id": 2,
+          "name": "Saudi-Arabia",
+          "flag": "flag-sa",
+          "groupId": 1,
+          "sportsEventId": 1
+        },
+        {
+          "id": 3,
+          "name": "Egypt",
+          "flag": "flag-eg",
+          "groupId": 1,
+          "sportsEventId": 1
+        },
+        {
+          "id": 4,
+          "name": "Uruguay",
+          "flag": "flag-uy",
+          "groupId": 1,
+          "sportsEventId": 1
+        }
+      ],
+      "games": [
+        {
+          "id": 1,
+          "startTime": "14.06.2018 17:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 1",
+          "homeTeam": {
+            "id": 1,
+            "name": "Russland",
+            "flag": "flag-ru",
+            "groupId": 1,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 2,
+            "name": "Saudi-Arabia",
+            "flag": "flag-sa",
+            "groupId": 1,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 2,
+          "startTime": "15.06.2018 14:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 2",
+          "homeTeam": {
+            "id": 3,
+            "name": "Egypt",
+            "flag": "flag-eg",
+            "groupId": 1,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 4,
+            "name": "Uruguay",
+            "flag": "flag-uy",
+            "groupId": 1,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 3,
+          "startTime": "19.06.2018 20:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 17",
+          "homeTeam": {
+            "id": 1,
+            "name": "Russland",
+            "flag": "flag-ru",
+            "groupId": 1,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 3,
+            "name": "Egypt",
+            "flag": "flag-eg",
+            "groupId": 1,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 4,
+          "startTime": "20.06.2018 17:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 18",
+          "homeTeam": {
+            "id": 4,
+            "name": "Uruguay",
+            "flag": "flag-uy",
+            "groupId": 1,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 2,
+            "name": "Saudi-Arabia",
+            "flag": "flag-sa",
+            "groupId": 1,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 5,
+          "startTime": "25.06.2018 16:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 33",
+          "homeTeam": {
+            "id": 2,
+            "name": "Saudi-Arabia",
+            "flag": "flag-sa",
+            "groupId": 1,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 3,
+            "name": "Egypt",
+            "flag": "flag-eg",
+            "groupId": 1,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 6,
+          "startTime": "25.06.2018 16:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 34",
+          "homeTeam": {
+            "id": 4,
+            "name": "Uruguay",
+            "flag": "flag-uy",
+            "groupId": 1,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 1,
+            "name": "Russland",
+            "flag": "flag-ru",
+            "groupId": 1,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Gruppe B",
+      
+      "winnerGameId": 51,
+      "runnerUpGameId": 50,
+      "sportsEventId": 1,
+      "teams": [
+        {
+          "id": 5,
+          "name": "Portugal",
+          "flag": "flag-pt",
+          "groupId": 2,
+          "sportsEventId": 1
+        },
+        {
+          "id": 6,
+          "name": "Spania",
+          "flag": "flag-es",
+          "groupId": 2,
+          "sportsEventId": 1
+        },
+        {
+          "id": 7,
+          "name": "Marokko",
+          "flag": "flag-ma",
+          "groupId": 2,
+          "sportsEventId": 1
+        },
+        {
+          "id": 8,
+          "name": "Iran",
+          "flag": "flag-ir",
+          "groupId": 2,
+          "sportsEventId": 1
+        }
+      ],
+      "games": [
+        {
+          "id": 7,
+          "startTime": "15.06.2018 17:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 3",
+          "homeTeam": {
+            "id": 7,
+            "name": "Marokko",
+            "flag": "flag-ma",
+            "groupId": 2,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 8,
+            "name": "Iran",
+            "flag": "flag-ir",
+            "groupId": 2,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 8,
+          "startTime": "15.06.2018 20:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 4",
+          "homeTeam": {
+            "id": 5,
+            "name": "Portugal",
+            "flag": "flag-pt",
+            "groupId": 2,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 6,
+            "name": "Spania",
+            "flag": "flag-es",
+            "groupId": 2,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 9,
+          "startTime": "20.06.2018 14:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 19",
+          "homeTeam": {
+            "id": 5,
+            "name": "Portugal",
+            "flag": "flag-pt",
+            "groupId": 2,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 7,
+            "name": "Marokko",
+            "flag": "flag-ma",
+            "groupId": 2,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 10,
+          "startTime": "20.06.2018 20:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 20",
+          "homeTeam": {
+            "id": 8,
+            "name": "Iran",
+            "flag": "flag-ir",
+            "groupId": 2,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 6,
+            "name": "Spania",
+            "flag": "flag-es",
+            "groupId": 2,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 11,
+          "startTime": "25.06.2018 20:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 35",
+          "homeTeam": {
+            "id": 8,
+            "name": "Iran",
+            "flag": "flag-ir",
+            "groupId": 2,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 5,
+            "name": "Portugal",
+            "flag": "flag-pt",
+            "groupId": 2,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 12,
+          "startTime": "25.06.2018 20:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 36",
+          "homeTeam": {
+            "id": 6,
+            "name": "Spania",
+            "flag": "flag-es",
+            "groupId": 2,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 7,
+            "name": "Marokko",
+            "flag": "flag-ma",
+            "groupId": 2,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Gruppe C",
+      "winnerGameId": 49,
+      "runnerUpGameId": 52,
+      "sportsEventId": 1,
+      "teams": [
+        {
+          "id": 9,
+          "name": "Frankrike",
+          "flag": "flag-fr",
+          "groupId": 3,
+          "sportsEventId": 1
+        },
+        {
+          "id": 10,
+          "name": "Australia",
+          "flag": "flag-au",
+          "groupId": 3,
+          "sportsEventId": 1
+        },
+        {
+          "id": 11,
+          "name": "Peru",
+          "flag": "flag-pe",
+          "groupId": 3,
+          "sportsEventId": 1
+        },
+        {
+          "id": 12,
+          "name": "Danmark",
+          "flag": "flag-dk",
+          "groupId": 3,
+          "sportsEventId": 1
+        }
+      ],
+      "games": [
+        {
+          "id": 13,
+          "startTime": "16.06.2018 12:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 5",
+          "homeTeam": {
+            "id": 9,
+            "name": "Frankrike",
+            "flag": "flag-fr",
+            "groupId": 3,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 10,
+            "name": "Australia",
+            "flag": "flag-au",
+            "groupId": 3,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 14,
+          "startTime": "16.06.2018 18:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 6",
+          "homeTeam": {
+            "id": 11,
+            "name": "Peru",
+            "flag": "flag-pe",
+            "groupId": 3,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 12,
+            "name": "Danmark",
+            "flag": "flag-dk",
+            "groupId": 3,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 15,
+          "startTime": "21.06.2018 14:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 21",
+          "homeTeam": {
+            "id": 12,
+            "name": "Danmark",
+            "flag": "flag-dk",
+            "groupId": 3,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 10,
+            "name": "Australia",
+            "flag": "flag-au",
+            "groupId": 3,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 16,
+          "startTime": "21.06.2018 17:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 22",
+          "homeTeam": {
+            "id": 9,
+            "name": "Frankrike",
+            "flag": "flag-fr",
+            "groupId": 3,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 11,
+            "name": "Peru",
+            "flag": "flag-pe",
+            "groupId": 3,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 17,
+          "startTime": "26.06.2018 16:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 37",
+          "homeTeam": {
+            "id": 12,
+            "name": "Danmark",
+            "flag": "flag-dk",
+            "groupId": 3,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 9,
+            "name": "Frankrike",
+            "flag": "flag-fr",
+            "groupId": 3,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 18,
+          "startTime": "26.06.2018 16:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 38",
+          "homeTeam": {
+            "id": 10,
+            "name": "Australia",
+            "flag": "flag-au",
+            "groupId": 3,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 11,
+            "name": "Peru",
+            "flag": "flag-pe",
+            "groupId": 3,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Gruppe D",
+      
+      
+      "winnerGameId": "52",
+      "runnerUpGameId": "49",
+      "sportsEventId": 1,
+      "teams": [
+        {
+          "id": 13,
+          "name": "Argentina",
+          "flag": "flag-ar",
+          "groupId": 4,
+          "sportsEventId": 1
+        },
+        {
+          "id": 14,
+          "name": "Island",
+          "flag": "flag-is",
+          "groupId": 4,
+          "sportsEventId": 1
+        },
+        {
+          "id": 15,
+          "name": "Kroatia",
+          "flag": "flag-hr",
+          "groupId": 4,
+          "sportsEventId": 1
+        },
+        {
+          "id": 16,
+          "name": "Nigeria",
+          "flag": "flag-ng",
+          "groupId": 4,
+          "sportsEventId": 1
+        }
+      ],
+      "games": [
+        {
+          "id": 19,
+          "startTime": "16.06.2018 15:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 7",
+          "homeTeam": {
+            "id": 13,
+            "name": "Argentina",
+            "flag": "flag-ar",
+            "groupId": 4,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 14,
+            "name": "Island",
+            "flag": "flag-is",
+            "groupId": 4,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 20,
+          "startTime": "16.06.2018 21:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 8",
+          "homeTeam": {
+            "id": 15,
+            "name": "Kroatia",
+            "flag": "flag-hr",
+            "groupId": 4,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 16,
+            "name": "Nigeria",
+            "flag": "flag-ng",
+            "groupId": 4,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 21,
+          "startTime": "21.06.2018 20:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 23",
+          "homeTeam": {
+            "id": 13,
+            "name": "Argentina",
+            "flag": "flag-ar",
+            "groupId": 4,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 15,
+            "name": "Kroatia",
+            "flag": "flag-hr",
+            "groupId": 4,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 22,
+          "startTime": "22.06.2018 17:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 24",
+          "homeTeam": {
+            "id": 16,
+            "name": "Nigeria",
+            "flag": "flag-ng",
+            "groupId": 4,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 14,
+            "name": "Island",
+            "flag": "flag-is",
+            "groupId": 4,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 23,
+          "startTime": "26.06.2018 20:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 39",
+          "homeTeam": {
+            "id": 16,
+            "name": "Nigeria",
+            "flag": "flag-ng",
+            "groupId": 4,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 13,
+            "name": "Argentina",
+            "flag": "flag-ar",
+            "groupId": 4,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 24,
+          "startTime": "26.06.2018 20:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 40",
+          "homeTeam": {
+            "id": 14,
+            "name": "Island",
+            "flag": "flag-is",
+            "groupId": 4,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 15,
+            "name": "Kroatia",
+            "flag": "flag-hr",
+            "groupId": 4,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Gruppe E",
+      
+      
+      "winnerGameId": 53,
+      "runnerUpGameId": "55",
+      "sportsEventId": 1,
+      "teams": [
+        {
+          "id": 17,
+          "name": "Brasil",
+          "flag": "flag-br",
+          "groupId": 5,
+          "sportsEventId": 1
+        },
+        {
+          "id": 18,
+          "name": "Sveits",
+          "flag": "flag-ch",
+          "groupId": 5,
+          "sportsEventId": 1
+        },
+        {
+          "id": 19,
+          "name": "Costa Rica",
+          "flag": "flag-cr",
+          "groupId": 5,
+          "sportsEventId": 1
+        },
+        {
+          "id": 20,
+          "name": "Serbia",
+          "flag": "flag-rs",
+          "groupId": 5,
+          "sportsEventId": 1
+        }
+      ],
+      "games": [
+        {
+          "id": 25,
+          "startTime": "17.06.2018 14:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 9",
+          "homeTeam": {
+            "id": 19,
+            "name": "Costa Rica",
+            "flag": "flag-cr",
+            "groupId": 5,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 20,
+            "name": "Serbia",
+            "flag": "flag-rs",
+            "groupId": 5,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 26,
+          "startTime": "17.06.2018 20:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 10",
+          "homeTeam": {
+            "id": 17,
+            "name": "Brasil",
+            "flag": "flag-br",
+            "groupId": 5,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 18,
+            "name": "Sveits",
+            "flag": "flag-ch",
+            "groupId": 5,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 27,
+          "startTime": "22.06.2018 14:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 25",
+          "homeTeam": {
+            "id": 17,
+            "name": "Brasil",
+            "flag": "flag-br",
+            "groupId": 5,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 19,
+            "name": "Costa Rica",
+            "flag": "flag-cr",
+            "groupId": 5,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 28,
+          "startTime": "22.06.2018 20:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 26",
+          "homeTeam": {
+            "id": 20,
+            "name": "Serbia",
+            "flag": "flag-rs",
+            "groupId": 5,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 18,
+            "name": "Sveits",
+            "flag": "flag-ch",
+            "groupId": 5,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 29,
+          "startTime": "27.06.2018 20:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 41",
+          "homeTeam": {
+            "id": 18,
+            "name": "Sveits",
+            "flag": "flag-ch",
+            "groupId": 5,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 19,
+            "name": "Costa Rica",
+            "flag": "flag-cr",
+            "groupId": 5,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 30,
+          "startTime": "27.06.2018 20:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 42",
+          "homeTeam": {
+            "id": 20,
+            "name": "Serbia",
+            "flag": "flag-rs",
+            "groupId": 5,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 17,
+            "name": "Brasil",
+            "flag": "flag-br",
+            "groupId": 5,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Gruppe F",
+      
+      
+      "winnerGameId": 55,
+      "runnerUpGameId": 53,
+      "sportsEventId": 1,
+      "teams": [
+        {
+          "id": 21,
+          "name": "Tyskland",
+          "flag": "flag-de",
+          "groupId": 6,
+          "sportsEventId": 1
+        },
+        {
+          "id": 22,
+          "name": "Mexico",
+          "flag": "flag-mx",
+          "groupId": 6,
+          "sportsEventId": 1
+        },
+        {
+          "id": 23,
+          "name": "Sverige",
+          "flag": "flag-se",
+          "groupId": 6,
+          "sportsEventId": 1
+        },
+        {
+          "id": 24,
+          "name": "Sør-Korea",
+          "flag": "flag-kr",
+          "groupId": 6,
+          "sportsEventId": 1
+        }
+      ],
+      "games": [
+        {
+          "id": 31,
+          "startTime": "17.06.2018 17:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 11",
+          "homeTeam": {
+            "id": 21,
+            "name": "Tyskland",
+            "flag": "flag-de",
+            "groupId": 6,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 22,
+            "name": "Mexico",
+            "flag": "flag-mx",
+            "groupId": 6,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 32,
+          "startTime": "18.06.2018 14:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 12",
+          "homeTeam": {
+            "id": 23,
+            "name": "Sverige",
+            "flag": "flag-se",
+            "groupId": 6,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 24,
+            "name": "Sør-Korea",
+            "flag": "flag-kr",
+            "groupId": 6,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 33,
+          "startTime": "23.06.2018 17:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 27",
+          "homeTeam": {
+            "id": 24,
+            "name": "Sør-Korea",
+            "flag": "flag-kr",
+            "groupId": 6,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 22,
+            "name": "Mexico",
+            "flag": "flag-mx",
+            "groupId": 6,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 34,
+          "startTime": "23.06.2018 20:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 28",
+          "homeTeam": {
+            "id": 21,
+            "name": "Tyskland",
+            "flag": "flag-de",
+            "groupId": 6,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 23,
+            "name": "Sverige",
+            "flag": "flag-se",
+            "groupId": 6,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 35,
+          "startTime": "27.06.2018 16:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 43",
+          "homeTeam": {
+            "id": 22,
+            "name": "Mexico",
+            "flag": "flag-mx",
+            "groupId": 6,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 23,
+            "name": "Sverige",
+            "flag": "flag-se",
+            "groupId": 6,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 36,
+          "startTime": "27.06.2018 16:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 44",
+          "homeTeam": {
+            "id": 24,
+            "name": "Sør-Korea",
+            "flag": "flag-kr",
+            "groupId": 6,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 21,
+            "name": "Tyskland",
+            "flag": "flag-de",
+            "groupId": 6,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Gruppe G",
+      "winnerGameId": 56,
+      "runnerUpGameId": 54,
+      "sportsEventId": 1,
+      "teams": [
+        {
+          "id": 25,
+          "name": "Belgia",
+          "flag": "flag-be",
+          "groupId": 7,
+          "sportsEventId": 1
+        },
+        {
+          "id": 26,
+          "name": "Panama",
+          "flag": "flag-pa",
+          "groupId": 7,
+          "sportsEventId": 1
+        },
+        {
+          "id": 27,
+          "name": "Tunisia",
+          "flag": "flag-tn",
+          "groupId": 7,
+          "sportsEventId": 1
+        },
+        {
+          "id": 28,
+          "name": "England",
+          "flag": "flag-england",
+          "groupId": 7,
+          "sportsEventId": 1
+        }
+      ],
+      "games": [
+        {
+          "id": 37,
+          "startTime": "18.06.2018 17:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 13",
+          "homeTeam": {
+            "id": 25,
+            "name": "Belgia",
+            "flag": "flag-be",
+            "groupId": 7,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 26,
+            "name": "Panama",
+            "flag": "flag-pa",
+            "groupId": 7,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 38,
+          "startTime": "18.06.2018 20:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 14",
+          "homeTeam": {
+            "id": 27,
+            "name": "Tunisia",
+            "flag": "flag-tn",
+            "groupId": 7,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 28,
+            "name": "England",
+            "flag": "flag-england",
+            "groupId": 7,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 39,
+          "startTime": "23.06.2018 14:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 29",
+          "homeTeam": {
+            "id": 25,
+            "name": "Belgia",
+            "flag": "flag-be",
+            "groupId": 7,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 27,
+            "name": "Tunisia",
+            "flag": "flag-tn",
+            "groupId": 7,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 40,
+          "startTime": "24.06.2018 14:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 30",
+          "homeTeam": {
+            "id": 28,
+            "name": "England",
+            "flag": "flag-england",
+            "groupId": 7,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 26,
+            "name": "Panama",
+            "flag": "flag-pa",
+            "groupId": 7,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 41,
+          "startTime": "28.06.2018 20:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 45",
+          "homeTeam": {
+            "id": 28,
+            "name": "England",
+            "flag": "flag-england",
+            "groupId": 7,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 25,
+            "name": "Belgia",
+            "flag": "flag-be",
+            "groupId": 7,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 42,
+          "startTime": "28.06.2018 20:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 46",
+          "homeTeam": {
+            "id": 26,
+            "name": "Panama",
+            "flag": "flag-pa",
+            "groupId": 7,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 27,
+            "name": "Tunisia",
+            "flag": "flag-tn",
+            "groupId": 7,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Gruppe H",
+      
+      
+      "winnerGameId": "54",
+      "runnerUpGameId": "56",
+      "sportsEventId": 1,
+      "teams": [
+        {
+          "id": 29,
+          "name": "Polen",
+          "flag": "flag-pl",
+          "groupId": 8,
+          "sportsEventId": 1
+        },
+        {
+          "id": 30,
+          "name": "Senegal",
+          "flag": "flag-sn",
+          "groupId": 8,
+          "sportsEventId": 1
+        },
+        {
+          "id": 31,
+          "name": "Colombia",
+          "flag": "flag-co",
+          "groupId": 8,
+          "sportsEventId": 1
+        },
+        {
+          "id": 32,
+          "name": "Japan",
+          "flag": "flag-jp",
+          "groupId": 8,
+          "sportsEventId": 1
+        }
+      ],
+      "games": [
+        {
+          "id": 43,
+          "startTime": "19.06.2018 14:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 15",
+          "homeTeam": {
+            "id": 31,
+            "name": "Colombia",
+            "flag": "flag-co",
+            "groupId": 8,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 32,
+            "name": "Japan",
+            "flag": "flag-jp",
+            "groupId": 8,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 44,
+          "startTime": "19.06.2018 17:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 16",
+          "homeTeam": {
+            "id": 29,
+            "name": "Polen",
+            "flag": "flag-pl",
+            "groupId": 8,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 30,
+            "name": "Senegal",
+            "flag": "flag-sn",
+            "groupId": 8,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 45,
+          "startTime": "24.06.2018 17:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 31",
+          "homeTeam": {
+            "id": 32,
+            "name": "Japan",
+            "flag": "flag-jp",
+            "groupId": 8,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 30,
+            "name": "Senegal",
+            "flag": "flag-sn",
+            "groupId": 8,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 46,
+          "startTime": "24.06.2018 20:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 32",
+          "homeTeam": {
+            "id": 29,
+            "name": "Polen",
+            "flag": "flag-pl",
+            "groupId": 8,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 31,
+            "name": "Colombia",
+            "flag": "flag-co",
+            "groupId": 8,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 47,
+          "startTime": "28.06.2018 16:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 47",
+          "homeTeam": {
+            "id": 30,
+            "name": "Senegal",
+            "flag": "flag-sn",
+            "groupId": 8,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 31,
+            "name": "Colombia",
+            "flag": "flag-co",
+            "groupId": 8,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        },
+        {
+          "id": 48,
+          "startTime": "28.06.2018 16:00",
+          "homeGoals": null,
+          "awayGoals": null,
+          "result": null,
+          "gameType": 1,
+          "sportsEventId": 1,
+          "name": "Kamp 48",
+          "homeTeam": {
+            "id": 32,
+            "name": "Japan",
+            "flag": "flag-jp",
+            "groupId": 8,
+            "sportsEventId": 1
+          },
+          "awayTeam": {
+            "id": 29,
+            "name": "Polen",
+            "flag": "flag-pl",
+            "groupId": 8,
+            "sportsEventId": 1
+          },
+          "playoffGameDetails": null
+        }
+      ]
+    }
+  ],
+  "playoffGames": [
+    {
+      "id": 49,
+      "startTime": "30.06.2018 16:00",
+      "homeGoals": null,
+      "awayGoals": null,
+      "result": null,
+      "gameType": 0,
+      "sportsEventId": 1,
+      "name": null,
+      "homeTeam": null,
+      "awayTeam": null,
+      "playoffGameDetails": [
+        {
+          "id": 1,
+          "isHomeTeamNextGame": 0,
+          "nextPlayoffGame": 57,
+          "nextPlayoffGameRunnerUp": null,
+          "isHomeTeamInRunnerUpGame": null,
+          "homeTeamDisplayName": "C1",
+          "awayTeamDisplayName": "D2",
+          "gameId": 49
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "startTime": "30.06.2018 20:00",
+      "homeGoals": null,
+      "awayGoals": null,
+      "result": null,
+      "gameType": 0,
+      "sportsEventId": 1,
+      "name": null,
+      "homeTeam": null,
+      "awayTeam": null,
+      "playoffGameDetails": [
+        {
+          "id": 2,
+          "isHomeTeamNextGame": 1,
+          "nextPlayoffGame": 57,
+          "nextPlayoffGameRunnerUp": null,
+          "isHomeTeamInRunnerUpGame": null,
+          "homeTeamDisplayName": "A1",
+          "awayTeamDisplayName": "B2",
+          "gameId": 50
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "startTime": "01.07.2018 16:00",
+      "homeGoals": null,
+      "awayGoals": null,
+      "result": null,
+      "gameType": 0,
+      "sportsEventId": 1,
+      "name": null,
+      "homeTeam": null,
+      "awayTeam": null,
+      "playoffGameDetails": [
+        {
+          "id": 3,
+          "isHomeTeamNextGame": 1,
+          "nextPlayoffGame": 60,
+          "nextPlayoffGameRunnerUp": null,
+          "isHomeTeamInRunnerUpGame": null,
+          "homeTeamDisplayName": "B1",
+          "awayTeamDisplayName": "A2",
+          "gameId": 51
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "startTime": "01.07.2018 20:00",
+      "homeGoals": null,
+      "awayGoals": null,
+      "result": null,
+      "gameType": 0,
+      "sportsEventId": 1,
+      "name": null,
+      "homeTeam": null,
+      "awayTeam": null,
+      "playoffGameDetails": [
+        {
+          "id": 4,
+          "isHomeTeamNextGame": 0,
+          "nextPlayoffGame": 60,
+          "nextPlayoffGameRunnerUp": null,
+          "isHomeTeamInRunnerUpGame": null,
+          "homeTeamDisplayName": "D1",
+          "awayTeamDisplayName": "C2",
+          "gameId": 52
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "startTime": "02.07.2018 16:00",
+      "homeGoals": null,
+      "awayGoals": null,
+      "result": null,
+      "gameType": 0,
+      "sportsEventId": 1,
+      "name": null,
+      "homeTeam": null,
+      "awayTeam": null,
+      "playoffGameDetails": [
+        {
+          "id": 5,
+          "isHomeTeamNextGame": 1,
+          "nextPlayoffGame": 58,
+          "nextPlayoffGameRunnerUp": null,
+          "isHomeTeamInRunnerUpGame": null,
+          "homeTeamDisplayName": "E1",
+          "awayTeamDisplayName": "F2",
+          "gameId": 53
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "startTime": "02.07.2018 20:00",
+      "homeGoals": null,
+      "awayGoals": null,
+      "result": null,
+      "gameType": 0,
+      "sportsEventId": 1,
+      "name": null,
+      "homeTeam": null,
+      "awayTeam": null,
+      "playoffGameDetails": [
+        {
+          "id": 6,
+          "isHomeTeamNextGame": 0,
+          "nextPlayoffGame": 58,
+          "nextPlayoffGameRunnerUp": null,
+          "isHomeTeamInRunnerUpGame": null,
+          "homeTeamDisplayName": "G1",
+          "awayTeamDisplayName": "H2",
+          "gameId": 54
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "startTime": "03.07.2018 16:00",
+      "homeGoals": null,
+      "awayGoals": null,
+      "result": null,
+      "gameType": 0,
+      "sportsEventId": 1,
+      "name": null,
+      "homeTeam": null,
+      "awayTeam": null,
+      "playoffGameDetails": [
+        {
+          "id": 7,
+          "isHomeTeamNextGame": 1,
+          "nextPlayoffGame": 59,
+          "nextPlayoffGameRunnerUp": null,
+          "isHomeTeamInRunnerUpGame": null,
+          "homeTeamDisplayName": "F1",
+          "awayTeamDisplayName": "E2",
+          "gameId": 55
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "startTime": "03.07.2018 20:00",
+      "homeGoals": null,
+      "awayGoals": null,
+      "result": null,
+      "gameType": 0,
+      "sportsEventId": 1,
+      "name": null,
+      "homeTeam": null,
+      "awayTeam": null,
+      "playoffGameDetails": [
+        {
+          "id": 8,
+          "isHomeTeamNextGame": 0,
+          "nextPlayoffGame": 59,
+          "nextPlayoffGameRunnerUp": null,
+          "isHomeTeamInRunnerUpGame": null,
+          "homeTeamDisplayName": "H1",
+          "awayTeamDisplayName": "G2",
+          "gameId": 56
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "startTime": "06.07.2018 16:00",
+      "homeGoals": null,
+      "awayGoals": null,
+      "result": null,
+      "gameType": 0,
+      "sportsEventId": 1,
+      "name": null,
+      "homeTeam": null,
+      "awayTeam": null,
+      "playoffGameDetails": [
+        {
+          "id": 9,
+          "isHomeTeamNextGame": 1,
+          "nextPlayoffGame": 61,
+          "nextPlayoffGameRunnerUp": null,
+          "isHomeTeamInRunnerUpGame": null,
+          "homeTeamDisplayName": "Vinner A1/B2",
+          "awayTeamDisplayName": "Vinner C1/2D",
+          "gameId": 57
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "startTime": "06.07.2018 20:00",
+      "homeGoals": null,
+      "awayGoals": null,
+      "result": null,
+      "gameType": 0,
+      "sportsEventId": 1,
+      "name": null,
+      "homeTeam": null,
+      "awayTeam": null,
+      "playoffGameDetails": [
+        {
+          "id": 10,
+          "isHomeTeamNextGame": 0,
+          "nextPlayoffGame": 61,
+          "nextPlayoffGameRunnerUp": null,
+          "isHomeTeamInRunnerUpGame": null,
+          "homeTeamDisplayName": "Vinner E1/2F",
+          "awayTeamDisplayName": "Vinner G1/H2",
+          "gameId": 58
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "startTime": "07.07.2018 16:00",
+      "homeGoals": null,
+      "awayGoals": null,
+      "result": null,
+      "gameType": 0,
+      "sportsEventId": 1,
+      "name": null,
+      "homeTeam": null,
+      "awayTeam": null,
+      "playoffGameDetails": [
+        {
+          "id": 11,
+          "isHomeTeamNextGame": 1,
+          "nextPlayoffGame": 62,
+          "nextPlayoffGameRunnerUp": null,
+          "isHomeTeamInRunnerUpGame": null,
+          "homeTeamDisplayName": "Vinner F1/E2",
+          "awayTeamDisplayName": "Vinner H1/G2",
+          "gameId": 59
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "startTime": "07.07.2018 20:00",
+      "homeGoals": null,
+      "awayGoals": null,
+      "result": null,
+      "gameType": 0,
+      "sportsEventId": 1,
+      "name": null,
+      "homeTeam": null,
+      "awayTeam": null,
+      "playoffGameDetails": [
+        {
+          "id": 12,
+          "isHomeTeamNextGame": 0,
+          "nextPlayoffGame": 62,
+          "nextPlayoffGameRunnerUp": null,
+          "isHomeTeamInRunnerUpGame": null,
+          "homeTeamDisplayName": "Vinner B1/A2",
+          "awayTeamDisplayName": "Vinner D1/2C",
+          "gameId": 60
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "startTime": "10.07.2018 20:00",
+      "homeGoals": null,
+      "awayGoals": null,
+      "result": null,
+      "gameType": 0,
+      "sportsEventId": 1,
+      "name": null,
+      "homeTeam": null,
+      "awayTeam": null,
+      "playoffGameDetails": [
+        {
+          "id": 13,
+          "isHomeTeamNextGame": 1,
+          "nextPlayoffGame": 64,
+          "nextPlayoffGameRunnerUp": 63,
+          "isHomeTeamInRunnerUpGame": 1,
+          "homeTeamDisplayName": "Vinner KF 1",
+          "awayTeamDisplayName": "Vinner KF 2",
+          "gameId": 61
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "startTime": "11.07.2018 20:00",
+      "homeGoals": null,
+      "awayGoals": null,
+      "result": null,
+      "gameType": 0,
+      "sportsEventId": 1,
+      "name": null,
+      "homeTeam": null,
+      "awayTeam": null,
+      "playoffGameDetails": [
+        {
+          "id": 14,
+          "isHomeTeamNextGame": 0,
+          "nextPlayoffGame": 64,
+          "nextPlayoffGameRunnerUp": 63,
+          "isHomeTeamInRunnerUpGame": 0,
+          "homeTeamDisplayName": "Vinner KF 3",
+          "awayTeamDisplayName": "Vinner KF 4",
+          "gameId": 62
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "startTime": "14.07.2018 16:00",
+      "homeGoals": null,
+      "awayGoals": null,
+      "result": null,
+      "gameType": 0,
+      "sportsEventId": 1,
+      "name": null,
+      "homeTeam": null,
+      "awayTeam": null,
+      "playoffGameDetails": [
+        {
+          "id": 15,
+          "isHomeTeamNextGame": null,
+          "nextPlayoffGame": null,
+          "nextPlayoffGameRunnerUp": null,
+          "isHomeTeamInRunnerUpGame": null,
+          "homeTeamDisplayName": "Taper SF 1",
+          "awayTeamDisplayName": "Taper SF 2",
+          "gameId": 63
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "startTime": "15.07.2018 17:00",
+      "homeGoals": null,
+      "awayGoals": null,
+      "result": null,
+      "gameType": 0,
+      "sportsEventId": 1,
+      "name": null,
+      "homeTeam": null,
+      "awayTeam": null,
+      "playoffGameDetails": [
+        {
+          "id": 16,
+          "isHomeTeamNextGame": null,
+          "nextPlayoffGame": null,
+          "nextPlayoffGameRunnerUp": null,
+          "isHomeTeamInRunnerUpGame": null,
+          "homeTeamDisplayName": "Vinner SF 1",
+          "awayTeamDisplayName": "Vinner SF 2",
+          "gameId": 64
+        }
+      ]
+    }
+  ]
+}

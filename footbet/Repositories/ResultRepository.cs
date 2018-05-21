@@ -28,7 +28,7 @@ namespace Footbet.Repositories
 
         public Results GetResultBySportsEventId(int sportsEventId)
         {
-            return _repository.FindBy(x => x.SportsEventId == sportsEventId).ToList().First();
+            return _repository.FindBy(x => x.SportsEventId == sportsEventId).ToList().FirstOrDefault();
         }
     }
 }

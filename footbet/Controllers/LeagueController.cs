@@ -46,10 +46,13 @@ namespace Footbet.Controllers
             {
                 var leagueUsers = _leagueUserRepository.GetLeagueUsersByLeagueId(league.Id);
                 
-                var position = GetPositionOfUserInLeague(userId, leagueUsers, userScores);
+                var position = userScores.Any() ? 
+                    GetPositionOfUserInLeague(userId, leagueUsers, userScores) :
+                    null;
 
                 var leagueViewModel = MapLeagueToLeagueViewModel(league);
-                leagueViewModel.NumberOfMembers = leagueUsers.Count();
+
+                leagueViewModel.NumberOfMembers = leagueUsers.Count;
                 leagueViewModel.CurrentUsersPosition = position;
 
                 leagueViewModels.Add(leagueViewModel);
@@ -57,11 +60,11 @@ namespace Footbet.Controllers
             return leagueViewModels;
         }
 
-        private static int GetPositionOfUserInLeague(string userId, List<LeagueUser> leagueUsers, List<UserScore> userScores)
+        private static int? GetPositionOfUserInLeague(string userId, List<LeagueUser> leagueUsers, List<UserScore> userScores)
         {
             var userScoresLeagueList = CreateUserScoresLeagueList(leagueUsers, userScores);
             var currentUserScore = userScoresLeagueList.FirstOrDefault(x => x.UserId == userId);
-            if (currentUserScore == null) return userScoresLeagueList.Count();
+            if (currentUserScore == null) return userScoresLeagueList.Count;
             return 1 + userScoresLeagueList.Count(userScore => userScore.UserId != userId && userScore.Score > currentUserScore.Score);
         }
 

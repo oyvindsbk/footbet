@@ -118,16 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="brasil_games" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>resources\brasil-games.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="games" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\games.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="brasil_teams" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>resources\brasil-teams.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="teams" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\teams.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="brasil_wrong_old" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>resources\brasil-wrong-old.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="gameSetupBrasil" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\brasil.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="gameSetupRussia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\basis-for-bet.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>

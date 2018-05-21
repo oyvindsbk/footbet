@@ -1,6 +1,8 @@
 ﻿using System.Web.Http;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace Footbet.Controllers
 {
@@ -19,11 +21,9 @@ namespace Footbet.Controllers
 
         protected ActionResult ToJsonResult(object data)
         {
-            return Json
-               (
-                   data,
-                   JsonRequestBehavior.AllowGet
-               );
+            var serializedData = JsonConvert.SerializeObject(data, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() });
+            return Content(serializedData, "application/json");
+ 
         }
     }
 }
