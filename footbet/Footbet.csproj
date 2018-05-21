@@ -302,6 +302,7 @@
     <Content Include="Content\images\flags.png" />
     <Content Include="Content\navbars.css" />
     <Content Include="Content\soccertable.css" />
+    <Content Include="Content\toaster.css" />
     <Content Include="Content\vendor.js" />
     <Content Include="Database\Creates\00 Drop all.sql" />
     <Content Include="Database\Creates\01 SportsEvents.sql" />

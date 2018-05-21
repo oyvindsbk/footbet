@@ -244,14 +244,14 @@
             var numberOfIncompleteGames = 0;
             angular.forEach(this.groups, group => {
                 angular.forEach(group.games, game => {
-                    if (isNaN(game.homeGoals) || isNaN(game.awayGoals)) {
+                    if (!game.homeGoals || !game.awayGoals) {
                         numberOfIncompleteGames++;
                     }
                 });
             });
 
             angular.forEach(this.playoffGames, playoffGame => {
-                if (isNaN(playoffGame.homeGoals) || isNaN(playoffGame.awayGoals)) {
+                if (!playoffGame.homeGoals || !playoffGame.awayGoals) {
                     numberOfIncompleteGames++;
                 }
             });

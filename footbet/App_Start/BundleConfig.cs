@@ -16,7 +16,8 @@ namespace Footbet
                      "~/Content/navbars.css",
                      "~/Content/bootstrap-responsive.min.css",
                      "~/content/soccertable.css",
-                        "~/content/flags.css"));
+                        "~/content/flags.css",
+                "~/Content/toaster.css"));
 
 
             

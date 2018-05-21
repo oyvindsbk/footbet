@@ -214,13 +214,13 @@ var Services;
             var numberOfIncompleteGames = 0;
             angular.forEach(this.groups, function (group) {
                 angular.forEach(group.games, function (game) {
-                    if (isNaN(game.homeGoals) || isNaN(game.awayGoals)) {
+                    if (!game.homeGoals || !game.awayGoals) {
                         numberOfIncompleteGames++;
                     }
                 });
             });
             angular.forEach(this.playoffGames, function (playoffGame) {
-                if (isNaN(playoffGame.homeGoals) || isNaN(playoffGame.awayGoals)) {
+                if (!playoffGame.homeGoals || !playoffGame.awayGoals) {
                     numberOfIncompleteGames++;
                 }
             });
@@ -483,7 +483,7 @@ var MainApp;
 (function (MainApp) {
     'use strict';
     angular
-        .module('footballCompApp', ['ngResource'])
+        .module('footballCompApp', ['ngResource', 'toaster', 'ngAnimate'])
         .service('betBaseController', Services.BetBaseController)
         .service('betService', Services.BetService)
         .service('userBetService', Services.UserBetService)
@@ -499,16 +499,15 @@ var Controllers;
 (function (Controllers) {
     "use strict";
     var BetController = (function () {
-        function BetController($scope, $window, betBaseController, betService) {
+        function BetController($scope, $window, toaster, betBaseController, betService) {
             var _this = this;
             this.$scope = $scope;
             this.$window = $window;
+            this.toaster = toaster;
             this.betBaseController = betBaseController;
             this.betService = betService;
             this.numberOfIncompleteGames = 0;
-            //TODO: add user name
             this.betBaseController.loadModel("");
-            //TODO: check where to put this
             this.$scope.$on('modelLoaded', function () {
                 _this.initializeGroupsAndPlayoffGames();
                 _this.setLabelForUserBetComplete();
@@ -534,7 +533,7 @@ var Controllers;
             this.betBaseController.modelChanged = false;
             this.numberOfIncompleteGames = this.betBaseController.validateIfUserBetIsComplete();
             if (this.numberOfIncompleteGames === 64) {
-                this.betBaseController.errorMessage = "Fyll inn resultater!";
+                this.toaster.pop('error', "Feil", "Fyll inn resultater");
                 return;
             }
             this.betService.saveBet(this.betBaseController.groups, this.betBaseController.playoffGames).then(function (response) {
@@ -546,10 +545,10 @@ var Controllers;
                 }
                 else {
                     if (_this.numberOfIncompleteGames === 0) {
-                        _this.betBaseController.successMessage = response;
+                        _this.toaster.pop('success', "Lagret", "Ditt spill er lagret!");
                     }
                     else {
-                        _this.betBaseController.errorMessage = "Ditt spill er lagret, men du mangler noen resultater. Husk å fyll inn disse før VM starter!";
+                        _this.toaster.pop('warning', "Lagret", "Ditt spill er lagret, men du mangler noen resultater. Husk å fyll inn disse før VM starter!");
                     }
                 }
             });
@@ -558,6 +557,7 @@ var Controllers;
         BetController.$inject = [
             "$scope",
             "$window",
+            "toaster",
             "betBaseController",
             "betService"
         ];
@@ -568,7 +568,7 @@ var Controllers;
 angular
     .module("footballCompApp")
     .controller("BetController", Controllers.BetController);
-//# sourceMappingURL=BetController.js.map
+//# sourceMappingURL=betController.js.map
 /// <reference path="../../typings/angularjs/angular.d.ts" />
 /// <reference path="../../typings/angularjs/angular-resource.d.ts" />
 var Controllers;

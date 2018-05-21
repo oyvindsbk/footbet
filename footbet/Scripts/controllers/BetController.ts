@@ -10,6 +10,7 @@ module Controllers {
         static $inject = [
             "$scope",
             "$window",
+            "toaster",
             "betBaseController",
             "betService"
         ];
@@ -17,17 +18,16 @@ module Controllers {
         constructor(
             private $scope,
             private $window: ng.IWindowService,
+            private toaster,
             private betBaseController: Services.BetBaseController,
             private betService: Services.BetService) {
-            //TODO: add user name
+
             this.betBaseController.loadModel("");
 
-            //TODO: check where to put this
-            this.$scope.$on('modelLoaded',() =>  {
+            this.$scope.$on('modelLoaded', () => {        
                 this.initializeGroupsAndPlayoffGames();
                 this.setLabelForUserBetComplete();
             });
-
         }
 
         private initializeGroupsAndPlayoffGames() {
@@ -49,7 +49,7 @@ module Controllers {
             this.betBaseController.modelChanged = false;
             this.numberOfIncompleteGames = this.betBaseController.validateIfUserBetIsComplete();
             if (this.numberOfIncompleteGames === 64) {
-                this.betBaseController.errorMessage = "Fyll inn resultater!";
+                this.toaster.pop('error', "Feil", "Fyll inn resultater");
                 return;
             }
             this.betService.saveBet(this.betBaseController.groups, this.betBaseController.playoffGames).then((response) => {
@@ -61,9 +61,9 @@ module Controllers {
                     this.betBaseController.errorMessage = response.ExceptionMessage;
                 } else {
                     if (this.numberOfIncompleteGames === 0) {
-                        this.betBaseController.successMessage = response;
+                        this.toaster.pop('success', "Lagret", "Ditt spill er lagret!");
                     } else {
-                        this.betBaseController.errorMessage = "Ditt spill er lagret, men du mangler noen resultater. Husk å fyll inn disse før VM starter!";
+                        this.toaster.pop('warning', "Lagret", "Ditt spill er lagret, men du mangler noen resultater. Husk å fyll inn disse før VM starter!");
                     }
                 }
             });

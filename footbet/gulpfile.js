@@ -13,7 +13,9 @@ gulp.task('copy:vendor:js', () => {
     const javascriptToCopy = [
         `${paths.nodeModules}toastr/build/toastr.min.js`,
         `${paths.nodeModules}jquery/dist/jquery.min.js`,
-        `${paths.nodeModules}angular/angular.js`,
+        `${paths.nodeModules}angular/angular.min.js`,
+        `${paths.nodeModules}angularjs-toaster/toaster.min.js`,
+        `${paths.nodeModules}angular-animate/angular-animate.min.js`,
         `${paths.nodeModules}bootstrap/dist/js/bootstrap.min.js`,
         `${paths.nodeModules}angular-resource/angular-resource.min.js`,
         `${paths.nodeModules}angular-i18n/angular-locale_no-no.js`

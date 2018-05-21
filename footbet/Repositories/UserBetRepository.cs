@@ -22,7 +22,7 @@ namespace Footbet.Repositories
         {
             var userBetId = 0;
             var original = _repository.FindBy(x => x.UserId == userBet.UserId && x.SportsEventId == userBet.SportsEventId).ToList();
-            if (original.Count() == 1)
+            if (original.Count >= 1)
             {
                 var originalUserBet = original.First();
                 userBetId = originalUserBet.Id;
