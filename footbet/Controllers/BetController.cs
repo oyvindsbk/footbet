@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Resources;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
@@ -14,6 +15,7 @@ using Microsoft.AspNet.Identity;
 
 namespace Footbet.Controllers
 {
+    [Authorize]
     public class BetController : Common
     {
         private readonly IUserBetRepository _userBetRepository;
@@ -123,7 +125,7 @@ namespace Footbet.Controllers
 
         private UserBet GetUserBetForUserWithUserName(string userName)
         {
-            var userId = userName != null ? _userRepository.GetUserByUserName(userName).Id : GetUserId();
+            var userId = !string.IsNullOrEmpty(userName) ? _userRepository.GetUserByUserName(userName).Id : GetUserId();
             var userBet = GetUserBetForUserWithId(userId);
             return userBet;
         }
@@ -137,6 +139,11 @@ namespace Footbet.Controllers
         [System.Web.Http.AcceptVerbs("GET", "POST")]
         public ActionResult SavePersonBet(string groupGamesResult, string playoffGamesResult, int sportsEventId = 1)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return CreateJsonError("Du er ikke logget inn.");
+            }
+
             if (EventHelpers.EventHasStarted())
             {
                 return CreateJsonError("VM er i gang! For sent å lagre spill nå :)"); 
