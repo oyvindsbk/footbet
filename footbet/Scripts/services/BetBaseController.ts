@@ -30,7 +30,6 @@
                 this.$rootScope.$broadcast("modelLoaded", true);
 
             });
-            // onFail: this.errorMessage = status;
         }
 
         public scoreChanged(group: IGroup, game: IGame): void {
@@ -65,6 +64,18 @@
                 if (setPlayoffGamesRecursively)
                     this.playoffGameScoreChanged(playoffGame);
             });
+        }
+
+        public playoffAwayTeamSelected(playoffGame: IGame) {
+            playoffGame.homeGoals = 0;
+            playoffGame.awayGoals = 1;
+            this.playoffGameScoreChanged(playoffGame);
+        }
+
+        public playoffHomeTeamSelected(playoffGame: IGame) {
+            playoffGame.homeGoals = 1;
+            playoffGame.awayGoals = 0;
+            this.playoffGameScoreChanged(playoffGame);
         }
 
         private updateTeamsInGroup(group: IGroup) {
@@ -168,9 +179,6 @@
         }
 
         private playoffGameScoreChanged(playoffGame: IGame): void {
-            if (playoffGame.homeGoals == null || playoffGame.awayGoals == null)
-                return;
-
             var isHomeTeam: boolean;
             var proceedingTeam: ITeam;
             var nextGameId: number;

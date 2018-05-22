@@ -5,7 +5,7 @@
         <div class="span6">
             <div class="headerGroups span3">{{group.name}}</div>
             <table class="span6 table-condensed scoreInputTable">
-                <tr ng-repeat="game in group.games">
+                <tr ng-repeat="game in group.games" >
                     <td class="hidden-xs hidden-sm">{{game.startTime}}</td>
                     <td class="text-right">
                         {{game.homeTeam.name}}
@@ -13,8 +13,8 @@
 
                     </td>
                     <td class="text-center">
-                        <input class="txtScore" type="number" maxlength="1" ng-required="game.awayGoals" ng-change="ctl.betBaseController.scoreChanged(group, game)" ng-model="game.homeGoals"/>
-                        <input class="txtScore" type="number" maxlength="1" ng-required="game.homeGoals" ng-change="ctl.betBaseController.scoreChanged(group, game)" ng-model="game.awayGoals"/>
+                        <input class="txtScore" type="number" min="0" max="99" ng-required="game.awayGoals" ng-change="ctl.betBaseController.scoreChanged(group, game)" ng-model="game.homeGoals" />
+                        <input class="txtScore" type="number" min="0" max="99" ng-required="game.homeGoals" ng-change="ctl.betBaseController.scoreChanged(group, game)" ng-model="game.awayGoals" />
                     </td>
                     <td class="text-left">
                         <span class="flag {{game.awayTeam.flag}}"></span>
@@ -26,13 +26,13 @@
 
         <table class="span3 table-condensed soccer-table-center soccertable offset1">
             <thead>
-            <tr>
-                <th>Lag</th>
-                <th>+</th>
-                <th>-</th>
-                <th>+/-</th>
-                <th>Poeng</th>
-            </tr>
+                <tr>
+                    <th>Lag</th>
+                    <th>+</th>
+                    <th>-</th>
+                    <th>+/-</th>
+                    <th>Poeng</th>
+                </tr>
             </thead>
             <tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="team in group.teams">
                 <td>{{$index+1}} <span class="flag {{team.flag}}"></span> {{team.name}}</td>
@@ -52,26 +52,38 @@
     </div>
 
     <div class="span7">
-        <table class="table-condensed scoreInputTable">
-
-            <tr ng-repeat="playoffGame in ctl.betBaseController.playoffGames">
+        <table class="table-condensed">
+            <tr ng-repeat="playoffGame in ctl.betBaseController.playoffGames" style="line-height: 35px;">
                 <td class="hidden-xs hidden-sm">{{playoffGame.startTime}}</td>
                 <td>{{playoffGame.name}}</td>
                 <td class="text-right" ng-hide="playoffGame.homeTeam">
                     {{playoffGame.playoffGameDetails.homeTeamDisplayName}}
                 </td>
-                <td class="text-right" ng-show="playoffGame.homeTeam">
-                    {{playoffGame.homeTeam.name}}
+                <td class="text-center" ng-show="playoffGame.homeTeam && !playoffGame.awayTeam">
                     <span class="flag {{playoffGame.homeTeam.flag}}"></span>
+                    {{playoffGame.homeTeam.name}}
                 </td>
-                <td class="text-center">
-                    <input type="number" max="9" ng-attr-class="{{(playoffGame.homeGoals == playoffGame.awayGoals && playoffGame.homeGoals != null && playoffGame.awayGoals != null) && 'errorBorder txtScore' || 'txtScore' }}" ng-disabled="!playoffGame.homeTeam.name || !playoffGame.awayTeam.name" ng-change="ctl.betBaseController.playoffGameScoreChanged(playoffGame)" ng-model="playoffGame.homeGoals"/> -
-                    <input ng-attr-class="{{(playoffGame.homeGoals == playoffGame.awayGoals && playoffGame.homeGoals != null && playoffGame.awayGoals != null) && 'errorBorder txtScore' || 'txtScore' }}" type="number" max="9" ng-disabled="!playoffGame.homeTeam.name || !playoffGame.awayTeam.name" ng-change="ctl.betBaseController.playoffGameScoreChanged(playoffGame)" ng-model="playoffGame.awayGoals"/>
+                <td class="text-center" ng-show="playoffGame.homeTeam && playoffGame.awayTeam">
+                    <button type="button"
+                            class="btn btn-hometeam {{playoffGame.homeGoals > playoffGame.awayGoals ? 'winner-playoff-game' : (playoffGame.homeGoals < playoffGame.awayGoals ? 'loser-playoff-game' : '')}}"
+                            ng-click="ctl.betBaseController.playoffHomeTeamSelected(playoffGame)"
+                            ng-disabled="!playoffGame.homeTeam.name || !playoffGame.awayTeam.name">
+                        {{playoffGame.homeTeam.name}}
+                        <span class="flag {{playoffGame.homeTeam.flag}}"></span>
+                    </button>
+                </td>
+                <td class="text-center" ng-show="playoffGame.homeTeam && playoffGame.awayTeam">
+                    <button type="button" class="btn btn-awayteam {{playoffGame.awayGoals > playoffGame.homeGoals ? 'winner-playoff-game' : (playoffGame.awayGoals < playoffGame.homeGoals ? 'loser-playoff-game' : '')}}"
+                            ng-click="ctl.betBaseController.playoffAwayTeamSelected(playoffGame)"
+                            ng-disabled="!playoffGame.homeTeam.name || !playoffGame.awayTeam.name">
+                        <span class="flag {{playoffGame.awayTeam.flag}}"></span>
+                        {{playoffGame.awayTeam.name}}
+                    </button>
                 </td>
                 <td class="text-left" ng-hide="playoffGame.awayTeam">
                     {{playoffGame.playoffGameDetails.awayTeamDisplayName}}
                 </td>
-                <td class="text-left" ng-show="playoffGame.awayTeam">
+                <td class="text-center" ng-show="playoffGame.awayTeam && !playoffGame.homeTeam">
                     <span class="flag {{playoffGame.awayTeam.flag}}"></span>
                     {{playoffGame.awayTeam.name}}
                 </td>

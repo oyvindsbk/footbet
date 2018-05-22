@@ -60,6 +60,8 @@ input::-webkit-inner-spin-button {
 
 .scoreInputTable th { width: 50px; }
 
+
+
 .btn-blue {
     -moz-transition: background-color 300ms ease-out;
     -webkit-border-radius: 0;
@@ -271,4 +273,22 @@ fieldset {
     border-color: #0078c8;
     color: #0078c8;
     cursor: not-allowed;
+}
+
+.winner-playoff-game {
+    background-color: #b3e6b3;
+}
+
+.loser-playoff-game {
+    background-color: #ffcccc;
+}
+
+.btn-hometeam {
+    min-width: 125px;
+    float: right;
+}
+
+.btn-awayteam {
+    min-width: 125px;
+    float: left;
 }

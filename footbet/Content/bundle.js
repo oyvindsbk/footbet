@@ -17,7 +17,6 @@ var Services;
                 _this.initializePlayoffGamesForBet(betViewModel.playoffGames);
                 _this.$rootScope.$broadcast("modelLoaded", true);
             });
-            // onFail: this.errorMessage = status;
         };
         BetBaseController.prototype.scoreChanged = function (group, game) {
             if (isNaN(game.homeGoals) || isNaN(game.awayGoals))
@@ -47,6 +46,16 @@ var Services;
                 if (setPlayoffGamesRecursively)
                     _this.playoffGameScoreChanged(playoffGame);
             });
+        };
+        BetBaseController.prototype.playoffAwayTeamSelected = function (playoffGame) {
+            playoffGame.homeGoals = 0;
+            playoffGame.awayGoals = 1;
+            this.playoffGameScoreChanged(playoffGame);
+        };
+        BetBaseController.prototype.playoffHomeTeamSelected = function (playoffGame) {
+            playoffGame.homeGoals = 1;
+            playoffGame.awayGoals = 0;
+            this.playoffGameScoreChanged(playoffGame);
         };
         BetBaseController.prototype.updateTeamsInGroup = function (group) {
             var _this = this;
@@ -147,8 +156,6 @@ var Services;
             this.successMessage = "";
         };
         BetBaseController.prototype.playoffGameScoreChanged = function (playoffGame) {
-            if (playoffGame.homeGoals == null || playoffGame.awayGoals == null)
-                return;
             var isHomeTeam;
             var proceedingTeam;
             var nextGameId;
