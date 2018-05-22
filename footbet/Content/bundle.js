@@ -7,6 +7,8 @@ var Services;
             this.orderByFilter = orderByFilter;
             this.isRequired = true;
             this.predicate = ["-points", "-sumGoals", "-goalsScored"];
+            this.playoffTypes = { 2: '8-delsfinaler', 3: 'Kvartfinaler', 4: 'Semifinaler', 5: 'Bronsefinale', 6: 'Finale' };
+            this.displayedPlayoffTypes = [];
             this.modelChanged = false;
         }
         BetBaseController.prototype.loadModel = function (userName) {
@@ -56,6 +58,14 @@ var Services;
             playoffGame.homeGoals = 1;
             playoffGame.awayGoals = 0;
             this.playoffGameScoreChanged(playoffGame);
+        };
+        BetBaseController.prototype.displayPlayoffHeader = function (gameType) {
+            var playoffType = this.playoffTypes[gameType];
+            if (!this.displayedPlayoffTypes.includes(gameType)) {
+                this.displayedPlayoffTypes.push(gameType);
+                return playoffType;
+            }
+            return null;
         };
         BetBaseController.prototype.updateTeamsInGroup = function (group) {
             var _this = this;
@@ -407,7 +417,7 @@ var Services;
         BetService.prototype.extractPlayoffGamesResultFromPlayoffGames = function (playoffGames) {
             var playoffGamesResults = [];
             angular.forEach(playoffGames, function (game) {
-                if (game.homeTeam != null || game.awayTeam != null)
+                if (game.homeTeam != null && game.awayTeam != null)
                     playoffGamesResults.push(game);
             });
             return angular.toJson(playoffGamesResults);
@@ -499,7 +509,7 @@ var MainApp;
         .service('todaysGamesService', Services.TodaysGamesService)
         .service('leagueService', Services.LeagueService);
 })(MainApp || (MainApp = {}));
-//# sourceMappingURL=App.js.map
+//# sourceMappingURL=app.js.map
 /// <reference path="../../typings/angularjs/angular.d.ts" />
 /// <reference path="../../typings/angularjs/angular-resource.d.ts" />
 var Controllers;
@@ -514,6 +524,7 @@ var Controllers;
             this.betBaseController = betBaseController;
             this.betService = betService;
             this.numberOfIncompleteGames = 0;
+            this.currentGameType = 2;
             this.betBaseController.loadModel("");
             this.$scope.$on('modelLoaded', function () {
                 _this.initializeGroupsAndPlayoffGames();
@@ -524,6 +535,7 @@ var Controllers;
             var _this = this;
             angular.forEach(this.betBaseController.groups, function (group) {
                 _this.betBaseController.setWinnerAndRunnerUpInGroup(group);
+                _this.betBaseController.setPlayoffGameTeams(group, true);
             });
         };
         BetController.prototype.setLabelForUserBetComplete = function () {
@@ -534,6 +546,9 @@ var Controllers;
             else {
                 this.userBetIncompleteMessage = "";
             }
+        };
+        BetController.prototype.add = function () {
+            this.currentGameType++;
         };
         BetController.prototype.save = function () {
             var _this = this;
@@ -575,7 +590,7 @@ var Controllers;
 angular
     .module("footballCompApp")
     .controller("BetController", Controllers.BetController);
-//# sourceMappingURL=betController.js.map
+//# sourceMappingURL=BetController.js.map
 /// <reference path="../../typings/angularjs/angular.d.ts" />
 /// <reference path="../../typings/angularjs/angular-resource.d.ts" />
 var Controllers;

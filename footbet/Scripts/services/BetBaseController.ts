@@ -7,6 +7,8 @@
         groupResults: IGame[];
         playoffGamesResults: IGame[];
         predicate = ["-points", "-sumGoals", "-goalsScored"];
+        playoffTypes = { 2: '8-delsfinaler', 3: 'Kvartfinaler', 4: 'Semifinaler', 5: 'Bronsefinale', 6: 'Finale' };
+        displayedPlayoffTypes = [];
         modelChanged = false;
         errorMessage: string;
         successMessage: string;
@@ -76,6 +78,16 @@
             playoffGame.homeGoals = 1;
             playoffGame.awayGoals = 0;
             this.playoffGameScoreChanged(playoffGame);
+        }
+
+        public displayPlayoffHeader(gameType: number) {
+            var playoffType = this.playoffTypes[gameType];
+            if (!this.displayedPlayoffTypes.includes(gameType)) {
+                this.displayedPlayoffTypes.push(gameType);
+                return playoffType;
+
+            }
+            return null;
         }
 
         private updateTeamsInGroup(group: IGroup) {

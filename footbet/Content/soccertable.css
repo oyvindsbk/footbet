@@ -13,7 +13,6 @@
 }
 .soccertable th:first-child {
 	text-align: left;
-	padding-left:20px;
 }
 .soccer-table-center tr {
 	text-align: center;
@@ -21,7 +20,6 @@
 }
 .soccertable td:first-child {
 	text-align: left;
-	padding-left:20px;
 	border-left: 0;
 }
 .soccertable td {

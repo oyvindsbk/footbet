@@ -6,6 +6,7 @@ module Controllers {
     export class BetController {
 
         private numberOfIncompleteGames = 0;
+        public currentGameType = 2;
         private userBetIncompleteMessage: string;
         static $inject = [
             "$scope",
@@ -45,7 +46,9 @@ module Controllers {
                 this.userBetIncompleteMessage = "";
             }
         }
-
+        public add() {
+            this.currentGameType++;
+        }
         private save() {
             this.betBaseController.modelChanged = false;
             this.numberOfIncompleteGames = this.betBaseController.validateIfUserBetIsComplete();

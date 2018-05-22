@@ -143,8 +143,24 @@ input::-webkit-inner-spin-button {
 
 .headerGroups {
     color: #0078c8;
-    font: 28px/32px Arial;
+    font: 24px/28px Arial;
     margin-top: 20px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.headerPlayoffs {
+    color: #0078c8;
+    font: 32px/36px Arial;
+    margin-top: 20px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.subHeaderPlayoffs {
+    color: #0078c8;
+    font: 24px/28px Arial;
+    margin-top: 30px;
     text-align: left;
     text-transform: uppercase;
 }
@@ -291,4 +307,8 @@ fieldset {
 .btn-awayteam {
     min-width: 125px;
     float: left;
+}
+
+#playoff-table {
+    margin-top: 20px;
 }

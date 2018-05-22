@@ -3,7 +3,6 @@
     {
       "id": 1,
       "name": "Gruppe A",
-      
       "winnerGameId": 50,
       "runnerUpGameId": 51,
       "sportsEventId": 1,
@@ -193,7 +192,6 @@
     {
       "id": 2,
       "name": "Gruppe B",
-      
       "winnerGameId": 51,
       "runnerUpGameId": 50,
       "sportsEventId": 1,
@@ -572,10 +570,8 @@
     {
       "id": 4,
       "name": "Gruppe D",
-      
-      
-      "winnerGameId": "52",
-      "runnerUpGameId": "49",
+      "winnerGameId": 52,
+      "runnerUpGameId": 49,
       "sportsEventId": 1,
       "teams": [
         {
@@ -763,10 +759,8 @@
     {
       "id": 5,
       "name": "Gruppe E",
-      
-      
       "winnerGameId": 53,
-      "runnerUpGameId": "55",
+      "runnerUpGameId": 55,
       "sportsEventId": 1,
       "teams": [
         {
@@ -954,8 +948,6 @@
     {
       "id": 6,
       "name": "Gruppe F",
-      
-      
       "winnerGameId": 55,
       "runnerUpGameId": 53,
       "sportsEventId": 1,
@@ -1528,9 +1520,9 @@
       "homeGoals": null,
       "awayGoals": null,
       "result": null,
-      "gameType": 0,
+      "gameType": 2,
       "sportsEventId": 1,
-      "name": null,
+      "name": "8-delsfinale 1",
       "homeTeam": null,
       "awayTeam": null,
       "playoffGameDetails": [
@@ -1552,9 +1544,9 @@
       "homeGoals": null,
       "awayGoals": null,
       "result": null,
-      "gameType": 0,
+      "gameType": 2,
       "sportsEventId": 1,
-      "name": null,
+      "name": "8-delsfinale 2",
       "homeTeam": null,
       "awayTeam": null,
       "playoffGameDetails": [
@@ -1576,9 +1568,9 @@
       "homeGoals": null,
       "awayGoals": null,
       "result": null,
-      "gameType": 0,
+      "gameType": 2,
       "sportsEventId": 1,
-      "name": null,
+      "name": "8-delsfinale 3",
       "homeTeam": null,
       "awayTeam": null,
       "playoffGameDetails": [
@@ -1600,9 +1592,9 @@
       "homeGoals": null,
       "awayGoals": null,
       "result": null,
-      "gameType": 0,
+      "gameType": 2,
       "sportsEventId": 1,
-      "name": null,
+      "name": "8-delsfinale 4",
       "homeTeam": null,
       "awayTeam": null,
       "playoffGameDetails": [
@@ -1624,9 +1616,9 @@
       "homeGoals": null,
       "awayGoals": null,
       "result": null,
-      "gameType": 0,
+      "gameType": 2,
       "sportsEventId": 1,
-      "name": null,
+      "name": "8-delsfinale 5",
       "homeTeam": null,
       "awayTeam": null,
       "playoffGameDetails": [
@@ -1648,9 +1640,9 @@
       "homeGoals": null,
       "awayGoals": null,
       "result": null,
-      "gameType": 0,
+      "gameType": 2,
       "sportsEventId": 1,
-      "name": null,
+      "name": "8-delsfinale 6",
       "homeTeam": null,
       "awayTeam": null,
       "playoffGameDetails": [
@@ -1672,9 +1664,9 @@
       "homeGoals": null,
       "awayGoals": null,
       "result": null,
-      "gameType": 0,
+      "gameType": 2,
       "sportsEventId": 1,
-      "name": null,
+      "name": "8-delsfinale 7",
       "homeTeam": null,
       "awayTeam": null,
       "playoffGameDetails": [
@@ -1696,9 +1688,9 @@
       "homeGoals": null,
       "awayGoals": null,
       "result": null,
-      "gameType": 0,
+      "gameType": 2,
       "sportsEventId": 1,
-      "name": null,
+      "name": "8-delsfinale 8",
       "homeTeam": null,
       "awayTeam": null,
       "playoffGameDetails": [
@@ -1720,9 +1712,9 @@
       "homeGoals": null,
       "awayGoals": null,
       "result": null,
-      "gameType": 0,
+      "gameType": 3,
       "sportsEventId": 1,
-      "name": null,
+      "name": "Kvartfinale 1",
       "homeTeam": null,
       "awayTeam": null,
       "playoffGameDetails": [
@@ -1733,7 +1725,7 @@
           "nextPlayoffGameRunnerUp": null,
           "isHomeTeamInRunnerUpGame": null,
           "homeTeamDisplayName": "Vinner A1/B2",
-          "awayTeamDisplayName": "Vinner C1/D2",
+          "awayTeamDisplayName": "Vinner C1/2D",
           "gameId": 57
         }
       ]
@@ -1744,9 +1736,9 @@
       "homeGoals": null,
       "awayGoals": null,
       "result": null,
-      "gameType": 0,
+      "gameType": 3,
       "sportsEventId": 1,
-      "name": null,
+      "name": "Kvartfinale 2",
       "homeTeam": null,
       "awayTeam": null,
       "playoffGameDetails": [
@@ -1768,9 +1760,9 @@
       "homeGoals": null,
       "awayGoals": null,
       "result": null,
-      "gameType": 0,
+      "gameType": 3,
       "sportsEventId": 1,
-      "name": null,
+      "name": "Kvartfinale 3",
       "homeTeam": null,
       "awayTeam": null,
       "playoffGameDetails": [
@@ -1792,9 +1784,9 @@
       "homeGoals": null,
       "awayGoals": null,
       "result": null,
-      "gameType": 0,
+      "gameType": 3,
       "sportsEventId": 1,
-      "name": null,
+      "name": "Kvartfinale 4",
       "homeTeam": null,
       "awayTeam": null,
       "playoffGameDetails": [
@@ -1805,7 +1797,7 @@
           "nextPlayoffGameRunnerUp": null,
           "isHomeTeamInRunnerUpGame": null,
           "homeTeamDisplayName": "Vinner B1/A2",
-          "awayTeamDisplayName": "Vinner D1/C2",
+          "awayTeamDisplayName": "Vinner D1/2C",
           "gameId": 60
         }
       ]
@@ -1816,9 +1808,9 @@
       "homeGoals": null,
       "awayGoals": null,
       "result": null,
-      "gameType": 0,
+      "gameType": 4,
       "sportsEventId": 1,
-      "name": null,
+      "name": "Semifinale 1",
       "homeTeam": null,
       "awayTeam": null,
       "playoffGameDetails": [
@@ -1840,9 +1832,9 @@
       "homeGoals": null,
       "awayGoals": null,
       "result": null,
-      "gameType": 0,
+      "gameType": 4,
       "sportsEventId": 1,
-      "name": null,
+      "name": "Semifinale 2",
       "homeTeam": null,
       "awayTeam": null,
       "playoffGameDetails": [
@@ -1864,9 +1856,9 @@
       "homeGoals": null,
       "awayGoals": null,
       "result": null,
-      "gameType": 0,
+      "gameType": 5,
       "sportsEventId": 1,
-      "name": null,
+      "name": "Bronsefinale",
       "homeTeam": null,
       "awayTeam": null,
       "playoffGameDetails": [
@@ -1888,9 +1880,9 @@
       "homeGoals": null,
       "awayGoals": null,
       "result": null,
-      "gameType": 0,
+      "gameType": 6,
       "sportsEventId": 1,
-      "name": null,
+      "name": "Finale",
       "homeTeam": null,
       "awayTeam": null,
       "playoffGameDetails": [

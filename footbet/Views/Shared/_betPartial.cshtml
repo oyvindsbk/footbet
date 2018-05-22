@@ -1,5 +1,9 @@
 ﻿<div class="ng-cloak">
-
+    <div class="row">
+        <div class="span6">
+            <div class="headerPlayoffs span3">Gruppespill</div>
+        </div>
+    </div>
     <div class="row" ng-repeat="group in ctl.betBaseController.groups">
 
         <div class="span6">
@@ -26,16 +30,18 @@
 
         <table class="span3 table-condensed soccer-table-center soccertable offset1">
             <thead>
-                <tr>
-                    <th>Lag</th>
-                    <th>+</th>
-                    <th>-</th>
-                    <th>+/-</th>
-                    <th>Poeng</th>
-                </tr>
+            <tr>
+                <th></th>
+                <th>Lag</th>
+                <th>+</th>
+                <th>-</th>
+                <th>+/-</th>
+                <th>Poeng</th>
+            </tr>
             </thead>
             <tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="team in group.teams">
-                <td>{{$index+1}} <span class="flag {{team.flag}}"></span> {{team.name}}</td>
+                <td class="text-left">{{$index+1}}</td>
+                <td class="text-left"><span class="flag {{team.flag}}"></span> {{team.name}}</td>
                 <td>{{team.goalsScored}}</td>
                 <td>{{team.goalsConceded}}</td>
                 <td>{{team.sumGoals}}</td>
@@ -47,15 +53,19 @@
 
     <div class="row">
         <div class="span6">
-            <div class="headerGroups span3">Finalespill</div>
+            <div class="headerPlayoffs span3">Finalespill</div>
         </div>
     </div>
 
     <div class="span7">
-        <table class="table-condensed">
-            <tr ng-repeat="playoffGame in ctl.betBaseController.playoffGames" style="line-height: 35px;">
+        <div class="row"></div>
+        <table id="playoff-table" class="table-condensed">
+            <tr ng-repeat-start="playoffGame in ctl.betBaseController.playoffGames">
+                <td class="subHeaderPlayoffs" ng-if="ctl.betBaseController.playoffGames[$index].gameType != ctl.betBaseController.playoffGames[$index-1].gameType">{{ctl.betBaseController.playoffTypes[playoffGame.gameType]}}</td>
+            </tr>
+            <tr ng-repeat-end style="line-height: 35px;">
                 <td class="hidden-xs hidden-sm">{{playoffGame.startTime}}</td>
-                <td>{{playoffGame.name}}</td>
+                <td></td>
                 <td class="text-right" ng-hide="playoffGame.homeTeam">
                     {{playoffGame.playoffGameDetails.homeTeamDisplayName}}
                 </td>
@@ -87,7 +97,9 @@
                     <span class="flag {{playoffGame.awayTeam.flag}}"></span>
                     {{playoffGame.awayTeam.name}}
                 </td>
+
             </tr>
+            
         </table>
         <div class="row">
             <input class="save-bet-btn span2" ng-disabled="!ctl.betBaseController.modelChanged" ng-attr-title="{{!ctl.betBaseController.modelChanged && 'Gjør endring for å lagre' || '' }}" type="submit" value="Lagre"/>

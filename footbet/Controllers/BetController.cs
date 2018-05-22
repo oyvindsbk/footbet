@@ -52,7 +52,7 @@ namespace Footbet.Controllers
             }
 
             var gameSetup = Resources.gameSetupRussia;
-       
+            
             var betViewModel = _javaScriptSerializer.Deserialize<BetViewModel>(gameSetup);
 
             var userBet = GetUserBetForUserWithUserName(userName);
@@ -79,6 +79,9 @@ namespace Footbet.Controllers
                     Id = game.Id,
                     SportsEventId = game.SportsEventId,
                     StartTime = game.StartTime.ToFormattedString(),
+                    GameType = game.GameType,
+                    Name = game.Name,
+                    
                 })
                 .ToList();
         }
