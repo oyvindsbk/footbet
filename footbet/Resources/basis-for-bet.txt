@@ -1145,8 +1145,8 @@
     {
       "id": 7,
       "name": "Gruppe G",
-      "winnerGameId": 56,
-      "runnerUpGameId": 54,
+      "winnerGameId": 54,
+      "runnerUpGameId": 56,
       "sportsEventId": 1,
       "teams": [
         {
@@ -1334,10 +1334,8 @@
     {
       "id": 8,
       "name": "Gruppe H",
-      
-      
-      "winnerGameId": "54",
-      "runnerUpGameId": "56",
+      "winnerGameId": 56,
+      "runnerUpGameId": 54,
       "sportsEventId": 1,
       "teams": [
         {
