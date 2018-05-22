@@ -49,7 +49,7 @@
             var playoffGamesResults = [];
 
             angular.forEach(playoffGames, game => {
-                if (game.homeTeam != null || game.awayTeam != null)
+                if (game.homeTeam != null && game.awayTeam != null)
                     playoffGamesResults.push(game);
             });
 

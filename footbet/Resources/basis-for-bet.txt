@@ -1733,7 +1733,7 @@
           "nextPlayoffGameRunnerUp": null,
           "isHomeTeamInRunnerUpGame": null,
           "homeTeamDisplayName": "Vinner A1/B2",
-          "awayTeamDisplayName": "Vinner C1/2D",
+          "awayTeamDisplayName": "Vinner C1/D2",
           "gameId": 57
         }
       ]
@@ -1805,7 +1805,7 @@
           "nextPlayoffGameRunnerUp": null,
           "isHomeTeamInRunnerUpGame": null,
           "homeTeamDisplayName": "Vinner B1/A2",
-          "awayTeamDisplayName": "Vinner D1/2C",
+          "awayTeamDisplayName": "Vinner D1/C2",
           "gameId": 60
         }
       ]

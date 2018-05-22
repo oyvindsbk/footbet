@@ -12,10 +12,10 @@ INSERT INTO [dbo].[PlayOffGameDetails]
 
 		   (59, 1, 55, 'F1', 'E2'), 
 		   (59, 0, 56, 'H1', 'G2'), 
-		   (61, 1, 57, 'Vinner A1/B2', 'Vinner C1/2D'), 
+		   (61, 1, 57, 'Vinner A1/B2', 'Vinner C1/D2'), 
 		   (61, 0, 58, 'Vinner E1/2F', 'Vinner G1/H2'), 
 		   (62, 1, 59, 'Vinner F1/E2', 'Vinner H1/G2'), 
-		   (62, 0, 60, 'Vinner B1/A2', 'Vinner D1/2C')
+		   (62, 0, 60, 'Vinner B1/A2', 'Vinner D1/C2')
 		   
 GO 
 
