@@ -392,6 +392,7 @@
     <Content Include="Views\UserBet\UserBet.cshtml" />
     <Content Include="Views\ResultPage\Index.cshtml" />
     <Content Include="Views\TodaysGames\Index.cshtml" />
+    <Content Include="Scripts\tsconfig.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
