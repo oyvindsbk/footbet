@@ -1,6 +1,6 @@
 var Services;
 (function (Services) {
-    var BetBaseController = (function () {
+    var BetBaseController = /** @class */ (function () {
         function BetBaseController($resource, $rootScope, orderByFilter) {
             this.$resource = $resource;
             this.$rootScope = $rootScope;
@@ -8,7 +8,6 @@ var Services;
             this.isRequired = true;
             this.predicate = ["-points", "-sumGoals", "-goalsScored"];
             this.playoffTypes = { 2: '8-delsfinaler', 3: 'Kvartfinaler', 4: 'Semifinaler', 5: 'Bronsefinale', 6: 'Finale' };
-            this.displayedPlayoffTypes = [];
             this.modelChanged = false;
         }
         BetBaseController.prototype.loadModel = function (userName) {
@@ -271,14 +270,14 @@ var Services;
 var Services;
 (function (Services) {
     "use strict";
-    var LeaderboardService = (function () {
+    var LeaderboardService = /** @class */ (function () {
         function LeaderboardService($http) {
             this.$http = $http;
         }
         LeaderboardService.prototype.getLeaderboard = function () {
             var leaderboard = this.$http({
                 method: 'POST',
-                url: "../Leaderboard/GetOverallLeaderboardBySportsEventId"
+                url: "../Leaderboard/GetOverallLeaderboardBySportsEventId",
             }).then(function (response) { return response.data; });
             return leaderboard;
         };
@@ -302,7 +301,7 @@ var Services;
 var Services;
 (function (Services) {
     "use strict";
-    var LeagueService = (function () {
+    var LeagueService = /** @class */ (function () {
         function LeagueService($http) {
             this.$http = $http;
         }
@@ -380,7 +379,41 @@ var Services;
 var Services;
 (function (Services) {
     "use strict";
-    var BetService = (function () {
+    var ResultPageService = /** @class */ (function () {
+        function ResultPageService($http) {
+            this.$http = $http;
+        }
+        ResultPageService.prototype.loadResult = function () {
+            var response = this.$http({
+                url: "../ResultPage/GetResults",
+                method: "POST"
+            }).then(function (response) {
+                return response.data;
+            })
+                .catch(function (error) { return error.status; });
+            return response;
+        };
+        ResultPageService.prototype.getLeaderboardForLeague = function (leagueId) {
+            var leaderboard = this.$http({
+                method: 'POST',
+                url: "../Leaderboard/GetLeaderboardByLeagueId",
+                data: { leagueId: leagueId }
+            }).then(function (response) { return response.data; });
+            return leaderboard;
+        };
+        ;
+        ResultPageService.$inject = [
+            "$http"
+        ];
+        return ResultPageService;
+    }());
+    Services.ResultPageService = ResultPageService;
+})(Services || (Services = {}));
+//# sourceMappingURL=ResultPageService.js.map
+var Services;
+(function (Services) {
+    "use strict";
+    var BetService = /** @class */ (function () {
         function BetService($http) {
             this.$http = $http;
         }
@@ -400,7 +433,7 @@ var Services;
             var promise = this.$http({
                 method: 'POST',
                 url: "../Result/SaveResultBets",
-                data: { groupGamesResult: groupGamesResultJson, playoffGamesResult: playoffGamesResultJson }
+                data: { groupGamesResult: groupGamesResultJson, playoffGamesResult: playoffGamesResultJson },
             }).then(function (response) { return response.data; });
             return promise;
         };
@@ -433,7 +466,7 @@ var Services;
 var Services;
 (function (Services) {
     "use strict";
-    var UserBetService = (function () {
+    var UserBetService = /** @class */ (function () {
         function UserBetService($http) {
             this.$http = $http;
         }
@@ -455,7 +488,7 @@ var Services;
 var Services;
 (function (Services) {
     "use strict";
-    var TodaysGamesService = (function () {
+    var TodaysGamesService = /** @class */ (function () {
         function TodaysGamesService($http) {
             this.$http = $http;
         }
@@ -495,7 +528,6 @@ var Services;
     Services.TodaysGamesService = TodaysGamesService;
 })(Services || (Services = {}));
 //# sourceMappingURL=TodaysGamesService.js.map
-/// <reference path="../typings/angularjs/angular.d.ts" />
 var MainApp;
 (function (MainApp) {
     'use strict';
@@ -510,12 +542,10 @@ var MainApp;
         .service('leagueService', Services.LeagueService);
 })(MainApp || (MainApp = {}));
 //# sourceMappingURL=app.js.map
-/// <reference path="../../typings/angularjs/angular.d.ts" />
-/// <reference path="../../typings/angularjs/angular-resource.d.ts" />
 var Controllers;
 (function (Controllers) {
     "use strict";
-    var BetController = (function () {
+    var BetController = /** @class */ (function () {
         function BetController($scope, $window, toaster, betBaseController, betService) {
             var _this = this;
             this.$scope = $scope;
@@ -591,12 +621,10 @@ angular
     .module("footballCompApp")
     .controller("BetController", Controllers.BetController);
 //# sourceMappingURL=BetController.js.map
-/// <reference path="../../typings/angularjs/angular.d.ts" />
-/// <reference path="../../typings/angularjs/angular-resource.d.ts" />
 var Controllers;
 (function (Controllers) {
     "use strict";
-    var LeaderboardController = (function () {
+    var LeaderboardController = /** @class */ (function () {
         function LeaderboardController($scope, $rootScope, leaderboardService) {
             var _this = this;
             this.$scope = $scope;
@@ -634,12 +662,10 @@ angular
     .module("footballCompApp")
     .controller("LeaderboardController", Controllers.LeaderboardController);
 //# sourceMappingURL=LeaderboardController.js.map
-/// <reference path="../../typings/angularjs/angular.d.ts" />
-/// <reference path="../../typings/angularjs/angular-resource.d.ts" />
 var Controllers;
 (function (Controllers) {
     "use strict";
-    var LeagueController = (function () {
+    var LeagueController = /** @class */ (function () {
         function LeagueController($scope, $rootScope, leagueService) {
             this.$scope = $scope;
             this.$rootScope = $rootScope;
@@ -711,12 +737,10 @@ angular
     .module("footballCompApp")
     .controller("LeagueController", Controllers.LeagueController);
 //# sourceMappingURL=LeagueController.js.map
-/// <reference path="../../typings/angularjs/angular.d.ts" />
-/// <reference path="../../typings/angularjs/angular-resource.d.ts" />
 var Controllers;
 (function (Controllers) {
     "use strict";
-    var ResultController = (function () {
+    var ResultController = /** @class */ (function () {
         function ResultController($scope, betBaseController, betService) {
             var _this = this;
             this.$scope = $scope;
@@ -756,12 +780,10 @@ angular
     .module("footballCompApp")
     .controller("ResultController", Controllers.ResultController);
 //# sourceMappingURL=ResultController.js.map
-/// <reference path="../../typings/angularjs/angular.d.ts" />
-/// <reference path="../../typings/angularjs/angular-resource.d.ts" />
 var Controllers;
 (function (Controllers) {
     "use strict";
-    var TodaysGamesController = (function () {
+    var TodaysGamesController = /** @class */ (function () {
         function TodaysGamesController($scope, todaysGamesService) {
             this.$scope = $scope;
             this.todaysGamesService = todaysGamesService;
@@ -852,12 +874,10 @@ Date.prototype.addDays = function (days) {
     return date;
 };
 //# sourceMappingURL=TodaysGamesController.js.map
-/// <reference path="../../typings/angularjs/angular.d.ts" />
-/// <reference path="../../typings/angularjs/angular-resource.d.ts" />
 var Controllers;
 (function (Controllers) {
     "use strict";
-    var UserBetController = (function () {
+    var UserBetController = /** @class */ (function () {
         function UserBetController($scope, $location, betBaseController, userBetService) {
             var _this = this;
             this.$scope = $scope;
@@ -905,6 +925,7 @@ var Controllers;
             var _this = this;
             angular.forEach(this.betBaseController.groups, function (group) {
                 _this.betBaseController.setWinnerAndRunnerUpInGroup(group);
+                _this.betBaseController.setPlayoffGameTeams(group, true);
             });
         };
         UserBetController.prototype.userBetControllerInit = function () {
@@ -924,12 +945,10 @@ angular
     .module("footballCompApp")
     .controller("UserBetController", Controllers.UserBetController);
 //# sourceMappingURL=UserBetController.js.map
-/// <reference path="../../typings/angularjs/angular.d.ts" />
-/// <reference path="../../typings/angularjs/angular-resource.d.ts" />
 var Controllers;
 (function (Controllers) {
     "use strict";
-    var ResultPageController = (function () {
+    var ResultPageController = /** @class */ (function () {
         function ResultPageController($scope, $rootScope, betBaseController, resultPageService) {
             var _this = this;
             this.$scope = $scope;
@@ -954,8 +973,7 @@ var Controllers;
             var _this = this;
             angular.forEach(this.betBaseController.groups, function (group) {
                 _this.betBaseController.setWinnerAndRunnerUpInGroup(group);
-                //TODO: recursivly -true false?
-                _this.betBaseController.setPlayoffGameTeams(group, false);
+                _this.betBaseController.setPlayoffGameTeams(group, true);
             });
         };
         ResultPageController.prototype.resultPageControllerInit = function () {
@@ -975,5 +993,4 @@ angular
     .module("footballCompApp")
     .controller("ResultPageController", Controllers.ResultPageController);
 //# sourceMappingURL=ResultPageController.js.map
-/// <reference path="../../typings/angularjs/angular-resource.d.ts" />
 //# sourceMappingURL=ViewModels.js.map

@@ -12,9 +12,10 @@
             var response = this.$http({
                     url: "../ResultPage/GetResults",
                     method: "POST"
-                }).error(function (data, status) {
-                return status;
-            });
+                }).then(response => {
+                    return response.data;
+                })
+                .catch(error => { return error.status });
             return response;
         }
 

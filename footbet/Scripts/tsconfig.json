@@ -4,10 +4,10 @@
         "module": "commonjs",
         "target": "es5",
         "noImplicitAny": false,
-        "outDir": "../Content/built",
+        "outDir": "./built",
         "rootDir": ".",
         "sourceMap": true,
-		"watch": false,
+		  "watch": false,
 		"lib": [ "es2016", "dom" ],
         "typeRoots": [
 	        "../node_modules/@types"
