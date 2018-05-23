@@ -31,7 +31,7 @@ gulp.task('copy:bundle:js', () => {
         `${paths.scriptsDest}built/services/BetBaseController.js`,
         `${paths.scriptsDest}built/services/LeaderBoardService.js`,
         `${paths.scriptsDest}built/services/LeagueService.js`,
-        `${paths.scriptsDest}built/services/LeagueService.js`,
+        `${paths.scriptsDest}built/services/ResultPageService.js`,
         `${paths.scriptsDest}built/services/BetService.js`,
         `${paths.scriptsDest}built/services/UserBetService.js`,
         `${paths.scriptsDest}built/services/TodaysGamesService.js`,
