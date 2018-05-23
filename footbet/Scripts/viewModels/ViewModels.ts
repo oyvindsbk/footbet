@@ -1,5 +1,4 @@
-﻿/// <reference path="../../typings/angularjs/angular-resource.d.ts" />
-
+﻿
 module Services {
 
     export interface IBetViewModel  {
@@ -7,7 +6,7 @@ module Services {
         playoffGames: IGame[];
     }
 
-    export interface IGroup extends ng.resource.IResource<IGroup> {
+    export interface IGroup {
         id: number;
         name: string;
         winnerGameId: number;

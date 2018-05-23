@@ -1,6 +1,4 @@
-﻿/// <reference path="../../typings/angularjs/angular.d.ts" />
-/// <reference path="../../typings/angularjs/angular-resource.d.ts" />
-module Controllers {
+﻿module Controllers {
     "use strict";
 
     export class BetController {

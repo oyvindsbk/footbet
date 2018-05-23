@@ -8,7 +8,7 @@
         playoffGamesResults: IGame[];
         predicate = ["-points", "-sumGoals", "-goalsScored"];
         playoffTypes = { 2: '8-delsfinaler', 3: 'Kvartfinaler', 4: 'Semifinaler', 5: 'Bronsefinale', 6: 'Finale' };
-        displayedPlayoffTypes = [];
+        displayedPlayoffTypes: number[];
         modelChanged = false;
         errorMessage: string;
         successMessage: string;
@@ -85,7 +85,6 @@
             if (!this.displayedPlayoffTypes.includes(gameType)) {
                 this.displayedPlayoffTypes.push(gameType);
                 return playoffType;
-
             }
             return null;
         }

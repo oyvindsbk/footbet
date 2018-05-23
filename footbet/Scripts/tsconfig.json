@@ -2,12 +2,13 @@
 	"compileOnSave": true,
     "compilerOptions": {
         "module": "commonjs",
-        "target": "es3",
+        "target": "es5",
         "noImplicitAny": false,
-        "outDir": "built",
+        "outDir": "./built",
         "rootDir": ".",
         "sourceMap": true,
-		"watch": true
+		"watch": true,
+		"lib": [ "es2016" ]
     },
     "exclude": [
         "node_modules"
