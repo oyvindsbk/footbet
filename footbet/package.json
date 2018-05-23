@@ -9,8 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/angular": "^1.6.45",
-    "@types/angular-resource": "^1.5.14",
+   
     "angular": "^1.5.5",
     "angular-animate": "^1.7.0",
     "angular-i18n": "^1.7.0",
@@ -22,6 +21,8 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
-    "gulp-uglify": "^3.0.0"
+    "gulp-uglify": "^3.0.0",
+    "@types/angular": "^1.6.45",
+    "@types/angular-resource": "^1.5.14"
   }
 }
