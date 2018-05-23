@@ -33,8 +33,7 @@
         private initializeGroupsAndPlayoffGames() {
             angular.forEach(this.betBaseController.groups, (group)=> {
                 this.betBaseController.setWinnerAndRunnerUpInGroup(group);
-                //TODO: recursivly -true false?
-                this.betBaseController.setPlayoffGameTeams(group, false);
+                this.betBaseController.setPlayoffGameTeams(group, true);
             });
         }
 
