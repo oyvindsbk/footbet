@@ -10,6 +10,7 @@ GO
 CREATE TABLE [dbo].[Teams](
  [Id] [int] IDENTITY(1,1) NOT NULL,
  [Name] [varchar](55) NOT NULL,
+ [EnglishName] [varchar](55) NULL,
  [Flag] [varchar](255) NULL,
  [SportsEventId] int NOT NULL,
  [GroupId] [int] NULL FOREIGN KEY REFERENCES Groups(Id)
