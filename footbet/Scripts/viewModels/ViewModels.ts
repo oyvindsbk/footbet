@@ -47,6 +47,11 @@ module Services {
         playoffGameDetails: IPlayoffGameDetails;
     }
 
+    export interface IPlayer {
+        name: string;
+        team: ITeam;
+    }
+
     export interface IPlayoffGameDetails {
         isHomeTeamNextGame: boolean;
         nextPlayoffGame: number;

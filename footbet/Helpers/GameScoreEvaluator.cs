@@ -7,17 +7,17 @@ namespace Footbet.Helpers
 {
     public interface IGameScoreEvaluator
     {
-        int GetScoreForUserOnGame(Bet referenceBet, Bet currentBet, Game currentGame, List<ScoreBasis> scoreBasises);
+        int GetScoreForUserOnGame(Bet referenceBet, Bet currentBet, Game currentGame, List<ScoreBasis> scoreBases);
     }
 
     public  class GameScoreEvaluator : IGameScoreEvaluator
     {
-        public int GetScoreForUserOnGame(Bet referenceBet, Bet currentBet, Game currentGame, List<ScoreBasis> scoreBasises)
+        public int GetScoreForUserOnGame(Bet referenceBet, Bet currentBet, Game currentGame, List<ScoreBasis> scoreBases)
         {
             var gameType = currentGame.GameType;
             var gradeOfMatch = EvaluateGradeOfMatchBetweenResultAndBet(referenceBet, currentBet, gameType);
 
-            var scoreBasis = scoreBasises.SingleOrDefault(x => x.GameType == gameType && x.GradeOfMatchType == gradeOfMatch);
+            var scoreBasis = scoreBases.SingleOrDefault(x => x.GameType == gameType && x.GradeOfMatchType == gradeOfMatch);
 
             return scoreBasis != null ? scoreBasis.Points : 0;
         }

@@ -14,6 +14,7 @@ CREATE TABLE [dbo].[UserScores](
 	[SportsEventId] int NOT NULL FOREIGN KEY REFERENCES SportsEvents(Id),
 	[UserId] [varchar](255) NOT NULL,
 	[Id] [int] IDENTITY(1,1) NOT NULL,
+    [TopScorerScore] [int] NULL,
  CONSTRAINT [PrimaryKey_4929abcf-b3fd-4f3f-85bc-72b7c7b481c4] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC

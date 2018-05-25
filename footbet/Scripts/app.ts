@@ -2,7 +2,7 @@
 module MainApp {
     'use strict';
     angular
-        .module('footballCompApp', ['ngResource', 'toaster', 'ngAnimate'])
+        .module('footballCompApp', ['ngResource', 'toaster', 'ngAnimate','ui.bootstrap'])
         .service('betBaseController', Services.BetBaseController)
         .service('betService', Services.BetService)
         .service('userBetService', Services.UserBetService)

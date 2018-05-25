@@ -1,0 +1,10 @@
+﻿<div class="row">
+    <div class="headerPlayoffs span3">Toppscorer</div>
+</div>
+<div class="subHeaderTopScorer">Søk i spillere og velg den du tror blir VMs toppscorer!</div>
+<div class="row">
+    <input type="text" class="span6 form-control" 
+           ng-model="ctl.betBaseController.selectedTopScorer"
+           uib-typeahead="player as player.name + ' - ' + player.team.name  for player in ctl.betBaseController.players | filter:$viewValue">
+</div>
+<div>Oversikt over alle spillere (ekstern): <a href="https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_squads">https://en.wikipedia.org/wiki/2018_FIFA_World_Cup_squads</a></div>

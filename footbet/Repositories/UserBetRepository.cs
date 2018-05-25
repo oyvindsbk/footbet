@@ -28,6 +28,8 @@ namespace Footbet.Repositories
                 var originalUserBet = original.First();
                 userBetId = originalUserBet.Id;
                 originalUserBet.CreatedAt = userBet.CreatedAt;
+                originalUserBet.TopScorerTeam = userBet.TopScorerTeam;
+                originalUserBet.TopScorerName = userBet.TopScorerName;
                 _playoffBetRepository.SaveOrUpdatePlayoffBets(userBet.PlayoffBets.ToList(), userBetId);
                 _betRepository.SaveOrUpdateBets(userBet.Bets.ToList(), userBetId);
             }

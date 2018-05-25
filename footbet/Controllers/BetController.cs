@@ -11,6 +11,7 @@ using Footbet.Helpers;
 using Footbet.Models;
 using Footbet.Models.DomainModels;
 using Footbet.Repositories.Contracts;
+using Footbet.Services.Contracts;
 using Microsoft.AspNet.Identity;
 
 namespace Footbet.Controllers
@@ -24,12 +25,13 @@ namespace Footbet.Controllers
         private readonly IUserRepository _userRepository;
         private readonly IGroupRepository _groupRepository;
         private readonly IGameRepository _gameRepository;
+        private readonly IPlayerService _playerService;
 
         public BetController(JavaScriptSerializer javaScriptSerializer,
             IUserBetRepository userBetRepository,
             ITeamRepository teamRepository,
             IUserRepository userRepository,
-            IGroupRepository groupRepository, IGameRepository gameRepository)
+            IGroupRepository groupRepository, IGameRepository gameRepository, IPlayerService playerService)
         {
             _javaScriptSerializer = javaScriptSerializer;
             _userBetRepository = userBetRepository;
@@ -37,6 +39,7 @@ namespace Footbet.Controllers
             _userRepository = userRepository;
             _groupRepository = groupRepository;
             _gameRepository = gameRepository;
+            _playerService = playerService;
         }
 
         public ViewResult Index()
@@ -52,12 +55,16 @@ namespace Footbet.Controllers
             }
 
             var gameSetup = Resources.gameSetupRussia;
-            
             var betViewModel = _javaScriptSerializer.Deserialize<BetViewModel>(gameSetup);
+            betViewModel.Players = _playerService.GetPlayerViewModels();
+
 
             var userBet = GetUserBetForUserWithUserName(userName);
 
-            if (userBet.Bets == null) return ToJsonResult(betViewModel);
+            if (userBet.Bets == null)
+                return ToJsonResult(betViewModel);
+
+            betViewModel.SelectedTopScorer = GetSelectedTopScorer(userBet);
 
             foreach (var group in betViewModel.Groups)
             {
@@ -67,6 +74,14 @@ namespace Footbet.Controllers
             MapPlayoffBetsToGameViewModels(betViewModel.PlayoffGames, userBet);
 
             return ToJsonResult(betViewModel);
+        }
+
+        private PlayerViewModel GetSelectedTopScorer(UserBet userBet)
+        {
+            if (userBet.TopScorerTeam == null)
+                return null;
+            var team = _teamRepository.GetTeamById(userBet.TopScorerTeam);
+            return new PlayerViewModel {Name = userBet.TopScorerName, Team = team};
         }
 
         private List<GameViewModel> GetPlayoffGames()
@@ -140,7 +155,7 @@ namespace Footbet.Controllers
 
         [System.Web.Http.HttpPost]
         [System.Web.Http.AcceptVerbs("GET", "POST")]
-        public ActionResult SavePersonBet(string groupGamesResult, string playoffGamesResult, int sportsEventId = 1)
+        public ActionResult SavePersonBet(string groupGamesResult, string playoffGamesResult, string selectedTopScorer, int sportsEventId = 1)
         {
             if (!User.Identity.IsAuthenticated)
             {
@@ -157,8 +172,12 @@ namespace Footbet.Controllers
             var playoffGamesResultViewModel =
                 _javaScriptSerializer.Deserialize<List<PlayoffBetViewModel>>(playoffGamesResult);
 
+            var playerViewModel = new PlayerViewModel();
+            if(selectedTopScorer != null)
+                playerViewModel = _javaScriptSerializer.Deserialize<PlayerViewModel>(selectedTopScorer);
+
             var insertUserBetSuccess =
-                CreateAndInsertUserBet(sportsEventId, groupGamesResultViewModel, playoffGamesResultViewModel);
+                CreateAndInsertUserBet(sportsEventId, groupGamesResultViewModel, playerViewModel, playoffGamesResultViewModel);
 
             if (!insertUserBetSuccess)
                 return CreateJsonError(
@@ -168,11 +187,12 @@ namespace Footbet.Controllers
         }
 
        private bool CreateAndInsertUserBet(int sportsEventId,
-            IEnumerable<GameResultViewModel> groupGamesResultViewModel,
-            List<PlayoffBetViewModel> playoffGamesResultViewModel)
+           IEnumerable<GameResultViewModel> groupGamesResultViewModel,
+           PlayerViewModel topScorerBet,
+           List<PlayoffBetViewModel> playoffGamesResultViewModel)
         {
             var userId = GetUserId();
-            var userBet = CreateUserBet(groupGamesResultViewModel, playoffGamesResultViewModel, sportsEventId, userId);
+            var userBet = CreateUserBet(groupGamesResultViewModel, playoffGamesResultViewModel, topScorerBet, sportsEventId, userId);
 
             if (PlayoffBetsNotValid(userBet)) return false;
 
@@ -190,7 +210,7 @@ namespace Footbet.Controllers
 
 
         public UserBet CreateUserBet(IEnumerable<GameResultViewModel> gameResultViewModels,
-            List<PlayoffBetViewModel> playoffGamesResultViewModel, int sportsEventId, string userId,
+            List<PlayoffBetViewModel> playoffGamesResultViewModel, PlayerViewModel topScorerBet, int sportsEventId, string userId,
             bool isResultBet = false)
         {
             var userBet = new UserBet
@@ -200,6 +220,8 @@ namespace Footbet.Controllers
                 IsResultBet = isResultBet,
                 Bets = new List<Bet>(),
                 CreatedAt = DateTime.Now,
+                TopScorerName =  topScorerBet.Name,
+                TopScorerTeam = topScorerBet.Team?.Id,
                 PlayoffBets = new List<PlayoffBet>(),
             };
 

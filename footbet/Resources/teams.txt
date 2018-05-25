@@ -44,7 +44,7 @@
 	"flag": "flag-es",
 	"groupId": 2,
 	"sportsEventId": 1,
-	"englishName": "Spania"
+	"englishName": "Spain"
 },
 {
 	"id": 7,

@@ -13,6 +13,8 @@ CREATE TABLE [dbo].[UserBets](
 	[UserId] [varchar](255) NOT NULL, 
 	[IsResultBet] bit NOT NULL,
 	[CreatedAt] [datetime] NOT NULL,
+    [TopScorerName] [nvarchar](255) NULL,
+	[TopScorerTeam] [int] NULL,
 
  CONSTRAINT [PrimaryKey_1055e9b1-54a2-4452-b154-79f38c806047] PRIMARY KEY CLUSTERED 
 (

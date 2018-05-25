@@ -3,6 +3,8 @@
     export class BetBaseController {
         isRequired = true;
         groups: IGroup[];
+        selectedTopScorer: IPlayer;
+        players: IPlayer[];
         playoffGames: IGame[];
         groupResults: IGame[];
         playoffGamesResults: IGame[];
@@ -27,10 +29,11 @@
         public loadModel(userName): void {
             this.$resource(`../Bet/GetBasisForBet/${userName}`).get((betViewModel) => {
                 this.groups = betViewModel.groups;
+                this.players = betViewModel.players;
+                this.selectedTopScorer = betViewModel.selectedTopScorer;
                 this.initializeGroupsForBet();
                 this.initializePlayoffGamesForBet(betViewModel.playoffGames);
                 this.$rootScope.$broadcast("modelLoaded", true);
-
             });
         }
 
@@ -263,18 +266,26 @@
             var numberOfIncompleteGames = 0;
             angular.forEach(this.groups, group => {
                 angular.forEach(group.games, game => {
-                    if (!game.homeGoals || !game.awayGoals) {
+                    if (this.isGameIncomplete(game)) {
                         numberOfIncompleteGames++;
                     }
                 });
             });
 
             angular.forEach(this.playoffGames, playoffGame => {
-                if (!playoffGame.homeGoals || !playoffGame.awayGoals) {
+                if (this.isGameIncomplete(playoffGame)) {
                     numberOfIncompleteGames++;
                 }
             });
+
+            if (!this.selectedTopScorer)
+                numberOfIncompleteGames++;
+
             return numberOfIncompleteGames;
+        }
+
+        private isGameIncomplete(game: IGame) : boolean {
+            return (game.homeGoals !== 0 && !game.homeGoals) || (game.awayGoals !== 0 && !game.awayGoals);
         }
 
         private teamsAreEqualByPredicate(sortedTeams: ITeam[], indexTeamOne: number, indexTeamTwo: number): boolean {

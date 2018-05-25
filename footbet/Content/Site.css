@@ -165,6 +165,13 @@ input::-webkit-inner-spin-button {
     text-transform: uppercase;
 }
 
+.subHeaderTopScorer {
+    color: #0078c8;
+    font: 20px/24px Arial;
+    margin-top: 30px;
+    text-align: left;
+}
+
 legend {
     border-bottom: none;
     padding: 0 10px;
@@ -208,6 +215,7 @@ fieldset {
 }
 
 .save-bet-btn {
+    margin-top: 30px;
     margin-bottom: 100px;
     width: 100px;
 }

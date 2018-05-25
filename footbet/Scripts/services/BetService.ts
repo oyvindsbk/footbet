@@ -8,14 +8,18 @@
 
         constructor(private $http) {}
 
-        public saveBet(groups: IGroup[], playoffGames: IGame[]) {
+        public saveBet(groups: IGroup[], playoffGames: IGame[], selectedTopScorer: IPlayer) {
             var groupGamesResultJson = this.extractGroupResultFromGroups(groups);
             var playoffGamesResultJson = this.extractPlayoffGamesResultFromPlayoffGames(playoffGames);
-
+            var selectedTopScorerJson = angular.toJson(selectedTopScorer);
             var promise = this.$http({
                 method: 'POST',
                 url: "../Bet/SavePersonBet",
-                data: { groupGamesResult: groupGamesResultJson, playoffGamesResult: playoffGamesResultJson }
+                data: {
+                    groupGamesResult: groupGamesResultJson,
+                    playoffGamesResult: playoffGamesResultJson,
+                    selectedTopScorer: selectedTopScorerJson
+                }
             }).then(response => response.data);
             return promise;
         }

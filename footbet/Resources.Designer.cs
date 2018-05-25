@@ -19,7 +19,7 @@ namespace Footbet {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -63,6 +63,7 @@ namespace Footbet {
         /// <summary>
         ///   Looks up a localized string similar to [
         ///  {
+        ///    &quot;bets&quot;: [],
         ///    &quot;playoffGameDetails&quot;: [],
         ///    &quot;id&quot;: 1,
         ///    &quot;name&quot;: &quot;Kamp 1&quot;,
@@ -74,6 +75,7 @@ namespace Footbet {
         ///    &quot;groupId&quot;: 1
         ///  },
         ///  {
+        ///    &quot;bets&quot;: [],
         ///    &quot;playoffGameDetails&quot;: [],
         ///    &quot;id&quot;: 2,
         ///    &quot;name&quot;: &quot;Kamp 2&quot;,
@@ -85,10 +87,8 @@ namespace Footbet {
         ///    &quot;groupId&quot;: 1
         ///  },
         ///  {
-        ///    &quot;playoffGameDetails&quot;: [],
-        ///    &quot;id&quot;: 3,
-        ///    &quot;name&quot;: &quot;Kamp 17&quot;,
-        ///    &quot;homeTeam&quot;:  [rest of string was truncated]&quot;;.
+        ///    &quot;bets&quot;: [],
+        ///    &quot;pl [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string games {
             get {
@@ -97,7 +97,32 @@ namespace Footbet {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {&quot;groups&quot;:[{&quot;id&quot;:1,&quot;name&quot;:&quot;Gruppe A&quot;,&quot;winnerTeamCode&quot;:null,&quot;runnerUpTeamCode&quot;:null,&quot;winnerGameId&quot;:&quot;50&quot;,&quot;runnerUpGameId&quot;:&quot;51&quot;,&quot;sportsEventId&quot;:1,&quot;teams&quot;:[{&quot;id&quot;:1,&quot;name&quot;:&quot;Russland&quot;,&quot;flag&quot;:&quot;flag-ru&quot;,&quot;groupId&quot;:1,&quot;sportsEventId&quot;:1},{&quot;id&quot;:2,&quot;name&quot;:&quot;Saudi-Arabia&quot;,&quot;flag&quot;:&quot;flag-sa&quot;,&quot;groupId&quot;:1,&quot;sportsEventId&quot;:1},{&quot;id&quot;:3,&quot;name&quot;:&quot;Egypt&quot;,&quot;flag&quot;:&quot;flag-eg&quot;,&quot;groupId&quot;:1,&quot;sportsEventId&quot;:1},{&quot;id&quot;:4,&quot;name&quot;:&quot;Uruguay&quot;,&quot;flag&quot;:&quot;flag-uy&quot;,&quot;groupId&quot;:1,&quot;sportsEventId&quot;:1}],&quot;games&quot;:[{&quot;id&quot;:1,&quot;startTime&quot;:&quot;14.06.2018 17:00&quot;,&quot;homeGoals&quot; [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to {
+        ///  &quot;groups&quot;: [
+        ///    {
+        ///      &quot;id&quot;: 1,
+        ///      &quot;name&quot;: &quot;Gruppe A&quot;,
+        ///      &quot;winnerGameId&quot;: 50,
+        ///      &quot;runnerUpGameId&quot;: 51,
+        ///      &quot;sportsEventId&quot;: 1,
+        ///      &quot;teams&quot;: [
+        ///        {
+        ///          &quot;id&quot;: 1,
+        ///          &quot;name&quot;: &quot;Russland&quot;,
+        ///          &quot;flag&quot;: &quot;flag-ru&quot;,
+        ///          &quot;groupId&quot;: 1,
+        ///          &quot;sportsEventId&quot;: 1
+        ///        },
+        ///        {
+        ///          &quot;id&quot;: 2,
+        ///          &quot;name&quot;: &quot;Saudi-Arabia&quot;,
+        ///          &quot;flag&quot;: &quot;flag-sa&quot;,
+        ///          &quot;groupId&quot;: 1,
+        ///          &quot;sportsEventId&quot;: 1
+        ///        },
+        ///        {
+        ///          &quot;id&quot;: 3,
+        ///          &quot;name [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string gameSetupRussia {
             get {
@@ -106,40 +131,51 @@ namespace Footbet {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [
-        ///  {
-        ///    &quot;id&quot;: 1,
-        ///    &quot;name&quot;: &quot;Russland&quot;,
-        ///    &quot;flag&quot;: &quot;flag-ru&quot;,
-        ///    &quot;groupId&quot;: 1,
-        ///    &quot;sportsEventId&quot;: 1
-        ///  },
-        ///  {
-        ///    &quot;id&quot;: 2,
-        ///    &quot;name&quot;: &quot;Saudi-Arabia&quot;,
-        ///    &quot;flag&quot;: &quot;flag-sa&quot;,
-        ///    &quot;groupId&quot;: 1,
-        ///    &quot;sportsEventId&quot;: 1
-        ///  },
-        ///  {
-        ///    &quot;id&quot;: 3,
-        ///    &quot;name&quot;: &quot;Egypt&quot;,
-        ///    &quot;flag&quot;: &quot;flag-eg&quot;,
-        ///    &quot;groupId&quot;: 1,
-        ///    &quot;sportsEventId&quot;: 1
-        ///  },
-        ///  {
-        ///    &quot;id&quot;: 4,
-        ///    &quot;name&quot;: &quot;Uruguay&quot;,
-        ///    &quot;flag&quot;: &quot;flag-uy&quot;,
-        ///    &quot;groupId&quot;: 1,
-        ///    &quot;sportsEventId&quot;: 1
-        ///  },
-        ///  {
-        ///    &quot;id&quot;: 5,
-        ///    &quot;name&quot;: &quot;Portugal&quot;,
-        ///    &quot;flag&quot;: &quot;flag-pt&quot;,
-        ///    &quot;g [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to [{&quot;team&quot;:&quot;Egypt&quot;,&quot;players&quot;:[{&quot;name&quot;:&quot;Essam El-Hadary&quot;},{&quot;name&quot;:&quot;Sherif Ekramy&quot;},{&quot;name&quot;:&quot;Mohamed Awad&quot;},{&quot;name&quot;:&quot;Mohamed El-Shenawy&quot;},{&quot;name&quot;:&quot;Ahmed Fathy&quot;},{&quot;name&quot;:&quot;Ahmed Elmohamady&quot;},{&quot;name&quot;:&quot;Mohamed Abdel-Shafy&quot;},{&quot;name&quot;:&quot;Ahmed Hegazi&quot;},{&quot;name&quot;:&quot;Omar Gaber&quot;},{&quot;name&quot;:&quot;Ali Gabr&quot;},{&quot;name&quot;:&quot;Saad Samir&quot;},{&quot;name&quot;:&quot;Karim Hafez&quot;},{&quot;name&quot;:&quot;Ayman Ashraf&quot;},{&quot;name&quot;:&quot;Amro Tarek&quot;},{&quot;name&quot;:&quot;Mahmoud Hamdy&quot;},{&quot;name&quot;:&quot;Mohamed Elneny&quot;},{&quot;name&quot;:&quot;Abdallah Said&quot;},{&quot;name&quot;:&quot;Shikabala&quot;},{&quot;name&quot;:&quot;Trézéguet&quot;},{&quot;name&quot;:&quot;Ramadan Sobh [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string players {
+            get {
+                return ResourceManager.GetString("players", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [{
+        ///	&quot;id&quot;: 1,
+        ///	&quot;name&quot;: &quot;Russland&quot;,
+        ///	&quot;flag&quot;: &quot;flag-ru&quot;,
+        ///	&quot;groupId&quot;: 1,
+        ///	&quot;sportsEventId&quot;: 1,
+        ///	&quot;englishName&quot;: &quot;Russia&quot;
+        ///},
+        ///{
+        ///	&quot;id&quot;: 2,
+        ///	&quot;name&quot;: &quot;Saudi-Arabia&quot;,
+        ///	&quot;flag&quot;: &quot;flag-sa&quot;,
+        ///	&quot;groupId&quot;: 1,
+        ///	&quot;sportsEventId&quot;: 1,
+        ///	&quot;englishName&quot;: &quot;Saudi Arabia&quot;
+        ///},
+        ///{
+        ///	&quot;id&quot;: 3,
+        ///	&quot;name&quot;: &quot;Egypt&quot;,
+        ///	&quot;flag&quot;: &quot;flag-eg&quot;,
+        ///	&quot;groupId&quot;: 1,
+        ///	&quot;sportsEventId&quot;: 1,
+        ///	&quot;englishName&quot;: &quot;Egypt&quot;
+        ///},
+        ///{
+        ///	&quot;id&quot;: 4,
+        ///	&quot;name&quot;: &quot;Uruguay&quot;,
+        ///	&quot;flag&quot;: &quot;flag-uy&quot;,
+        ///	&quot;groupId&quot;: 1,
+        ///	&quot;sportsEventId&quot;: 1,
+        ///	&quot;englishName&quot;: &quot;Uruguay&quot;
+        ///},
+        ///{
+        ///	&quot;id&quot;: 5,
+        ///	&quot;name&quot;: &quot;Portugal&quot;,
+        ///	&quot;fl [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string teams {
             get {

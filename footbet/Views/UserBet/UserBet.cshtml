@@ -11,7 +11,7 @@
         <div ng-controller="UserBetController as ctl" class="ng-cloak">
             <h1 ng-show="ctl.showSearch">Søk etter spiller (brukernavn)</h1>
             <div class="row" ng-show="ctl.showSearch">
-                    <input type="text" class="span6" ng-show="ctl.users.length > 0" ng-model="ctl.selectedUser" typeahead="user.userName for user in ctl.users | filter:$viewValue | limitTo:8 | orderBy:'userName'" class="form-control">
+                    <input type="text" class="span6 form-control" ng-show="ctl.users.length > 0" ng-model="ctl.selectedUser" uib-typeahead="user.userName for user in ctl.users | filter:$viewValue | limitTo:8 | orderBy:'userName'">
                     <input class="span2" ng-disabled="!ctl.selectedUser" ng-click="ctl.searchUserBet(ctl.selectedUser)" type="submit" value="Søk" />
                     <p class="errorText span4" ng-show="ctl.errorMessage.length > 0">{{ctl.errorMessage}}</p>
             </div>

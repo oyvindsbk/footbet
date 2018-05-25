@@ -38,7 +38,7 @@
 
         private setLabelForUserBetComplete() {
             this.numberOfIncompleteGames = this.betBaseController.validateIfUserBetIsComplete();
-            if (this.numberOfIncompleteGames > 0 && this.numberOfIncompleteGames < 64) {
+            if (this.numberOfIncompleteGames > 0 && this.numberOfIncompleteGames < 65) {
                 this.userBetIncompleteMessage = "(Ditt spill er ikke komplett!)";
             } else {
                 this.userBetIncompleteMessage = "";
@@ -50,11 +50,11 @@
         private save() {
             this.betBaseController.modelChanged = false;
             this.numberOfIncompleteGames = this.betBaseController.validateIfUserBetIsComplete();
-            if (this.numberOfIncompleteGames === 64) {
+            if (this.numberOfIncompleteGames === 65) {
                 this.toaster.pop('error', "Feil", "Fyll inn resultater");
                 return;
             }
-            this.betService.saveBet(this.betBaseController.groups, this.betBaseController.playoffGames).then((response) => {
+            this.betService.saveBet(this.betBaseController.groups, this.betBaseController.playoffGames, this.betBaseController.selectedTopScorer).then((response) => {
                 this.betBaseController.clearMessages();
                 this.setLabelForUserBetComplete();
 

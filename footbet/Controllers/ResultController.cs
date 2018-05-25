@@ -43,14 +43,15 @@ namespace Footbet.Controllers
 
         [System.Web.Http.HttpPost]
         [System.Web.Http.AcceptVerbs("GET", "POST")]
-        public ActionResult SaveResultBets(string groupGamesResult, string playoffGamesResult, int sportsEventId = 1)
+        public ActionResult SaveResultBets(string groupGamesResult, string playoffGamesResult, string playoffBetViewModel, int sportsEventId = 1)
         {
             var groupGamesResultViewModel = _javaScriptSerializer.Deserialize<List<GameResultViewModel>>(groupGamesResult);
             var playoffGamesResultViewModel = _javaScriptSerializer.Deserialize<List<PlayoffBetViewModel>>(playoffGamesResult);
+            var topScorerBet = _javaScriptSerializer.Deserialize<PlayerViewModel>(playoffGamesResult);
 
             var userId = GetUserId();
 
-            var userBet = _betController.CreateUserBet(groupGamesResultViewModel, playoffGamesResultViewModel, sportsEventId, userId, true);
+            var userBet = _betController.CreateUserBet(groupGamesResultViewModel, playoffGamesResultViewModel, topScorerBet, sportsEventId, userId, true);
 
             var userBetId = _userBetRepository.SaveOrUpdateUserBet(userBet);
 
@@ -98,7 +99,6 @@ namespace Footbet.Controllers
                 }
 
                 currentUserScore.PlayoffScore = AddScoresForPlayoffGames(currentUserScore, referencePlayoffBets, userBet, scoreBasis);
-
             }
 
             _userScoreRepository.SaveOrUpdateUserScores(userScores);

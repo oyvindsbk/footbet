@@ -14,6 +14,8 @@ var Services;
             var _this = this;
             this.$resource("../Bet/GetBasisForBet/" + userName).get(function (betViewModel) {
                 _this.groups = betViewModel.groups;
+                _this.players = betViewModel.players;
+                _this.selectedTopScorer = betViewModel.selectedTopScorer;
                 _this.initializeGroupsForBet();
                 _this.initializePlayoffGamesForBet(betViewModel.playoffGames);
                 _this.$rootScope.$broadcast("modelLoaded", true);
@@ -227,20 +229,26 @@ var Services;
                 team.gamesWonAgainstTeams.push(currentGame.awayTeam);
         };
         BetBaseController.prototype.validateIfUserBetIsComplete = function () {
+            var _this = this;
             var numberOfIncompleteGames = 0;
             angular.forEach(this.groups, function (group) {
                 angular.forEach(group.games, function (game) {
-                    if (!game.homeGoals || !game.awayGoals) {
+                    if (_this.isGameIncomplete(game)) {
                         numberOfIncompleteGames++;
                     }
                 });
             });
             angular.forEach(this.playoffGames, function (playoffGame) {
-                if (!playoffGame.homeGoals || !playoffGame.awayGoals) {
+                if (_this.isGameIncomplete(playoffGame)) {
                     numberOfIncompleteGames++;
                 }
             });
+            if (!this.selectedTopScorer)
+                numberOfIncompleteGames++;
             return numberOfIncompleteGames;
+        };
+        BetBaseController.prototype.isGameIncomplete = function (game) {
+            return (game.homeGoals !== 0 && !game.homeGoals) || (game.awayGoals !== 0 && !game.awayGoals);
         };
         BetBaseController.prototype.teamsAreEqualByPredicate = function (sortedTeams, indexTeamOne, indexTeamTwo) {
             return sortedTeams[indexTeamOne].points === sortedTeams[indexTeamTwo].points &&
@@ -417,13 +425,18 @@ var Services;
         function BetService($http) {
             this.$http = $http;
         }
-        BetService.prototype.saveBet = function (groups, playoffGames) {
+        BetService.prototype.saveBet = function (groups, playoffGames, selectedTopScorer) {
             var groupGamesResultJson = this.extractGroupResultFromGroups(groups);
             var playoffGamesResultJson = this.extractPlayoffGamesResultFromPlayoffGames(playoffGames);
+            var selectedTopScorerJson = angular.toJson(selectedTopScorer);
             var promise = this.$http({
                 method: 'POST',
                 url: "../Bet/SavePersonBet",
-                data: { groupGamesResult: groupGamesResultJson, playoffGamesResult: playoffGamesResultJson }
+                data: {
+                    groupGamesResult: groupGamesResultJson,
+                    playoffGamesResult: playoffGamesResultJson,
+                    selectedTopScorer: selectedTopScorerJson
+                }
             }).then(function (response) { return response.data; });
             return promise;
         };
@@ -532,7 +545,7 @@ var MainApp;
 (function (MainApp) {
     'use strict';
     angular
-        .module('footballCompApp', ['ngResource', 'toaster', 'ngAnimate'])
+        .module('footballCompApp', ['ngResource', 'toaster', 'ngAnimate', 'ui.bootstrap'])
         .service('betBaseController', Services.BetBaseController)
         .service('betService', Services.BetService)
         .service('userBetService', Services.UserBetService)
@@ -570,7 +583,7 @@ var Controllers;
         };
         BetController.prototype.setLabelForUserBetComplete = function () {
             this.numberOfIncompleteGames = this.betBaseController.validateIfUserBetIsComplete();
-            if (this.numberOfIncompleteGames > 0 && this.numberOfIncompleteGames < 64) {
+            if (this.numberOfIncompleteGames > 0 && this.numberOfIncompleteGames < 65) {
                 this.userBetIncompleteMessage = "(Ditt spill er ikke komplett!)";
             }
             else {
@@ -584,11 +597,11 @@ var Controllers;
             var _this = this;
             this.betBaseController.modelChanged = false;
             this.numberOfIncompleteGames = this.betBaseController.validateIfUserBetIsComplete();
-            if (this.numberOfIncompleteGames === 64) {
+            if (this.numberOfIncompleteGames === 65) {
                 this.toaster.pop('error', "Feil", "Fyll inn resultater");
                 return;
             }
-            this.betService.saveBet(this.betBaseController.groups, this.betBaseController.playoffGames).then(function (response) {
+            this.betService.saveBet(this.betBaseController.groups, this.betBaseController.playoffGames, this.betBaseController.selectedTopScorer).then(function (response) {
                 _this.betBaseController.clearMessages();
                 _this.setLabelForUserBetComplete();
                 if (response.ExceptionMessage != null) {

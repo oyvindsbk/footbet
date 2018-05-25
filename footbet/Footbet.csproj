@@ -231,6 +231,7 @@
     <Compile Include="Controllers\UserBetController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Extentions\DateTimeExtention.cs" />
+    <Compile Include="Models\DomainModels\Player.cs" />
     <Compile Include="Models\DomainModels\TodaysGamesSpecification.cs" />
     <Compile Include="Models\DomainModels\ApplicationUser.cs" />
     <Compile Include="Models\TodaysGamesViewModel.cs" />
@@ -247,6 +248,8 @@
     <Compile Include="Repositories\Contracts\ITeamRepository.cs" />
     <Compile Include="Repositories\Contracts\ILeagueUserRepository.cs" />
     <Compile Include="Repositories\LeagueUserRepository.cs" />
+    <Compile Include="Services\Contracts\IPlayerService.cs" />
+    <Compile Include="Services\PlayerService.cs" />
     <Compile Include="Repositories\PlayoffBetRepository.cs" />
     <Compile Include="Repositories\Contracts\IUserScoreRepository.cs" />
     <Compile Include="Repositories\Contracts\IResultRepository.cs" />
@@ -359,12 +362,14 @@
     <None Include="Properties\PublishProfiles\russlandvm - Web Deploy.pubxml" />
     <None Include="Resources\basis-for-bet.txt" />
     <Content Include="Resources\games.txt" />
+    <None Include="Resources\players.txt" />
     <Content Include="Resources\teams.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -393,6 +398,7 @@
     <Content Include="Views\ResultPage\Index.cshtml" />
     <Content Include="Views\TodaysGames\Index.cshtml" />
     <Content Include="Scripts\tsconfig.json" />
+    <Content Include="Views\Shared\_topScorerPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
