@@ -3,14 +3,14 @@ using System.Linq;
 using Footbet.Models.DomainModels;
 using Footbet.Models.Enums;
 
-namespace Footbet.Helpers
+namespace Footbet.ScoreCalculations
 {
-    public interface IGameScoreEvaluator
+    public interface IGameScoreCalculator
     {
         int GetScoreForUserOnGame(Bet referenceBet, Bet currentBet, Game currentGame, List<ScoreBasis> scoreBases);
     }
 
-    public  class GameScoreEvaluator : IGameScoreEvaluator
+    public class GameScoreCalculator : IGameScoreCalculator
     {
         public int GetScoreForUserOnGame(Bet referenceBet, Bet currentBet, Game currentGame, List<ScoreBasis> scoreBases)
         {
@@ -19,7 +19,7 @@ namespace Footbet.Helpers
 
             var scoreBasis = scoreBases.SingleOrDefault(x => x.GameType == gameType && x.GradeOfMatchType == gradeOfMatch);
 
-            return scoreBasis != null ? scoreBasis.Points : 0;
+            return scoreBasis?.Points ?? 0;
         }
 
         private int EvaluateGradeOfMatchBetweenResultAndBet(Bet referenceBet, Bet usersBet, int gameType)

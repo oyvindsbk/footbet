@@ -13,6 +13,7 @@ namespace Footbet.CastleWindsor.Installers
             container
                 .Register(Component.For<IGameService>().ImplementedBy<GameService>())
                 .Register(Component.For<IPlayerService>().ImplementedBy<PlayerService>())
+                .Register(Component.For<IUserScoreService>().ImplementedBy<UserScoreService>())
                .Register(Component.For<ITodaysGamesService>().ImplementedBy<TodaysGamesService>());
         }
     }

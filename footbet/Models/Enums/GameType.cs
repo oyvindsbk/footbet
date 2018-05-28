@@ -7,6 +7,7 @@
         QuarterFinals = 3,
         SemiFinals = 4,
         BronzeFinals = 5,
-        Finals = 6
+        Finals = 6,
+        TopScorer  = 7
     }
 }

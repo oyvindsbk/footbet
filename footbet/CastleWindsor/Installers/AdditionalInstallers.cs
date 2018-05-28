@@ -2,7 +2,7 @@
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using Footbet.Helpers;
+using Footbet.ScoreCalculations;
 
 namespace Footbet.CastleWindsor.Installers
 {
@@ -12,7 +12,8 @@ namespace Footbet.CastleWindsor.Installers
         {
             container
                 .Register(Component.For<JavaScriptSerializer>().ImplementedBy<JavaScriptSerializer>())
-                .Register(Component.For<IGameScoreEvaluator>().ImplementedBy<GameScoreEvaluator>());
+                .Register(Component.For<IGameScoreCalculator>().ImplementedBy<GameScoreCalculator>())
+                .Register(Component.For<ITopScorerScoreCalculator>().ImplementedBy<TopScorerScoreCalculatorCalculator>());
         }
     }
 }

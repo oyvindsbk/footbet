@@ -8,6 +8,7 @@ using Footbet.Models;
 using Footbet.Models.DomainModels;
 using Footbet.Models.Enums;
 using Footbet.Repositories.Contracts;
+using Footbet.ScoreCalculations;
 using Footbet.Services.Contracts;
 
 namespace Footbet.Services
@@ -15,7 +16,7 @@ namespace Footbet.Services
     public class TodaysGamesService : ITodaysGamesService
     {
         private readonly IUserBetRepository _userBetRepository;
-        private readonly IGameScoreEvaluator _gameScoreEvaluator;
+        private readonly IGameScoreCalculator _gameScoreCalculator;
         private readonly ITeamRepository _teamRepository;
         private readonly IUserRepository _userRepository;
         private readonly IResultRepository _resultRepository;
@@ -23,29 +24,27 @@ namespace Footbet.Services
         private readonly IGameService _gameService;
 
         public TodaysGamesService(IUserBetRepository userBetRepository, ITeamRepository teamRepository, IUserRepository userRepository,
-            IResultRepository resultRepository, IGameScoreEvaluator gameScoreEvaluator, IScoreBasisRepository scoreBasisRepository, IGameService gameService)
+            IResultRepository resultRepository, IGameScoreCalculator gameScoreCalculator, IScoreBasisRepository scoreBasisRepository, IGameService gameService)
         {
             _userBetRepository = userBetRepository;
             _teamRepository = teamRepository;
             _userRepository = userRepository;
             _resultRepository = resultRepository;
-            _gameScoreEvaluator = gameScoreEvaluator;
+            _gameScoreCalculator = gameScoreCalculator;
             _scoreBasisRepository = scoreBasisRepository;
             _gameService = gameService;
         }
 
         public TodaysGamesViewModel GetNextGames(DateTime date, int sportsEventId)
         {
-            int numberOfDaysFromToday;
-            var todaysGames = _gameService.GetGamesForDateOrFollowingDateIfNoGamesOnThisDate(sportsEventId, date, true, out numberOfDaysFromToday);
+            var todaysGames = _gameService.GetGamesForDateOrFollowingDateIfNoGamesOnThisDate(sportsEventId, date, true, out var numberOfDaysFromToday);
 
             return MapToTodaysGamesViewModel(sportsEventId, todaysGames, numberOfDaysFromToday);
         }
 
         public TodaysGamesViewModel GetPreviousGames(DateTime date, int sportsEventId)
         {
-            int numberOfDaysFromToday;
-            var todaysGames = _gameService.GetGamesForDateOrFollowingDateIfNoGamesOnThisDate(sportsEventId, date, false, out numberOfDaysFromToday);
+            var todaysGames = _gameService.GetGamesForDateOrFollowingDateIfNoGamesOnThisDate(sportsEventId, date, false, out var numberOfDaysFromToday);
             
             var numberOfDaysFromTodayNegated = numberOfDaysFromToday*-1;
             
@@ -183,7 +182,7 @@ namespace Footbet.Services
         {
             if (currentGamesResultBet != null)
             {
-                var points = _gameScoreEvaluator.GetScoreForUserOnGame(currentGamesResultBet, currentGamesBet, todaysGame, scoreBasis);
+                var points = _gameScoreCalculator.GetScoreForUserOnGame(currentGamesResultBet, currentGamesBet, todaysGame, scoreBasis);
                 userNameForUserBet = userNameForUserBet + " (" + points + ")";
             }
             return userNameForUserBet;
