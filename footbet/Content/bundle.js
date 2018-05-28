@@ -190,10 +190,8 @@ var Services;
             this.clearMessages();
         };
         BetBaseController.prototype.setNextPlayoffGame = function (nextGameId, proceedingTeam, isHomeTeam) {
-            var stopLoop = false;
+            var _this = this;
             angular.forEach(this.playoffGames, function (pg) {
-                if (stopLoop)
-                    return;
                 if (pg.id === nextGameId) {
                     if (isHomeTeam) {
                         pg.homeTeam = proceedingTeam;
@@ -201,7 +199,7 @@ var Services;
                     else {
                         pg.awayTeam = proceedingTeam;
                     }
-                    stopLoop = true;
+                    _this.playoffGameScoreChanged(pg);
                 }
             });
         };

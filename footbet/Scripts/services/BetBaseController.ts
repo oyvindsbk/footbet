@@ -14,12 +14,12 @@
         modelChanged = false;
         errorMessage: string;
         successMessage: string;
+
         static $inject = [
             "$resource",
             "$rootScope",
             "orderByFilter"
         ];
-
 
         constructor(
             private $resource,
@@ -222,10 +222,7 @@
 
 
         private setNextPlayoffGame(nextGameId: number, proceedingTeam: ITeam, isHomeTeam: boolean): void {
-            var stopLoop = false;
-
             angular.forEach(this.playoffGames, pg => {
-                if (stopLoop) return;
                 if (pg.id === nextGameId) {
 
                     if (isHomeTeam) {
@@ -233,7 +230,7 @@
                     } else {
                         pg.awayTeam = proceedingTeam;
                     }
-                    stopLoop = true;
+                    this.playoffGameScoreChanged(pg);
                 }
             });
         }
