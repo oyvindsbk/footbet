@@ -21,7 +21,7 @@
         }
 
         private saveResultBets() {
-            this.betService.saveBetResult(this.betBaseController.groups, this.betBaseController.playoffGames).then((response) => {
+            this.betService.saveBetResult(this.betBaseController.groups, this.betBaseController.playoffGames, this.betBaseController.selectedTopScorer).then((response) => {
                 this.message = response;
             });
         }

@@ -440,7 +440,7 @@ var Services;
             }).then(function (response) { return response.data; });
             return promise;
         };
-        BetService.prototype.saveBetResult = function (groups, playoffGames) {
+        BetService.prototype.saveBetResult = function (groups, playoffGames, selectedTopScorer) {
             var groupGamesResultJson = this.extractGroupResultFromGroups(groups);
             var playoffGamesResultJson = this.extractPlayoffGamesResultFromPlayoffGames(playoffGames);
             var promise = this.$http({
@@ -767,7 +767,7 @@ var Controllers;
         }
         ResultController.prototype.saveResultBets = function () {
             var _this = this;
-            this.betService.saveBetResult(this.betBaseController.groups, this.betBaseController.playoffGames).then(function (response) {
+            this.betService.saveBetResult(this.betBaseController.groups, this.betBaseController.playoffGames, this.betBaseController.selectedTopScorer).then(function (response) {
                 _this.message = response;
             });
         };

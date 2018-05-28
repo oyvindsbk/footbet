@@ -24,7 +24,7 @@
             return promise;
         }
 
-        public saveBetResult(groups: IGroup[], playoffGames: IGame[]) {
+        public saveBetResult(groups: IGroup[], playoffGames: IGame[], selectedTopScorer: IPlayer) {
             var groupGamesResultJson = this.extractGroupResultFromGroups(groups);
             var playoffGamesResultJson = this.extractPlayoffGamesResultFromPlayoffGames(playoffGames);
 
