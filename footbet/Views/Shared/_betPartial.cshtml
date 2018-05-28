@@ -105,8 +105,6 @@
         @Html.Partial("_topScorerPartial")
         <div class="row">
             <input class="save-bet-btn btn btn-default span2" ng-disabled="!ctl.betBaseController.modelChanged" ng-attr-title="{{!ctl.betBaseController.modelChanged && 'Gjør endring for å lagre' || '' }}" type="submit" value="Lagre"/>
-            <p class="errorText span4" ng-show="ctl.betBaseController.errorMessage.length > 0">{{ctl.betBaseController.errorMessage}}</p>
-            <p class="text-success span4" ng-show="ctl.betBaseController.successMessage.length > 0">{{ctl.betBaseController.successMessage}}</p>
         </div>
     </div>
 </div>

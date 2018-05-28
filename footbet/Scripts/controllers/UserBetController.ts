@@ -2,21 +2,23 @@
     "use strict";
 
     export class UserBetController {
-        errorMessage: string;
         users: Services.IUser[];
         selectedUserName: string;
         showUserBet: boolean;
         showSearch: boolean = true;
+
         static $inject = [
             "$scope",
             "$location",
             "betBaseController",
+            "toaster",
             "userBetService"
         ];
 
         constructor(private $scope: ng.IScope,
             private $location: ng.ILocationService,
             private betBaseController: Services.BetBaseController,
+            private toaster,
             private userBetService: Services.UserBetService) {
 
             betBaseController.isRequired = false;
@@ -50,13 +52,12 @@
             angular.forEach(this.users, user => {
                 if (user.userName === searchText) {
                     this.betBaseController.loadModel(user.userName);
-                    this.errorMessage = "";
                     this.showUserBet = true;
                 }
             });
 
             if (!this.showUserBet) {
-                this.errorMessage = "Fant ikke bruker, vennligst søk med fullstendig brukernavn";
+                this.toaster.pop('error', "Feil", "Fant ikke bruker, vennligst søk med fullstendig brukernavn");
             }
         }
 

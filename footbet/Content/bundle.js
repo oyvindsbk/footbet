@@ -28,7 +28,6 @@ var Services;
             this.setWinnerAndRunnerUpInGroup(group);
             this.setPlayoffGameTeams(group, true);
             this.modelChanged = true;
-            this.clearMessages();
         };
         BetBaseController.prototype.setPlayoffGameTeams = function (group, setPlayoffGamesRecursively) {
             var _this = this;
@@ -162,10 +161,6 @@ var Services;
             }
             return sortedTeams;
         };
-        BetBaseController.prototype.clearMessages = function () {
-            this.errorMessage = "";
-            this.successMessage = "";
-        };
         BetBaseController.prototype.playoffGameScoreChanged = function (playoffGame) {
             var isHomeTeam;
             var proceedingTeam;
@@ -187,7 +182,6 @@ var Services;
                 this.setNextPlayoffGame(nextGameId, proceedingTeam, isHomeTeam);
             }
             this.modelChanged = true;
-            this.clearMessages();
         };
         BetBaseController.prototype.setNextPlayoffGame = function (nextGameId, proceedingTeam, isHomeTeam) {
             var _this = this;
@@ -600,11 +594,10 @@ var Controllers;
                 return;
             }
             this.betService.saveBet(this.betBaseController.groups, this.betBaseController.playoffGames, this.betBaseController.selectedTopScorer).then(function (response) {
-                _this.betBaseController.clearMessages();
                 _this.setLabelForUserBetComplete();
                 if (response.ExceptionMessage != null) {
                     _this.betBaseController.modelChanged = true;
-                    _this.betBaseController.errorMessage = response.ExceptionMessage;
+                    _this.toaster.pop('error', "Feil", response.ExceptionMessage);
                 }
                 else {
                     if (_this.numberOfIncompleteGames === 0) {
@@ -889,11 +882,12 @@ var Controllers;
 (function (Controllers) {
     "use strict";
     var UserBetController = /** @class */ (function () {
-        function UserBetController($scope, $location, betBaseController, userBetService) {
+        function UserBetController($scope, $location, betBaseController, toaster, userBetService) {
             var _this = this;
             this.$scope = $scope;
             this.$location = $location;
             this.betBaseController = betBaseController;
+            this.toaster = toaster;
             this.userBetService = userBetService;
             this.showSearch = true;
             betBaseController.isRequired = false;
@@ -924,12 +918,11 @@ var Controllers;
             angular.forEach(this.users, function (user) {
                 if (user.userName === searchText) {
                     _this.betBaseController.loadModel(user.userName);
-                    _this.errorMessage = "";
                     _this.showUserBet = true;
                 }
             });
             if (!this.showUserBet) {
-                this.errorMessage = "Fant ikke bruker, vennligst søk med fullstendig brukernavn";
+                this.toaster.pop('error', "Feil", "Fant ikke bruker, vennligst søk med fullstendig brukernavn");
             }
         };
         UserBetController.prototype.initializeGroupsAndPlayoffGames = function () {
@@ -946,6 +939,7 @@ var Controllers;
             "$scope",
             "$location",
             "betBaseController",
+            "toaster",
             "userBetService"
         ];
         return UserBetController;

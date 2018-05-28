@@ -8,17 +8,17 @@
         <title>Footbet</title>
     </head>
     <body>
-        <div ng-controller="UserBetController as ctl" class="ng-cloak">
-            <h1 ng-show="ctl.showSearch">Søk etter spiller (brukernavn)</h1>
-            <div class="row" ng-show="ctl.showSearch">
-                    <input type="text" class="span6 form-control" ng-show="ctl.users.length > 0" ng-model="ctl.selectedUser" uib-typeahead="user.userName for user in ctl.users | filter:$viewValue | limitTo:8 | orderBy:'userName'">
-                    <input class="span2" ng-disabled="!ctl.selectedUser" ng-click="ctl.searchUserBet(ctl.selectedUser)" type="submit" value="Søk" />
-                    <p class="errorText span4" ng-show="ctl.errorMessage.length > 0">{{ctl.errorMessage}}</p>
-            </div>
-            <div ng-show="ctl.showUserBet">
-                <h2>Resultat for spiller: <span class="headerGroups">{{ctl.selectedUser}}</span></h2>
-                @Html.Partial("_userBetPartial")
-            </div>
+    <div ng-controller="UserBetController as ctl" class="ng-cloak">
+        <toaster-container toaster-options="{'position-class': 'toast-top-full-width'}"></toaster-container>
+        <div class="headerGroups" ng-show="ctl.showSearch">Søk etter spiller (brukernavn)</div>
+        <div class="row" ng-show="ctl.showSearch">
+            <input type="text" class="span6 form-control" ng-show="ctl.users.length > 0" ng-model="ctl.selectedUser" uib-typeahead="user.userName for user in ctl.users | filter:$viewValue | limitTo:8 | orderBy:'userName'">
+            <input class="span2 btn" ng-disabled="!ctl.selectedUser" ng-click="ctl.searchUserBet(ctl.selectedUser)" type="submit" value="Søk"/>
         </div>
+        <div ng-show="ctl.showUserBet">
+            <h2>Resultat for spiller: <span class="headerGroups">{{ctl.selectedUser}}</span></h2>
+            @Html.Partial("_userBetPartial")
+        </div>
+    </div>
     </body>
 </html>

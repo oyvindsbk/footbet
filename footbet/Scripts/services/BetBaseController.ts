@@ -12,8 +12,6 @@
         playoffTypes = { 2: '8-delsfinaler', 3: 'Kvartfinaler', 4: 'Semifinaler', 5: 'Bronsefinale', 6: 'Finale' };
         displayedPlayoffTypes: number[];
         modelChanged = false;
-        errorMessage: string;
-        successMessage: string;
 
         static $inject = [
             "$resource",
@@ -47,7 +45,6 @@
             this.setPlayoffGameTeams(group, true);
 
             this.modelChanged = true;
-            this.clearMessages();
         }
 
         public setPlayoffGameTeams(group: IGroup, setPlayoffGamesRecursively: boolean): void {
@@ -187,11 +184,6 @@
             return sortedTeams;
         }
 
-        public clearMessages() {
-            this.errorMessage = "";
-            this.successMessage = "";
-        }
-
         private playoffGameScoreChanged(playoffGame: IGame): void {
             var isHomeTeam: boolean;
             var proceedingTeam: ITeam;
@@ -217,7 +209,6 @@
             }
 
             this.modelChanged = true;
-            this.clearMessages();
         }
 
 

@@ -55,12 +55,11 @@
                 return;
             }
             this.betService.saveBet(this.betBaseController.groups, this.betBaseController.playoffGames, this.betBaseController.selectedTopScorer).then((response) => {
-                this.betBaseController.clearMessages();
                 this.setLabelForUserBetComplete();
 
                 if (response.ExceptionMessage != null) {
                     this.betBaseController.modelChanged = true;
-                    this.betBaseController.errorMessage = response.ExceptionMessage;
+                    this.toaster.pop('error', "Feil", response.ExceptionMessage);
                 } else {
                     if (this.numberOfIncompleteGames === 0) {
                         this.toaster.pop('success', "Lagret", "Ditt spill er lagret!");
