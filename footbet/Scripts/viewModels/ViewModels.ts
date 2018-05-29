@@ -74,6 +74,8 @@ module Services {
         name: string;
         userName: string;
         points: number;
+        groupScore: number;
+        bonusScore: number;
         position: number;
         playoffScore: number;
     }

@@ -91,7 +91,7 @@ namespace Footbet.Controllers
             var userScoresLeagueList = CreateUserScoresLeagueList(leagueUsers, userScores);
             var currentUserScore = userScoresLeagueList.FirstOrDefault(x => x.UserId == userId);
             if (currentUserScore == null) return userScoresLeagueList.Count;
-            return 1 + userScoresLeagueList.Count(userScore => userScore.UserId != userId && userScore.Score > currentUserScore.Score);
+            return 1 + userScoresLeagueList.Count(userScore => userScore.UserId != userId && userScore.Points > currentUserScore.Points);
         }
         //DUPLICATED IN LEAGUE CONTROLLER
         private static List<UserScore> CreateUserScoresLeagueList(List<LeagueUser> leagueUsers, List<UserScore> userScores)
@@ -114,8 +114,10 @@ namespace Footbet.Controllers
             var leaderboardUserViewModel = new LeaderboardUserViewModel
             {
                 UserName = user.UserName,
-                Points = score.Score,
+                GroupScore = score.Score,
                 PlayoffScore = score.PlayoffScore ?? 0,
+                TopScorerScore = score.TopScorerScore ?? 0,
+                BonusScore = score.BonusScore ?? 0,
                 Name = user.Name,
                 Position = position
             };

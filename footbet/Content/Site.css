@@ -326,3 +326,7 @@ fieldset {
     margin-top: 10px;
     margin-bottom: 5px;
 }
+
+.bonus-points {
+    color: #48a41c;
+}

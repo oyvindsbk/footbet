@@ -11,10 +11,10 @@ namespace Footbet.CastleWindsor.Installers
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container
-                .Register(Component.For<IGameService>().ImplementedBy<GameService>())
-                .Register(Component.For<IPlayerService>().ImplementedBy<PlayerService>())
-                .Register(Component.For<IUserScoreService>().ImplementedBy<UserScoreService>())
-               .Register(Component.For<ITodaysGamesService>().ImplementedBy<TodaysGamesService>());
+                .Register(Component.For<IGameService>().ImplementedBy<GameService>().LifestylePerWebRequest())
+                .Register(Component.For<IPlayerService>().ImplementedBy<PlayerService>().LifestylePerWebRequest())
+                .Register(Component.For<IUserScoreService>().ImplementedBy<UserScoreService>().LifestylePerWebRequest())
+               .Register(Component.For<ITodaysGamesService>().ImplementedBy<TodaysGamesService>().LifestylePerWebRequest());
         }
     }
 }

@@ -19,7 +19,7 @@
             <td>{{user.position}}</td>
             <td><a href="/UserBet?username={{user.userName}}" ng-click="ctl.showUserBet(user.userName)">{{user.name}}</a></td>
             <td class="hidden-xs">{{user.userName}}</td>
-            <td>{{user.points - user.playoffScore}}</td>
+            <td>{{user.groupScore}}<span class="bonus-points">+{{user.bonusScore}}</span></td>
             <td>{{user.playoffScore}}</td>
             <td>{{user.points}}</td>
         </tr>

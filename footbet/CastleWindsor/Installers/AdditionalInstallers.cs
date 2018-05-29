@@ -13,7 +13,7 @@ namespace Footbet.CastleWindsor.Installers
             container
                 .Register(Component.For<JavaScriptSerializer>().ImplementedBy<JavaScriptSerializer>())
                 .Register(Component.For<IGameScoreCalculator>().ImplementedBy<GameScoreCalculator>())
-                .Register(Component.For<ITopScorerScoreCalculator>().ImplementedBy<TopScorerScoreCalculatorCalculator>());
+                .Register(Component.For<ITopScorerScoreCalculator>().ImplementedBy<TopScorerScoreCalculator>());
         }
     }
 }

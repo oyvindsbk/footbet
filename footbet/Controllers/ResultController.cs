@@ -43,11 +43,11 @@ namespace Footbet.Controllers
 
         [System.Web.Http.HttpPost]
         [System.Web.Http.AcceptVerbs("GET", "POST")]
-        public ActionResult SaveResultBets(string groupGamesResult, string playoffGamesResult, string playoffBetViewModel, int sportsEventId = 1)
+        public ActionResult SaveResultBets(string groupGamesResult, string playoffGamesResult, string topScorerResult, int sportsEventId = 1)
         {
             var groupGamesResultViewModel = _javaScriptSerializer.Deserialize<List<GameResultViewModel>>(groupGamesResult);
             var playoffGamesResultViewModel = _javaScriptSerializer.Deserialize<List<PlayoffBetViewModel>>(playoffGamesResult);
-            var topScorerBet = _javaScriptSerializer.Deserialize<PlayerViewModel>(playoffGamesResult);
+            var topScorerBet = topScorerResult != null ? _javaScriptSerializer.Deserialize<PlayerViewModel>(topScorerResult) : null;
 
             var userId = GetUserId();
 

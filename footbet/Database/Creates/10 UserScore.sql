@@ -15,6 +15,7 @@ CREATE TABLE [dbo].[UserScores](
 	[UserId] [varchar](255) NOT NULL,
 	[Id] [int] IDENTITY(1,1) NOT NULL,
     [TopScorerScore] [int] NULL,
+    [BonusScore] [int] NULL,
  CONSTRAINT [PrimaryKey_4929abcf-b3fd-4f3f-85bc-72b7c7b481c4] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC

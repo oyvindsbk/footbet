@@ -9,6 +9,7 @@ var Services;
             this.predicate = ["-points", "-sumGoals", "-goalsScored"];
             this.playoffTypes = { 2: '8-delsfinaler', 3: 'Kvartfinaler', 4: 'Semifinaler', 5: 'Bronsefinale', 6: 'Finale' };
             this.modelChanged = false;
+            this.isLoading = false;
         }
         BetBaseController.prototype.loadModel = function (userName) {
             var _this = this;
@@ -558,7 +559,6 @@ var Controllers;
             this.toaster = toaster;
             this.betBaseController = betBaseController;
             this.betService = betService;
-            this.isLoading = false;
             this.numberOfIncompleteGames = 0;
             this.currentGameType = 2;
             this.betBaseController.loadModel("");
@@ -589,14 +589,14 @@ var Controllers;
         BetController.prototype.save = function () {
             var _this = this;
             this.betBaseController.modelChanged = false;
-            this.isLoading = true;
+            this.betBaseController.isLoading = true;
             this.numberOfIncompleteGames = this.betBaseController.validateIfUserBetIsComplete();
             if (this.numberOfIncompleteGames === 65) {
                 this.toaster.pop('error', "Feil", "Fyll inn resultater");
                 return;
             }
             this.betService.saveBet(this.betBaseController.groups, this.betBaseController.playoffGames, this.betBaseController.selectedTopScorer).then(function (response) {
-                _this.isLoading = false;
+                _this.betBaseController.isLoading = false;
                 _this.setLabelForUserBetComplete();
                 if (response.ExceptionMessage != null) {
                     _this.betBaseController.modelChanged = true;

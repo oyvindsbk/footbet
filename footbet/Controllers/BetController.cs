@@ -220,8 +220,8 @@ namespace Footbet.Controllers
                 IsResultBet = isResultBet,
                 Bets = new List<Bet>(),
                 CreatedAt = DateTime.Now,
-                TopScorerName =  topScorerBet.Name,
-                TopScorerTeam = topScorerBet.Team?.Id,
+                TopScorerName =  topScorerBet?.Name,
+                TopScorerTeam = topScorerBet?.Team?.Id,
                 PlayoffBets = new List<PlayoffBet>(),
             };
 

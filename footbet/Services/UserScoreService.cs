@@ -7,6 +7,7 @@ using Footbet.Models.Enums;
 using Footbet.Repositories.Contracts;
 using Footbet.ScoreCalculations;
 using Footbet.Services.Contracts;
+using WebGrease.Css.Extensions;
 
 namespace Footbet.Services
 {
@@ -19,14 +20,14 @@ namespace Footbet.Services
 
         private readonly IGameScoreCalculator _gameScoreCalculator;
         private readonly ITopScorerScoreCalculator _topScorerScoreCalculator;
-
+        private Dictionary<int, List<string>> _gameIdsToUsersWithMaxScore = new Dictionary<int, List<string>>();
 
         public UserScoreService(
-            IUserScoreRepository userScoreRepository, 
+            IUserScoreRepository userScoreRepository,
             IGameRepository gameRepository,
             IScoreBasisRepository scoreBasisRepository,
-            IGameScoreCalculator gameScoreCalculator, 
-            IUserBetRepository userBetRepository, 
+            IGameScoreCalculator gameScoreCalculator,
+            IUserBetRepository userBetRepository,
             ITopScorerScoreCalculator topScorerScoreCalculator)
         {
             _userScoreRepository = userScoreRepository;
@@ -46,7 +47,7 @@ namespace Footbet.Services
 
             var scoreBases = _scoreBasisRepository.GetScoreBasisesBySportsEventId(sportsEventId);
             var userScores = _userScoreRepository.GetAllUserScoresBySportsEventId(sportsEventId);
-
+            var maxGroupGameScore = scoreBases.Where(x => x.GameType == (int) GameType.GroupGame).Max(x => x.Points);
             AddNewUserScoresBasedOnUserBets(sportsEventId, userBets, userScores);
 
             foreach (var userBet in userBets)
@@ -67,38 +68,82 @@ namespace Footbet.Services
                 {
                     var currentBet = userBet.Bets.Single(x => x.GameId == referenceBet.GameId);
                     var currentGame = groupGames.First(x => x.Id == referenceBet.GameId);
-                    currentUserScore.Score += _gameScoreCalculator.GetScoreForUserOnGame(referenceBet, currentBet, currentGame, scoreBases);
+                    var scoreForGame =
+                        _gameScoreCalculator.GetScoreForUserOnGame(referenceBet, currentBet, currentGame, scoreBases);
+                    if (scoreForGame == maxGroupGameScore)
+                    {
+                        if (_gameIdsToUsersWithMaxScore.ContainsKey(currentGame.Id))
+                        {
+                            _gameIdsToUsersWithMaxScore[currentGame.Id].Add(userBet.UserId);
+                        }
+                        else
+                        {
+                            _gameIdsToUsersWithMaxScore.Add(currentGame.Id, new List<string> {userBet.UserId});
+                        }
+                    }
+
+
+                    currentUserScore.Score += scoreForGame;
                 }
 
-                currentUserScore.Score += _topScorerScoreCalculator.Calculate(referenceUserBet, userBet, scoreBases);
-                currentUserScore.PlayoffScore = AddScoresForPlayoffGames(currentUserScore, referencePlayoffBets, userBet, scoreBases);
+                currentUserScore.TopScorerScore = _topScorerScoreCalculator.Calculate(referenceUserBet, userBet, scoreBases);
+                currentUserScore.PlayoffScore = AddScoresForPlayoffGames(referencePlayoffBets, userBet, scoreBases);
+                currentUserScore.BonusScore = 0;
             }
+
+            AddBonusPoints(userBets, userScores);
 
             _userScoreRepository.SaveOrUpdateUserScores(userScores);
 
             return invalidUserBets;
         }
 
+        private void AddBonusPoints(List<UserBet> userBets, List<UserScore> userScores)
+        {
+            foreach (var gameIdToUsers in _gameIdsToUsersWithMaxScore)
+            {
+                var numberOfMaxScores = gameIdToUsers.Value.Count;
+                var numberOfBets = userBets.Count;
+                if (numberOfBets == 0 || numberOfMaxScores == 0)
+                    break;
+                if (numberOfMaxScores == 1)
+                {
+                    userScores.Where(x => x.UserId == gameIdToUsers.Value.Single()).ForEach(x => x.BonusScore += 3);
+                    break;
+                }
+
+                if (numberOfMaxScores / numberOfBets < 0.05)
+                {
+                    foreach (var userId in gameIdToUsers.Value)
+                    {
+                        userScores.Where(x => x.UserId == userId).ForEach(x => x.BonusScore += 3);
+                    }
+                }
+            }
+        }
+
         private bool UserBetIsInvalid(UserBet userBet)
         {
-            return userBet.Bets.Count != 48 || 
+            return userBet.Bets.Count != 48 ||
                    userBet.PlayoffBets.Count != 16;
         }
 
-        private static int AddScoresForPlayoffGames(UserScore currentUserScore, ICollection<PlayoffBet> referencePlayoffBets, UserBet userBet, List<ScoreBasis> scoreBasis)
+        private static int AddScoresForPlayoffGames(
+            ICollection<PlayoffBet> referencePlayoffBets, UserBet userBet, List<ScoreBasis> scoreBasis)
         {
             var playoffScore = 0;
-            foreach (GameType gameType in (GameType[])Enum.GetValues(typeof(GameType)))
+            foreach (GameType gameType in (GameType[]) Enum.GetValues(typeof(GameType)))
             {
-                if ((int)gameType == 1) continue;
-                var scoreForGame = AddScoreForGameType(referencePlayoffBets, userBet, scoreBasis, (int)gameType);
-                currentUserScore.Score += scoreForGame;
+                if ((int) gameType == 1) continue;
+                var scoreForGame = AddScoreForGameType(referencePlayoffBets, userBet, scoreBasis, (int) gameType);
                 playoffScore += scoreForGame;
             }
+
             return playoffScore;
         }
 
-        private static int AddScoreForGameType(IEnumerable<PlayoffBet> referencePlayoffBets, UserBet userBet, IEnumerable<ScoreBasis> scoreBasis, int gameType)
+        private static int AddScoreForGameType(IEnumerable<PlayoffBet> referencePlayoffBets, UserBet userBet,
+            IEnumerable<ScoreBasis> scoreBasis, int gameType)
         {
             var playoffBetsByGameTypeReference = referencePlayoffBets.Where(x => x.GameType == gameType).ToList();
             var usersBetByGameType = userBet.PlayoffBets.Where(x => x.GameType == gameType).ToList();
@@ -106,26 +151,31 @@ namespace Footbet.Services
 
             if (gameType >= 5)
             {
-                return AddScoreForEndingPlayoffGames(playoffBetsByGameTypeReference, usersBetByGameType, scoreBasisByGameType);
+                return AddScoreForEndingPlayoffGames(playoffBetsByGameTypeReference, usersBetByGameType,
+                    scoreBasisByGameType);
             }
 
             var playoffTeamsByGameTypeReference = CreateListOfPlayoffGamesByGameType(playoffBetsByGameTypeReference);
             var usersPlayoffTeamsByGameType = CreateListOfPlayoffGamesByGameType(usersBetByGameType);
 
-            return AddScoreForNotEndingPlayoffGames(playoffTeamsByGameTypeReference, usersPlayoffTeamsByGameType, scoreBasisByGameType);
+            return AddScoreForNotEndingPlayoffGames(playoffTeamsByGameTypeReference, usersPlayoffTeamsByGameType,
+                scoreBasisByGameType);
         }
 
-        private static int AddScoreForNotEndingPlayoffGames(IEnumerable<int?> playoffTeamsByGameTypeReference, ICollection<int?> usersPlayoffTeamsByGameType, List<ScoreBasis> scoreBasisByGameType)
+        private static int AddScoreForNotEndingPlayoffGames(IEnumerable<int?> playoffTeamsByGameTypeReference,
+            ICollection<int?> usersPlayoffTeamsByGameType, List<ScoreBasis> scoreBasisByGameType)
         {
             return playoffTeamsByGameTypeReference
                 .Where(usersPlayoffTeamsByGameType.Contains)
                 .Sum(playoffBetReference => scoreBasisByGameType.First().Points);
         }
 
-        private static int AddScoreForEndingPlayoffGames(IEnumerable<PlayoffBet> playoffBetsByGameTypeReference, IEnumerable<PlayoffBet> usersBetByGameType, List<ScoreBasis> scoreBasisByGameType)
+        private static int AddScoreForEndingPlayoffGames(IEnumerable<PlayoffBet> playoffBetsByGameTypeReference,
+            IEnumerable<PlayoffBet> usersBetByGameType, List<ScoreBasis> scoreBasisByGameType)
         {
             var scoreForGameType = 0;
-            var betsByGameTypeReference = playoffBetsByGameTypeReference as PlayoffBet[] ?? playoffBetsByGameTypeReference.ToArray();
+            var betsByGameTypeReference = playoffBetsByGameTypeReference as PlayoffBet[] ??
+                                          playoffBetsByGameTypeReference.ToArray();
             if (!betsByGameTypeReference.Any())
                 return 0;
 
@@ -145,11 +195,13 @@ namespace Footbet.Services
                 var scoreBasisWinningTeam = scoreBasisByGameType.First(x => !x.IsRunnerUp);
                 scoreForGameType += scoreBasisWinningTeam.Points;
             }
+
             if (runnerUpTeamResult != null && runnerUpTeamResult == usersRunnerUpTeam)
             {
                 var scoreBasisRunnerUp = scoreBasisByGameType.First(x => x.IsRunnerUp);
                 scoreForGameType += scoreBasisRunnerUp.Points;
             }
+
             return scoreForGameType;
         }
 
@@ -165,7 +217,8 @@ namespace Footbet.Services
             return playoffGame.Result == 0 ? playoffGame.HomeTeam : playoffGame.AwayTeam;
         }
 
-        private static List<int?> CreateListOfPlayoffGamesByGameType(IEnumerable<PlayoffBet> playoffBetsByGameTypeReference)
+        private static List<int?> CreateListOfPlayoffGamesByGameType(
+            IEnumerable<PlayoffBet> playoffBetsByGameTypeReference)
         {
             var playoffTeamsByGameTypeReference = new List<int?>();
 
@@ -174,11 +227,13 @@ namespace Footbet.Services
                 playoffTeamsByGameTypeReference.Add(playoffBetReference.HomeTeam);
                 playoffTeamsByGameTypeReference.Add(playoffBetReference.AwayTeam);
             }
+
             return playoffTeamsByGameTypeReference;
         }
 
 
-        private static void AddNewUserScoresBasedOnUserBets(int sportsEventId, IEnumerable<UserBet> userBets, ICollection<UserScore> userScores)
+        private static void AddNewUserScoresBasedOnUserBets(int sportsEventId, IEnumerable<UserBet> userBets,
+            ICollection<UserScore> userScores)
         {
             foreach (var userBet in userBets)
             {

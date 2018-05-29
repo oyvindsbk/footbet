@@ -7,7 +7,7 @@ using Footbet.Models.Enums;
 
 namespace Footbet.ScoreCalculations
 {
-    public class TopScorerScoreCalculatorCalculator : ITopScorerScoreCalculator
+    public class TopScorerScoreCalculator : ITopScorerScoreCalculator
     {
         public int Calculate(UserBet referenceUserBet, UserBet usersBet, List<ScoreBasis> scoreBases)
         {

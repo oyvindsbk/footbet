@@ -65,7 +65,7 @@ namespace Footbet.Controllers
             var userScoresLeagueList = CreateUserScoresLeagueList(leagueUsers, userScores);
             var currentUserScore = userScoresLeagueList.FirstOrDefault(x => x.UserId == userId);
             if (currentUserScore == null) return userScoresLeagueList.Count;
-            return 1 + userScoresLeagueList.Count(userScore => userScore.UserId != userId && userScore.Score > currentUserScore.Score);
+            return 1 + userScoresLeagueList.Count(userScore => userScore.UserId != userId && userScore.Points > currentUserScore.Points);
         }
 
         private static List<UserScore> CreateUserScoresLeagueList(List<LeagueUser> leagueUsers, List<UserScore> userScores)
