@@ -49,12 +49,14 @@
         }
         private save() {
             this.betBaseController.modelChanged = false;
+            this.betBaseController.isLoading = true;
             this.numberOfIncompleteGames = this.betBaseController.validateIfUserBetIsComplete();
             if (this.numberOfIncompleteGames === 65) {
                 this.toaster.pop('error', "Feil", "Fyll inn resultater");
                 return;
             }
             this.betService.saveBet(this.betBaseController.groups, this.betBaseController.playoffGames, this.betBaseController.selectedTopScorer).then((response) => {
+                this.betBaseController.isLoading = false;
                 this.setLabelForUserBetComplete();
 
                 if (response.ExceptionMessage != null) {

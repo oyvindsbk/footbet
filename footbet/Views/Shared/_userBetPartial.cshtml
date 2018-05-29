@@ -24,26 +24,7 @@
         </table>
     </div>
 
-    <table class="span3 table-condensed soccer-table-center soccertable offset1">
-            <thead>
-            <tr>
-                <th></th>
-                <th>Lag</th>
-                <th>+</th>
-                <th>-</th>
-                <th>+/-</th>
-                <th>Poeng</th>
-            </tr>
-            </thead>
-            <tr ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="team in group.teams">
-                <td class="text-left">{{$index+1}}</td>
-                <td class="text-left"><span class="flag {{team.flag}}"></span> {{team.name}}</td>
-                <td>{{team.goalsScored}}</td>
-                <td>{{team.goalsConceded}}</td>
-                <td>{{team.sumGoals}}</td>
-                <td>{{team.points}}</td>
-            </tr>
-    </table>
+  @Html.Partial("_soccerTablePartial")
 
 </div>
 

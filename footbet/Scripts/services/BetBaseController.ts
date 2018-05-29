@@ -12,6 +12,7 @@
         playoffTypes = { 2: '8-delsfinaler', 3: 'Kvartfinaler', 4: 'Semifinaler', 5: 'Bronsefinale', 6: 'Finale' };
         displayedPlayoffTypes: number[];
         modelChanged = false;
+        isLoading = false;
 
         static $inject = [
             "$resource",
