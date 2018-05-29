@@ -1,6 +1,7 @@
 ﻿const gulp = require('gulp');
 const concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var cssMin = require('gulp-css');
 
 const paths = {
     nodeModules: './node_modules/',
@@ -46,11 +47,28 @@ gulp.task('copy:bundle:js', () => {
         `${paths.scriptsDest}built/viewModels/ViewModels.js`
     ];
 
-
     return gulp.src(javascriptToCopy)
         .pipe(uglify())
         .pipe(concat('bundle.js'))
         .pipe(gulp.dest(`${paths.contentDest}`));
 });
 
-gulp.task('default', ['copy:bundle:js', 'copy:vendor:js'])
+gulp.task('css:minify', function(){
+    const cssToCopy = [
+        `${paths.contentDest}bootstrap-responsive.css`,
+        `${paths.contentDest}bootstrap.css`,
+        `${paths.contentDest}flags.css`,
+        `${paths.contentDest}navbars.css`,
+        `${paths.contentDest}Site.css`,
+        `${paths.contentDest}soccertable.css`,
+        `${paths.contentDest}toaster.css`,
+        `${paths.nodeModules}font-awesome/css/font-awesome.css`
+    ];
+    return gulp.src(cssToCopy)
+        .pipe(cssMin())
+        .pipe(concat('bundle.css'))
+        .pipe(gulp.dest(`${paths.contentDest}/css`));
+});
+
+
+gulp.task('default', ['copy:bundle:js', 'copy:vendor:js', 'css:minify']);
