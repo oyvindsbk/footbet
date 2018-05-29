@@ -314,7 +314,6 @@
   <ItemGroup>
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bundle.css" />
     <Content Include="Content\bundle.js" />
     <Content Include="Content\css\bundle.css" />
     <Content Include="Content\flags.css" />
@@ -357,10 +356,10 @@
     <Content Include="Database\Inserts\07 ScoreBasis.sql" />
     <Content Include="Database\Inserts\merged.sql" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="fonts\russia.ttf" />
+    <Content Include="Content\fonts\russia.ttf" />
     <Content Include="gulpfile.js" />
     <Content Include="package.json" />
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
@@ -399,9 +398,7 @@
     <Content Include="Views\LeaderBoard\Index.cshtml" />
     <Content Include="Views\League\League.cshtml" />
     <Content Include="Views\Result\AddResult.cshtml" />
-    <Content Include="Views\Shared\_betPartial.cshtml">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Views\Shared\_betPartial.cshtml" />
     <Content Include="Views\Rules\Index.cshtml" />
     <Content Include="Views\League\_JoinLeagueView.cshtml" />
     <Content Include="Views\League\_ManageLeaguesView.cshtml" />
@@ -419,11 +416,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="CastleWindsor\Facilities\" />
+    <Folder Include="fonts\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>

@@ -217,7 +217,8 @@ fieldset {
 .save-bet-btn {
     margin-top: 30px;
     margin-bottom: 100px;
-    width: 100px;
+    width: 120px;
+    height: 40px;
 }
 
 .top-buffer { margin-top: 40px; }

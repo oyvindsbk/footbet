@@ -1,7 +1,7 @@
 ﻿.flag {
 	width: 16px;
 	height: 11px;
-	background:url(../Content/images/flags.png) no-repeat;
+	background:url(../../Content/images/flags.png) no-repeat;
     display: inline-block;
 }
 

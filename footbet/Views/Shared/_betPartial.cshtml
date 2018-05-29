@@ -1,7 +1,7 @@
 ﻿<div class="ng-cloak">
     <div class="row">
         <div class="span6">
-            <div class="headerPlayoffs span3">Gruppespill</div>
+            <div class="headerPlayoffs">Gruppespill</div>
         </div>
     </div>
     <div class="row" ng-repeat="group in ctl.betBaseController.groups">
@@ -34,7 +34,7 @@
 
     <div class="row">
         <div class="span6">
-            <div class="headerPlayoffs span3">Finalespill</div>
+            <div class="headerPlayoffs">Finalespill</div>
         </div>
     </div>
 
@@ -85,11 +85,13 @@
 
       @Html.Partial("_topScorerPartial")
       <div class="row">
-	      <button class="save-bet-btn btn btn-default span2"
+	      <button class="save-bet-btn btn btn-default span3"
 	              ng-disabled="!ctl.betBaseController.modelChanged"
 	              ng-attr-title="{{!ctl.betBaseController.modelChanged && 'Gjør endring for å lagre' || '' }}"
 	              type="submit">
-		      <i class="fa fa-spinner fa-spin" ng-show="ctl.betBaseController.isLoading"></i>Lagre
+	          <i class="fa fa-refresh fa-spin" ng-show="ctl.betBaseController.isLoading"></i>
+              <span ng-hide="ctl.betBaseController.isLoading">Lagre</span>
+              <span ng-show="ctl.betBaseController.isLoading">Lagrer</span>
         </button>
      </div>
     </div>
