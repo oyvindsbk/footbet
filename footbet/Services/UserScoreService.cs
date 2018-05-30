@@ -20,7 +20,7 @@ namespace Footbet.Services
 
         private readonly IGameScoreCalculator _gameScoreCalculator;
         private readonly ITopScorerScoreCalculator _topScorerScoreCalculator;
-        private Dictionary<int, List<string>> _gameIdsToUsersWithMaxScore = new Dictionary<int, List<string>>();
+        private readonly IBonusScoreCalculator _bonusScoreCalculator;
 
         public UserScoreService(
             IUserScoreRepository userScoreRepository,
@@ -28,7 +28,7 @@ namespace Footbet.Services
             IScoreBasisRepository scoreBasisRepository,
             IGameScoreCalculator gameScoreCalculator,
             IUserBetRepository userBetRepository,
-            ITopScorerScoreCalculator topScorerScoreCalculator)
+            ITopScorerScoreCalculator topScorerScoreCalculator, IBonusScoreCalculator bonusScoreCalculator)
         {
             _userScoreRepository = userScoreRepository;
             _gameRepository = gameRepository;
@@ -36,11 +36,13 @@ namespace Footbet.Services
             _gameScoreCalculator = gameScoreCalculator;
             _userBetRepository = userBetRepository;
             _topScorerScoreCalculator = topScorerScoreCalculator;
+            _bonusScoreCalculator = bonusScoreCalculator;
         }
 
         public string UpdateUserScores(UserBet referenceUserBet, int sportsEventId = 1)
         {
             var invalidUserBets = "";
+            var gameIdsToUsersWithMaxScore = new Dictionary<int, List<string>>();
             var userBets = _userBetRepository.GetAllUserBetsBySportsEventIdWithoutResultBet(sportsEventId);
 
             var groupGames = _gameRepository.GetGroupGamesBySportsEventId(sportsEventId);
@@ -72,13 +74,13 @@ namespace Footbet.Services
                         _gameScoreCalculator.GetScoreForUserOnGame(referenceBet, currentBet, currentGame, scoreBases);
                     if (scoreForGame == maxGroupGameScore)
                     {
-                        if (_gameIdsToUsersWithMaxScore.ContainsKey(currentGame.Id))
+                        if (gameIdsToUsersWithMaxScore.ContainsKey(currentGame.Id))
                         {
-                            _gameIdsToUsersWithMaxScore[currentGame.Id].Add(userBet.UserId);
+                            gameIdsToUsersWithMaxScore[currentGame.Id].Add(userBet.UserId);
                         }
                         else
                         {
-                            _gameIdsToUsersWithMaxScore.Add(currentGame.Id, new List<string> {userBet.UserId});
+                            gameIdsToUsersWithMaxScore.Add(currentGame.Id, new List<string> {userBet.UserId});
                         }
                     }
 
@@ -91,34 +93,19 @@ namespace Footbet.Services
                 currentUserScore.BonusScore = 0;
             }
 
-            AddBonusPoints(userBets, userScores);
-
+            AddBonusPoints(userScores, userBets, gameIdsToUsersWithMaxScore);
             _userScoreRepository.SaveOrUpdateUserScores(userScores);
 
             return invalidUserBets;
         }
 
-        private void AddBonusPoints(List<UserBet> userBets, List<UserScore> userScores)
+        private void AddBonusPoints(List<UserScore> userScores, List<UserBet> userBets, Dictionary<int, List<string>> gameIdsToUsersWithMaxScore)
         {
-            foreach (var gameIdToUsers in _gameIdsToUsersWithMaxScore)
+            var bonusScoresPerUser = _bonusScoreCalculator.GetBonusScoresPerUser(userScores, userBets.Count, gameIdsToUsersWithMaxScore);
+            foreach (var userScore in userScores)
             {
-                var numberOfMaxScores = gameIdToUsers.Value.Count;
-                var numberOfBets = userBets.Count;
-                if (numberOfBets == 0 || numberOfMaxScores == 0)
-                    break;
-                if (numberOfMaxScores == 1)
-                {
-                    userScores.Where(x => x.UserId == gameIdToUsers.Value.Single()).ForEach(x => x.BonusScore += 3);
-                    break;
-                }
-
-                if (numberOfMaxScores / numberOfBets < 0.05)
-                {
-                    foreach (var userId in gameIdToUsers.Value)
-                    {
-                        userScores.Where(x => x.UserId == userId).ForEach(x => x.BonusScore += 3);
-                    }
-                }
+                var userBonusPoints = bonusScoresPerUser.FirstOrDefault(x => x.Key == userScore.UserId);
+                userScore.BonusScore = userBonusPoints.Value;
             }
         }
 
@@ -128,8 +115,7 @@ namespace Footbet.Services
                    userBet.PlayoffBets.Count != 16;
         }
 
-        private static int AddScoresForPlayoffGames(
-            ICollection<PlayoffBet> referencePlayoffBets, UserBet userBet, List<ScoreBasis> scoreBasis)
+        private static int AddScoresForPlayoffGames(ICollection<PlayoffBet> referencePlayoffBets, UserBet userBet, List<ScoreBasis> scoreBasis)
         {
             var playoffScore = 0;
             foreach (GameType gameType in (GameType[]) Enum.GetValues(typeof(GameType)))

@@ -222,6 +222,7 @@
     <Compile Include="Controllers\BetController.cs" />
     <Compile Include="Controllers\Common.cs" />
     <Compile Include="Helpers\EventHelpers.cs" />
+    <Compile Include="ScoreCalculations\BonusScoreCalculator.cs" />
     <Compile Include="ScoreCalculations\GameScoreCalculator.cs" />
     <Compile Include="Helpers\BetMappers.cs" />
     <Compile Include="Controllers\LeaderBoardController.cs" />
@@ -248,6 +249,7 @@
     <Compile Include="Repositories\Contracts\ITeamRepository.cs" />
     <Compile Include="Repositories\Contracts\ILeagueUserRepository.cs" />
     <Compile Include="Repositories\LeagueUserRepository.cs" />
+    <Compile Include="ScoreCalculations\IBonusScoreCalculator.cs" />
     <Compile Include="ScoreCalculations\TopScorerScoreCalculator.cs" />
     <Compile Include="Services\Contracts\IPlayerService.cs" />
     <Compile Include="Services\Contracts\IUserScoreService.cs" />
