@@ -12,17 +12,20 @@ const paths = {
 
 gulp.task('copy:vendor:js', () => {
     const javascriptToCopy = [
-        `${paths.nodeModules}toastr/build/toastr.min.js`,
-        `${paths.nodeModules}jquery/dist/jquery.min.js`,
-        `${paths.nodeModules}angular/angular.min.js`,
-        `${paths.nodeModules}angularjs-toaster/toaster.min.js`,
-        `${paths.nodeModules}angular-animate/angular-animate.min.js`,
-        `${paths.nodeModules}bootstrap/dist/js/bootstrap.min.js`,
-        `${paths.nodeModules}angular-resource/angular-resource.min.js`,
+        `${paths.nodeModules}toastr/build/toastr.js`,
+        `${paths.nodeModules}jquery/dist/jquery.js`,
+        `${paths.nodeModules}angular/angular.js`,
+        `${paths.nodeModules}angularjs-toaster/toaster.js`,
+        `${paths.nodeModules}angular-animate/angular-animate.js`,
+        `${paths.nodeModules}bootstrap/dist/js/bootstrap.js`,
+        `${paths.nodeModules}angular-ui-bootstrap/dist/ui-bootstrap.js`,
+        `${paths.nodeModules}angular-ui-bootstrap/dist/ui-bootstrap-tpls.js`,
+        `${paths.nodeModules}angular-resource/angular-resource.js`,
         `${paths.nodeModules}angular-i18n/angular-locale_no-no.js`
     ];
 
     return gulp.src(javascriptToCopy)
+        .pipe(uglify())
         .pipe(concat('vendor.js'))
         .pipe(gulp.dest(`${paths.contentDest}`));
 });
@@ -48,7 +51,7 @@ gulp.task('copy:bundle:js', () => {
     ];
 
     return gulp.src(javascriptToCopy)
-//        .pipe(uglify())
+        .pipe(uglify())
         .pipe(concat('bundle.js'))
         .pipe(gulp.dest(`${paths.contentDest}`));
 });
