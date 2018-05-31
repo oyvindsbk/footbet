@@ -330,3 +330,15 @@ fieldset {
 .bonus-points {
     color: #48a41c;
 }
+
+@media only screen and (max-width: 760px) {
+	.hide-inline-xs {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 1400px) {
+	.hide-inline-desktop {
+		display: none;
+	}
+}
