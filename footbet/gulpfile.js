@@ -48,7 +48,7 @@ gulp.task('copy:bundle:js', () => {
     ];
 
     return gulp.src(javascriptToCopy)
-        .pipe(uglify())
+//        .pipe(uglify())
         .pipe(concat('bundle.js'))
         .pipe(gulp.dest(`${paths.contentDest}`));
 });
