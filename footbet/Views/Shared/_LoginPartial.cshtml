@@ -9,7 +9,12 @@
         <li>
             @Html.ActionLink(User.Identity.GetUserName(), "Manage", "Account", null, new { title = "Manage" })
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Logg ut</a></li>
+        <li>
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { role = "form" }))
+            {
+                <a href="#" onclick="document.forms['logoutForm'].submit(); return false;">Logg ut</a>
+            }
+        </li>
     </ul>
     }
 }

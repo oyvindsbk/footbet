@@ -78,15 +78,18 @@
                 <a href="../TodaysGames/">Dagens kamper</a>
             </li>
             <li>
-                <a href="javascript:document.getElementById('logoutForm').submit()">Logg ut</a>
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { role = "form" }))
+                {
+                    <a href="#" onclick="document.forms['logoutForm'].submit(); return false;">Logg ut</a>
+                }
             </li>
-            
-            
+
+
         }
         @if (!Request.IsAuthenticated)
         {
-            <li>@Html.ActionLink("Registrer", "Register", "Account", null, new {id = "registerLink"})</li>
-            <li>@Html.ActionLink("Logg inn", "Login", "Account", null, new {id = "loginLink"})</li>
+            <li>@Html.ActionLink("Registrer", "Register", "Account", null, new { id = "registerLink" })</li>
+            <li>@Html.ActionLink("Logg inn", "Login", "Account", null, new { id = "loginLink" })</li>
         }
     </ul>
 </div>
