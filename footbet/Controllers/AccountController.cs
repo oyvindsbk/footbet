@@ -90,7 +90,6 @@ namespace Footbet.Controllers
                     {
                         await SignInAsync(user, false);
                         _leagueController.AddCurrentUserToLeagueByGuid("DefaultLeague", user.Id);
-                        AddUserScoreForNewUser(user);
                         return RedirectToAction("Index", "Bet");
                     }
                     AddErrors(roleResult);
