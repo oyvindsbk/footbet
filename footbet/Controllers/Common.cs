@@ -16,7 +16,7 @@ namespace Footbet.Controllers
         public ActionResult CreateJsonError(string message)
         {
             var error = new HttpError { ExceptionMessage = message };
-            return Json(error);
+            return Json(error, JsonRequestBehavior.AllowGet);
         }
 
         protected ActionResult ToJsonResult(object data)

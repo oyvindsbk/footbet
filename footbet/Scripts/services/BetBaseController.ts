@@ -17,22 +17,31 @@
         static $inject = [
             "$resource",
             "$rootScope",
-            "orderByFilter"
+            "orderByFilter",
+            "toaster",
+            "$location"
         ];
 
         constructor(
             private $resource,
             private $rootScope: ng.IRootScopeService,
-            private orderByFilter) {}
+            private orderByFilter,
+            private toaster,
+            private $location) { }
 
         public loadModel(userName): void {
             this.$resource(`../Bet/GetBasisForBet/${userName}`).get((betViewModel) => {
-                this.groups = betViewModel.groups;
-                this.players = betViewModel.players;
-                this.selectedTopScorer = betViewModel.selectedTopScorer;
-                this.initializeGroupsForBet();
-                this.initializePlayoffGamesForBet(betViewModel.playoffGames);
-                this.$rootScope.$broadcast("modelLoaded", true);
+                if (betViewModel.ExceptionMessage != null) {
+                    this.$rootScope.$broadcast("modelLoaded", true);
+                    this.toaster.pop('warning', "Feil", betViewModel.ExceptionMessage);
+                } else {
+                    this.groups = betViewModel.groups;
+                    this.players = betViewModel.players;
+                    this.selectedTopScorer = betViewModel.selectedTopScorer;
+                    this.initializeGroupsForBet();
+                    this.initializePlayoffGamesForBet(betViewModel.playoffGames);
+                    this.$rootScope.$broadcast("modelLoaded", true);
+                }
             });
         }
 

@@ -47,11 +47,14 @@ namespace Footbet.Controllers
             return View("Index");
         }
 
-        public ActionResult GetBasisForBet(string userName, int sportsEventId = 1)
+        public ActionResult GetBasisForBet(string userName = null)
         {
             if (userName == null)
             {
                 userName = User.Identity.GetUserName();
+            } else if (!EventHelpers.EventHasStarted())
+            {
+                return CreateJsonError("Du kan ikke se andres spill før VM har startet");
             }
 
             var gameSetup = Resources.gameSetupRussia;

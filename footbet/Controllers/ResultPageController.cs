@@ -18,7 +18,7 @@ namespace Footbet.Controllers
 
         public ActionResult GetResults(int sportsEventId = 1)
         {
-            return _betController.GetBasisForBet("AdminEporkg", sportsEventId);
+            return _betController.GetBasisForBet("AdminEporkg");
         }
 	}
 }

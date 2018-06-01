@@ -6,7 +6,7 @@
         selectedUserName: string;
         showUserBet: boolean;
         showSearch: boolean = true;
-
+        eventHasStarted: boolean = false;
         static $inject = [
             "$scope",
             "$location",
