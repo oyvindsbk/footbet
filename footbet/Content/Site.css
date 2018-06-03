@@ -322,6 +322,21 @@ fieldset {
     margin-top: 20px;
 }
 
+@media only screen and (max-width: 760px) {
+    .playoff-table-row {
+        line-height: 35px;
+        float: left;
+    }
+}
+
+@media screen and (min-width: 761px) {
+    .playoff-table-row {
+        line-height: 35px;
+    }
+}
+
+
+
 #player-search {
     margin-top: 10px;
     margin-bottom: 5px;

@@ -44,7 +44,7 @@
             <tr ng-repeat-start="playoffGame in ctl.betBaseController.playoffGames">
                 <td class="subHeaderPlayoffs" ng-if="ctl.betBaseController.playoffGames[$index].gameType != ctl.betBaseController.playoffGames[$index-1].gameType">{{ctl.betBaseController.playoffTypes[playoffGame.gameType]}}</td>
             </tr>
-            <tr ng-repeat-end style="line-height: 35px;">
+            <tr ng-repeat-end class="playoff-table-row">
                 <td class="hidden-xs hidden-sm">{{playoffGame.startTime}}</td>
                 <td class="hidden-xs hidden-sm"></td>
                 <td class="text-right" ng-hide="playoffGame.homeTeam">
