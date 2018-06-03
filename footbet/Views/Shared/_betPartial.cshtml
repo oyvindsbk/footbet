@@ -46,7 +46,7 @@
             </tr>
             <tr ng-repeat-end style="line-height: 35px;">
                 <td class="hidden-xs hidden-sm">{{playoffGame.startTime}}</td>
-                <td></td>
+                <td class="hidden-xs hidden-sm"></td>
                 <td class="text-right" ng-hide="playoffGame.homeTeam">
                     {{playoffGame.playoffGameDetails.homeTeamDisplayName}}
                 </td>
@@ -78,9 +78,7 @@
                     <span class="flag {{playoffGame.awayTeam.flag}}"></span>
                     {{playoffGame.awayTeam.name}}
                 </td>
-
             </tr>
-            
         </table>
 
       @Html.Partial("_topScorerPartial")

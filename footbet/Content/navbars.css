@@ -135,6 +135,12 @@ ul.navbar-left  {
     margin-left: 430px;
 }
 
+.nav > li > form > a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
 @media (min-width: 768px) {
     .navbar-collapse.collapse {
         display: none !important
