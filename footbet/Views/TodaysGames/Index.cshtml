@@ -4,14 +4,14 @@
 
 <div ng-app="footballCompApp">
     <div ng-controller="TodaysGamesController as ctl">
-        <div class="span8">
+        <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12">
             <div class="container-fluid">
             <ul class="pager row">
                     <li class="previous hidden-xs hidden-sm" ng-click="ctl.previousDay()" ng-class="ctl.previousButtonDisabled ? 'disabled' : ''"><a href="">&larr; Forrige</a></li>
                     <li class="previous hidden-lg hidden-md" ng-click="ctl.previousDay()" ng-class="ctl.previousButtonDisabled ? 'disabled' : ''"><a href="">&larr;</a></li>
                     <li class="headerTodaysGames col-lg-8 col-xs-7 col-sm-8 ng-cloak" ng-if="ctl.loaded">
-                        <span class="hidden-xs" >{{ctl.todaysDate | date:'EEEE d MMMM'}}</span>
-                        <span class="hidden-desktop" >{{ctl.todaysDate | date:'dd.MM.yyyy'}}</span>
+                        <span class="hidden-xs hidden-sm" >{{ctl.todaysDate | date:'EEEE d MMMM'}}</span>
+                        <span class="hidden-lg hidden-md" >{{ctl.todaysDate | date:'dd.MM.yyyy'}}</span>
                     </li>
                     
                     <li class="next hidden-xs hidden-sm" ng-click="ctl.nextDay()" ng-class="ctl.nextButtonDisabled ? 'disabled' : ''"><a href="">Neste &rarr;</a></li>

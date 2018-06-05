@@ -32,7 +32,7 @@
 </nav>
 
 <nav class="navbar navbar-inverse hidden-xs" role="navigation">
-    <div class="col-lg-2 col-md-2 col-sm-1"></div>
+    <div class="col-lg-2 col-md-2 col-sm-2"></div>
     <ul class="nav navbar-nav navbar-left">
         @if (Request.IsAuthenticated)
         {
@@ -96,14 +96,14 @@
 </div>
 <div>
 
-    <div class="col-lg-2 col-md-1 hidden-sm hidden-xs">
+    <div class="col-lg-2 col-md-1 col-sm-1 hidden-xs">
     </div>
 
-    <div class="col-lg-8 col-md-10 col-sm-12 col-xs-12">
+    <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12">
        
         @RenderBody()
     </div>
-    <div class="col-lg-2 col-md-1 hidden-sm hidden-xs">
+    <div class="col-lg-2 col-md-1 col-sm-1 hidden-xs">
     </div>
 </div>
 <script type="text/javascript" src="~/Content/bundle.js"></script>

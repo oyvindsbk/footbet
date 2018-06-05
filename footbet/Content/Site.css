@@ -353,7 +353,7 @@ fieldset {
     
 }
 
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 761px) {
 	.hide-inline-desktop {
 		display: none;
 	}
