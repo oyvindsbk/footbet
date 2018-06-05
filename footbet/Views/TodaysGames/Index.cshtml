@@ -9,7 +9,7 @@
             <ul class="pager row">
                     <li class="previous hidden-xs hidden-sm" ng-click="ctl.previousDay()" ng-class="ctl.previousButtonDisabled ? 'disabled' : ''"><a href="">&larr; Forrige</a></li>
                     <li class="previous hidden-lg hidden-md" ng-click="ctl.previousDay()" ng-class="ctl.previousButtonDisabled ? 'disabled' : ''"><a href="">&larr;</a></li>
-                    <li class="headerTodaysGames col-lg-8 col-xs-7 col-sm-8 ng-cloak" ng-if="ctl.loaded">
+                    <li class="headerTodaysGames col-lg-8 col-xs-7 col-sm-7 ng-cloak" ng-if="ctl.loaded">
                         <span class="hidden-xs hidden-sm" >{{ctl.todaysDate | date:'EEEE d MMMM'}}</span>
                         <span class="hidden-lg hidden-md" >{{ctl.todaysDate | date:'dd.MM.yyyy'}}</span>
                     </li>
