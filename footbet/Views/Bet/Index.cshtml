@@ -8,6 +8,7 @@
 
         <form ng-submit="ctl.save()">
             <h2>Opprett ditt spill <span class="errorText" ng-show="ctl.numberOfIncompleteGames > 0">{{ctl.userBetIncompleteMessage}}</span></h2>
+            <div class="bet-sub-header">Du kan når som helst mellomlagre spillet ditt. Merk at du må lagre alle kamper, samt toppscorerspill, før VM starter.</div>
             <div ng-show="ctl.betBaseController.groups">
                 @Html.Partial("_betPartial")
             </div>

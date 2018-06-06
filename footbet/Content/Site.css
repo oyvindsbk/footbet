@@ -362,3 +362,8 @@ fieldset {
 .wiki-link {
     word-wrap: break-word;
 }
+.bet-sub-header {
+    font-size: 16px;
+    color: #223e5e;
+    word-wrap: break-word;
+}
