@@ -366,4 +366,5 @@ fieldset {
     font-size: 16px;
     color: #223e5e;
     word-wrap: break-word;
+    padding: 0 !important;
 }
