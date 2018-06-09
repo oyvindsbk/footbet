@@ -70,19 +70,30 @@ namespace Footbet.Services
         private List<TodaysGamesSpecification> CreateTodaysGamesSpecification(
             IEnumerable<Game> todaysGames, Results result, List<UserBet> userBets, List<Team> teams)
         {
-            if (result != null && EventHelpers.EventHasStarted())
+            var resultUserBet = new UserBet();
+            if (EventHelpers.EventHasStarted())
             {
-                var resultUserBet = _userBetRepository.GetUserBetById(result.UserBetId);
+                if(result != null)
+                    resultUserBet = _userBetRepository.GetUserBetById(result.UserBetId);
+
                 return todaysGames
-                    .Select(todaysGame => MapToTodaysGamesViewModel(todaysGame, userBets, teams, resultUserBet)).ToList();
+                    .Select(todaysGame => MapTodaysGamesAndBets(todaysGame, userBets, teams, resultUserBet)).ToList();
             }
 
-            return todaysGames
-                .Select(todaysGame => MapToTodaysGamesViewModel(todaysGame, null, teams, null)).ToList();
+            return todaysGames.Select(todaysGame => MapOnlyTodaysGames(todaysGame, teams)).ToList();
         }
 
 
-        private TodaysGamesSpecification MapToTodaysGamesViewModel(Game todaysGame, IEnumerable<UserBet> userBets, List<Team> teams, UserBet resultUserBet)
+        private TodaysGamesSpecification MapOnlyTodaysGames(Game todaysGame, List<Team> teams)
+        {
+            var todaysGamesSpecification = MapGameToTodaysGameSpecification(todaysGame);
+
+            SetTeamsForTodaysGameSpecification(todaysGame, todaysGamesSpecification, null, teams);
+
+            return todaysGamesSpecification;
+        }
+
+        private TodaysGamesSpecification MapTodaysGamesAndBets(Game todaysGame, IEnumerable<UserBet> userBets, List<Team> teams, UserBet resultUserBet)
         {
             var todaysGamesSpecification = MapGameToTodaysGameSpecification(todaysGame);
 
@@ -168,8 +179,8 @@ namespace Footbet.Services
         private void SetValuesFromBetForGroupGame(Game todaysGame, TodaysGamesSpecification todaysGamesSpecification, UserBet resultUserBet, UserBet userBet, List<ScoreBasis> scoreBasis)
         {
             var userNameForUserBet = _userRepository.GetUserByUserId(userBet.UserId).UserName;
-            var currentGamesBet = userBet.Bets.FirstOrDefault(x => x.GameId == todaysGame.Id);
-            var currentGamesResultBet = resultUserBet.Bets.FirstOrDefault(x => x.GameId == todaysGame.Id);
+            var currentGamesBet = userBet.Bets?.FirstOrDefault(x => x.GameId == todaysGame.Id);
+            var currentGamesResultBet = resultUserBet?.Bets?.FirstOrDefault(x => x.GameId == todaysGame.Id);
 
             if (currentGamesBet == null) return;
 
@@ -213,34 +224,24 @@ namespace Footbet.Services
 
         private static void SetTeamValuesForPlayoffGames(TodaysGamesSpecification todaysGamesSpecification, UserBet resultUserBet, List<Team> teams)
         {
-            if (resultUserBet == null)
+            var playoffBet = resultUserBet?.PlayoffBets.FirstOrDefault(x => x.GameId == todaysGamesSpecification.Id);
+            if (playoffBet == null)
             {
                 SetValuesDefaultValuesForTeams(todaysGamesSpecification);
             }
             else
             {
-
-                var playoffBet = resultUserBet.PlayoffBets.FirstOrDefault(x => x.GameId == todaysGamesSpecification.Id);
-                if (playoffBet != null)
+                if (playoffBet.HomeTeam != null)
                 {
-                    if (playoffBet.HomeTeam != null)
-                    {
-                        todaysGamesSpecification.HomeTeam = teams.FirstOrDefault(x => x.Id == playoffBet.HomeTeam);
-                    }
-                    else SetDefaultValueForHomeTeam(todaysGamesSpecification);
-
-                    if (playoffBet.AwayTeam != null)
-                    {
-                        todaysGamesSpecification.AwayTeam = teams.FirstOrDefault(x => x.Id == playoffBet.AwayTeam);
-                        
-                    }
-                    else SetDefaultValueForAwayTeam(todaysGamesSpecification);
-
+                    todaysGamesSpecification.HomeTeam = teams.FirstOrDefault(x => x.Id == playoffBet.HomeTeam);
                 }
-                else
+                else SetDefaultValueForHomeTeam(todaysGamesSpecification);
+
+                if (playoffBet.AwayTeam != null)
                 {
-                    SetValuesDefaultValuesForTeams(todaysGamesSpecification);
+                    todaysGamesSpecification.AwayTeam = teams.FirstOrDefault(x => x.Id == playoffBet.AwayTeam);
                 }
+                else SetDefaultValueForAwayTeam(todaysGamesSpecification);
             }
         }
 
@@ -278,35 +279,32 @@ namespace Footbet.Services
 
         private static void SetResultsIfAvailable(UserBet resultUserBet, TodaysGamesSpecification todaysGamesSpecification)
         {
-            if (resultUserBet == null) return;
             if ((GameType)todaysGamesSpecification.GameType == GameType.GroupGame)
             {
-                var resultBet = resultUserBet.Bets.FirstOrDefault(x => x.GameId == todaysGamesSpecification.Id);
+                var resultBet = resultUserBet?.Bets?.FirstOrDefault(x => x.GameId == todaysGamesSpecification.Id);
                 SetGoalsFromResultBet(todaysGamesSpecification, resultBet);
             }
             else
             {
-                var resultBet = resultUserBet.PlayoffBets.FirstOrDefault(x => x.GameId == todaysGamesSpecification.Id);
+                var resultBet = resultUserBet?.PlayoffBets?.FirstOrDefault(x => x.GameId == todaysGamesSpecification.Id);
                 SetGoalsFromResultBet(todaysGamesSpecification, resultBet);
             }
         }
 
         private static void SetGoalsFromResultBet(TodaysGamesSpecification todaysGamesSpecification, PlayoffBet resultBet)
         {
-            if (resultBet != null)
-            {
-                todaysGamesSpecification.HomeGoals = resultBet.HomeGoals;
-                todaysGamesSpecification.AwayGoals = resultBet.AwayGoals;
-            }
+            if (resultBet == null)
+                return;
+            todaysGamesSpecification.HomeGoals = resultBet.HomeGoals;
+            todaysGamesSpecification.AwayGoals = resultBet.AwayGoals;
         }
 
         private static void SetGoalsFromResultBet(TodaysGamesSpecification todaysGamesSpecification, Bet resultBet)
         {
-            if (resultBet != null)
-            {
-                todaysGamesSpecification.HomeGoals = resultBet.HomeGoals;
-                todaysGamesSpecification.AwayGoals = resultBet.AwayGoals;
-            }
+            if (resultBet == null)
+                return;
+            todaysGamesSpecification.HomeGoals = resultBet.HomeGoals;
+            todaysGamesSpecification.AwayGoals = resultBet.AwayGoals;
         }
 
         private static bool IsGroupGame(TodaysGamesSpecification todaysGamesSpecification)

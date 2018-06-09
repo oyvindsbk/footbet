@@ -109,6 +109,7 @@ module Services {
         awayTeam: ITeam;
         playoffGameDetails: IPlayoffGameDetails;
         bets: [string, string[]];
+        isExpanded: boolean;
     }
 
     export interface IUser {

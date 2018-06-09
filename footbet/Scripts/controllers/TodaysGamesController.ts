@@ -41,6 +41,7 @@
                 this.previousButtonDisabled = todaysGames.isFirstDay;
                 this.nextButtonDisabled = this.isNextButtonDisabled();
                 this.todaysGames = todaysGames.todaysGamesSpecification;
+                this.todaysGames[0].isExpanded = true;
                 this.daysFromNow += todaysGames.numberOfDaysFromToday;
                 this.loaded = true;
                 this.todaysDate = this.getTodaysDatePlusDays(this.daysFromNow);
@@ -53,6 +54,7 @@
             this.todaysGamesService.getNextGames(this.daysFromNow).then(todaysGames => {
                 this.previousButtonDisabled = false;
                 this.todaysGames = todaysGames.todaysGamesSpecification;
+                this.todaysGames[0].isExpanded = true;
                 this.daysFromNow += todaysGames.numberOfDaysFromToday;
                 this.todaysDate = this.getTodaysDatePlusDays(this.daysFromNow);
                 this.nextButtonDisabled = this.isNextButtonDisabled();
@@ -65,6 +67,7 @@
                 this.previousButtonDisabled = todaysGames.isFirstDay;
                 this.nextButtonDisabled = false;
                 this.todaysGames = todaysGames.todaysGamesSpecification;
+                this.todaysGames[0].isExpanded = true;
                 this.daysFromNow += todaysGames.numberOfDaysFromToday;
                 this.todaysDate = this.getTodaysDatePlusDays(this.daysFromNow);
             });

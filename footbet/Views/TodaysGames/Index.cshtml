@@ -6,32 +6,40 @@
     <div ng-controller="TodaysGamesController as ctl">
         <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12">
             <div class="container-fluid">
-            <ul class="pager row">
-                    <li class="previous hidden-xs hidden-sm" ng-click="ctl.previousDay()" ng-class="ctl.previousButtonDisabled ? 'disabled' : ''"><a href="">&larr; Forrige</a></li>
-                    <li class="previous hidden-lg hidden-md" ng-click="ctl.previousDay()" ng-class="ctl.previousButtonDisabled ? 'disabled' : ''"><a href="">&larr;</a></li>
-                    <li class="headerTodaysGames col-lg-8 col-xs-7 col-sm-7 ng-cloak" ng-if="ctl.loaded">
-                        <span class="hidden-xs hidden-sm" >{{ctl.todaysDate | date:'EEEE d MMMM'}}</span>
-                        <span class="hidden-lg hidden-md" >{{ctl.todaysDate | date:'dd.MM.yyyy'}}</span>
+                <ul class="pager row">
+                    <li class="previous hidden-xs hidden-sm" ng-click="ctl.previousDay()" ng-class="ctl.previousButtonDisabled ? 'disabled' : ''">
+                        <a href="">&larr; Forrige</a>
                     </li>
-                    
-                    <li class="next hidden-xs hidden-sm" ng-click="ctl.nextDay()" ng-class="ctl.nextButtonDisabled ? 'disabled' : ''"><a href="">Neste &rarr;</a></li>
-                    <li class="next hidden-lg hidden-md" ng-click="ctl.nextDay()" ng-class="ctl.nextButtonDisabled ? 'disabled' : ''"><a href="">&rarr;</a></li>
-            </ul>
+                    <li class="previous hidden-lg hidden-md" ng-click="ctl.previousDay()" ng-class="ctl.previousButtonDisabled ? 'disabled' : ''">
+                        <a href="">&larr;</a>
+                    </li>
+                    <li class="headerTodaysGames col-lg-8 col-xs-7 col-sm-7 ng-cloak" ng-if="ctl.loaded">
+                        <span class="hidden-xs hidden-sm">{{ctl.todaysDate | date:'EEEE d MMMM'}}</span>
+                        <span class="hidden-lg hidden-md">{{ctl.todaysDate | date:'dd.MM.yyyy'}}</span>
+                    </li>
+
+                    <li class="next hidden-xs hidden-sm" ng-click="ctl.nextDay()" ng-class="ctl.nextButtonDisabled ? 'disabled' : ''">
+                        <a href="">Neste &rarr;</a>
+                    </li>
+                    <li class="next hidden-lg hidden-md" ng-click="ctl.nextDay()" ng-class="ctl.nextButtonDisabled ? 'disabled' : ''">
+                        <a href="">&rarr;</a>
+                    </li>
+                </ul>
             </div>
             <div class="container-fluid ng-cloak">
-                <div ng-repeat="game in ctl.todaysGames | orderBy: 'startTime'">
-                <div class="row todays-games-list todays-games-list-item" ng-click="ctl.areDetailsShown = !ctl.areDetailsShown">
+                <div ng-repeat="game in ctl.todaysGames | orderBy: 'startTime'" class="noselect">
+                    <div class="row todays-games-list todays-games-list-item" ng-click="game.isExpanded = !game.isExpanded">
                         <div class="nopadding col-lg-3 col-md-3 hidden-xs hidden-sm">{{game.startTime}}</div>
-                    <div class="col-lg-8 col-md-8">
-                        {{game.homeTeam.name}}
-                        <span class="flag {{game.homeTeam.flag}}"></span>
-                        <span class="todays-games-list-score">{{game.homeGoals}} - {{game.awayGoals}}</span>
-                        <span class="flag {{game.awayTeam.flag}}"></span>
-                        {{game.awayTeam.name}}
+                        <div class="col-lg-8 col-md-8">
+                            {{game.homeTeam.name}}
+                            <span class="flag {{game.homeTeam.flag}}"></span>
+                            <span class="todays-games-list-score">{{game.homeGoals}} - {{game.awayGoals}}</span>
+                            <span class="flag {{game.awayTeam.flag}}"></span>
+                            {{game.awayTeam.name}}
+                        </div>
                     </div>
-                </div>
-                <div class="todays-games-list-results" ng-show="ctl.areDetailsShown" ng-repeat="(score, users) in game.bets">
-                    <div>
+                    <div class="todays-games-list-results" ng-show="game.isExpanded" ng-repeat="(score, users) in game.bets">
+                        <div>
                             <b>{{score}} ({{users.length}}):</b> <span ng-repeat="user in users">{{user}}{{$last ? '' : ', '}}</span>
                         </div>
                     </div>
