@@ -57,7 +57,8 @@ namespace Footbet.Controllers
 
                 leagueViewModels.Add(leagueViewModel);
             }
-            return leagueViewModels;
+
+            return leagueViewModels.OrderBy(x=>x.NumberOfMembers);
         }
 
         private static int? GetPositionOfUserInLeague(string userId, List<LeagueUser> leagueUsers, List<UserScore> userScores)
