@@ -9,7 +9,7 @@ namespace Footbet.ScoreCalculations
 {
     public class BonusScoreCalculator : IBonusScoreCalculator
     {
-        private const int BonusScoreBasis = 2;
+        private const int BonusScoreBasis = 3;
 
         public List<KeyValuePair<string, int>> GetBonusScoresPerUser(
             List<UserScore> userScores, int numberOfUserBets, Dictionary<int, List<string>> gameIdsToUsersWithMaxScore)
