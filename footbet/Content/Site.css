@@ -236,18 +236,6 @@ fieldset {
     background-color: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
 }
 
-.todays-games-list-item {
-    font-size: 20px !important;
-    padding: 20px;
-    text-transform: uppercase;
-}
-
-.todays-games-list-results {
-    font-size: 1.2em;
-    margin-left: 20px !important;
-    opacity: 0.8;
-}
-
 .pager li > a {
     background-color: #0078c8;
     border-radius: 2px;
@@ -322,21 +310,6 @@ fieldset {
     margin-top: 20px;
 }
 
-@media only screen and (max-width: 760px) {
-    .playoff-table-row {
-        line-height: 35px;
-        float: left;
-    }
-}
-
-@media screen and (min-width: 761px) {
-    .playoff-table-row {
-        line-height: 35px;
-    }
-}
-
-
-
 #player-search {
     margin-top: 10px;
     margin-bottom: 5px;
@@ -350,6 +323,21 @@ fieldset {
 	.hide-inline-xs {
 		display: none;
 	}
+    .todays-games-list-item {
+        font-size: 18px !important;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    .todays-games-list-results {
+        font-size: 1.1em;
+        opacity: 0.8;
+    }
+    .playoff-table-row {
+        line-height: 35px;
+        float: left;
+    }
     
 }
 
@@ -357,6 +345,22 @@ fieldset {
 	.hide-inline-desktop {
 		display: none;
 	}
+    .todays-games-list-item {
+        font-size: 20px !important;
+        padding: 20px;
+        text-transform: uppercase;
+    }
+
+    .todays-games-list-results {
+        font-size: 1.2em;
+        margin-left: 20px !important;
+        opacity: 0.8;
+    }
+
+    .playoff-table-row {
+        line-height: 35px;
+    }
+
 }
 
 .wiki-link {
@@ -367,4 +371,24 @@ fieldset {
     color: #223e5e;
     word-wrap: break-word;
     padding: 0 !important;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
 }
