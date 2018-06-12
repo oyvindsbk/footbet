@@ -6,6 +6,7 @@ using System.Net;
 using System.Resources;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
+using Footbet.Caching;
 using Footbet.Extentions;
 using Footbet.Helpers;
 using Footbet.Models;
@@ -31,7 +32,7 @@ namespace Footbet.Controllers
             IUserBetRepository userBetRepository,
             ITeamRepository teamRepository,
             IUserRepository userRepository,
-            IGroupRepository groupRepository, IGameRepository gameRepository, IPlayerService playerService)
+            IGroupRepository groupRepository, IGameRepository gameRepository, IPlayerService playerService, ICacheService cacheService)
         {
             _javaScriptSerializer = javaScriptSerializer;
             _userBetRepository = userBetRepository;

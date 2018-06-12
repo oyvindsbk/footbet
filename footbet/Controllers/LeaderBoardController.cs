@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using Footbet.Caching;
 using Footbet.Models;
 using Footbet.Models.DomainModels;
 using Footbet.Repositories.Contracts;
@@ -13,12 +14,17 @@ namespace Footbet.Controllers
         private readonly IUserScoreRepository _userScoreRepository;
         private readonly IUserRepository _userRepository;
         private readonly ILeagueUserRepository _leagueUserRepository;
+        private readonly ICacheService _cacheService;
 
-        public LeaderBoardController(IUserScoreRepository userScoreRepository, IUserRepository userRepository, ILeagueUserRepository leagueUserRepository)
+        public LeaderBoardController(IUserScoreRepository userScoreRepository, 
+            IUserRepository userRepository,
+            ILeagueUserRepository leagueUserRepository,
+            ICacheService cacheService)
         {
             _userScoreRepository = userScoreRepository;
             _userRepository = userRepository;
             _leagueUserRepository = leagueUserRepository;
+            _cacheService = cacheService;
         }
 
         public ActionResult Index()
@@ -29,13 +35,19 @@ namespace Footbet.Controllers
 
         public ActionResult GetLeaderboardByLeagueId(int leagueId, int sportsEventId = 1)
         {
-            var userScores = _userScoreRepository.GetAllUserScoresBySportsEventId(sportsEventId);
-            var leagueUsers = _leagueUserRepository.GetLeagueUsersByLeagueId(leagueId);
-            var leaderboard = userScores.Any() ? 
-                CreateLeaderboardWithUserScores(leagueUsers, userScores) :
-                CreateLeaderBoardWithoutUserScores(leagueUsers);
+            var leaderboard = _cacheService.GetOrSet($"league.{leagueId}", () => GetLeaderboard(leagueId, sportsEventId));
 
             return ToJsonResult(leaderboard);
+        }
+
+        private List<LeaderboardUserViewModel> GetLeaderboard(int leagueId, int sportsEventId)
+        {
+            var userScores = _userScoreRepository.GetAllUserScoresBySportsEventId(sportsEventId);
+            var leagueUsers = _leagueUserRepository.GetLeagueUsersByLeagueId(leagueId);
+            var leaderboard = userScores.Any()
+                ? CreateLeaderboardWithUserScores(leagueUsers, userScores)
+                : CreateLeaderBoardWithoutUserScores(leagueUsers);
+            return leaderboard;
         }
 
         private List<LeaderboardUserViewModel> CreateLeaderBoardWithoutUserScores(List<LeagueUser> leagueUsers)
@@ -53,7 +65,8 @@ namespace Footbet.Controllers
                 leaderboard.Add(leaderboardUserViewModel);
             }
 
-            var leaderBoardSorted = leaderboard.OrderByDescending(x => x.UserName).ToList();
+            var leaderBoardSorted = leaderboard.OrderBy(x => x.Points).ThenBy(x => x.Name).ToList();
+
             for (var i = 0; i < leaderBoardSorted.Count; i++)
             {
                 leaderBoardSorted[i].Position = i + 1;

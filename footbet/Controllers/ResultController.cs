@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
+using Footbet.Caching;
 using Footbet.Helpers;
 using Footbet.Models;
 using Footbet.Models.DomainModels;
@@ -21,19 +22,23 @@ namespace Footbet.Controllers
         private readonly JavaScriptSerializer _javaScriptSerializer;
         private readonly IUserBetRepository _userBetRepository;
         private readonly IUserScoreService _userScoreService;
+        private readonly ICacheService _cacheService;
+
 
         public ResultController(
             IResultRepository resultRepository, 
             IUserBetRepository userBetRepository, 
             JavaScriptSerializer javaScriptSerializer, 
             BetController betController, 
-            IUserScoreService userScoreService)
+            IUserScoreService userScoreService, 
+            ICacheService cacheService)
         {
             _resultRepository = resultRepository;
             _userBetRepository = userBetRepository;
             _javaScriptSerializer = javaScriptSerializer;
             _betController = betController;
             _userScoreService = userScoreService;
+            _cacheService = cacheService;
         }
 
         public ViewResult AddResult()
@@ -45,6 +50,8 @@ namespace Footbet.Controllers
         [System.Web.Http.AcceptVerbs("GET", "POST")]
         public ActionResult SaveResultBets(string groupGamesResult, string playoffGamesResult, string topScorerResult, int sportsEventId = 1)
         {
+            _cacheService.ClearCache();
+
             var groupGamesResultViewModel = _javaScriptSerializer.Deserialize<List<GameResultViewModel>>(groupGamesResult);
             var playoffGamesResultViewModel = _javaScriptSerializer.Deserialize<List<PlayoffBetViewModel>>(playoffGamesResult);
             var topScorerBet = topScorerResult != null ? _javaScriptSerializer.Deserialize<PlayerViewModel>(topScorerResult) : null;

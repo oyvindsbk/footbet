@@ -16,18 +16,16 @@ namespace Footbet.Controllers
     public class AccountController : Controller
     {
         private readonly LeagueController _leagueController;
-        private readonly IUserScoreRepository _userScoreRepository;
 
-        public AccountController(LeagueController leagueController, IUserScoreRepository userScoreRepository)
-            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new FootBetDbContext())), leagueController, userScoreRepository)
+        public AccountController(LeagueController leagueController)
+            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new FootBetDbContext())), leagueController)
         {
         }
 
-        public AccountController(UserManager<ApplicationUser> userManager, LeagueController leagueController, IUserScoreRepository userScoreRepository)
+        public AccountController(UserManager<ApplicationUser> userManager, LeagueController leagueController)
         {
             UserManager = userManager;
             _leagueController = leagueController;
-            _userScoreRepository = userScoreRepository;
         }
 
         public UserManager<ApplicationUser> UserManager { get; private set; }
@@ -98,14 +96,7 @@ namespace Footbet.Controllers
                 AddErrors(result);
             }
 
-            // If we got this far, something failed, redisplay form
             return View(model);
-        }
-
-        private void AddUserScoreForNewUser(ApplicationUser user)
-        {
-            var userScore = new UserScore {Score = 0, UserId = user.Id, SportsEventId = 1};
-            _userScoreRepository.AddUserScore(userScore);
         }
 
         private static ApplicationUser CreateApplicationUserFromModel(RegisterViewModel model)

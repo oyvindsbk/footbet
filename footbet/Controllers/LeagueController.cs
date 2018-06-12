@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Transactions;
 using System.Web.Mvc;
+using Footbet.Caching;
 using Footbet.Models;
 using Footbet.Models.DomainModels;
 using Footbet.Repositories.Contracts;
@@ -15,6 +16,7 @@ namespace Footbet.Controllers
         private readonly ILeagueRepository _leagueRepository;
         private readonly ILeagueUserRepository _leagueUserRepository;
         private readonly IUserScoreRepository _userScoreRepository;
+        private readonly ICacheService _cacheService;
 
         public LeagueController(ILeagueRepository leagueRepository, ILeagueUserRepository leagueUserRepository, IUserScoreRepository userScoreRepository)
         {
@@ -125,17 +127,24 @@ namespace Footbet.Controllers
             return Content(guid.ToString());
         }
 
-        public ActionResult AddCurrentUserToLeagueByGuid(string guid,string userId = null)
+        public ActionResult AddCurrentUserToLeagueByGuid(string guid, string userId = null)
         {
             var league = _leagueRepository.GetLeagueByGuid(guid);
 
             if (league == null)
             {
-                return CreateJsonError(String.Format("Finner ikke liga med kode: {0}.", guid));
+                return CreateJsonError($"Finner ikke liga med kode: {guid}.");
             }
+
+            RemoveLeagueFromCache(league);
 
             return AddCurrentUserToLeague(league, userId);
 
+        }
+
+        private void RemoveLeagueFromCache(League league)
+        {
+            _cacheService.Remove($"league.{league.Id}");
         }
 
         private ActionResult AddCurrentUserToLeague(League league, string userId = null)
@@ -145,9 +154,13 @@ namespace Footbet.Controllers
 
             if (_leagueUserRepository.UserIsAlreadyInLeague(leagueUser))
             {
-                return CreateJsonError(String.Format("Du er allerede med i liga med kode: {0}.", league.Guid));
+                return CreateJsonError($"Du er allerede med i liga med kode: {league.Guid}.");
             }
+
             _leagueUserRepository.AddUserToLeague(leagueUser);
+
+            RemoveLeagueFromCache(league);
+
             return Content("Du har nå blitt med i liga: " + league.Name);
         }
 
