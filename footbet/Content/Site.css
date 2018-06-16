@@ -396,3 +396,9 @@ input[type=number] {
 .todays-game-user {
     font-size: 14px;
 }
+
+.top-scorer-container {
+    margin-bottom: 100px;
+    margin-top: 20px;
+    font-size: 1.5em;
+}
