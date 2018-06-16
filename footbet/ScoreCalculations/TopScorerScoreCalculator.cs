@@ -16,7 +16,8 @@ namespace Footbet.ScoreCalculations
             var scoreBasisTopScorer = scoreBases.FirstOrDefault(x => x.GameType == (int) GameType.TopScorer);
             if (scoreBasisTopScorer == null)
                 return 0;
-
+            if (string.IsNullOrEmpty(referenceTopScorerName))
+                return 0;
             return referenceTopScorerName == usersBet.TopScorerName &&
                    referenceTopScorerTeam == usersBet.TopScorerTeam
                 ? scoreBasisTopScorer.Points : 0;

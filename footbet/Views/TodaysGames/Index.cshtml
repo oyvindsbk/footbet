@@ -27,7 +27,7 @@
                 </ul>
             </div>
             <div class="container-fluid ng-cloak">
-                <div ng-repeat="game in ctl.todaysGames | orderBy: 'startTime'" class="noselect">
+                <div ng-repeat="game in ctl.todaysGames" class="noselect">
                     <div class="row todays-games-list todays-games-list-item" ng-click="game.isExpanded = !game.isExpanded">
                         <div class="nopadding col-lg-3 col-md-3 hidden-xs hidden-sm">{{game.startTime}}</div>
                         <div class="col-lg-8 col-md-8">
@@ -40,7 +40,7 @@
                     </div>
                     <div class="todays-games-list-results" ng-show="game.isExpanded" ng-repeat="(score, users) in game.bets">
                         <div>
-                            <b>{{score}} ({{users.length}}):</b> <span ng-repeat="user in users">{{user}}{{$last ? '' : ', '}}</span>
+                            <b>{{score}} ({{users.length}}):</b> <span class="todays-game-user" ng-repeat="user in users">{{user}}{{$last ? '' : ', '}}</span>
                         </div>
                     </div>
                 </div>
