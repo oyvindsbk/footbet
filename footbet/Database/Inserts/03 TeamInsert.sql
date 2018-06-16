@@ -18,7 +18,7 @@ INSERT INTO [dbo].[Teams]
 		   ('Australia','Australia',3,1,'flag-au'),
 		   ('Peru','Peru',3,1,'flag-pe'),
 		   ('Denmark','Danmark',3,1,'flag-dk'),
-		   ('Argentina','Argentina',4,1,'flag-ag'),
+		   ('Argentina','Argentina',4,1,'flag-ar'),
 		   ('Iceland','Island',4,1,'flag-is'),
 		   ('Croatia','Kroatia',4,1,'flag-hr'),
 		   ('Nigeria','Nigeria',4,1,'flag-ng'),

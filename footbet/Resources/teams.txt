@@ -97,7 +97,7 @@
 {
 	"id": 13,
 	"name": "Argentina",
-	"flag": "flag-ag",
+	"flag": "flag-ar",
 	"groupId": 4,
 	"sportsEventId": 1,
 	"englishName": "Argentina"
