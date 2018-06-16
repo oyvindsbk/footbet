@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Footbet.Data;
@@ -87,7 +88,14 @@ namespace Footbet.Controllers
                     if (roleResult.Succeeded)
                     {
                         await SignInAsync(user, false);
-                        _leagueController.AddCurrentUserToLeagueByGuid("DefaultLeague", user.Id);
+                        try
+                        {
+                            _leagueController.AddCurrentUserToLeagueByGuid("DefaultLeague", user.Id);
+                        }
+                        catch (Exception e)
+                        {
+                            
+                        }
                         return RedirectToAction("Index", "Bet");
                     }
                     AddErrors(roleResult);
