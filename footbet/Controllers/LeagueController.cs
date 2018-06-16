@@ -18,11 +18,12 @@ namespace Footbet.Controllers
         private readonly IUserScoreRepository _userScoreRepository;
         private readonly ICacheService _cacheService;
 
-        public LeagueController(ILeagueRepository leagueRepository, ILeagueUserRepository leagueUserRepository, IUserScoreRepository userScoreRepository)
+        public LeagueController(ILeagueRepository leagueRepository, ILeagueUserRepository leagueUserRepository, IUserScoreRepository userScoreRepository, ICacheService cacheService)
         {
             _leagueRepository = leagueRepository;
             _leagueUserRepository = leagueUserRepository;
             _userScoreRepository = userScoreRepository;
+            _cacheService = cacheService;
         }
 
         public ActionResult Index()

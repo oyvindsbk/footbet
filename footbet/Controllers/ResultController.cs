@@ -50,8 +50,7 @@ namespace Footbet.Controllers
         [System.Web.Http.AcceptVerbs("GET", "POST")]
         public ActionResult SaveResultBets(string groupGamesResult, string playoffGamesResult, string topScorerResult, int sportsEventId = 1)
         {
-            _cacheService.ClearCache();
-
+            _cacheService.ClearAll();
             var groupGamesResultViewModel = _javaScriptSerializer.Deserialize<List<GameResultViewModel>>(groupGamesResult);
             var playoffGamesResultViewModel = _javaScriptSerializer.Deserialize<List<PlayoffBetViewModel>>(playoffGamesResult);
             var topScorerBet = topScorerResult != null ? _javaScriptSerializer.Deserialize<PlayerViewModel>(topScorerResult) : null;
