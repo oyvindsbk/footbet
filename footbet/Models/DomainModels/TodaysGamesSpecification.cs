@@ -6,7 +6,6 @@ namespace Footbet.Models.DomainModels
     public class TodaysGamesSpecification
     {
         public int Id { get; set; }
-        public DateTime TodaysDate { get; set; }
         public string StartTime { get; set; }
         public int? HomeGoals { get; set; }
         public int? AwayGoals { get; set; }
@@ -16,7 +15,6 @@ namespace Footbet.Models.DomainModels
         public string Name { get; set; }
         public Team HomeTeam { get; set; }
         public Team AwayTeam { get; set; }
-        //TODO: IList<PlayoffGameDetails>->PlayoffGameDetails?
         public IList<PlayoffGameDetails> PlayoffGameDetails { get; set; }
         public Dictionary<string,List<string>> Bets { get; set; }
     }

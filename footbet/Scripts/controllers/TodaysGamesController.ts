@@ -41,7 +41,7 @@
                 this.previousButtonDisabled = todaysGames.isFirstDay;
                 this.nextButtonDisabled = this.isNextButtonDisabled();
                 this.todaysGames = todaysGames.todaysGamesSpecification;
-                this.todaysGames[0].isExpanded = true;
+                this.expandGame();
                 this.daysFromNow += todaysGames.numberOfDaysFromToday;
                 this.loaded = true;
                 this.todaysDate = this.getTodaysDatePlusDays(this.daysFromNow);
@@ -54,7 +54,7 @@
             this.todaysGamesService.getNextGames(this.daysFromNow).then(todaysGames => {
                 this.previousButtonDisabled = false;
                 this.todaysGames = todaysGames.todaysGamesSpecification;
-                this.todaysGames[0].isExpanded = true;
+                this.expandGame();
                 this.daysFromNow += todaysGames.numberOfDaysFromToday;
                 this.todaysDate = this.getTodaysDatePlusDays(this.daysFromNow);
                 this.nextButtonDisabled = this.isNextButtonDisabled();
@@ -67,11 +67,27 @@
                 this.previousButtonDisabled = todaysGames.isFirstDay;
                 this.nextButtonDisabled = false;
                 this.todaysGames = todaysGames.todaysGamesSpecification;
-                this.todaysGames[0].isExpanded = true;
+                this.expandGame();
                 this.daysFromNow += todaysGames.numberOfDaysFromToday;
                 this.todaysDate = this.getTodaysDatePlusDays(this.daysFromNow);
             });
         };
+
+        private expandGame() {
+            if (this.daysFromNow < 0)
+                return;
+            else if (this.daysFromNow > 0)
+                this.todaysGames[0].isExpanded = true;
+            else {
+                for (var i = 0; i < this.todaysGames.length; i++) {
+                    if (this.todaysGames[i].homeGoals === null) {
+                        this.todaysGames[i].isExpanded = true;
+                        break;
+                    }
+                }
+            }
+
+        }
 
 
         private isNextButtonDisabled() {
