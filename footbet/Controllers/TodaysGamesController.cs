@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
 using System.Web.Mvc;
 using Footbet.Caching;
 using Footbet.Helpers;
@@ -34,6 +35,7 @@ namespace Footbet.Controllers
                 return CreateJsonError("VM er over!");
 
             var gamesForDay = _cacheService.GetOrSet(GetNextGamesCacheKey(date), () => GetNextGames(sportsEventId, date));
+            gamesForDay.TodaysGamesSpecification = gamesForDay.TodaysGamesSpecification.OrderBy(x => x.StartTime).ToList();
             return ToJsonResult(gamesForDay);
         }
 
@@ -43,6 +45,7 @@ namespace Footbet.Controllers
 
             var gamesForDay = _cacheService.GetOrSet(GetPreviousGamesCacheKey(date), () => GetPreviousGames(sportsEventId, date));
 
+            gamesForDay.TodaysGamesSpecification = gamesForDay.TodaysGamesSpecification.OrderBy(x => x.StartTime).ToList();
             return ToJsonResult(gamesForDay);
         }
 
