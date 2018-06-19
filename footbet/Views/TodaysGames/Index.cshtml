@@ -39,10 +39,10 @@
                             {{game.awayTeam.name}}
                         </div>
                     </div>
-                    <div class="todays-games-list-results" ng-show="game.isExpanded" ng-repeat="(score, users) in game.bets">
+                    <div class="todays-games-list-results" ng-show="game.isExpanded" ng-repeat="bet in game.bets">
                         <div>
-                            <b>{{score}} ({{users.length}}):</b> 
-                            <span  ng-class="'@User.Identity.GetUserName()' === '{{user.userName}}' ? 'todays-game-currentuser' : 'todays-game-user'" ng-repeat="user in users">{{user.userName}}<span ng-if="user.score !== null"> ({{user.score}})</span>{{$last ? '' : ', '}}</span>
+                            <b>{{bet.result}} ({{bet.userBets.length}}):</b> 
+                            <span  ng-class="'@User.Identity.GetUserName()' === '{{user.userName}}' ? 'todays-game-currentuser' : 'todays-game-user'" ng-repeat="user in bet.userBets">{{user.userName}}<span ng-if="user.score !== null">({{user.score}})</span>{{$last ? '' : ', '}}</span>
                         </div>
                     </div>
                 </div>

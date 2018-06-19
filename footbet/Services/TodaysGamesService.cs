@@ -23,8 +23,10 @@ namespace Footbet.Services
         private readonly IScoreBasisRepository _scoreBasisRepository;
         private readonly IGameService _gameService;
 
-        public TodaysGamesService(IUserBetRepository userBetRepository, ITeamRepository teamRepository, IUserRepository userRepository,
-            IResultRepository resultRepository, IGameScoreCalculator gameScoreCalculator, IScoreBasisRepository scoreBasisRepository, IGameService gameService)
+        public TodaysGamesService(IUserBetRepository userBetRepository, ITeamRepository teamRepository,
+            IUserRepository userRepository,
+            IResultRepository resultRepository, IGameScoreCalculator gameScoreCalculator,
+            IScoreBasisRepository scoreBasisRepository, IGameService gameService)
         {
             _userBetRepository = userBetRepository;
             _teamRepository = teamRepository;
@@ -37,28 +39,33 @@ namespace Footbet.Services
 
         public TodaysGamesViewModel GetNextGames(DateTime date, int sportsEventId)
         {
-            var todaysGames = _gameService.GetGamesForDateOrFollowingDateIfNoGamesOnThisDate(sportsEventId, date, true, out var numberOfDaysFromToday);
+            var todaysGames =
+                _gameService.GetGamesForDateOrFollowingDateIfNoGamesOnThisDate(sportsEventId, date, true,
+                    out var numberOfDaysFromToday);
 
             return MapToTodaysGamesViewModel(sportsEventId, todaysGames, numberOfDaysFromToday);
         }
 
         public TodaysGamesViewModel GetPreviousGames(DateTime date, int sportsEventId)
         {
-            var todaysGames = _gameService.GetGamesForDateOrFollowingDateIfNoGamesOnThisDate(sportsEventId, date, false, out var numberOfDaysFromToday);
-            
-            var numberOfDaysFromTodayNegated = numberOfDaysFromToday*-1;
-            
+            var todaysGames =
+                _gameService.GetGamesForDateOrFollowingDateIfNoGamesOnThisDate(sportsEventId, date, false,
+                    out var numberOfDaysFromToday);
+
+            var numberOfDaysFromTodayNegated = numberOfDaysFromToday * -1;
+
             return MapToTodaysGamesViewModel(sportsEventId, todaysGames, numberOfDaysFromTodayNegated);
         }
 
-        private TodaysGamesViewModel MapToTodaysGamesViewModel(int sportsEventId, IEnumerable<Game> todaysGames, int numberOfDaysFromToday)
+        private TodaysGamesViewModel MapToTodaysGamesViewModel(int sportsEventId, IEnumerable<Game> todaysGames,
+            int numberOfDaysFromToday)
         {
             var todaysGamesViewModel = new TodaysGamesViewModel();
             var userBets = _userBetRepository.GetAllUserBetsBySportsEventIdWithoutResultBet(sportsEventId);
 
             var teams = _teamRepository.GetTeamsBySportsEventId(sportsEventId);
             var result = _resultRepository.GetResultBySportsEventId(1);
-            
+
             var todaysGamesSpecification = CreateTodaysGamesSpecification(todaysGames, result, userBets, teams);
 
             todaysGamesViewModel.NumberOfDaysFromToday = numberOfDaysFromToday;
@@ -73,7 +80,7 @@ namespace Footbet.Services
             var resultUserBet = new UserBet();
             if (EventHelpers.EventHasStarted())
             {
-                if(result != null)
+                if (result != null)
                     resultUserBet = _userBetRepository.GetUserBetById(result.UserBetId);
 
                 return todaysGames
@@ -93,7 +100,8 @@ namespace Footbet.Services
             return todaysGamesSpecification;
         }
 
-        private TodaysGamesSpecification MapTodaysGamesAndBets(Game todaysGame, IEnumerable<UserBet> userBets, List<Team> teams, UserBet resultUserBet)
+        private TodaysGamesSpecification MapTodaysGamesAndBets(Game todaysGame, IEnumerable<UserBet> userBets,
+            List<Team> teams, UserBet resultUserBet)
         {
             var todaysGamesSpecification = MapGameToTodaysGameSpecification(todaysGame);
 
@@ -104,56 +112,74 @@ namespace Footbet.Services
 
             SetResultsIfAvailable(resultUserBet, todaysGamesSpecification);
             SetValuesFromUserBets(todaysGame, userBets, todaysGamesSpecification, resultUserBet);
-
+            todaysGamesSpecification.Bets = OrderByScoreOrNumberOfUsers(todaysGamesSpecification);
             return todaysGamesSpecification;
         }
 
-        private void SetValuesFromUserBets(Game todaysGame, IEnumerable<UserBet> userBets, TodaysGamesSpecification todaysGamesSpecification, UserBet resultUserBet)
+        private static List<TodaysBet> OrderByScoreOrNumberOfUsers(TodaysGamesSpecification todaysGamesSpecification)
+        {
+            if(todaysGamesSpecification.Bets.Any(x=>x.UserBets.FirstOrDefault()?.Score != null))
+                return todaysGamesSpecification.Bets
+                    .OrderByDescending(x => x.UserBets.FirstOrDefault()?.Score)
+                    .ThenByDescending(x=>x.UserBets.Count)
+                    .ToList();
+            return todaysGamesSpecification.Bets
+                .OrderByDescending(x => x.UserBets.Count)
+                .ToList();
+        }
+
+        private void SetValuesFromUserBets(Game todaysGame, IEnumerable<UserBet> userBets,
+            TodaysGamesSpecification todaysGamesSpecification, UserBet resultUserBet)
         {
             var scoreBasis = _scoreBasisRepository.GetScoreBasisesBySportsEventId(1);
 
             foreach (var userBet in userBets)
             {
                 if (IsGroupGame(todaysGamesSpecification))
-                    SetValuesFromBetForGroupGame(todaysGame, todaysGamesSpecification, resultUserBet, userBet, scoreBasis);
+                    SetValuesFromBetForGroupGame(todaysGame, todaysGamesSpecification, resultUserBet, userBet,
+                        scoreBasis);
 
-                if ((GameType)todaysGamesSpecification.GameType != GameType.GroupGame)
+                if ((GameType) todaysGamesSpecification.GameType != GameType.GroupGame)
                     SetValuesForPlayoffGame(todaysGame, todaysGamesSpecification, userBet);
             }
         }
 
-        
 
-        private void SetValuesForPlayoffGame(Game todaysGame, TodaysGamesSpecification todaysGamesSpecification, UserBet userBet)
+        private void SetValuesForPlayoffGame(Game todaysGame, TodaysGamesSpecification todaysGamesSpecification,
+            UserBet userBet)
         {
             var userNameForUserBet = _userRepository.GetUserByUserId(userBet.UserId).UserName;
             int nextRoundGameType;
             if ((GameType) todaysGame.GameType == GameType.SemiFinals)
             {
                 nextRoundGameType = todaysGame.GameType + 2;
-            } else nextRoundGameType = todaysGame.GameType + 1;
+            }
+            else nextRoundGameType = todaysGame.GameType + 1;
+
             var betsForNextRound = userBet.PlayoffBets.Where(x => x.GameType == (nextRoundGameType)).ToList();
 
-            if (!betsForNextRound.Any() || (GameType)todaysGame.GameType == GameType.BronzeFinals) return;
+            if (!betsForNextRound.Any() || (GameType) todaysGame.GameType == GameType.BronzeFinals) return;
 
             foreach (var playoffBet in betsForNextRound)
             {
-                if(todaysGamesSpecification.HomeTeam != null)
+                if (todaysGamesSpecification.HomeTeam != null)
                 {
                     if (TeamMatchesUsersNextRoundBet(todaysGamesSpecification.HomeTeam.Id, playoffBet))
                     {
-                        SetUserNameOnTeamIfCorrectBet(todaysGamesSpecification, todaysGamesSpecification.HomeTeam, userNameForUserBet);
+                        SetValuesFromBetForPlayoffGame(todaysGamesSpecification, todaysGamesSpecification.HomeTeam,
+                            userNameForUserBet);
                     }
                 }
+
                 if (todaysGamesSpecification.AwayTeam != null)
                 {
                     if (TeamMatchesUsersNextRoundBet(todaysGamesSpecification.AwayTeam.Id, playoffBet))
                     {
-                        SetUserNameOnTeamIfCorrectBet(todaysGamesSpecification, todaysGamesSpecification.AwayTeam, userNameForUserBet);
+                        SetValuesFromBetForPlayoffGame(todaysGamesSpecification, todaysGamesSpecification.AwayTeam,
+                            userNameForUserBet);
                     }
                 }
             }
-            
         }
 
         private static bool TeamMatchesUsersNextRoundBet(int teamId, PlayoffBet playoffBet)
@@ -161,24 +187,8 @@ namespace Footbet.Services
             return playoffBet.AwayTeam == teamId || playoffBet.HomeTeam == teamId;
         }
 
-
-        private static void SetUserNameOnTeamIfCorrectBet(TodaysGamesSpecification todaysGamesSpecification, Team team, string userNameForUserBet)
-        {
-            var teamKey = team.Name + " videre";
-            var userBetViewModel = new UserBetViewModel { UserName = userNameForUserBet };
-
-            if (todaysGamesSpecification.Bets.ContainsKey(teamKey))
-            {
-                todaysGamesSpecification.Bets[teamKey].Add(userBetViewModel);
-            }
-            else
-            {
-                var listOfUsers = new List<UserBetViewModel> { userBetViewModel };
-                todaysGamesSpecification.Bets.Add(teamKey, listOfUsers);
-            }
-        }
-
-        private void SetValuesFromBetForGroupGame(Game todaysGame, TodaysGamesSpecification todaysGamesSpecification, UserBet resultUserBet, UserBet userBet, List<ScoreBasis> scoreBasis)
+        private void SetValuesFromBetForGroupGame(Game todaysGame, TodaysGamesSpecification todaysGamesSpecification,
+            UserBet resultUserBet, UserBet userBet, List<ScoreBasis> scoreBasis)
         {
             var userNameForUserBet = _userRepository.GetUserByUserId(userBet.UserId).UserName;
             var currentGamesBet = userBet.Bets?.FirstOrDefault(x => x.GameId == todaysGame.Id);
@@ -186,36 +196,72 @@ namespace Footbet.Services
 
             if (currentGamesBet == null) return;
 
-            var userBetViewModel = CreateUserBetViewModel(todaysGame, scoreBasis, currentGamesResultBet, currentGamesBet, userNameForUserBet);
+            var userBetViewModel = CreateUserBetViewModel(todaysGame, scoreBasis, currentGamesResultBet,
+                currentGamesBet, userNameForUserBet);
 
-            AddUsersBetToBetsDictionary(todaysGamesSpecification, currentGamesBet, userBetViewModel);
+            AddUserBetToListForGroup(todaysGamesSpecification, currentGamesBet, userBetViewModel);
         }
 
-        private UserBetViewModel CreateUserBetViewModel(Game todaysGame, List<ScoreBasis> scoreBasis, Bet currentGamesResultBet, Bet currentGamesBet, string userNameForUserBet)
+        private static void SetValuesFromBetForPlayoffGame(TodaysGamesSpecification todaysGamesSpecification, Team team,
+            string userNameForUserBet)
+        {
+            var teamKey = team.Name + " videre";
+            var userBetViewModel = new UserBetViewModel {UserName = userNameForUserBet};
+
+            AddOrUpdateTodaysBet(todaysGamesSpecification, teamKey, userBetViewModel);
+        }
+
+        private static void AddOrUpdateTodaysBet(TodaysGamesSpecification todaysGamesSpecification, string teamKey,
+            UserBetViewModel userBetViewModel)
+        {
+            if (todaysGamesSpecification.Bets.Any(x => x.Result == teamKey))
+            {
+                AddUserBetToExistingResult(todaysGamesSpecification, teamKey, userBetViewModel);
+            }
+            else
+            {
+                AddNewTodaysBet(todaysGamesSpecification, teamKey, userBetViewModel);
+            }
+        }
+
+        private static void AddNewTodaysBet(TodaysGamesSpecification todaysGamesSpecification, string teamKey,
+            UserBetViewModel userBetViewModel)
+        {
+            var todaysBets = new TodaysBet {Result = teamKey, UserBets = new List<UserBetViewModel> {userBetViewModel}};
+            todaysGamesSpecification.Bets.Add(todaysBets);
+        }
+
+        private static void AddUserBetToExistingResult(TodaysGamesSpecification todaysGamesSpecification, string teamKey,
+            UserBetViewModel userBetViewModel)
+        {
+            todaysGamesSpecification.Bets
+                .Where(x => x.Result == teamKey)
+                .ToList()
+                .ForEach(s => s.UserBets.Add(userBetViewModel));
+        }
+
+        private static void AddUserBetToListForGroup(TodaysGamesSpecification todaysGamesSpecification,
+            Bet currentGamesBet, UserBetViewModel userBetViewModel)
+        {
+            var resultAsString = currentGamesBet.HomeGoals + "-" + currentGamesBet.AwayGoals;
+            AddOrUpdateTodaysBet(todaysGamesSpecification, resultAsString, userBetViewModel);
+        }
+
+        private UserBetViewModel CreateUserBetViewModel(Game todaysGame, List<ScoreBasis> scoreBasis,
+            Bet currentGamesResultBet, Bet currentGamesBet, string userNameForUserBet)
         {
             int? points = null;
             if (currentGamesResultBet != null)
             {
-                points = _gameScoreCalculator.GetScoreForUserOnGame(currentGamesResultBet, currentGamesBet, todaysGame, scoreBasis);
+                points = _gameScoreCalculator.GetScoreForUserOnGame(currentGamesResultBet, currentGamesBet, todaysGame,
+                    scoreBasis);
             }
-            return new UserBetViewModel{Score = points, UserName = userNameForUserBet};
+
+            return new UserBetViewModel {Score = points, UserName = userNameForUserBet};
         }
 
-        private static void AddUsersBetToBetsDictionary(TodaysGamesSpecification todaysGamesSpecification, Bet currentGamesBet, UserBetViewModel userBetViewModel)
-        {
-            var resultAsString = currentGamesBet.HomeGoals + "-" + currentGamesBet.AwayGoals;
-            if (todaysGamesSpecification.Bets.ContainsKey(resultAsString))
-            {
-                todaysGamesSpecification.Bets[resultAsString].Add(userBetViewModel);
-            }
-            else
-            {
-                var listOfUsers = new List<UserBetViewModel> { userBetViewModel };
-                todaysGamesSpecification.Bets.Add(resultAsString, listOfUsers);
-            }
-        }
-
-        private void SetTeamsForTodaysGameSpecification(Game todaysGame, TodaysGamesSpecification todaysGamesSpecification, UserBet resultUserBet, List<Team> teams)
+        private void SetTeamsForTodaysGameSpecification(Game todaysGame,
+            TodaysGamesSpecification todaysGamesSpecification, UserBet resultUserBet, List<Team> teams)
         {
             if (IsGroupGame(todaysGamesSpecification))
             {
@@ -224,7 +270,8 @@ namespace Footbet.Services
             else SetTeamValuesForPlayoffGames(todaysGamesSpecification, resultUserBet, teams);
         }
 
-        private static void SetTeamValuesForPlayoffGames(TodaysGamesSpecification todaysGamesSpecification, UserBet resultUserBet, List<Team> teams)
+        private static void SetTeamValuesForPlayoffGames(TodaysGamesSpecification todaysGamesSpecification,
+            UserBet resultUserBet, List<Team> teams)
         {
             var playoffBet = resultUserBet?.PlayoffBets.FirstOrDefault(x => x.GameId == todaysGamesSpecification.Id);
             if (playoffBet == null)
@@ -256,7 +303,7 @@ namespace Footbet.Services
         private static void SetDefaultValueForAwayTeam(TodaysGamesSpecification todaysGamesSpecification)
         {
             var playoffGameDetails = todaysGamesSpecification.PlayoffGameDetails.First();
-            todaysGamesSpecification.AwayTeam = new Team { Name = playoffGameDetails.AwayTeamDisplayName };
+            todaysGamesSpecification.AwayTeam = new Team {Name = playoffGameDetails.AwayTeamDisplayName};
         }
 
         private static void SetDefaultValueForHomeTeam(TodaysGamesSpecification todaysGamesSpecification)
@@ -265,7 +312,8 @@ namespace Footbet.Services
             todaysGamesSpecification.HomeTeam = new Team {Name = playoffGameDetails.HomeTeamDisplayName};
         }
 
-        private void SetTeamValuesForGroupGames(Game todaysGame, TodaysGamesSpecification todaysGamesSpecification, List<Team> teams)
+        private void SetTeamValuesForGroupGames(Game todaysGame, TodaysGamesSpecification todaysGamesSpecification,
+            List<Team> teams)
         {
             if (todaysGame.HomeTeam != null)
             {
@@ -279,21 +327,24 @@ namespace Footbet.Services
         }
 
 
-        private static void SetResultsIfAvailable(UserBet resultUserBet, TodaysGamesSpecification todaysGamesSpecification)
+        private static void SetResultsIfAvailable(UserBet resultUserBet,
+            TodaysGamesSpecification todaysGamesSpecification)
         {
-            if ((GameType)todaysGamesSpecification.GameType == GameType.GroupGame)
+            if ((GameType) todaysGamesSpecification.GameType == GameType.GroupGame)
             {
                 var resultBet = resultUserBet?.Bets?.FirstOrDefault(x => x.GameId == todaysGamesSpecification.Id);
                 SetGoalsFromResultBet(todaysGamesSpecification, resultBet);
             }
             else
             {
-                var resultBet = resultUserBet?.PlayoffBets?.FirstOrDefault(x => x.GameId == todaysGamesSpecification.Id);
+                var resultBet =
+                    resultUserBet?.PlayoffBets?.FirstOrDefault(x => x.GameId == todaysGamesSpecification.Id);
                 SetGoalsFromResultBet(todaysGamesSpecification, resultBet);
             }
         }
 
-        private static void SetGoalsFromResultBet(TodaysGamesSpecification todaysGamesSpecification, PlayoffBet resultBet)
+        private static void SetGoalsFromResultBet(TodaysGamesSpecification todaysGamesSpecification,
+            PlayoffBet resultBet)
         {
             if (resultBet == null)
                 return;
@@ -311,7 +362,7 @@ namespace Footbet.Services
 
         private static bool IsGroupGame(TodaysGamesSpecification todaysGamesSpecification)
         {
-            return (GameType)todaysGamesSpecification.GameType == GameType.GroupGame;
+            return (GameType) todaysGamesSpecification.GameType == GameType.GroupGame;
         }
 
         private static TodaysGamesSpecification MapGameToTodaysGameSpecification(Game game)
@@ -324,10 +375,15 @@ namespace Footbet.Services
                 Name = game.Name,
                 SportsEventId = game.SportsEventId,
                 PlayoffGameDetails = game.PlayoffGameDetails?.ToList(),
-                Bets = new Dictionary<string, List<UserBetViewModel>>()
+                Bets = new List<TodaysBet>()
             };
         }
+    }
 
+    public class TodaysBet
+    {
+        public string Result { get; set; }
+        public List<UserBetViewModel> UserBets { get; set; }
     }
 
     public class UserBetViewModel

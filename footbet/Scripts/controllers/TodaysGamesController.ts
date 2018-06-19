@@ -45,7 +45,6 @@
                 this.daysFromNow += todaysGames.numberOfDaysFromToday;
                 this.loaded = true;
                 this.todaysDate = this.getTodaysDatePlusDays(this.daysFromNow);
-
             });
         }
 
