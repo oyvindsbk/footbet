@@ -28,6 +28,25 @@ namespace Footbet.Models
         public string ConfirmPassword { get; set; }
     }
 
+    public class AdminChangePasswordViewModel
+    {
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Brukernavn")]
+        public string UserName { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "Passordet må bestå av minst 6 tegn", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Nytt passord")]
+        public string NewPassword { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Bekreft nytt passord")]
+        [Compare("NewPassword", ErrorMessage = "Passordene er ikke like")]
+        public string ConfirmPassword { get; set; }
+    }
+
     public class LoginViewModel
     {
         [Required]
