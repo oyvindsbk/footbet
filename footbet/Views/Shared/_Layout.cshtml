@@ -70,21 +70,20 @@
                 <a href="../League/">Mine ligaer</a>
             </li>
             <li>
-                <a href="../Rules/">Regler</a>
-            </li>
-            <li>
                 <a href="../TodaysGames/">Dagens kamper</a>
             </li>
-
-
+            <li>
+                <a href="../ResultPage/">Resultater</a>
+            </li>
+            <li>
+                <a href="../Rules/">Regler</a>
+            </li>
             <li>
                 @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { role = "form" }))
                 {
                     <a href="#" onclick="document.forms['logoutForm'].submit(); return false;">Logg ut</a>
                 }
             </li>
-
-
         }
         @if (!Request.IsAuthenticated)
         {
