@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Footbet.Services;
 
 namespace Footbet.Models.DomainModels
 {
@@ -16,6 +17,6 @@ namespace Footbet.Models.DomainModels
         public Team HomeTeam { get; set; }
         public Team AwayTeam { get; set; }
         public IList<PlayoffGameDetails> PlayoffGameDetails { get; set; }
-        public Dictionary<string,List<string>> Bets { get; set; }
+        public Dictionary<string,List<UserBetViewModel>> Bets { get; set; }
     }
 }

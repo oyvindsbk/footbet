@@ -165,13 +165,15 @@ namespace Footbet.Services
         private static void SetUserNameOnTeamIfCorrectBet(TodaysGamesSpecification todaysGamesSpecification, Team team, string userNameForUserBet)
         {
             var teamKey = team.Name + " videre";
+            var userBetViewModel = new UserBetViewModel { UserName = userNameForUserBet };
+
             if (todaysGamesSpecification.Bets.ContainsKey(teamKey))
             {
-                todaysGamesSpecification.Bets[teamKey].Add(userNameForUserBet);
+                todaysGamesSpecification.Bets[teamKey].Add(userBetViewModel);
             }
             else
             {
-                var listOfUsers = new List<string> {userNameForUserBet};
+                var listOfUsers = new List<UserBetViewModel> { userBetViewModel };
                 todaysGamesSpecification.Bets.Add(teamKey, listOfUsers);
             }
         }
@@ -184,31 +186,31 @@ namespace Footbet.Services
 
             if (currentGamesBet == null) return;
 
-            userNameForUserBet = AddUsersScoreToUserName(todaysGame, scoreBasis, currentGamesResultBet, currentGamesBet, userNameForUserBet);
+            var userBetViewModel = CreateUserBetViewModel(todaysGame, scoreBasis, currentGamesResultBet, currentGamesBet, userNameForUserBet);
 
-            AddUsersBetToBetsDictionary(todaysGamesSpecification, currentGamesBet, userNameForUserBet);
+            AddUsersBetToBetsDictionary(todaysGamesSpecification, currentGamesBet, userBetViewModel);
         }
 
-        private string AddUsersScoreToUserName(Game todaysGame, List<ScoreBasis> scoreBasis, Bet currentGamesResultBet, Bet currentGamesBet, string userNameForUserBet)
+        private UserBetViewModel CreateUserBetViewModel(Game todaysGame, List<ScoreBasis> scoreBasis, Bet currentGamesResultBet, Bet currentGamesBet, string userNameForUserBet)
         {
+            int? points = null;
             if (currentGamesResultBet != null)
             {
-                var points = _gameScoreCalculator.GetScoreForUserOnGame(currentGamesResultBet, currentGamesBet, todaysGame, scoreBasis);
-                userNameForUserBet = userNameForUserBet + " (" + points + ")";
+                points = _gameScoreCalculator.GetScoreForUserOnGame(currentGamesResultBet, currentGamesBet, todaysGame, scoreBasis);
             }
-            return userNameForUserBet;
+            return new UserBetViewModel{Score = points, UserName = userNameForUserBet};
         }
 
-        private static void AddUsersBetToBetsDictionary(TodaysGamesSpecification todaysGamesSpecification, Bet currentGamesBet, string userNameForUserBet)
+        private static void AddUsersBetToBetsDictionary(TodaysGamesSpecification todaysGamesSpecification, Bet currentGamesBet, UserBetViewModel userBetViewModel)
         {
             var resultAsString = currentGamesBet.HomeGoals + "-" + currentGamesBet.AwayGoals;
             if (todaysGamesSpecification.Bets.ContainsKey(resultAsString))
             {
-                todaysGamesSpecification.Bets[resultAsString].Add(userNameForUserBet);
+                todaysGamesSpecification.Bets[resultAsString].Add(userBetViewModel);
             }
             else
             {
-                var listOfUsers = new List<string> {userNameForUserBet};
+                var listOfUsers = new List<UserBetViewModel> { userBetViewModel };
                 todaysGamesSpecification.Bets.Add(resultAsString, listOfUsers);
             }
         }
@@ -322,9 +324,15 @@ namespace Footbet.Services
                 Name = game.Name,
                 SportsEventId = game.SportsEventId,
                 PlayoffGameDetails = game.PlayoffGameDetails?.ToList(),
-                Bets = new Dictionary<string, List<string>>()
+                Bets = new Dictionary<string, List<UserBetViewModel>>()
             };
         }
 
+    }
+
+    public class UserBetViewModel
+    {
+        public string UserName { get; set; }
+        public int? Score { get; set; }
     }
 }
