@@ -15,6 +15,11 @@ namespace Footbet
                 url: "{controller}/{action}",
                 defaults: new { controller = "TodaysGames", action = "Index" }
             );
+            routes.MapRoute(
+                name: "UserBet",
+                url: "{controller}/{action}/{userName}",
+                defaults: new { controller = "Bet", action = "Index", userName = UrlParameter.Optional }
+            );
         }
     }
 }
