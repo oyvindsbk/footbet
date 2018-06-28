@@ -9,6 +9,6 @@
         public int? TopScorerScore { get; set; }
         public string UserId { get; set; }
         public int SportsEventId { get; set; }
-        public int Points => Score + BonusScore ?? 0 + PlayoffScore ?? 0 + TopScorerScore ?? 0;
+        public int Points => Score + BonusScore + PlayoffScore + TopScorerScore ?? 0;
     }
 }
