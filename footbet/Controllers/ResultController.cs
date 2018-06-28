@@ -70,6 +70,8 @@ namespace Footbet.Controllers
             _resultRepository.SaveOrUpdateResult(result);
 
             var invalidUserScores = _userScoreService.UpdateUserScores(userBet);
+            _cacheService.ClearAll();
+
             return Content(invalidUserScores);
         }
     }
