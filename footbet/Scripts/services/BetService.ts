@@ -10,7 +10,7 @@
 
         public saveBet(groups: IGroup[], playoffGames: IGame[], selectedTopScorer: IPlayer) {
             var groupGamesResultJson = this.extractGroupResultFromGroups(groups);
-            var playoffGamesResultJson = this.extractPlayoffGamesResultFromPlayoffGames(playoffGames);
+            var playoffGamesResultJson = this.extractPlayoffGamesFromPlayoffGames(playoffGames);
             var selectedTopScorerJson = angular.toJson(selectedTopScorer);
             var promise = this.$http({
                 method: 'POST',
@@ -49,11 +49,22 @@
             return angular.toJson(groupResults);
         }
 
-        private extractPlayoffGamesResultFromPlayoffGames (playoffGames: IGame[]) {
+        private extractPlayoffGamesFromPlayoffGames (playoffGames: IGame[]) {
             var playoffGamesResults = [];
 
             angular.forEach(playoffGames, game => {
                 if (game.homeTeam != null && game.awayTeam != null)
+                    playoffGamesResults.push(game);
+            });
+
+            return angular.toJson(playoffGamesResults);
+        }
+
+        private extractPlayoffGamesResultFromPlayoffGames (playoffGames: IGame[]) {
+            var playoffGamesResults = [];
+
+            angular.forEach(playoffGames, game => {
+                if (game.homeTeam != null || game.awayTeam != null)
                     playoffGamesResults.push(game);
             });
 

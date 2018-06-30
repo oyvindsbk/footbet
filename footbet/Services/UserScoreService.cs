@@ -210,8 +210,10 @@ namespace Footbet.Services
 
             foreach (var playoffBetReference in playoffBetsByGameTypeReference)
             {
-                playoffTeamsByGameTypeReference.Add(playoffBetReference.HomeTeam);
-                playoffTeamsByGameTypeReference.Add(playoffBetReference.AwayTeam);
+                if(playoffBetReference.HomeTeam != null)
+                    playoffTeamsByGameTypeReference.Add(playoffBetReference.HomeTeam);
+                if (playoffBetReference.AwayTeam != null)
+                    playoffTeamsByGameTypeReference.Add(playoffBetReference.AwayTeam);
             }
 
             return playoffTeamsByGameTypeReference;

@@ -8,7 +8,7 @@
         playoffGames: IGame[];
         groupResults: IGame[];
         playoffGamesResults: IGame[];
-        predicate = ["-points", "-sumGoals", "-goalsScored"];
+        predicate = ["-points", "-sumGoals", "-goalsScored", "name"];
         playoffTypes = { 2: '8-delsfinaler', 3: 'Kvartfinaler', 4: 'Semifinaler', 5: 'Bronsefinale', 6: 'Finale' };
         displayedPlayoffTypes: number[];
         modelChanged = false;

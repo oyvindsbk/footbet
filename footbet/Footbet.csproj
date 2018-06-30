@@ -407,9 +407,7 @@
     <Content Include="Views\League\_JoinLeagueView.cshtml" />
     <Content Include="Views\League\_ManageLeaguesView.cshtml" />
     <Content Include="Views\LeaderBoard\_Leaderboard.cshtml" />
-    <Content Include="Views\Shared\_userBetPartial.cshtml">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Views\Shared\_userBetPartial.cshtml" />
     <Content Include="Views\UserBet\UserBet.cshtml" />
     <Content Include="Views\ResultPage\Index.cshtml" />
     <Content Include="Views\TodaysGames\Index.cshtml" />
@@ -417,6 +415,7 @@
     <Content Include="Views\Shared\_topScorerPartial.cshtml" />
     <Content Include="Views\Shared\_soccerTablePartial.cshtml" />
     <Content Include="Views\Admin\ChangeUserPassword.cshtml" />
+    <Content Include="Views\Shared\_resultBetPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

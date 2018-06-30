@@ -19,6 +19,8 @@ namespace Footbet.Repositories
         {
             foreach (var playoffBet in playoffBets)
             {
+                if(playoffBet.HomeTeam == null || playoffBet.AwayTeam == null)
+                    continue;
                 var original = _repository.FindBy(x => x.GameId == playoffBet.GameId && x.UserBetId == userBetId).ToList();
                 if (original.Count() == 1)
                 {
