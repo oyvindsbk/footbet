@@ -134,16 +134,23 @@ namespace Footbet.Services
             var playoffBetsByGameTypeReference = referencePlayoffBets.Where(x => x.GameType == gameType).ToList();
             var usersBetByGameType = userBet.PlayoffBets.Where(x => x.GameType == gameType).ToList();
             var scoreBasisByGameType = scoreBasis.Where(x => x.GameType == gameType).ToList();
-
-            if (gameType >= 5)
-            {
-                return AddScoreForEndingPlayoffGames(playoffBetsByGameTypeReference, usersBetByGameType,
-                    scoreBasisByGameType);
-            }
-
             var playoffTeamsByGameTypeReference = CreateListOfPlayoffGamesByGameType(playoffBetsByGameTypeReference);
             var usersPlayoffTeamsByGameType = CreateListOfPlayoffGamesByGameType(usersBetByGameType);
-
+            if (gameType >= 5)
+            {
+                var endingGameScore = AddScoreForEndingPlayoffGames(playoffBetsByGameTypeReference, usersBetByGameType,
+                    scoreBasisByGameType, gameType);
+                if (gameType == (int) GameType.Finals)
+                {
+                    var gameScore = playoffTeamsByGameTypeReference
+                        .Where(usersPlayoffTeamsByGameType.Contains)
+                        .Sum(playoffBetReference => 10);
+                    endingGameScore += gameScore;
+                }
+                   
+                return endingGameScore;
+            }
+            
             return AddScoreForNotEndingPlayoffGames(playoffTeamsByGameTypeReference, usersPlayoffTeamsByGameType,
                 scoreBasisByGameType);
         }
@@ -157,7 +164,7 @@ namespace Footbet.Services
         }
 
         private static int AddScoreForEndingPlayoffGames(IEnumerable<PlayoffBet> playoffBetsByGameTypeReference,
-            IEnumerable<PlayoffBet> usersBetByGameType, List<ScoreBasis> scoreBasisByGameType)
+            IEnumerable<PlayoffBet> usersBetByGameType, List<ScoreBasis> scoreBasisByGameType, int gameType)
         {
             var scoreForGameType = 0;
             var betsByGameTypeReference = playoffBetsByGameTypeReference as PlayoffBet[] ??
